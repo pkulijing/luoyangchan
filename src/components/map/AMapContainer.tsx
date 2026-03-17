@@ -1,19 +1,27 @@
 "use client";
 
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useCallback, useState } from "react";
 import { loadAMap } from "@/lib/amap";
-import { CATEGORY_COLORS, MAP_DEFAULT_CENTER, MAP_DEFAULT_ZOOM } from "@/lib/constants";
-import type { HeritageSite, SiteMarkerData } from "@/lib/types";
+import {
+  CATEGORY_COLORS,
+  MAP_DEFAULT_CENTER,
+  MAP_DEFAULT_ZOOM,
+} from "@/lib/constants";
+import type { SiteMarkerData } from "@/lib/types";
 
 interface AMapContainerProps {
   sites: SiteMarkerData[];
   onSiteClick?: (siteId: string) => void;
 }
 
-export default function AMapContainer({ sites, onSiteClick }: AMapContainerProps) {
+export default function AMapContainer({
+  sites,
+  onSiteClick,
+}: AMapContainerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<AMap.Map | null>(null);
   const clusterRef = useRef<AMap.MarkerCluster | null>(null);
+  const [mapReady, setMapReady] = useState(false);
 
   const handleSiteClick = useCallback(
     (site: SiteMarkerData) => {
@@ -35,10 +43,13 @@ export default function AMapContainer({ sites, onSiteClick }: AMapContainerProps
         offset: new AMap.Pixel(0, -30),
       });
 
-      infoWindow.open(mapRef.current, new AMap.LngLat(site.longitude, site.latitude));
+      infoWindow.open(
+        mapRef.current,
+        new AMap.LngLat(site.longitude, site.latitude),
+      );
       onSiteClick?.(site.id);
     },
-    [onSiteClick]
+    [onSiteClick],
   );
 
   useEffect(() => {
@@ -62,6 +73,7 @@ export default function AMapContainer({ sites, onSiteClick }: AMapContainerProps
       map.addControl(new AMap.ToolBar({ position: "RT" }));
 
       mapRef.current = map;
+      setMapReady(true);
     }
 
     init();
@@ -76,11 +88,12 @@ export default function AMapContainer({ sites, onSiteClick }: AMapContainerProps
         mapRef.current.destroy();
         mapRef.current = null;
       }
+      setMapReady(false);
     };
   }, []);
 
   useEffect(() => {
-    if (!mapRef.current) return;
+    if (!mapRef.current || !mapReady) return;
 
     if (clusterRef.current) {
       clusterRef.current.setMap(null);
@@ -88,7 +101,7 @@ export default function AMapContainer({ sites, onSiteClick }: AMapContainerProps
     }
 
     const markers = sites
-      .filter((s) => s.latitude && s.longitude)
+      .filter((s) => s.latitude != null && s.longitude != null)
       .map((site) => {
         const marker = new AMap.Marker({
           position: new AMap.LngLat(site.longitude, site.latitude),
@@ -109,9 +122,7 @@ export default function AMapContainer({ sites, onSiteClick }: AMapContainerProps
       });
       clusterRef.current = cluster;
     }
-  }, [sites, handleSiteClick]);
+  }, [sites, handleSiteClick, mapReady]);
 
-  return (
-    <div ref={containerRef} className="w-full h-full" />
-  );
+  return <div ref={containerRef} className="w-full h-full" />;
 }

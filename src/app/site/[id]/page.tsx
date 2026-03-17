@@ -1,15 +1,11 @@
-import dynamic from "next/dynamic";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CATEGORY_COLORS, BATCH_YEARS } from "@/lib/constants";
 import { getSiteById } from "@/lib/supabase/queries";
 import BackButton from "@/components/site/BackButton";
+import SiteMap from "@/components/map/SiteMap";
 import type { SiteCategory } from "@/lib/types";
 import Link from "next/link";
-
-const SiteMap = dynamic(() => import("@/components/map/SiteMap"), {
-  ssr: false,
-});
 
 export default async function SiteDetailPage({
   params,
@@ -65,17 +61,23 @@ export default async function SiteDetailPage({
             <CardContent className="space-y-3">
               {site.address && (
                 <div>
-                  <span className="text-sm font-medium text-muted-foreground">地址</span>
+                  <span className="text-sm font-medium text-muted-foreground">
+                    地址
+                  </span>
                   <p>{site.address}</p>
                 </div>
               )}
               <div>
-                <span className="text-sm font-medium text-muted-foreground">省份</span>
+                <span className="text-sm font-medium text-muted-foreground">
+                  省份
+                </span>
                 <p>{site.province}</p>
               </div>
               {site.city && (
                 <div>
-                  <span className="text-sm font-medium text-muted-foreground">城市</span>
+                  <span className="text-sm font-medium text-muted-foreground">
+                    城市
+                  </span>
                   <p>{site.city}</p>
                 </div>
               )}
