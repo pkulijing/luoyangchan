@@ -20,7 +20,7 @@ export default function AMapContainer({
 }: AMapContainerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<AMap.Map | null>(null);
-  const clusterRef = useRef<AMap.MarkerCluster | null>(null);
+  const markersRef = useRef<AMap.Marker[]>([]);
   const [mapReady, setMapReady] = useState(false);
 
   const handleSiteClick = useCallback(
@@ -76,14 +76,14 @@ export default function AMapContainer({
       setMapReady(true);
     }
 
-    init();
+    init().catch((error) => {
+      console.error("[AMapContainer] init failed", error);
+    });
 
     return () => {
       disposed = true;
-      if (clusterRef.current) {
-        clusterRef.current.setMap(null);
-        clusterRef.current = null;
-      }
+      markersRef.current.forEach((marker) => marker.setMap(null));
+      markersRef.current = [];
       if (mapRef.current) {
         mapRef.current.destroy();
         mapRef.current = null;
@@ -95,10 +95,8 @@ export default function AMapContainer({
   useEffect(() => {
     if (!mapRef.current || !mapReady) return;
 
-    if (clusterRef.current) {
-      clusterRef.current.setMap(null);
-      clusterRef.current = null;
-    }
+    markersRef.current.forEach((marker) => marker.setMap(null));
+    markersRef.current = [];
 
     const markers = sites
       .filter((s) => s.latitude != null && s.longitude != null)
@@ -106,8 +104,14 @@ export default function AMapContainer({
         const marker = new AMap.Marker({
           position: new AMap.LngLat(site.longitude, site.latitude),
           title: site.name,
-          content: `<div style="width: 12px; height: 12px; border-radius: 50%; background: ${CATEGORY_COLORS[site.category]}; border: 2px solid white; box-shadow: 0 1px 3px rgba(0,0,0,0.3);"></div>`,
-          offset: new AMap.Pixel(-6, -6),
+          // Use a high-contrast marker style so visibility issues are easy to spot.
+          content: `
+            <div style="display: flex; flex-direction: column; align-items: center; transform: translateY(-8px);">
+              <div style="width: 14px; height: 14px; border-radius: 50%; background: ${CATEGORY_COLORS[site.category]}; border: 2px solid #fff; box-shadow: 0 1px 5px rgba(0,0,0,0.3);"></div>
+              <div style="width: 2px; height: 7px; background: ${CATEGORY_COLORS[site.category]}; opacity: 0.9;"></div>
+            </div>
+          `,
+          offset: new AMap.Pixel(-7, -21),
           extData: site,
         });
 
@@ -116,11 +120,15 @@ export default function AMapContainer({
       });
 
     if (markers.length > 0) {
-      const cluster = new AMap.MarkerCluster(mapRef.current, markers, {
-        gridSize: 60,
-        maxZoom: 18,
-      });
-      clusterRef.current = cluster;
+      markers.forEach((marker) => marker.setMap(mapRef.current));
+      markersRef.current = markers;
+
+      // Ensure markers are inside viewport; otherwise users may think nothing is rendered.
+      try {
+        mapRef.current.setFitView(markers, false, [40, 40, 40, 40]);
+      } catch (error) {
+        console.warn("[AMapContainer] fit view failed", error);
+      }
     }
   }, [sites, handleSiteClick, mapReady]);
 

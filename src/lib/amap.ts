@@ -19,12 +19,7 @@ export async function loadAMap(): Promise<typeof AMap> {
   const AMapInstance = await AMapLoader.load({
     key: process.env.NEXT_PUBLIC_AMAP_KEY || "",
     version: "2.0",
-    plugins: [
-      "AMap.MarkerCluster",
-      "AMap.Geocoder",
-      "AMap.Scale",
-      "AMap.ToolBar",
-    ],
+    plugins: ["AMap.Geocoder", "AMap.Scale", "AMap.ToolBar"],
   });
 
   amapLoaded = true;

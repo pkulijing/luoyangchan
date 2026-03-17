@@ -93,3 +93,9 @@ NEXT_PUBLIC_AMAP_SECRET=<高德地图安全密钥>
 - 文保单位总数：4303 条（第 1-8 批）
 - 有坐标（来自 Wikipedia）：约 710 条（16%）
 - 待补充：通过高德地理编码 API 补全剩余约 3600 条的坐标
+
+## Git 提交规范
+
+- 由 AI（Claude Code / GitHub Copilot）协助完成的提交，commit message 末尾必须包含 `Co-authored-by` trailer。
+- 统一使用如下格式：`Co-authored-by: GitHub Copilot <github-copilot[bot]@users.noreply.github.com>`
+- 如由 Claude 协助，可按同样格式追加对应的 `Co-authored-by` 行。

@@ -3,6 +3,11 @@ declare namespace AMap {
     constructor(container: HTMLElement, opts?: MapOptions);
     destroy(): void;
     addControl(control: unknown): void;
+    setFitView(
+      overlays?: unknown[],
+      immediately?: boolean,
+      avoid?: [number, number, number, number] | number[]
+    ): void;
     getZoom(): number;
     getCenter(): LngLat;
     setZoom(zoom: number): void;
