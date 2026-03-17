@@ -1,0 +1,23 @@
+import AMapLoader from "@amap/amap-jsapi-loader";
+
+let amapLoaded = false;
+
+export async function loadAMap(): Promise<typeof AMap> {
+  if (amapLoaded && window.AMap) {
+    return window.AMap;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (window as any)._AMapSecurityConfig = {
+    securityJsCode: process.env.NEXT_PUBLIC_AMAP_SECRET || "",
+  };
+
+  const AMapInstance = await AMapLoader.load({
+    key: process.env.NEXT_PUBLIC_AMAP_KEY || "",
+    version: "2.0",
+    plugins: ["AMap.MarkerCluster", "AMap.Geocoder", "AMap.Scale", "AMap.ToolBar"],
+  });
+
+  amapLoaded = true;
+  return AMapInstance;
+}
