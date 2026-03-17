@@ -1,6 +1,5 @@
 export interface HeritageSite {
   id: string;
-  code: string;
   name: string;
   province: string;
   city: string | null;
@@ -8,7 +7,7 @@ export interface HeritageSite {
   address: string | null;
   category: SiteCategory;
   era: string | null;
-  batch: number;
+  batch: number | null;
   batch_year: number | null;
   latitude: number | null;
   longitude: number | null;
@@ -19,6 +18,11 @@ export interface HeritageSite {
   created_at: string;
   updated_at: string;
 }
+
+export type SiteListItem = Pick<
+  HeritageSite,
+  "id" | "name" | "province" | "city" | "category" | "era" | "batch" | "batch_year" | "latitude" | "longitude"
+>;
 
 export type SiteCategory =
   | "古遗址"

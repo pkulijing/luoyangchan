@@ -1,29 +1,30 @@
-"use client";
-
-import { useParams, useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CATEGORY_COLORS, BATCH_YEARS } from "@/lib/constants";
-import { MOCK_SITES } from "@/lib/mock-data";
+import { getSiteById } from "@/lib/supabase/queries";
+import BackButton from "@/components/site/BackButton";
 import type { SiteCategory } from "@/lib/types";
+import Link from "next/link";
 
 const SiteMap = dynamic(() => import("@/components/map/SiteMap"), {
   ssr: false,
 });
 
-export default function SiteDetailPage() {
-  const params = useParams();
-  const router = useRouter();
-  const site = MOCK_SITES.find((s) => s.id === params.id);
+export default async function SiteDetailPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const site = await getSiteById(id);
 
   if (!site) {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">未找到该文保单位</h1>
-          <Button onClick={() => router.push("/")}>返回地图</Button>
+          <BackButton />
         </div>
       </div>
     );
@@ -34,26 +35,21 @@ export default function SiteDetailPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white border-b px-6 py-4 flex items-center gap-4">
-        <Button variant="ghost" onClick={() => router.push("/")}>
-          ← 返回地图
-        </Button>
-        <div>
-          <h1 className="text-2xl font-bold">{site.name}</h1>
-          <p className="text-sm text-muted-foreground">{site.code}</p>
-        </div>
+        <BackButton />
+        <h1 className="text-2xl font-bold">{site.name}</h1>
       </header>
 
       <div className="max-w-4xl mx-auto p-6 space-y-6">
         <div className="flex flex-wrap gap-2">
-          <Badge
-            style={{ backgroundColor: categoryColor, color: "white" }}
-          >
+          <Badge style={{ backgroundColor: categoryColor, color: "white" }}>
             {site.category}
           </Badge>
           {site.era && <Badge variant="outline">{site.era}</Badge>}
-          <Badge variant="secondary">
-            第{site.batch}批 ({BATCH_YEARS[site.batch] || "未知"})
-          </Badge>
+          {site.batch && (
+            <Badge variant="secondary">
+              第{site.batch}批 ({BATCH_YEARS[site.batch!] || "未知"})
+            </Badge>
+          )}
           {site.is_open !== null && (
             <Badge variant={site.is_open ? "default" : "destructive"}>
               {site.is_open ? "开放" : "未开放"}
@@ -67,10 +63,12 @@ export default function SiteDetailPage() {
               <CardTitle className="text-lg">基本信息</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              <div>
-                <span className="text-sm font-medium text-muted-foreground">地址</span>
-                <p>{site.address || `${site.province} ${site.city || ""}`}</p>
-              </div>
+              {site.address && (
+                <div>
+                  <span className="text-sm font-medium text-muted-foreground">地址</span>
+                  <p>{site.address}</p>
+                </div>
+              )}
               <div>
                 <span className="text-sm font-medium text-muted-foreground">省份</span>
                 <p>{site.province}</p>
@@ -83,14 +81,14 @@ export default function SiteDetailPage() {
               )}
               {site.wikipedia_url && (
                 <div>
-                  <a
+                  <Link
                     href={site.wikipedia_url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:underline text-sm"
                   >
                     Wikipedia 页面 →
-                  </a>
+                  </Link>
                 </div>
               )}
             </CardContent>

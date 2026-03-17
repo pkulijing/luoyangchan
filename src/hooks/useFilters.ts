@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import type { FilterState, HeritageSite, SiteMarkerData } from "@/lib/types";
+import type { FilterState, SiteListItem, SiteMarkerData } from "@/lib/types";
 
-export function useFilters(sites: HeritageSite[]) {
+export function useFilters(sites: SiteListItem[]) {
   const [filters, setFilters] = useState<FilterState>({
     province: null,
     category: null,
