@@ -64,11 +64,11 @@
 
 - [Wikipedia的全国重点文物保护单位介绍](https://zh.wikipedia.org/wiki/%E5%85%A8%E5%9B%BD%E9%87%8D%E7%82%B9%E6%96%87%E7%89%A9%E4%BF%9D%E6%8A%A4%E5%8D%95%E4%BD%8D) 可以从中链接到历史上几批全国重点文保单位公布时的原始通知
 - [国家文物局的文保单位查询页面](https://app.gjzwfw.gov.cn/jmopen/webapp/html5/gjwwjqgzdwwbhdwmlcx/index.html) 可以按批次、名称、类别查询文保单位列表。需要输验证码，但应该很容易hack.
-  ![查询界面](assets/idea/search.png)
+  ![查询界面](assets/search.png)
   - 这个查询页面有很严重的BUG！！！n页和n+1页的查询结果10个里有9个是重复的（大概是因为每页的index+10写成了+1），导致无法获取到完整的结果，放弃。
 - [中国遗产地图](http://stele.geogv.org/zhcn/) 这个项目实现了一部分我要的效果：把所有的文保单位画在了地图上，可以按关键词和行政区搜索，点进去有精确的地理位置和文保单位一些基本信息。但这个项目做得比较早了，它距离我想要的完整工具还差很多：
-  ![zhcn界面](assets/idea/zhcn.png)
+  ![zhcn界面](assets/zhcn.png)
   - 搜索不智能：比如用“唐太宗”可以搜到一些单位，但用“李世民”则没有搜索结果。应该是简单的关键词匹配，没有利用现代NLP模型
   - 信息简略：关于文保单位只有最基本的信息，没有联网搜索、没有基于大模型能力的交互和提问
-    ![zhcn基本信息](assets/idea/zhcn_basic_info.png)
+    ![zhcn基本信息](assets/zhcn_basic_info.png)
   - 无个性化记录：没有我想要的个性化记录功能，比如去过、想去、评分、添加照片等
