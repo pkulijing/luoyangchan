@@ -4,7 +4,7 @@ declare namespace AMap {
     destroy(): void;
     addControl(control: unknown): void;
     setFitView(
-      overlays?: unknown[],
+      overlays?: unknown[] | null,
       immediately?: boolean,
       avoid?: [number, number, number, number] | number[]
     ): void;
@@ -37,6 +37,9 @@ declare namespace AMap {
   class Marker {
     constructor(opts?: MarkerOptions);
     setMap(map: Map | null): void;
+    setContent(content: string | HTMLElement): void;
+    setOffset(offset: Pixel): void;
+    setTitle(title: string): void;
     on(event: string, handler: (...args: unknown[]) => void): void;
     getExtData(): unknown;
   }
@@ -50,16 +53,29 @@ declare namespace AMap {
     extData?: unknown;
   }
 
+  // AMap JS API 2.0: MarkerCluster 是数据驱动模式，第二个参数为数据点数组
   class MarkerCluster {
-    constructor(map: Map, markers: Marker[], opts?: MarkerClusterOptions);
+    constructor(map: Map, dataOptions: MarkerClusterDataOption[], opts?: MarkerClusterOptions);
     setMap(map: Map | null): void;
-    setMarkers(markers: Marker[]): void;
+  }
+
+  interface MarkerClusterDataOption {
+    lnglat: [number, number] | LngLat;
+    [key: string]: unknown;
+  }
+
+  interface MarkerClusterRenderContext {
+    marker: Marker;
+    count: number;
+    data: MarkerClusterDataOption[];
   }
 
   interface MarkerClusterOptions {
     gridSize?: number;
     maxZoom?: number;
     minClusterSize?: number;
+    renderMarker?: (context: MarkerClusterRenderContext) => void;
+    renderClusterMarker?: (context: MarkerClusterRenderContext) => void;
   }
 
   class InfoWindow {
