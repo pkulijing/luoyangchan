@@ -7,6 +7,11 @@ export const SITE_CATEGORIES: SiteCategory[] = [
   "石窟寺及石刻",
   "近现代重要史迹及代表性建筑",
   "其他",
+  // 早期批次历史分类名称
+  "革命遗址及革命纪念建筑物",
+  "古建筑及历史纪念建筑物",
+  "石窟寺",
+  "石刻及其他",
 ];
 
 export const CATEGORY_COLORS: Record<SiteCategory, string> = {
@@ -16,6 +21,11 @@ export const CATEGORY_COLORS: Record<SiteCategory, string> = {
   石窟寺及石刻: "#2ecc71",
   近现代重要史迹及代表性建筑: "#3498db",
   其他: "#95a5a6",
+  // 早期批次历史分类，沿用相近的现代分类颜色
+  革命遗址及革命纪念建筑物: "#3498db",
+  古建筑及历史纪念建筑物: "#f39c12",
+  石窟寺: "#2ecc71",
+  石刻及其他: "#95a5a6",
 };
 
 export const PROVINCES = [

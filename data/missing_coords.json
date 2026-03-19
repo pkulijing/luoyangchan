@@ -1,0 +1,373 @@
+[
+  {
+    "release_id": "1-57",
+    "name": "褒斜道石门及其摩崖石刻",
+    "batch": 1,
+    "category": "古建筑及历史纪念建筑物",
+    "release_address": "陕西省汉中市"
+  },
+  {
+    "release_id": "1-130",
+    "name": "重修护国寺感应塔碑（西夏碑）",
+    "batch": 1,
+    "category": "石刻及其他",
+    "release_address": "甘肃省武威县"
+  },
+  {
+    "release_id": "4-194",
+    "name": "龙兴观道德经幢",
+    "batch": 4,
+    "category": "石窟寺及石刻",
+    "release_address": "河北省易县"
+  },
+  {
+    "release_id": "4-201",
+    "name": "大连俄国建筑",
+    "batch": 4,
+    "category": "近现代重要史迹及代表性建筑",
+    "release_address": "辽宁省大连市"
+  },
+  {
+    "release_id": "5-427",
+    "name": "党家村古建筑群",
+    "batch": 5,
+    "category": "古建筑",
+    "release_address": "陕西省韩城市"
+  },
+  {
+    "release_id": "5-459",
+    "name": "大唐嵩阳观纪圣德感应之颂碑",
+    "batch": 5,
+    "category": "石窟寺及石刻",
+    "release_address": "河南省登封市"
+  },
+  {
+    "release_id": "6-235",
+    "name": "栗毓美墓",
+    "batch": 6,
+    "category": "古墓葬",
+    "release_address": "山西省浑源县"
+  },
+  {
+    "release_id": "6-527",
+    "name": "张溥宅第",
+    "batch": 6,
+    "category": "古建筑",
+    "release_address": "江苏省太仓市"
+  },
+  {
+    "release_id": "6-666",
+    "name": "武当山建筑群",
+    "batch": 6,
+    "category": "古建筑",
+    "release_address": "湖北省十堰市、丹江口市"
+  },
+  {
+    "release_id": "6-690",
+    "name": "燕窝楼",
+    "batch": 6,
+    "category": "古建筑",
+    "release_address": "广西壮族自治区全州县"
+  },
+  {
+    "release_id": "6-716",
+    "name": "隘口石坊",
+    "batch": 6,
+    "category": "古建筑",
+    "release_address": "四川省珙县"
+  },
+  {
+    "release_id": "6-735",
+    "name": "旧州古建筑群",
+    "batch": 6,
+    "category": "古建筑",
+    "release_address": "贵州省黄平县"
+  },
+  {
+    "release_id": "6-749",
+    "name": "黑龙潭古建筑群",
+    "batch": 6,
+    "category": "古建筑",
+    "release_address": "云南省丽江市"
+  },
+  {
+    "release_id": "6-792",
+    "name": "姜氏庄园",
+    "batch": 6,
+    "category": "古建筑",
+    "release_address": "陕西省米脂县"
+  },
+  {
+    "release_id": "7-41",
+    "name": "西王村遗址",
+    "batch": 7,
+    "category": "古遗址",
+    "release_address": "山西省运城市芮城县"
+  },
+  {
+    "release_id": "7-75",
+    "name": "宁昌路遗址",
+    "batch": 7,
+    "category": "古遗址",
+    "release_address": "内蒙古自治区赤峰市敖汉旗"
+  },
+  {
+    "release_id": "7-91",
+    "name": "下古城子城址",
+    "batch": 7,
+    "category": "古遗址",
+    "release_address": "辽宁省本溪市桓仁满族自治县"
+  },
+  {
+    "release_id": "7-347",
+    "name": "郭家岗遗址",
+    "batch": 7,
+    "category": "古遗址",
+    "release_address": "湖北省襄阳市宜城市"
+  },
+  {
+    "release_id": "7-391",
+    "name": "布兵盆地洞穴遗址群",
+    "batch": 7,
+    "category": "古遗址",
+    "release_address": "广西壮族自治区百色市田东县"
+  },
+  {
+    "release_id": "7-414",
+    "name": "元谋古猿化石地点",
+    "batch": 7,
+    "category": "古遗址",
+    "release_address": "云南省楚雄彝族自治州元谋县"
+  },
+  {
+    "release_id": "7-515",
+    "name": "伊犁清代卡伦遗址",
+    "batch": 7,
+    "category": "古遗址",
+    "release_address": "新疆维吾尔自治区伊犁哈萨克自治州霍城县、察布查尔锡伯自治县"
+  },
+  {
+    "release_id": "7-524",
+    "name": "冯古庄墓地",
+    "batch": 7,
+    "category": "古墓葬",
+    "release_address": "山西省运城市新绛县"
+  },
+  {
+    "release_id": "7-628",
+    "name": "里耶麦茶战国墓群",
+    "batch": 7,
+    "category": "古墓葬",
+    "release_address": "湖南省湘西土家族苗族自治州龙山县"
+  },
+  {
+    "release_id": "7-657",
+    "name": "黔南水族墓群",
+    "batch": 7,
+    "category": "古墓葬",
+    "release_address": "贵州省黔南布依族苗族自治州三都水族自治县、荔波县"
+  },
+  {
+    "release_id": "7-671",
+    "name": "商洛崖墓群",
+    "batch": 7,
+    "category": "古墓葬",
+    "release_address": "陕西省商洛市商州区、洛南县、镇安县、柞水县、丹凤县、商南县、山阳县"
+  },
+  {
+    "release_id": "7-691",
+    "name": "固原北朝隋唐墓地",
+    "batch": 7,
+    "category": "古墓葬",
+    "release_address": "宁夏回族自治区固原市原州区"
+  },
+  {
+    "release_id": "7-698",
+    "name": "阿日夏特科克石围及石堆墓群",
+    "batch": 7,
+    "category": "古墓葬",
+    "release_address": "新疆维吾尔自治区博尔塔拉蒙古自治州温泉县"
+  },
+  {
+    "release_id": "7-801",
+    "name": "苇则寿圣寺",
+    "batch": 7,
+    "category": "古建筑",
+    "release_address": "山西省晋中市左权县"
+  },
+  {
+    "release_id": "7-979",
+    "name": "史可法墓祠",
+    "batch": 7,
+    "category": "古建筑",
+    "release_address": "江苏省扬州市邗江区"
+  },
+  {
+    "release_id": "7-1249",
+    "name": "洞口宗祠建筑群",
+    "batch": 7,
+    "category": "古建筑",
+    "release_address": "湖南省邵阳市洞口县"
+  },
+  {
+    "release_id": "7-1261",
+    "name": "芙蓉楼",
+    "batch": 7,
+    "category": "古建筑",
+    "release_address": "湖南省怀化市洪江市"
+  },
+  {
+    "release_id": "7-1318",
+    "name": "甲扎尔甲山洞窟壁画",
+    "batch": 7,
+    "category": "古建筑",
+    "release_address": "四川省阿坝藏族羌族自治州马尔康县"
+  },
+  {
+    "release_id": "7-1551",
+    "name": "洪谷寺塔与千佛洞石窟",
+    "batch": 7,
+    "category": "石窟寺及石刻",
+    "release_address": "河南省安阳市林州市"
+  },
+  {
+    "release_id": "7-1590",
+    "name": "玉蟾山摩崖造像",
+    "batch": 7,
+    "category": "石窟寺及石刻",
+    "release_address": "四川省泸州市泸县"
+  },
+  {
+    "release_id": "7-1669",
+    "name": "沈阳中山广场建筑群",
+    "batch": 7,
+    "category": "近现代重要史迹及代表性建筑",
+    "release_address": "辽宁省沈阳市和平区"
+  },
+  {
+    "release_id": "7-1757",
+    "name": "同文书院",
+    "batch": 7,
+    "category": "近现代重要史迹及代表性建筑",
+    "release_address": "江西省九江市浔阳区"
+  },
+  {
+    "release_id": "7-1827",
+    "name": "岳阳教会学校",
+    "batch": 7,
+    "category": "近现代重要史迹及代表性建筑",
+    "release_address": "湖南省岳阳市岳阳楼区"
+  },
+  {
+    "release_id": "7-1834",
+    "name": "渌江桥",
+    "batch": 7,
+    "category": "近现代重要史迹及代表性建筑",
+    "release_address": "湖南省株洲市醴陵市"
+  },
+  {
+    "release_id": "8-24",
+    "name": "后套木嘎遗址",
+    "batch": 8,
+    "category": "古遗址",
+    "release_address": "吉林省大安市"
+  },
+  {
+    "release_id": "8-38",
+    "name": "寺墩遗址",
+    "batch": 8,
+    "category": "古遗址",
+    "release_address": "江苏省常州市天宁区"
+  },
+  {
+    "release_id": "8-90",
+    "name": "新安故城遗址",
+    "batch": 8,
+    "category": "古遗址",
+    "release_address": "河南省义马市"
+  },
+  {
+    "release_id": "8-169",
+    "name": "北张庄墓群",
+    "batch": 8,
+    "category": "古墓葬",
+    "release_address": "河北省邯郸市邯山区"
+  },
+  {
+    "release_id": "8-175",
+    "name": "良茂墓群",
+    "batch": 8,
+    "category": "古墓葬",
+    "release_address": "吉林省集安市"
+  },
+  {
+    "release_id": "8-449",
+    "name": "江川文庙",
+    "batch": 8,
+    "category": "古建筑",
+    "release_address": "云南省玉溪市江川区"
+  },
+  {
+    "release_id": "8-474",
+    "name": "永昌北海子塔",
+    "batch": 8,
+    "category": "古建筑",
+    "release_address": "甘肃省永昌县"
+  },
+  {
+    "release_id": "8-495",
+    "name": "陶山朝阳洞石刻造像",
+    "batch": 8,
+    "category": "石窟寺及石刻",
+    "release_address": "山东省肥城市"
+  },
+  {
+    "release_id": "8-506",
+    "name": "囊巴朗则石雕",
+    "batch": 8,
+    "category": "石窟寺及石刻",
+    "release_address": "西藏自治区芒康县"
+  },
+  {
+    "release_id": "8-518",
+    "name": "原子能“一堆一器”旧址",
+    "batch": 8,
+    "category": "近现代重要史迹及代表性建筑",
+    "release_address": "北京市房山区"
+  },
+  {
+    "release_id": "8-654",
+    "name": "辰州教案发生地",
+    "batch": 8,
+    "category": "近现代重要史迹及代表性建筑",
+    "release_address": "湖南省沅陵县"
+  },
+  {
+    "release_id": "8-669",
+    "name": "潮海关旧址",
+    "batch": 8,
+    "category": "近现代重要史迹及代表性建筑",
+    "release_address": "广东省汕头市金平区、濠江区"
+  },
+  {
+    "release_id": "8-705",
+    "name": "首座受控核聚变实验装置旧址",
+    "batch": 8,
+    "category": "近现代重要史迹及代表性建筑",
+    "release_address": "四川省乐山市市中区"
+  },
+  {
+    "release_id": "8-717",
+    "name": "昆明卢氏公馆",
+    "batch": 8,
+    "category": "近现代重要史迹及代表性建筑",
+    "release_address": "云南省昆明市五华区"
+  },
+  {
+    "release_id": "8-733",
+    "name": "宝鸡申新纱厂旧址",
+    "batch": 8,
+    "category": "近现代重要史迹及代表性建筑",
+    "release_address": "陕西省宝鸡市金台区"
+  }
+]

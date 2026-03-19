@@ -39,10 +39,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# python
-scripts/.venv/
-scripts/__pycache__/
 *.pyc
 
-# data
-data/*.json

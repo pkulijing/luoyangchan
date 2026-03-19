@@ -1,0 +1,7 @@
+# 中间产物忽略，最终数据集提交
+*.json
+!heritage_sites_geocoded.json
+!missing_coords.json
+*.html
+*.png
+*.txt
