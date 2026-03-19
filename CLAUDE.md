@@ -18,7 +18,7 @@ supabase start   # 启动本地 Supabase（需 Docker）
 npm run dev      # 启动前端
 ```
 
-数据采集流程见 `docs/data-cleaning-plan.md`。
+数据采集流程见 `docs/1-DataCollect/PLAN.md`。
 
 ## 环境变量
 
@@ -42,3 +42,9 @@ AMAP_GEOCODING_KEY=<高德 Web 服务 Key，用于地理编码脚本>
   Co-authored-by: Claude Sonnet <noreply@anthropic.com>
   Co-authored-by: GitHub Copilot <github-copilot[bot]@users.noreply.github.com>
   ```
+
+- **docs 文件夹组织规范**：每次开发任务在 `docs/` 下创建独立文件夹，用数字前缀便于排序（如 `0-InitialIdea`、`1-DataCollect`）。每个文件夹包含：
+  - `PROMPT.md`：最初的用户需求文档（如有）
+  - `PLAN.md`：AI 生成的实现计划文档
+  - `assets/`：相关图片或其他资源（如有）
+  - 其他补充文档（如数据库设计、API 说明等）
