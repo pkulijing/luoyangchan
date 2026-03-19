@@ -20,7 +20,7 @@ export default function AMapContainer({
 }: AMapContainerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<AMap.Map | null>(null);
-  const markersRef = useRef<AMap.Marker[]>([]);
+  const clusterRef = useRef<AMap.MarkerCluster | null>(null);
   const [mapReady, setMapReady] = useState(false);
 
   const handleSiteClick = useCallback(
@@ -82,8 +82,8 @@ export default function AMapContainer({
 
     return () => {
       disposed = true;
-      markersRef.current.forEach((marker) => marker.setMap(null));
-      markersRef.current = [];
+      clusterRef.current?.setMap(null);
+      clusterRef.current = null;
       if (mapRef.current) {
         mapRef.current.destroy();
         mapRef.current = null;
@@ -95,40 +95,50 @@ export default function AMapContainer({
   useEffect(() => {
     if (!mapRef.current || !mapReady) return;
 
-    markersRef.current.forEach((marker) => marker.setMap(null));
-    markersRef.current = [];
+    clusterRef.current?.setMap(null);
+    clusterRef.current = null;
 
-    const markers = sites
+    const dataPoints = sites
       .filter((s) => s.latitude != null && s.longitude != null)
-      .map((site) => {
-        const marker = new AMap.Marker({
-          position: new AMap.LngLat(site.longitude, site.latitude),
-          title: site.name,
-          // Use a high-contrast marker style so visibility issues are easy to spot.
-          content: `
-            <div style="display: flex; flex-direction: column; align-items: center; transform: translateY(-8px);">
-              <div style="width: 14px; height: 14px; border-radius: 50%; background: ${CATEGORY_COLORS[site.category]}; border: 2px solid #fff; box-shadow: 0 1px 5px rgba(0,0,0,0.3);"></div>
-              <div style="width: 2px; height: 7px; background: ${CATEGORY_COLORS[site.category]}; opacity: 0.9;"></div>
-            </div>
-          `,
-          offset: new AMap.Pixel(-7, -21),
-          extData: site,
-        });
+      .map((site) => ({ lnglat: [site.longitude, site.latitude] as [number, number], site }));
 
-        marker.on("click", () => handleSiteClick(site));
-        return marker;
-      });
+    if (dataPoints.length === 0) return;
 
-    if (markers.length > 0) {
-      markers.forEach((marker) => marker.setMap(mapRef.current));
-      markersRef.current = markers;
+    clusterRef.current = new AMap.MarkerCluster(mapRef.current, dataPoints, {
+      gridSize: 60,
+      maxZoom: 16,
+      renderMarker(ctx) {
+        const site = (ctx.data[0] as unknown as { site: SiteMarkerData }).site;
+        const color = CATEGORY_COLORS[site.category];
+        ctx.marker.setContent(`
+          <div style="display:flex;flex-direction:column;align-items:center;transform:translateY(-8px)">
+            <div style="width:14px;height:14px;border-radius:50%;background:${color};border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,0.3)"></div>
+            <div style="width:2px;height:7px;background:${color};opacity:0.9"></div>
+          </div>
+        `);
+        ctx.marker.setOffset(new AMap.Pixel(-7, -21));
+        ctx.marker.setTitle(site.name);
+        ctx.marker.on("click", () => handleSiteClick(site));
+      },
+      renderClusterMarker(ctx) {
+        ctx.marker.setContent(`
+          <div style="display:flex;align-items:center;justify-content:center;
+                      width:36px;height:36px;border-radius:50%;
+                      background:#fff;border:2px solid #666;
+                      font-size:13px;font-weight:600;color:#333;
+                      box-shadow:0 2px 6px rgba(0,0,0,0.25)">
+            ${ctx.count}
+          </div>
+        `);
+        ctx.marker.setOffset(new AMap.Pixel(-18, -18));
+      },
+    });
 
-      // Ensure markers are inside viewport; otherwise users may think nothing is rendered.
-      try {
-        mapRef.current.setFitView(markers, false, [40, 40, 40, 40]);
-      } catch (error) {
-        console.warn("[AMapContainer] fit view failed", error);
-      }
+    // Ensure markers are inside viewport; otherwise users may think nothing is rendered.
+    try {
+      mapRef.current.setFitView(null, false, [40, 40, 40, 40]);
+    } catch (error) {
+      console.warn("[AMapContainer] fit view failed", error);
     }
   }, [sites, handleSiteClick, mapReady]);
 
