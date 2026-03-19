@@ -39,20 +39,20 @@
 
 核心表 `heritage_sites`:
 
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| id | UUID PK | 主键 |
-| code | TEXT UNIQUE | 编号 |
-| name | TEXT | 名称 |
-| province / city / district | TEXT | 行政区划 |
-| address | TEXT | 详细地址 |
-| category | TEXT | 类型 (古遗址/古墓葬/古建筑/石窟寺及石刻/近现代/其他) |
-| era | TEXT | 时代 |
-| batch / batch_year | INT | 公布批次和年份 |
-| latitude / longitude | DOUBLE | GCJ-02 坐标 |
-| location | GEOGRAPHY(POINT) | PostGIS 空间字段 |
-| description | TEXT | 简介 (后续可由 LLM 生成丰富) |
-| wikipedia_url / image_url | TEXT | 链接 |
+| 字段                       | 类型             | 说明                                                 |
+| -------------------------- | ---------------- | ---------------------------------------------------- |
+| id                         | UUID PK          | 主键                                                 |
+| code                       | TEXT UNIQUE      | 编号                                                 |
+| name                       | TEXT             | 名称                                                 |
+| province / city / district | TEXT             | 行政区划                                             |
+| address                    | TEXT             | 详细地址                                             |
+| category                   | TEXT             | 类型 (古遗址/古墓葬/古建筑/石窟寺及石刻/近现代/其他) |
+| era                        | TEXT             | 时代                                                 |
+| batch / batch_year         | INT              | 公布批次和年份                                       |
+| latitude / longitude       | DOUBLE           | GCJ-02 坐标                                          |
+| location                   | GEOGRAPHY(POINT) | PostGIS 空间字段                                     |
+| description                | TEXT             | 简介 (后续可由 LLM 生成丰富)                         |
+| wikipedia_url / image_url  | TEXT             | 链接                                                 |
 
 辅助表: `eras` (朝代参考), `regions` (省市参考/统计缓存)
 
@@ -73,18 +73,21 @@ npx shadcn@latest add button card dialog select command input badge
 ```
 
 环境变量 (`.env.local`):
+
 - `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 - `NEXT_PUBLIC_AMAP_KEY` / `NEXT_PUBLIC_AMAP_SECRET`
 
 ### Step 4: 前端实现
 
 **路由结构**:
+
 - `/` - 首页: 全屏地图 + 左侧筛选面板
 - `/site/[id]` - 文保单位详情页
 - `/explore` - 列表浏览模式
 - `/about` - 关于页面
 
 **目录结构**:
+
 ```
 src/
 ├── app/                      # 路由页面
@@ -102,6 +105,7 @@ src/
 ```
 
 **关键技术决策**:
+
 - **Marker Clustering**: 使用高德 `MarkerCluster` 插件，低缩放级别自动聚合标记
 - **数据加载**: 首次加载所有站点精简数据 (~250KB, gzip 后 ~50KB)，前端筛选
 - **URL 状态同步**: 筛选条件和地图位置编码到 URL query params，支持分享
@@ -121,14 +125,14 @@ src/
 
 ## MVP 功能优先级
 
-| 优先级 | 功能 |
-|--------|------|
-| P0 | 全屏高德地图 + 标记聚合 |
-| P0 | 信息弹窗 (名称/类型/时代/地址) |
-| P0 | 按省份、类型筛选 |
-| P1 | 详情页 |
-| P1 | 时代筛选 + 名称搜索 |
-| P2 | 列表视图 + 移动端适配 |
+| 优先级 | 功能                           |
+| ------ | ------------------------------ |
+| P0     | 全屏高德地图 + 标记聚合        |
+| P0     | 信息弹窗 (名称/类型/时代/地址) |
+| P0     | 按省份、类型筛选               |
+| P1     | 详情页                         |
+| P1     | 时代筛选 + 名称搜索            |
+| P2     | 列表视图 + 移动端适配          |
 
 ## 后续阶段扩展点
 

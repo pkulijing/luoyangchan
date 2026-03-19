@@ -4,77 +4,21 @@
 
 ## 技术栈
 
-### 前端
-
 - **Next.js 16** (App Router) + **React 19** + **TypeScript 5**
-- **Tailwind CSS v4** 样式
-- **shadcn/ui** 组件库（Button、Badge、Card、Select、Input 等）
+- **Tailwind CSS v4** + **shadcn/ui**
 - **高德地图 JS API 2.0**（`@amap/amap-jsapi-loader`）：地图渲染、MarkerCluster 聚合
 - `coordtransform`：WGS-84 ↔ GCJ-02 坐标系转换（Wikipedia 数据为 WGS-84，高德地图使用 GCJ-02）
-
-### 数据库
-
-- **Supabase**（本地 Docker 开发，通过 Supabase CLI 管理）
-- PostgreSQL + **PostGIS** 扩展（空间查询）
-- 本地连接：`http://127.0.0.1:54321`，Studio：`http://127.0.0.1:54323`
-
-### 数据采集（Python 脚本）
-
+- **Supabase**（本地 Docker 开发，通过 Supabase CLI 管理），本地地址 `http://127.0.0.1:54321`，Studio `http://127.0.0.1:54323`
 - **Python 3.12** + **uv** 管理依赖（不使用 pip/pip3）
-- `requests` + `beautifulsoup4`
-- `scripts/scrape_wikipedia.py`：从中文 Wikipedia 爬取文保单位列表
-- `scripts/fetch_coordinates.py`：通过 Wikipedia API `prop=coordinates` 批量获取坐标
-- `scripts/seed_supabase.py`：将数据导入本地 Supabase
-
-## 目录结构
-
-```
-src/
-├── app/
-│   ├── page.tsx              # 首页（Server Component，fetch 全量数据）
-│   └── site/[id]/page.tsx    # 详情页（Server Component）
-├── components/
-│   ├── MapView.tsx           # 地图主视图（Client Component）
-│   ├── map/                  # AMapContainer、SiteMap
-│   ├── filters/              # FilterPanel
-│   └── site/                 # BackButton
-├── hooks/
-│   └── useFilters.ts         # 筛选逻辑（省份/类型/时代/搜索）
-└── lib/
-    ├── supabase/
-    │   ├── client.ts         # 浏览器端 Supabase 客户端
-    │   ├── server.ts         # 服务端 Supabase 客户端
-    │   └── queries.ts        # getAllSites()、getSiteById()
-    ├── types.ts              # HeritageSite、SiteListItem、FilterState 等
-    ├── constants.ts          # 类别颜色、省份列表、批次年份、地图默认中心
-    └── amap.ts               # AMap 加载单例
-
-scripts/
-├── scrape_wikipedia.py
-├── fetch_coordinates.py
-└── seed_supabase.py
-
-supabase/
-├── config.toml
-└── migrations/
-    └── 20240101000000_create_heritage_sites.sql
-```
 
 ## 本地开发
 
 ```bash
-# 启动本地 Supabase（需 Docker）
-supabase start
-
-# 启动前端
-npm run dev
-
-# 数据采集（首次或更新数据时）
-cd scripts
-uv run python scrape_wikipedia.py
-uv run python fetch_coordinates.py
-uv run python seed_supabase.py --url http://127.0.0.1:54321 --key <service_role_key>
+supabase start   # 启动本地 Supabase（需 Docker）
+npm run dev      # 启动前端
 ```
+
+数据采集流程见 `docs/data-cleaning-plan.md`。
 
 ## 环境变量
 
@@ -86,16 +30,15 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=<publishable key>
 SUPABASE_SERVICE_ROLE_KEY=<secret key>
 NEXT_PUBLIC_AMAP_KEY=<高德地图 JS API Key>
 NEXT_PUBLIC_AMAP_SECRET=<高德地图安全密钥>
+AMAP_GEOCODING_KEY=<高德 Web 服务 Key，用于地理编码脚本>
 ```
 
-## 数据现状
+## 项目约定
 
-- 文保单位总数：4303 条（第 1-8 批）
-- 有坐标（来自 Wikipedia）：约 710 条（16%）
-- 待补充：通过高德地理编码 API 补全剩余约 3600 条的坐标
+- `.gitignore` 按目录拆分：每个目录维护自己的 `.gitignore`，不要把子目录的忽略规则写到根目录的 `.gitignore` 里。
 
-## Git 提交规范
-
-- 由 AI（Claude Code / GitHub Copilot）协助完成的提交，commit message 末尾必须包含 `Co-authored-by` trailer。
-- 统一使用如下格式：`Co-authored-by: GitHub Copilot <github-copilot[bot]@users.noreply.github.com>`
-- 如由 Claude 协助，可按同样格式追加对应的 `Co-authored-by` 行。
+- 由 AI 协助完成的提交，commit message 末尾必须包含 `Co-authored-by` trailer：
+  ```
+  Co-authored-by: Claude Sonnet <noreply@anthropic.com>
+  Co-authored-by: GitHub Copilot <github-copilot[bot]@users.noreply.github.com>
+  ```
