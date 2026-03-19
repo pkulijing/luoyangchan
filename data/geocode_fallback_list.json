@@ -1,0 +1,7107 @@
+[
+  {
+    "release_id": "1-4",
+    "name": "韶山冲毛主席旧居",
+    "release_address": "湖南省湘潭县韶山冲",
+    "latitude": 27.779669,
+    "longitude": 112.950767
+  },
+  {
+    "release_id": "1-7",
+    "name": "武昌起义军政府旧址",
+    "release_address": "湖北省武汉市",
+    "latitude": 30.593354,
+    "longitude": 114.304569
+  },
+  {
+    "release_id": "1-15",
+    "name": "海丰红宫、红场旧址",
+    "release_address": "广东省海丰县中山西路",
+    "latitude": 22.969501,
+    "longitude": 115.337291
+  },
+  {
+    "release_id": "1-45",
+    "name": "北山摩崖造象",
+    "release_address": "四川省大足县",
+    "latitude": 30.651696,
+    "longitude": 104.076452
+  },
+  {
+    "release_id": "1-57",
+    "name": "褒斜道石门及其摩崖石刻",
+    "release_address": "陕西省汉中市",
+    "latitude": 33.066373,
+    "longitude": 107.02319
+  },
+  {
+    "release_id": "1-60",
+    "name": "永通桥（小石桥）",
+    "release_address": "河北省宁晋县",
+    "latitude": 37.624524,
+    "longitude": 114.940006
+  },
+  {
+    "release_id": "1-67",
+    "name": "兴教寺塔",
+    "release_address": "陕西省长安县",
+    "latitude": 34.266611,
+    "longitude": 108.953939
+  },
+  {
+    "release_id": "1-69",
+    "name": "祐国寺塔（铁塔）",
+    "release_address": "河南省开封市",
+    "latitude": 34.798083,
+    "longitude": 114.314278
+  },
+  {
+    "release_id": "1-71",
+    "name": "佛宫寺释迦塔（应县木塔）",
+    "release_address": "山西省应县",
+    "latitude": 39.554471,
+    "longitude": 113.190952
+  },
+  {
+    "release_id": "1-79",
+    "name": "南禅寺大殿",
+    "release_address": "山西省五台县",
+    "latitude": 38.728056,
+    "longitude": 113.255419
+  },
+  {
+    "release_id": "1-101",
+    "name": "万里长城——八达岭",
+    "release_address": "北京市延庆县",
+    "latitude": 40.457033,
+    "longitude": 115.974609
+  },
+  {
+    "release_id": "1-103",
+    "name": "万里长城——嘉峪关",
+    "release_address": "甘肃省酒泉市",
+    "latitude": 39.733416,
+    "longitude": 98.49432
+  },
+  {
+    "release_id": "1-108",
+    "name": "噶丹寺",
+    "release_address": "西藏自治区拉萨市",
+    "latitude": 29.653491,
+    "longitude": 91.171924
+  },
+  {
+    "release_id": "1-130",
+    "name": "重修护国寺感应塔碑（西夏碑）",
+    "release_address": "甘肃省武威县",
+    "latitude": 37.92898,
+    "longitude": 102.637821
+  },
+  {
+    "release_id": "1-169",
+    "name": "封氏墓群",
+    "release_address": "河北省吴桥县",
+    "latitude": 37.628225,
+    "longitude": 116.391557
+  },
+  {
+    "release_id": "1-176",
+    "name": "岳飞墓",
+    "release_address": "浙江省杭州市",
+    "latitude": 30.246566,
+    "longitude": 120.209903
+  },
+  {
+    "release_id": "2-3",
+    "name": "义和团吕祖堂坛口遗址",
+    "release_address": "天津市",
+    "latitude": 39.085318,
+    "longitude": 117.201509
+  },
+  {
+    "release_id": "2-17",
+    "name": "玉泉寺及铁塔",
+    "release_address": "湖北省当阳县",
+    "latitude": 30.546222,
+    "longitude": 114.341552
+  },
+  {
+    "release_id": "2-18",
+    "name": "万部华严经塔",
+    "release_address": "内蒙古自治区呼和浩特市",
+    "latitude": 40.842127,
+    "longitude": 111.748814
+  },
+  {
+    "release_id": "2-19",
+    "name": "华林寺大殿",
+    "release_address": "福建省福州市",
+    "latitude": 26.074286,
+    "longitude": 119.296411
+  },
+  {
+    "release_id": "2-33",
+    "name": "经略台真武阁",
+    "release_address": "广西壮族自治区容县",
+    "latitude": 22.85844,
+    "longitude": 110.558093
+  },
+  {
+    "release_id": "2-44",
+    "name": "常德铁幢",
+    "release_address": "湖南省常德市",
+    "latitude": 29.031446,
+    "longitude": 111.69905
+  },
+  {
+    "release_id": "2-58",
+    "name": "宋陵",
+    "release_address": "河南省巩县",
+    "latitude": 34.767052,
+    "longitude": 113.753094
+  },
+  {
+    "release_id": "3-6",
+    "name": "望海楼教堂",
+    "release_address": "天津市河北区",
+    "latitude": 39.148018,
+    "longitude": 117.196874
+  },
+  {
+    "release_id": "3-9",
+    "name": "刘公岛甲午战争纪念地",
+    "release_address": "山东省威海市",
+    "latitude": 37.513315,
+    "longitude": 122.120519
+  },
+  {
+    "release_id": "3-20",
+    "name": "国民党“一大”旧址（包括革命广场）",
+    "release_address": "广东省广州市",
+    "latitude": 23.130061,
+    "longitude": 113.264499
+  },
+  {
+    "release_id": "3-34",
+    "name": "平顶山惨案遗址",
+    "release_address": "辽宁省抚顺市",
+    "latitude": 41.881311,
+    "longitude": 123.957053
+  },
+  {
+    "release_id": "3-48",
+    "name": "千佛崖造像（包括龙虎塔、九顶塔）",
+    "release_address": "山东省 济南市历城区",
+    "latitude": 36.680731,
+    "longitude": 117.065233
+  },
+  {
+    "release_id": "3-52",
+    "name": "通天岩石窟",
+    "release_address": "江西省赣州市",
+    "latitude": 25.831139,
+    "longitude": 114.933494
+  },
+  {
+    "release_id": "3-79",
+    "name": "胡庆余堂",
+    "release_address": "浙江省杭州市",
+    "latitude": 30.246566,
+    "longitude": 120.209903
+  },
+  {
+    "release_id": "3-85",
+    "name": "陈家祠堂",
+    "release_address": "广东省广州市",
+    "latitude": 23.130061,
+    "longitude": 113.264499
+  },
+  {
+    "release_id": "3-87",
+    "name": "丁村民宅",
+    "release_address": "山西省襄汾县",
+    "latitude": 35.876293,
+    "longitude": 111.441725
+  },
+  {
+    "release_id": "3-96",
+    "name": "罗布林卡",
+    "release_address": "西藏自治区拉萨市",
+    "latitude": 29.653491,
+    "longitude": 91.171924
+  },
+  {
+    "release_id": "3-113",
+    "name": "玉皇庙",
+    "release_address": "山西省晋城市",
+    "latitude": 35.491315,
+    "longitude": 112.852022
+  },
+  {
+    "release_id": "3-137",
+    "name": "净藏禅师塔",
+    "release_address": "河南省登封县",
+    "latitude": 34.767052,
+    "longitude": 113.753094
+  },
+  {
+    "release_id": "3-141",
+    "name": "灵光塔",
+    "release_address": "吉林省长白朝鲜族自治县",
+    "latitude": 41.420253,
+    "longitude": 128.20066
+  },
+  {
+    "release_id": "3-142",
+    "name": "闸口白塔",
+    "release_address": "浙江省杭州市",
+    "latitude": 30.246566,
+    "longitude": 120.209903
+  },
+  {
+    "release_id": "3-151",
+    "name": "崇兴寺双塔",
+    "release_address": "辽宁省北镇县",
+    "latitude": 41.588657,
+    "longitude": 121.777503
+  },
+  {
+    "release_id": "3-158",
+    "name": "金刚座舍利宝塔",
+    "release_address": "内蒙古自治区呼和浩特市",
+    "latitude": 40.842127,
+    "longitude": 111.748814
+  },
+  {
+    "release_id": "3-165",
+    "name": "花山岩画",
+    "release_address": "广西壮族自治区宁明县",
+    "latitude": 22.140242,
+    "longitude": 107.076394
+  },
+  {
+    "release_id": "3-175",
+    "name": "怡亭铭摩崖石刻",
+    "release_address": "湖北省鄂州市",
+    "latitude": 30.391461,
+    "longitude": 114.894909
+  },
+  {
+    "release_id": "3-190",
+    "name": "马家窑遗址",
+    "release_address": "甘肃省临洮县",
+    "latitude": 35.394993,
+    "longitude": 103.859446
+  },
+  {
+    "release_id": "3-191",
+    "name": "马厂塬遗址",
+    "release_address": "青海省民和县",
+    "latitude": 36.320038,
+    "longitude": 102.830775
+  },
+  {
+    "release_id": "3-208",
+    "name": "姜女石遗址",
+    "release_address": "辽宁省绥中县",
+    "latitude": 40.325576,
+    "longitude": 120.34432
+  },
+  {
+    "release_id": "3-210",
+    "name": "玉门关及长城烽燧遗址（包括大方盘、小方盘）",
+    "release_address": "甘肃省敦煌市",
+    "latitude": 40.142141,
+    "longitude": 94.66201
+  },
+  {
+    "release_id": "3-211",
+    "name": "楼兰故城遗址",
+    "release_address": "新疆维吾尔自治区若羌县",
+    "latitude": 39.022626,
+    "longitude": 88.167226
+  },
+  {
+    "release_id": "3-214",
+    "name": "嘎仙洞遗址",
+    "release_address": "内蒙古自治区鄂伦春自治旗",
+    "latitude": 50.591604,
+    "longitude": 123.725643
+  },
+  {
+    "release_id": "3-220",
+    "name": "元上都遗址",
+    "release_address": "内蒙古自治区正蓝旗",
+    "latitude": 42.241815,
+    "longitude": 115.991648
+  },
+  {
+    "release_id": "3-227",
+    "name": "钧台钧窑遗址",
+    "release_address": "河南省禹县",
+    "latitude": 34.767052,
+    "longitude": 113.753094
+  },
+  {
+    "release_id": "3-244",
+    "name": "龙头山古墓群",
+    "release_address": "吉林省和龙县",
+    "latitude": 43.896942,
+    "longitude": 125.325802
+  },
+  {
+    "release_id": "3-247",
+    "name": "辽陵及奉陵邑（包括祖陵及祖州城、庆陵及庆州城）",
+    "release_address": "内蒙古自治区巴林左旗、巴林右旗",
+    "latitude": 43.534171,
+    "longitude": 118.664235
+  },
+  {
+    "release_id": "3-252",
+    "name": "苏禄王墓",
+    "release_address": "山东省德州市",
+    "latitude": 37.436492,
+    "longitude": 116.359244
+  },
+  {
+    "release_id": "3-257",
+    "name": "福陵",
+    "release_address": "辽宁省沈阳市",
+    "latitude": 41.677576,
+    "longitude": 123.464675
+  },
+  {
+    "release_id": "3-258",
+    "name": "阿巴和加麻札（墓）",
+    "release_address": "新疆维吾尔自治区喀什市",
+    "latitude": 39.46823,
+    "longitude": 75.993936
+  },
+  {
+    "release_id": "4-10",
+    "name": "北庄遗址",
+    "release_address": "山东省长岛县",
+    "latitude": 37.795697,
+    "longitude": 120.829141
+  },
+  {
+    "release_id": "4-13",
+    "name": "王城岗及阳城遗址",
+    "release_address": "河南省登封市",
+    "latitude": 34.454877,
+    "longitude": 113.05056
+  },
+  {
+    "release_id": "4-22",
+    "name": "大甸子遗址",
+    "release_address": "内蒙古自治区敖汉旗",
+    "latitude": 42.290731,
+    "longitude": 119.921413
+  },
+  {
+    "release_id": "4-25",
+    "name": "吴城遗址",
+    "release_address": "江西省樟树市",
+    "latitude": 28.054632,
+    "longitude": 115.546174
+  },
+  {
+    "release_id": "4-26",
+    "name": "曲村—天马遗址",
+    "release_address": "山西省曲沃县、翼城县",
+    "latitude": 35.739706,
+    "longitude": 111.719048
+  },
+  {
+    "release_id": "4-29",
+    "name": "酒店冶铁遗址",
+    "release_address": "河南省西平县",
+    "latitude": 33.387658,
+    "longitude": 114.021492
+  },
+  {
+    "release_id": "4-37",
+    "name": "凤凰山山城",
+    "release_address": "辽宁省凤城市",
+    "latitude": 40.45218,
+    "longitude": 124.066873
+  },
+  {
+    "release_id": "4-58",
+    "name": "石棚山石棚",
+    "release_address": "辽宁省盖州市",
+    "latitude": 40.400259,
+    "longitude": 122.34845
+  },
+  {
+    "release_id": "4-62",
+    "name": "帽儿山墓地",
+    "release_address": "吉林省吉林市",
+    "latitude": 43.838132,
+    "longitude": 126.549719
+  },
+  {
+    "release_id": "4-63",
+    "name": "汉楚王墓群",
+    "release_address": "江苏省徐州市、铜山县",
+    "latitude": 34.181162,
+    "longitude": 117.169698
+  },
+  {
+    "release_id": "4-72",
+    "name": "下八里墓群",
+    "release_address": "河北省张家口市",
+    "latitude": 40.768931,
+    "longitude": 114.885895
+  },
+  {
+    "release_id": "4-75",
+    "name": "海瑞墓",
+    "release_address": "海南省海口市",
+    "latitude": 20.046316,
+    "longitude": 110.200162
+  },
+  {
+    "release_id": "4-81",
+    "name": "治平寺石塔",
+    "release_address": "河北省赞皇县",
+    "latitude": 37.666549,
+    "longitude": 114.386114
+  },
+  {
+    "release_id": "4-83",
+    "name": "兴圣教寺塔",
+    "release_address": "上海市松江县",
+    "latitude": 31.230525,
+    "longitude": 121.473667
+  },
+  {
+    "release_id": "4-100",
+    "name": "则天庙",
+    "release_address": "山西省文水县",
+    "latitude": 37.438101,
+    "longitude": 112.028866
+  },
+  {
+    "release_id": "4-101",
+    "name": "南、北吉祥寺",
+    "release_address": "山西省陵川县",
+    "latitude": 35.775239,
+    "longitude": 113.280755
+  },
+  {
+    "release_id": "4-106",
+    "name": "广饶关帝庙大殿",
+    "release_address": "山东省广饶县",
+    "latitude": 37.053915,
+    "longitude": 118.419437
+  },
+  {
+    "release_id": "4-119",
+    "name": "霍州州署大堂",
+    "release_address": "山西省霍州市",
+    "latitude": 36.569046,
+    "longitude": 111.755111
+  },
+  {
+    "release_id": "4-130",
+    "name": "北京鼓楼、钟楼",
+    "release_address": "北京市东城区",
+    "latitude": 39.928359,
+    "longitude": 116.416334
+  },
+  {
+    "release_id": "4-136",
+    "name": "万里长城—九门口",
+    "release_address": "辽宁省绥中县、河北省抚宁县",
+    "latitude": 40.325576,
+    "longitude": 120.34432
+  },
+  {
+    "release_id": "4-137",
+    "name": "翁同龢纪念馆",
+    "release_address": "江苏省常熟市",
+    "latitude": 31.656016,
+    "longitude": 120.752512
+  },
+  {
+    "release_id": "4-141",
+    "name": "棠樾石牌坊群",
+    "release_address": "安徽省歙县",
+    "latitude": 29.861354,
+    "longitude": 118.415258
+  },
+  {
+    "release_id": "4-158",
+    "name": "张桓侯祠",
+    "release_address": "四川省阆中市",
+    "latitude": 31.558356,
+    "longitude": 106.005046
+  },
+  {
+    "release_id": "4-165",
+    "name": "南堂",
+    "release_address": "北京市西城区",
+    "latitude": 39.9126,
+    "longitude": 116.36585
+  },
+  {
+    "release_id": "4-182",
+    "name": "东坡书院",
+    "release_address": "海南省儋州市",
+    "latitude": 19.520948,
+    "longitude": 109.580812
+  },
+  {
+    "release_id": "4-189",
+    "name": "森木塞姆千佛洞",
+    "release_address": "新疆维吾尔自治区库车县",
+    "latitude": 41.719073,
+    "longitude": 82.998544
+  },
+  {
+    "release_id": "4-190",
+    "name": "马蹄寺石窟群",
+    "release_address": "甘肃省肃南裕固族自治县",
+    "latitude": 38.839221,
+    "longitude": 99.627762
+  },
+  {
+    "release_id": "4-194",
+    "name": "龙兴观道德经幢",
+    "release_address": "河北省易县",
+    "latitude": 39.350219,
+    "longitude": 115.497487
+  },
+  {
+    "release_id": "4-198",
+    "name": "草庵石刻",
+    "release_address": "福建省晋江市",
+    "latitude": 24.781635,
+    "longitude": 118.551659
+  },
+  {
+    "release_id": "4-201",
+    "name": "大连俄国建筑",
+    "release_address": "辽宁省大连市",
+    "latitude": 38.913962,
+    "longitude": 121.614786
+  },
+  {
+    "release_id": "4-203",
+    "name": "马江海战炮台、烈士墓及昭忠祠",
+    "release_address": "福建省福州市",
+    "latitude": 26.074286,
+    "longitude": 119.296411
+  },
+  {
+    "release_id": "4-214",
+    "name": "南甸宣抚司署",
+    "release_address": "云南省梁河县",
+    "latitude": 24.804275,
+    "longitude": 98.296584
+  },
+  {
+    "release_id": "4-218",
+    "name": "硇洲灯塔",
+    "release_address": "广东省湛江市",
+    "latitude": 21.270108,
+    "longitude": 110.357538
+  },
+  {
+    "release_id": "4-234",
+    "name": "湘赣省委机关旧址",
+    "release_address": "江西省永新县",
+    "latitude": 26.945157,
+    "longitude": 114.242425
+  },
+  {
+    "release_id": "4-235",
+    "name": "闽浙赣省委机关旧址",
+    "release_address": "江西省横峰县",
+    "latitude": 28.407116,
+    "longitude": 117.596433
+  },
+  {
+    "release_id": "4-246",
+    "name": "国殇墓园",
+    "release_address": "云南省腾冲县",
+    "latitude": 25.020283,
+    "longitude": 98.490276
+  },
+  {
+    "release_id": "4-249",
+    "name": "泸州大曲老窖池",
+    "release_address": "四川省泸州市",
+    "latitude": 28.87098,
+    "longitude": 105.441866
+  },
+  {
+    "release_id": "4-250",
+    "name": "延一井旧址",
+    "release_address": "陕西省延长县",
+    "latitude": 36.579354,
+    "longitude": 110.012455
+  },
+  {
+    "release_id": "5-12",
+    "name": "曲回寺石像冢",
+    "release_address": "山西省灵丘县",
+    "latitude": 39.442459,
+    "longitude": 114.234452
+  },
+  {
+    "release_id": "5-16",
+    "name": "架子山遗址群",
+    "release_address": "内蒙古自治区喀喇沁旗",
+    "latitude": 41.927103,
+    "longitude": 118.701934
+  },
+  {
+    "release_id": "5-20",
+    "name": "黑山头城址",
+    "release_address": "内蒙古自治区额尔古纳市",
+    "latitude": 50.243102,
+    "longitude": 120.180506
+  },
+  {
+    "release_id": "5-32",
+    "name": "宝山—六道沟冶铜遗址",
+    "release_address": "吉林省临江市",
+    "latitude": 41.811979,
+    "longitude": 126.918086
+  },
+  {
+    "release_id": "5-34",
+    "name": "三江平原汉魏时期遗址",
+    "release_address": "黑龙江省佳木斯市、双鸭山市、友谊县、宝清县、富锦市",
+    "latitude": 47.250144,
+    "longitude": 132.037659
+  },
+  {
+    "release_id": "5-43",
+    "name": "铁店窑遗址",
+    "release_address": "浙江省金华市",
+    "latitude": 29.079195,
+    "longitude": 119.647265
+  },
+  {
+    "release_id": "5-54",
+    "name": "仙人洞、吊桶环遗址",
+    "release_address": "江西省万年县",
+    "latitude": 28.694582,
+    "longitude": 117.058445
+  },
+  {
+    "release_id": "5-58",
+    "name": "西河遗址",
+    "release_address": "山东省章丘市",
+    "latitude": 36.681258,
+    "longitude": 117.526228
+  },
+  {
+    "release_id": "5-66",
+    "name": "八里岗遗址",
+    "release_address": "河南省邓州市",
+    "latitude": 32.687732,
+    "longitude": 112.08745
+  },
+  {
+    "release_id": "5-70",
+    "name": "孟庄遗址",
+    "release_address": "河南省辉县市",
+    "latitude": 35.462964,
+    "longitude": 113.80572
+  },
+  {
+    "release_id": "5-71",
+    "name": "古城寨城址",
+    "release_address": "河南省新密市",
+    "latitude": 34.540216,
+    "longitude": 113.390932
+  },
+  {
+    "release_id": "5-72",
+    "name": "府城遗址",
+    "release_address": "河南省焦作市",
+    "latitude": 35.215726,
+    "longitude": 113.241902
+  },
+  {
+    "release_id": "5-76",
+    "name": "黄冶三彩窑址",
+    "release_address": "河南省巩义市",
+    "latitude": 34.748207,
+    "longitude": 113.022354
+  },
+  {
+    "release_id": "5-79",
+    "name": "学堂梁子遗址",
+    "release_address": "湖北省郧县",
+    "latitude": 32.834847,
+    "longitude": 110.812101
+  },
+  {
+    "release_id": "5-84",
+    "name": "磨盘山遗址",
+    "release_address": "湖北省当阳市",
+    "latitude": 30.820893,
+    "longitude": 111.78836
+  },
+  {
+    "release_id": "5-87",
+    "name": "季家湖城址",
+    "release_address": "湖北省宜昌市",
+    "latitude": 30.69217,
+    "longitude": 111.286962
+  },
+  {
+    "release_id": "5-88",
+    "name": "楚皇城城址",
+    "release_address": "湖北省宜城市",
+    "latitude": 31.720278,
+    "longitude": 112.256486
+  },
+  {
+    "release_id": "5-90",
+    "name": "玉虚宫遗址",
+    "release_address": "湖北省丹江口市",
+    "latitude": 32.540287,
+    "longitude": 111.513318
+  },
+  {
+    "release_id": "5-96",
+    "name": "莲花山古采石场",
+    "release_address": "广东省广州市",
+    "latitude": 23.130061,
+    "longitude": 113.264499
+  },
+  {
+    "release_id": "5-98",
+    "name": "落笔洞遗址",
+    "release_address": "海南省三亚市",
+    "latitude": 18.252865,
+    "longitude": 109.511709
+  },
+  {
+    "release_id": "5-102",
+    "name": "高家镇遗址",
+    "release_address": "重庆市丰都县",
+    "latitude": 29.863785,
+    "longitude": 107.731056
+  },
+  {
+    "release_id": "5-110",
+    "name": "甜水沟遗址",
+    "release_address": "陕西省大荔县",
+    "latitude": 34.797073,
+    "longitude": 109.941784
+  },
+  {
+    "release_id": "5-112",
+    "name": "元君庙—泉护村遗址",
+    "release_address": "陕西省华县",
+    "latitude": 34.497019,
+    "longitude": 109.775765
+  },
+  {
+    "release_id": "5-117",
+    "name": "良周遗址",
+    "release_address": "陕西省澄城县",
+    "latitude": 35.190256,
+    "longitude": 109.932439
+  },
+  {
+    "release_id": "5-127",
+    "name": "塔温搭里哈遗址",
+    "release_address": "青海省都兰县",
+    "latitude": 36.302098,
+    "longitude": 98.095889
+  },
+  {
+    "release_id": "5-128",
+    "name": "开城遗址",
+    "release_address": "宁夏回族自治区固原县",
+    "latitude": 38.472273,
+    "longitude": 106.258889
+  },
+  {
+    "release_id": "5-133",
+    "name": "罗布泊南古城遗址",
+    "release_address": "新疆维吾尔自治区若羌县",
+    "latitude": 39.022626,
+    "longitude": 88.167226
+  },
+  {
+    "release_id": "5-134",
+    "name": "莫尔寺遗址",
+    "release_address": "新疆维吾尔自治区疏附县",
+    "latitude": 39.375052,
+    "longitude": 75.862839
+  },
+  {
+    "release_id": "5-137",
+    "name": "安迪尔古城遗址",
+    "release_address": "新疆维吾尔自治区民丰县",
+    "latitude": 37.064428,
+    "longitude": 82.695946
+  },
+  {
+    "release_id": "5-145",
+    "name": "景泰陵",
+    "release_address": "北京市海淀区",
+    "latitude": 39.959893,
+    "longitude": 116.2977
+  },
+  {
+    "release_id": "5-154",
+    "name": "宝山、罕苏木墓群",
+    "release_address": "内蒙古自治区阿鲁科尔沁旗",
+    "latitude": 43.872398,
+    "longitude": 120.065533
+  },
+  {
+    "release_id": "5-165",
+    "name": "曹氏家族墓群",
+    "release_address": "安徽省亳州市",
+    "latitude": 33.846285,
+    "longitude": 115.778588
+  },
+  {
+    "release_id": "5-174",
+    "name": "朱载堉墓",
+    "release_address": "河南省沁阳市",
+    "latitude": 35.087569,
+    "longitude": 112.950873
+  },
+  {
+    "release_id": "5-181",
+    "name": "烈山墓地",
+    "release_address": "西藏自治区朗县",
+    "latitude": 29.046892,
+    "longitude": 93.07254
+  },
+  {
+    "release_id": "5-190",
+    "name": "察吾乎古墓群",
+    "release_address": "新疆维吾尔自治区和静县",
+    "latitude": 42.323625,
+    "longitude": 86.384065
+  },
+  {
+    "release_id": "5-205",
+    "name": "十方普觉寺",
+    "release_address": "北京市海淀区",
+    "latitude": 39.959893,
+    "longitude": 116.2977
+  },
+  {
+    "release_id": "5-210",
+    "name": "昭化寺",
+    "release_address": "河北省怀安县",
+    "latitude": 40.67527,
+    "longitude": 114.386488
+  },
+  {
+    "release_id": "5-214",
+    "name": "溥仁寺",
+    "release_address": "河北省承德市",
+    "latitude": 40.952942,
+    "longitude": 117.962749
+  },
+  {
+    "release_id": "5-230",
+    "name": "荆庄大云寺大雄宝殿",
+    "release_address": "山西省浑源县",
+    "latitude": 39.706485,
+    "longitude": 113.69183
+  },
+  {
+    "release_id": "5-232",
+    "name": "观音堂",
+    "release_address": "山西省长治市",
+    "latitude": 36.195142,
+    "longitude": 113.117394
+  },
+  {
+    "release_id": "5-237",
+    "name": "明惠大师塔",
+    "release_address": "山西省平顺县",
+    "latitude": 36.20037,
+    "longitude": 113.435859
+  },
+  {
+    "release_id": "5-239",
+    "name": "慈相寺",
+    "release_address": "山西省平遥县",
+    "latitude": 37.189614,
+    "longitude": 112.175825
+  },
+  {
+    "release_id": "5-245",
+    "name": "觉山寺塔",
+    "release_address": "山西省灵丘县",
+    "latitude": 39.442459,
+    "longitude": 114.234452
+  },
+  {
+    "release_id": "5-281",
+    "name": "开鲁县佛塔",
+    "release_address": "内蒙古自治区开鲁县",
+    "latitude": 43.601446,
+    "longitude": 121.319216
+  },
+  {
+    "release_id": "5-282",
+    "name": "广济寺古建筑群",
+    "release_address": "辽宁省锦州市",
+    "latitude": 41.096114,
+    "longitude": 121.126859
+  },
+  {
+    "release_id": "5-297",
+    "name": "通济堰",
+    "release_address": "浙江省丽水市",
+    "latitude": 28.467694,
+    "longitude": 119.923249
+  },
+  {
+    "release_id": "5-305",
+    "name": "桃渚城",
+    "release_address": "浙江省临海市",
+    "latitude": 28.859042,
+    "longitude": 121.144625
+  },
+  {
+    "release_id": "5-329",
+    "name": "宝山寺大殿",
+    "release_address": "福建省顺昌县",
+    "latitude": 26.793455,
+    "longitude": 117.809433
+  },
+  {
+    "release_id": "5-367",
+    "name": "张谷英村古建筑群",
+    "release_address": "湖南省岳阳县",
+    "latitude": 29.144681,
+    "longitude": 113.116152
+  },
+  {
+    "release_id": "5-382",
+    "name": "丁房阙—无铭阙",
+    "release_address": "重庆市忠县",
+    "latitude": 30.299817,
+    "longitude": 108.038073
+  },
+  {
+    "release_id": "5-384",
+    "name": "直波碉楼",
+    "release_address": "四川省马尔康县",
+    "latitude": 31.905799,
+    "longitude": 102.206386
+  },
+  {
+    "release_id": "5-389",
+    "name": "五龙庙文昌阁",
+    "release_address": "四川省阆中市",
+    "latitude": 31.558356,
+    "longitude": 106.005046
+  },
+  {
+    "release_id": "5-392",
+    "name": "观音寺",
+    "release_address": "四川省新津县",
+    "latitude": 30.410404,
+    "longitude": 103.810906
+  },
+  {
+    "release_id": "5-398",
+    "name": "云山屯古建筑群",
+    "release_address": "贵州省安顺市",
+    "latitude": 26.253103,
+    "longitude": 105.9476
+  },
+  {
+    "release_id": "5-407",
+    "name": "朗色林庄园",
+    "release_address": "西藏自治区扎囊县",
+    "latitude": 29.245113,
+    "longitude": 91.33725
+  },
+  {
+    "release_id": "5-421",
+    "name": "八云塔",
+    "release_address": "陕西省周至县",
+    "latitude": 34.163592,
+    "longitude": 108.222219
+  },
+  {
+    "release_id": "5-427",
+    "name": "党家村古建筑群",
+    "release_address": "陕西省韩城市",
+    "latitude": 35.477145,
+    "longitude": 110.44295
+  },
+  {
+    "release_id": "5-433",
+    "name": "圆通寺塔",
+    "release_address": "甘肃省民乐县",
+    "latitude": 38.430318,
+    "longitude": 100.812047
+  },
+  {
+    "release_id": "5-439",
+    "name": "昭苏圣佑庙",
+    "release_address": "新疆维吾尔自治区昭苏县",
+    "latitude": 43.157293,
+    "longitude": 81.130974
+  },
+  {
+    "release_id": "5-446",
+    "name": "千佛崖石窟及明征君碑",
+    "release_address": "江苏省南京市",
+    "latitude": 32.059344,
+    "longitude": 118.796624
+  },
+  {
+    "release_id": "5-457",
+    "name": "大丕山摩崖大佛及石刻",
+    "release_address": "河南省浚县",
+    "latitude": 35.677249,
+    "longitude": 114.550611
+  },
+  {
+    "release_id": "5-459",
+    "name": "大唐嵩阳观纪圣德感应之颂碑",
+    "release_address": "河南省登封市",
+    "latitude": 34.454877,
+    "longitude": 113.05056
+  },
+  {
+    "release_id": "5-460",
+    "name": "七星岩摩崖石刻",
+    "release_address": "广东省肇庆市",
+    "latitude": 23.047747,
+    "longitude": 112.465245
+  },
+  {
+    "release_id": "5-472",
+    "name": "平定准噶尔勒铭碑",
+    "release_address": "新疆维吾尔自治区昭苏县",
+    "latitude": 43.157293,
+    "longitude": 81.130974
+  },
+  {
+    "release_id": "5-492",
+    "name": "龙港革命旧址",
+    "release_address": "湖北省阳新县",
+    "latitude": 29.830236,
+    "longitude": 115.215211
+  },
+  {
+    "release_id": "5-514",
+    "name": "四堡书坊建筑",
+    "release_address": "福建省连城县",
+    "latitude": 25.710538,
+    "longitude": 116.754472
+  },
+  {
+    "release_id": "6-6",
+    "name": "北福地遗址",
+    "release_address": "河北省易县",
+    "latitude": 39.350219,
+    "longitude": 115.497487
+  },
+  {
+    "release_id": "6-13",
+    "name": "土城子城址",
+    "release_address": "河北省尚义县",
+    "latitude": 41.076588,
+    "longitude": 113.968763
+  },
+  {
+    "release_id": "6-22",
+    "name": "上郭城址和邱家庄墓群",
+    "release_address": "山西省闻喜县",
+    "latitude": 35.356664,
+    "longitude": 111.224485
+  },
+  {
+    "release_id": "6-23",
+    "name": "南村城址",
+    "release_address": "山西省方山县",
+    "latitude": 37.895017,
+    "longitude": 111.244309
+  },
+  {
+    "release_id": "6-24",
+    "name": "黄河栈道遗址",
+    "release_address": "山西省平陆县",
+    "latitude": 34.829595,
+    "longitude": 111.193957
+  },
+  {
+    "release_id": "6-33",
+    "name": "麻池城址和召湾墓群",
+    "release_address": "内蒙古自治区包头市",
+    "latitude": 40.621327,
+    "longitude": 109.95315
+  },
+  {
+    "release_id": "6-34",
+    "name": "黑城城址",
+    "release_address": "内蒙古自治区宁城县",
+    "latitude": 41.600193,
+    "longitude": 119.320056
+  },
+  {
+    "release_id": "6-35",
+    "name": "朔方郡故城",
+    "release_address": "内蒙古自治区磴口县、巴彦淖尔市",
+    "latitude": 40.742987,
+    "longitude": 107.387767
+  },
+  {
+    "release_id": "6-39",
+    "name": "白灵淖尔城址",
+    "release_address": "内蒙古自治区固阳县",
+    "latitude": 41.034757,
+    "longitude": 110.060055
+  },
+  {
+    "release_id": "6-42",
+    "name": "查干浩特城址",
+    "release_address": "内蒙古自治区阿鲁科尔沁旗",
+    "latitude": 43.872398,
+    "longitude": 120.065533
+  },
+  {
+    "release_id": "6-43",
+    "name": "安答堡子城址",
+    "release_address": "内蒙古自治区达尔罕茂明安联合旗",
+    "latitude": 41.698992,
+    "longitude": 110.432626
+  },
+  {
+    "release_id": "6-45",
+    "name": "砂井路总管府故城",
+    "release_address": "内蒙古自治区四子王旗",
+    "latitude": 41.533542,
+    "longitude": 111.706663
+  },
+  {
+    "release_id": "6-55",
+    "name": "城山子山城",
+    "release_address": "吉林省敦化市",
+    "latitude": 43.372669,
+    "longitude": 128.232235
+  },
+  {
+    "release_id": "6-56",
+    "name": "磨盘村山城",
+    "release_address": "吉林省图们市",
+    "latitude": 42.968039,
+    "longitude": 129.843807
+  },
+  {
+    "release_id": "6-92",
+    "name": "永丰库遗址",
+    "release_address": "浙江省宁波市",
+    "latitude": 29.860258,
+    "longitude": 121.62454
+  },
+  {
+    "release_id": "6-101",
+    "name": "白口城址",
+    "release_address": "江西省泰和县",
+    "latitude": 26.801687,
+    "longitude": 114.922987
+  },
+  {
+    "release_id": "6-107",
+    "name": "贾柏遗址",
+    "release_address": "山东省汶上县",
+    "latitude": 35.711891,
+    "longitude": 116.497277
+  },
+  {
+    "release_id": "6-111",
+    "name": "两城镇遗址",
+    "release_address": "山东省日照市",
+    "latitude": 35.416912,
+    "longitude": 119.52685
+  },
+  {
+    "release_id": "6-125",
+    "name": "寨里窑址",
+    "release_address": "山东省淄博市",
+    "latitude": 36.813787,
+    "longitude": 118.054994
+  },
+  {
+    "release_id": "6-129",
+    "name": "石固遗址",
+    "release_address": "河南省长葛市",
+    "latitude": 34.195458,
+    "longitude": 113.813972
+  },
+  {
+    "release_id": "6-132",
+    "name": "李庄遗址",
+    "release_address": "河南省柘城县",
+    "latitude": 34.092015,
+    "longitude": 115.305182
+  },
+  {
+    "release_id": "6-152",
+    "name": "段店窑址",
+    "release_address": "河南省鲁山县",
+    "latitude": 33.738434,
+    "longitude": 112.908052
+  },
+  {
+    "release_id": "6-156",
+    "name": "张公巷窑址",
+    "release_address": "河南省汝州市",
+    "latitude": 34.16717,
+    "longitude": 112.844696
+  },
+  {
+    "release_id": "6-167",
+    "name": "舜帝庙遗址",
+    "release_address": "湖南省宁远县",
+    "latitude": 25.570817,
+    "longitude": 111.945925
+  },
+  {
+    "release_id": "6-173",
+    "name": "智城城址",
+    "release_address": "广西壮族自治区上林县",
+    "latitude": 23.432451,
+    "longitude": 108.605089
+  },
+  {
+    "release_id": "6-174",
+    "name": "甘泉岛遗址",
+    "release_address": "海南省西、南、中沙群岛办事处",
+    "latitude": 16.050384,
+    "longitude": 114.48481
+  },
+  {
+    "release_id": "6-177",
+    "name": "营盘山和姜维城遗址",
+    "release_address": "四川省茂县、汶川县",
+    "latitude": 31.476875,
+    "longitude": 103.590185
+  },
+  {
+    "release_id": "6-184",
+    "name": "剑南春酒坊遗址",
+    "release_address": "四川省绵竹市",
+    "latitude": 31.339251,
+    "longitude": 104.220679
+  },
+  {
+    "release_id": "6-187",
+    "name": "白羊村遗址",
+    "release_address": "云南省宾川县",
+    "latitude": 25.830491,
+    "longitude": 100.590274
+  },
+  {
+    "release_id": "6-188",
+    "name": "珑玗图山城址",
+    "release_address": "云南省巍山彝族回族自治县",
+    "latitude": 25.227065,
+    "longitude": 100.306977
+  },
+  {
+    "release_id": "6-195",
+    "name": "横阵遗址",
+    "release_address": "陕西省华阴市",
+    "latitude": 34.566552,
+    "longitude": 110.092286
+  },
+  {
+    "release_id": "6-196",
+    "name": "凤凰山遗址",
+    "release_address": "陕西省岐山县",
+    "latitude": 34.44373,
+    "longitude": 107.621397
+  },
+  {
+    "release_id": "6-201",
+    "name": "麟州故城",
+    "release_address": "陕西省神木县",
+    "latitude": 38.899742,
+    "longitude": 110.466867
+  },
+  {
+    "release_id": "6-203",
+    "name": "牛门洞遗址",
+    "release_address": "甘肃省会宁县",
+    "latitude": 35.693241,
+    "longitude": 105.052883
+  },
+  {
+    "release_id": "6-208",
+    "name": "八卦营城址",
+    "release_address": "甘肃省民乐县",
+    "latitude": 38.430318,
+    "longitude": 100.812047
+  },
+  {
+    "release_id": "6-209",
+    "name": "八角城城址",
+    "release_address": "甘肃省夏河县",
+    "latitude": 35.203857,
+    "longitude": 102.548303
+  },
+  {
+    "release_id": "6-211",
+    "name": "柳湾遗址",
+    "release_address": "青海省乐都县",
+    "latitude": 36.482242,
+    "longitude": 102.401614
+  },
+  {
+    "release_id": "6-215",
+    "name": "照壁山铜矿遗址",
+    "release_address": "宁夏回族自治区中卫市",
+    "latitude": 37.500185,
+    "longitude": 105.19677
+  },
+  {
+    "release_id": "6-217",
+    "name": "张家场城址",
+    "release_address": "宁夏回族自治区盐池县",
+    "latitude": 37.783276,
+    "longitude": 107.407184
+  },
+  {
+    "release_id": "6-221",
+    "name": "金陵",
+    "release_address": "北京市房山区",
+    "latitude": 39.748889,
+    "longitude": 116.143426
+  },
+  {
+    "release_id": "6-222",
+    "name": "利玛窦和外国传教士墓地",
+    "release_address": "北京市西城区",
+    "latitude": 39.9126,
+    "longitude": 116.36585
+  },
+  {
+    "release_id": "6-226",
+    "name": "隆尧唐祖陵",
+    "release_address": "河北省隆尧县",
+    "latitude": 37.351232,
+    "longitude": 114.770509
+  },
+  {
+    "release_id": "6-235",
+    "name": "栗毓美墓",
+    "release_address": "山西省浑源县",
+    "latitude": 39.706485,
+    "longitude": 113.69183
+  },
+  {
+    "release_id": "6-238",
+    "name": "韩匡嗣家族墓地",
+    "release_address": "内蒙古自治区巴林左旗",
+    "latitude": 43.961547,
+    "longitude": 119.362832
+  },
+  {
+    "release_id": "6-245",
+    "name": "刀背山墓地",
+    "release_address": "黑龙江省鸡西市",
+    "latitude": 45.295087,
+    "longitude": 130.969385
+  },
+  {
+    "release_id": "6-247",
+    "name": "徐州墓群",
+    "release_address": "江苏省徐州市、铜山县",
+    "latitude": 34.181162,
+    "longitude": 117.169698
+  },
+  {
+    "release_id": "6-248",
+    "name": "象山王氏家族墓地",
+    "release_address": "江苏省南京市",
+    "latitude": 32.059344,
+    "longitude": 118.796624
+  },
+  {
+    "release_id": "6-251",
+    "name": "于谦墓",
+    "release_address": "浙江省杭州市",
+    "latitude": 30.246566,
+    "longitude": 120.209903
+  },
+  {
+    "release_id": "6-258",
+    "name": "洗砚池墓群",
+    "release_address": "山东省临沂市",
+    "latitude": 35.103771,
+    "longitude": 118.356464
+  },
+  {
+    "release_id": "6-260",
+    "name": "韩氏家族墓地",
+    "release_address": "山东省莘县",
+    "latitude": 36.233711,
+    "longitude": 115.669843
+  },
+  {
+    "release_id": "6-273",
+    "name": "凉山大石墓群",
+    "release_address": "四川省德昌县、喜德县",
+    "latitude": 28.306429,
+    "longitude": 102.412451
+  },
+  {
+    "release_id": "6-275",
+    "name": "塔梁子崖墓群",
+    "release_address": "四川省中江县",
+    "latitude": 31.03327,
+    "longitude": 104.678601
+  },
+  {
+    "release_id": "6-280",
+    "name": "交乐墓群",
+    "release_address": "贵州省兴仁县",
+    "latitude": 25.43509,
+    "longitude": 105.186132
+  },
+  {
+    "release_id": "6-282",
+    "name": "营盘村墓群",
+    "release_address": "云南省永胜县",
+    "latitude": 26.684215,
+    "longitude": 100.750907
+  },
+  {
+    "release_id": "6-283",
+    "name": "查木钦墓群",
+    "release_address": "西藏自治区拉孜县",
+    "latitude": 29.08188,
+    "longitude": 87.636934
+  },
+  {
+    "release_id": "6-289",
+    "name": "楼兰墓群",
+    "release_address": "新疆维吾尔自治区若羌县",
+    "latitude": 39.022626,
+    "longitude": 88.167226
+  },
+  {
+    "release_id": "6-302",
+    "name": "中南海",
+    "release_address": "北京市西城区",
+    "latitude": 39.9126,
+    "longitude": 116.36585
+  },
+  {
+    "release_id": "6-308",
+    "name": "关岳庙",
+    "release_address": "北京市西城区",
+    "latitude": 39.9126,
+    "longitude": 116.36585
+  },
+  {
+    "release_id": "6-321",
+    "name": "静志寺塔基地宫",
+    "release_address": "河北省定州市",
+    "latitude": 38.516746,
+    "longitude": 114.990321
+  },
+  {
+    "release_id": "6-324",
+    "name": "圣塔院塔",
+    "release_address": "河北省易县",
+    "latitude": 39.350219,
+    "longitude": 115.497487
+  },
+  {
+    "release_id": "6-326",
+    "name": "兴文塔",
+    "release_address": "河北省涞源县",
+    "latitude": 39.360622,
+    "longitude": 114.694416
+  },
+  {
+    "release_id": "6-359",
+    "name": "金洞寺",
+    "release_address": "山西省忻州市",
+    "latitude": 38.415958,
+    "longitude": 112.734149
+  },
+  {
+    "release_id": "6-370",
+    "name": "禅房寺塔",
+    "release_address": "山西省大同市",
+    "latitude": 40.09711,
+    "longitude": 113.366749
+  },
+  {
+    "release_id": "6-373",
+    "name": "灵泽王庙",
+    "release_address": "山西省襄垣县",
+    "latitude": 36.535629,
+    "longitude": 113.051298
+  },
+  {
+    "release_id": "6-381",
+    "name": "延庆寺",
+    "release_address": "山西省五台县",
+    "latitude": 38.728056,
+    "longitude": 113.255419
+  },
+  {
+    "release_id": "6-382",
+    "name": "中坪二仙宫",
+    "release_address": "山西省高平市",
+    "latitude": 35.798775,
+    "longitude": 112.923798
+  },
+  {
+    "release_id": "6-387",
+    "name": "王报二郎庙",
+    "release_address": "山西省高平市",
+    "latitude": 35.798775,
+    "longitude": 112.923798
+  },
+  {
+    "release_id": "6-396",
+    "name": "天王寺",
+    "release_address": "山西省长子县",
+    "latitude": 36.122258,
+    "longitude": 112.877922
+  },
+  {
+    "release_id": "6-405",
+    "name": "坡头泰山庙",
+    "release_address": "山西省盂县",
+    "latitude": 38.086041,
+    "longitude": 113.412279
+  },
+  {
+    "release_id": "6-419",
+    "name": "普净寺",
+    "release_address": "山西省襄汾县",
+    "latitude": 35.876293,
+    "longitude": 111.441725
+  },
+  {
+    "release_id": "6-431",
+    "name": "南撖东岳庙",
+    "release_address": "山西省翼城县",
+    "latitude": 35.739706,
+    "longitude": 111.719048
+  },
+  {
+    "release_id": "6-433",
+    "name": "景云宫玉皇殿",
+    "release_address": "山西省绛县",
+    "latitude": 35.491764,
+    "longitude": 111.568849
+  },
+  {
+    "release_id": "6-439",
+    "name": "寨里关帝庙献殿",
+    "release_address": "山西省运城市",
+    "latitude": 35.02667,
+    "longitude": 111.007051
+  },
+  {
+    "release_id": "6-446",
+    "name": "善庆寺",
+    "release_address": "山西省临县",
+    "latitude": 37.951008,
+    "longitude": 110.992712
+  },
+  {
+    "release_id": "6-459",
+    "name": "王家大院",
+    "release_address": "山西省灵石县",
+    "latitude": 36.848085,
+    "longitude": 111.778692
+  },
+  {
+    "release_id": "6-461",
+    "name": "孟家沟龙泉寺",
+    "release_address": "山西省寿阳县",
+    "latitude": 37.895191,
+    "longitude": 113.176373
+  },
+  {
+    "release_id": "6-472",
+    "name": "慈云寺",
+    "release_address": "山西省天镇县",
+    "latitude": 40.42087,
+    "longitude": 114.090871
+  },
+  {
+    "release_id": "6-493",
+    "name": "诺尔古建筑群",
+    "release_address": "内蒙古自治区多伦县",
+    "latitude": 42.203454,
+    "longitude": 116.485549
+  },
+  {
+    "release_id": "6-495",
+    "name": "僧格林沁王府",
+    "release_address": "内蒙古自治区科尔沁左翼后旗",
+    "latitude": 42.935105,
+    "longitude": 122.35677
+  },
+  {
+    "release_id": "6-497",
+    "name": "云接寺塔",
+    "release_address": "辽宁省朝阳市",
+    "latitude": 41.601855,
+    "longitude": 120.488801
+  },
+  {
+    "release_id": "6-498",
+    "name": "中前所城",
+    "release_address": "辽宁省绥中县",
+    "latitude": 40.325576,
+    "longitude": 120.34432
+  },
+  {
+    "release_id": "6-507",
+    "name": "泰伯庙和墓",
+    "release_address": "江苏省无锡市",
+    "latitude": 31.491064,
+    "longitude": 120.311889
+  },
+  {
+    "release_id": "6-512",
+    "name": "海清寺塔",
+    "release_address": "江苏省连云港市",
+    "latitude": 34.596639,
+    "longitude": 119.221487
+  },
+  {
+    "release_id": "6-513",
+    "name": "紫金庵罗汉塑像",
+    "release_address": "江苏省苏州市",
+    "latitude": 31.299758,
+    "longitude": 120.585294
+  },
+  {
+    "release_id": "6-519",
+    "name": "寂鉴寺石殿",
+    "release_address": "江苏省苏州市",
+    "latitude": 31.299758,
+    "longitude": 120.585294
+  },
+  {
+    "release_id": "6-526",
+    "name": "赵用贤宅",
+    "release_address": "江苏省常熟市",
+    "latitude": 31.656016,
+    "longitude": 120.752512
+  },
+  {
+    "release_id": "6-527",
+    "name": "张溥宅第",
+    "release_address": "江苏省太仓市",
+    "latitude": 31.458043,
+    "longitude": 121.130344
+  },
+  {
+    "release_id": "6-547",
+    "name": "白云庄和黄宗羲、万斯同、全祖望墓",
+    "release_address": "浙江省宁波市、余姚市、奉化市",
+    "latitude": 30.037967,
+    "longitude": 121.154572
+  },
+  {
+    "release_id": "6-571",
+    "name": "江村古建筑群",
+    "release_address": "安徽省旌德县",
+    "latitude": 30.298287,
+    "longitude": 118.550043
+  },
+  {
+    "release_id": "6-575",
+    "name": "竹山书院",
+    "release_address": "安徽省歙县",
+    "latitude": 29.861354,
+    "longitude": 118.415258
+  },
+  {
+    "release_id": "6-576",
+    "name": "黄田村古建筑群",
+    "release_address": "安徽省泾县",
+    "latitude": 30.688793,
+    "longitude": 118.419552
+  },
+  {
+    "release_id": "6-581",
+    "name": "圣寿宝塔",
+    "release_address": "福建省长乐市",
+    "latitude": 25.888274,
+    "longitude": 119.593579
+  },
+  {
+    "release_id": "6-584",
+    "name": "培田村古建筑群",
+    "release_address": "福建省连城县",
+    "latitude": 25.710538,
+    "longitude": 116.754472
+  },
+  {
+    "release_id": "6-585",
+    "name": "南山宫",
+    "release_address": "福建省华安县",
+    "latitude": 25.00445,
+    "longitude": 117.53411
+  },
+  {
+    "release_id": "6-595",
+    "name": "德远堂",
+    "release_address": "福建省南靖县",
+    "latitude": 24.5151,
+    "longitude": 117.357061
+  },
+  {
+    "release_id": "6-596",
+    "name": "施琅宅、祠和墓",
+    "release_address": "福建省晋江市、惠安县",
+    "latitude": 25.012449,
+    "longitude": 118.781037
+  },
+  {
+    "release_id": "6-600",
+    "name": "建瓯东岳庙",
+    "release_address": "福建省建瓯市",
+    "latitude": 27.023233,
+    "longitude": 118.304712
+  },
+  {
+    "release_id": "6-601",
+    "name": "真如寺塔林",
+    "release_address": "江西省永修县",
+    "latitude": 29.011392,
+    "longitude": 115.83207
+  },
+  {
+    "release_id": "6-603",
+    "name": "赣州佛塔",
+    "release_address": "江西省赣州市、大余县、信丰县、安远县、石城县",
+    "latitude": 25.38676,
+    "longitude": 114.922485
+  },
+  {
+    "release_id": "6-607",
+    "name": "鹅湖书院",
+    "release_address": "江西省铅山县",
+    "latitude": 28.298415,
+    "longitude": 117.734742
+  },
+  {
+    "release_id": "6-614",
+    "name": "隆兴寺铁塔",
+    "release_address": "山东省聊城市",
+    "latitude": 36.455857,
+    "longitude": 115.985238
+  },
+  {
+    "release_id": "6-655",
+    "name": "陈元光祖祠",
+    "release_address": "河南省固始县",
+    "latitude": 32.169239,
+    "longitude": 115.654066
+  },
+  {
+    "release_id": "6-666",
+    "name": "武当山建筑群",
+    "release_address": "湖北省十堰市、丹江口市",
+    "latitude": 32.540287,
+    "longitude": 111.513318
+  },
+  {
+    "release_id": "6-671",
+    "name": "高椅村古建筑群",
+    "release_address": "湖南省会同县",
+    "latitude": 26.887156,
+    "longitude": 109.734724
+  },
+  {
+    "release_id": "6-673",
+    "name": "南岳庙",
+    "release_address": "湖南省衡阳市",
+    "latitude": 26.894216,
+    "longitude": 112.572016
+  },
+  {
+    "release_id": "6-676",
+    "name": "蔡侯祠",
+    "release_address": "湖南省耒阳市",
+    "latitude": 26.422149,
+    "longitude": 112.859806
+  },
+  {
+    "release_id": "6-677",
+    "name": "余家碑坊",
+    "release_address": "湖南省澧县",
+    "latitude": 29.633138,
+    "longitude": 111.758806
+  },
+  {
+    "release_id": "6-687",
+    "name": "陈芳家宅",
+    "release_address": "广东省珠海市",
+    "latitude": 22.271644,
+    "longitude": 113.576892
+  },
+  {
+    "release_id": "6-690",
+    "name": "燕窝楼",
+    "release_address": "广西壮族自治区全州县",
+    "latitude": 25.94939,
+    "longitude": 111.087089
+  },
+  {
+    "release_id": "6-698",
+    "name": "彭州佛塔",
+    "release_address": "四川省彭州市",
+    "latitude": 30.990463,
+    "longitude": 103.957706
+  },
+  {
+    "release_id": "6-702",
+    "name": "鹫峰寺塔",
+    "release_address": "四川省蓬溪县",
+    "latitude": 30.75763,
+    "longitude": 105.707498
+  },
+  {
+    "release_id": "6-706",
+    "name": "措尔机寺",
+    "release_address": "四川省壤塘县",
+    "latitude": 32.265796,
+    "longitude": 100.978526
+  },
+  {
+    "release_id": "6-711",
+    "name": "旋螺殿",
+    "release_address": "四川省宜宾市",
+    "latitude": 28.752354,
+    "longitude": 104.642826
+  },
+  {
+    "release_id": "6-712",
+    "name": "开善寺正殿",
+    "release_address": "四川省荥经县",
+    "latitude": 29.793254,
+    "longitude": 102.846537
+  },
+  {
+    "release_id": "6-715",
+    "name": "松格嘛呢石经城和巴格嘛呢石经墙",
+    "release_address": "四川省石渠县",
+    "latitude": 32.978728,
+    "longitude": 98.102938
+  },
+  {
+    "release_id": "6-717",
+    "name": "望江楼古建筑群",
+    "release_address": "四川省成都市",
+    "latitude": 30.572961,
+    "longitude": 104.066301
+  },
+  {
+    "release_id": "6-725",
+    "name": "资中文庙和武庙",
+    "release_address": "四川省资中县",
+    "latitude": 29.763419,
+    "longitude": 104.851874
+  },
+  {
+    "release_id": "6-730",
+    "name": "东山古建筑群",
+    "release_address": "贵州省铜仁市",
+    "latitude": 27.731555,
+    "longitude": 109.189528
+  },
+  {
+    "release_id": "6-735",
+    "name": "旧州古建筑群",
+    "release_address": "贵州省黄平县",
+    "latitude": 26.905278,
+    "longitude": 107.916651
+  },
+  {
+    "release_id": "6-738",
+    "name": "水目寺塔",
+    "release_address": "云南省祥云县",
+    "latitude": 25.483727,
+    "longitude": 100.549961
+  },
+  {
+    "release_id": "6-740",
+    "name": "佛图寺塔",
+    "release_address": "云南省大理市",
+    "latitude": 25.678466,
+    "longitude": 100.301614
+  },
+  {
+    "release_id": "6-743",
+    "name": "秀山古建筑群",
+    "release_address": "云南省通海县",
+    "latitude": 24.11114,
+    "longitude": 102.725538
+  },
+  {
+    "release_id": "6-747",
+    "name": "州城文庙和武庙",
+    "release_address": "云南省宾川县",
+    "latitude": 25.830491,
+    "longitude": 100.590274
+  },
+  {
+    "release_id": "6-749",
+    "name": "黑龙潭古建筑群",
+    "release_address": "云南省丽江市",
+    "latitude": 26.855165,
+    "longitude": 100.225936
+  },
+  {
+    "release_id": "6-753",
+    "name": "西门街古建筑群",
+    "release_address": "云南省剑川县",
+    "latitude": 26.536889,
+    "longitude": 99.905041
+  },
+  {
+    "release_id": "6-767",
+    "name": "邦纳寺",
+    "release_address": "西藏自治区索县",
+    "latitude": 31.888045,
+    "longitude": 93.785068
+  },
+  {
+    "release_id": "6-768",
+    "name": "康松桑卡林",
+    "release_address": "西藏自治区扎囊县",
+    "latitude": 29.245113,
+    "longitude": 91.33725
+  },
+  {
+    "release_id": "6-772",
+    "name": "百良寿圣寺塔",
+    "release_address": "陕西省合阳县",
+    "latitude": 35.237881,
+    "longitude": 110.149412
+  },
+  {
+    "release_id": "6-775",
+    "name": "大秦寺塔",
+    "release_address": "陕西省周至县",
+    "latitude": 34.163592,
+    "longitude": 108.222219
+  },
+  {
+    "release_id": "6-778",
+    "name": "神德寺塔",
+    "release_address": "陕西省铜川市",
+    "latitude": 34.897133,
+    "longitude": 108.945116
+  },
+  {
+    "release_id": "6-784",
+    "name": "榆林卫城",
+    "release_address": "陕西省榆林市",
+    "latitude": 38.28576,
+    "longitude": 109.734104
+  },
+  {
+    "release_id": "6-788",
+    "name": "玄武庙青石殿",
+    "release_address": "陕西省合阳县",
+    "latitude": 35.237881,
+    "longitude": 110.149412
+  },
+  {
+    "release_id": "6-791",
+    "name": "盘龙山古建筑群",
+    "release_address": "陕西省米脂县",
+    "latitude": 37.755134,
+    "longitude": 110.183984
+  },
+  {
+    "release_id": "6-794",
+    "name": "湘乐砖塔",
+    "release_address": "甘肃省宁县",
+    "latitude": 35.509252,
+    "longitude": 107.913463
+  },
+  {
+    "release_id": "6-801",
+    "name": "罗川赵氏石坊",
+    "release_address": "甘肃省正宁县",
+    "latitude": 35.492158,
+    "longitude": 108.359964
+  },
+  {
+    "release_id": "6-804",
+    "name": "张掖会馆",
+    "release_address": "甘肃省张掖市",
+    "latitude": 38.924766,
+    "longitude": 100.449858
+  },
+  {
+    "release_id": "6-805",
+    "name": "格萨尔三十大将军灵塔和达那寺",
+    "release_address": "青海省囊谦县",
+    "latitude": 32.203193,
+    "longitude": 96.489538
+  },
+  {
+    "release_id": "6-809",
+    "name": "靖远寺",
+    "release_address": "新疆维吾尔自治区察布查尔锡伯自治县",
+    "latitude": 43.840726,
+    "longitude": 81.151337
+  },
+  {
+    "release_id": "6-817",
+    "name": "金灯寺石窟",
+    "release_address": "山西省平顺县",
+    "latitude": 36.20037,
+    "longitude": 113.435859
+  },
+  {
+    "release_id": "6-819",
+    "name": "真寂之寺石窟",
+    "release_address": "内蒙古自治区巴林左旗",
+    "latitude": 43.961547,
+    "longitude": 119.362832
+  },
+  {
+    "release_id": "6-826",
+    "name": "栖云洞造像",
+    "release_address": "福建省罗源县",
+    "latitude": 26.490215,
+    "longitude": 119.549129
+  },
+  {
+    "release_id": "6-831",
+    "name": "大智彭氏家族石刻",
+    "release_address": "江西省安福县",
+    "latitude": 27.393286,
+    "longitude": 114.619818
+  },
+  {
+    "release_id": "6-835",
+    "name": "青天河摩崖",
+    "release_address": "河南省博爱县",
+    "latitude": 35.170332,
+    "longitude": 113.064701
+  },
+  {
+    "release_id": "6-836",
+    "name": "西明寺造像碑",
+    "release_address": "河南省新乡县",
+    "latitude": 35.170066,
+    "longitude": 113.813884
+  },
+  {
+    "release_id": "6-837",
+    "name": "升仙太子碑",
+    "release_address": "河南省偃师市",
+    "latitude": 34.72715,
+    "longitude": 112.789375
+  },
+  {
+    "release_id": "6-841",
+    "name": "彼岸寺碑",
+    "release_address": "河南省漯河市",
+    "latitude": 33.58038,
+    "longitude": 114.0166
+  },
+  {
+    "release_id": "6-842",
+    "name": "刘碑寺碑",
+    "release_address": "河南省登封市",
+    "latitude": 34.454877,
+    "longitude": 113.05056
+  },
+  {
+    "release_id": "6-847",
+    "name": "慈孝沟“采皇木”摩崖",
+    "release_address": "湖北省竹溪县",
+    "latitude": 32.318257,
+    "longitude": 109.715322
+  },
+  {
+    "release_id": "6-854",
+    "name": "邛崃石窟",
+    "release_address": "四川省邛崃市",
+    "latitude": 30.41029,
+    "longitude": 103.464176
+  },
+  {
+    "release_id": "6-858",
+    "name": "通江千佛岩石窟",
+    "release_address": "四川省通江县",
+    "latitude": 31.911705,
+    "longitude": 107.245033
+  },
+  {
+    "release_id": "6-859",
+    "name": "牛角寨石窟",
+    "release_address": "四川省仁寿县",
+    "latitude": 29.995638,
+    "longitude": 104.133931
+  },
+  {
+    "release_id": "6-863",
+    "name": "马哈只墓碑",
+    "release_address": "云南省晋宁县",
+    "latitude": 24.669077,
+    "longitude": 102.595325
+  },
+  {
+    "release_id": "6-866",
+    "name": "杨珣碑",
+    "release_address": "陕西省扶风县",
+    "latitude": 34.375636,
+    "longitude": 107.900157
+  },
+  {
+    "release_id": "6-868",
+    "name": "云崖寺和陈家洞石窟",
+    "release_address": "甘肃省庄浪县",
+    "latitude": 35.20266,
+    "longitude": 106.036201
+  },
+  {
+    "release_id": "6-872",
+    "name": "贝大日如来佛石窟寺和勒巴沟摩崖",
+    "release_address": "青海省玉树县",
+    "latitude": 32.992934,
+    "longitude": 97.009184
+  },
+  {
+    "release_id": "6-876",
+    "name": "亚斯立堂",
+    "release_address": "北京市东城区",
+    "latitude": 39.928359,
+    "longitude": 116.416334
+  },
+  {
+    "release_id": "6-891",
+    "name": "梁启超旧居",
+    "release_address": "天津市河北区",
+    "latitude": 39.148018,
+    "longitude": 117.196874
+  },
+  {
+    "release_id": "6-895",
+    "name": "义和拳议事厅旧址",
+    "release_address": "河北省威县",
+    "latitude": 36.975164,
+    "longitude": 115.266829
+  },
+  {
+    "release_id": "6-897",
+    "name": "保定陆军军官学校旧址",
+    "release_address": "河北省保定市",
+    "latitude": 38.874476,
+    "longitude": 115.464523
+  },
+  {
+    "release_id": "6-907",
+    "name": "山西省立第三中学旧址",
+    "release_address": "山西省大同市",
+    "latitude": 40.09711,
+    "longitude": 113.366749
+  },
+  {
+    "release_id": "6-908",
+    "name": "黄崖洞兵工厂旧址",
+    "release_address": "山西省黎城县",
+    "latitude": 36.502258,
+    "longitude": 113.387025
+  },
+  {
+    "release_id": "6-911",
+    "name": "“独贵龙”运动旧址",
+    "release_address": "内蒙古自治区乌审旗",
+    "latitude": 38.60453,
+    "longitude": 108.819485
+  },
+  {
+    "release_id": "6-927",
+    "name": "国际饭店",
+    "release_address": "上海市黄浦区",
+    "latitude": 31.231661,
+    "longitude": 121.48442
+  },
+  {
+    "release_id": "6-952",
+    "name": "笕桥中央航校旧址",
+    "release_address": "浙江省杭州市",
+    "latitude": 30.246566,
+    "longitude": 120.209903
+  },
+  {
+    "release_id": "6-954",
+    "name": "钱业会馆",
+    "release_address": "浙江省宁波市",
+    "latitude": 29.860258,
+    "longitude": 121.62454
+  },
+  {
+    "release_id": "6-958",
+    "name": "李氏庄园",
+    "release_address": "安徽省霍邱县",
+    "latitude": 32.353362,
+    "longitude": 116.277966
+  },
+  {
+    "release_id": "6-966",
+    "name": "集美学村和厦门大学早期建筑",
+    "release_address": "福建省厦门市",
+    "latitude": 24.479627,
+    "longitude": 118.08891
+  },
+  {
+    "release_id": "6-968",
+    "name": "建宁红一方面军领导机关旧址",
+    "release_address": "福建省建宁县",
+    "latitude": 26.833566,
+    "longitude": 116.848488
+  },
+  {
+    "release_id": "6-969",
+    "name": "中国工农红军东路军领导机关旧址",
+    "release_address": "福建省漳州市",
+    "latitude": 24.515297,
+    "longitude": 117.647298
+  },
+  {
+    "release_id": "6-972",
+    "name": "罗坊会议和兴国调查会旧址",
+    "release_address": "江西省新余市",
+    "latitude": 27.818553,
+    "longitude": 114.916665
+  },
+  {
+    "release_id": "6-977",
+    "name": "青岛啤酒厂早期建筑",
+    "release_address": "山东省青岛市",
+    "latitude": 36.066938,
+    "longitude": 120.382665
+  },
+  {
+    "release_id": "6-984",
+    "name": "河南留学欧美预备学校旧址",
+    "release_address": "河南省开封市",
+    "latitude": 34.798083,
+    "longitude": 114.314278
+  },
+  {
+    "release_id": "6-986",
+    "name": "中国工农红军第二十五军司令部旧址",
+    "release_address": "河南省新县",
+    "latitude": 31.643914,
+    "longitude": 114.879309
+  },
+  {
+    "release_id": "6-999",
+    "name": "红三军团革命旧址",
+    "release_address": "湖北省大冶市",
+    "latitude": 30.096263,
+    "longitude": 114.98046
+  },
+  {
+    "release_id": "6-1002",
+    "name": "荆江分洪闸",
+    "release_address": "湖北省公安县",
+    "latitude": 30.058519,
+    "longitude": 112.229742
+  },
+  {
+    "release_id": "6-1007",
+    "name": "东山书院旧址",
+    "release_address": "湖南省湘乡市",
+    "latitude": 27.718655,
+    "longitude": 112.550268
+  },
+  {
+    "release_id": "6-1010",
+    "name": "树德山庄",
+    "release_address": "湖南省东安县",
+    "latitude": 26.392173,
+    "longitude": 111.315893
+  },
+  {
+    "release_id": "6-1014",
+    "name": "抗日胜利芷江洽降旧址",
+    "release_address": "湖南省芷江侗族自治县",
+    "latitude": 27.443429,
+    "longitude": 109.684696
+  },
+  {
+    "release_id": "6-1022",
+    "name": "容县近代建筑",
+    "release_address": "广西壮族自治区容县",
+    "latitude": 22.85844,
+    "longitude": 110.558093
+  },
+  {
+    "release_id": "6-1023",
+    "name": "太平天国永安活动旧址",
+    "release_address": "广西壮族自治区蒙山县",
+    "latitude": 24.193567,
+    "longitude": 110.525003
+  },
+  {
+    "release_id": "6-1028",
+    "name": "湘江战役旧址",
+    "release_address": "广西壮族自治区兴安县、全州县、灌阳县",
+    "latitude": 25.612576,
+    "longitude": 110.672013
+  },
+  {
+    "release_id": "6-1034",
+    "name": "杨氏民宅",
+    "release_address": "重庆市潼南县",
+    "latitude": 30.191077,
+    "longitude": 105.840487
+  },
+  {
+    "release_id": "6-1039",
+    "name": "领报修院",
+    "release_address": "四川省彭州市",
+    "latitude": 30.990463,
+    "longitude": 103.957706
+  },
+  {
+    "release_id": "6-1057",
+    "name": "鸡街火车站",
+    "release_address": "云南省个旧市",
+    "latitude": 23.389935,
+    "longitude": 103.152663
+  },
+  {
+    "release_id": "6-1058",
+    "name": "企鹤楼",
+    "release_address": "云南省石屏县",
+    "latitude": 23.705707,
+    "longitude": 102.496138
+  },
+  {
+    "release_id": "6-1060",
+    "name": "和顺图书馆旧址",
+    "release_address": "云南省腾冲县",
+    "latitude": 25.020283,
+    "longitude": 98.490276
+  },
+  {
+    "release_id": "6-1066",
+    "name": "易俗社剧场",
+    "release_address": "陕西省西安市",
+    "latitude": 34.343207,
+    "longitude": 108.939645
+  },
+  {
+    "release_id": "6-1068",
+    "name": "吴旗革命旧址",
+    "release_address": "陕西省吴起县",
+    "latitude": 36.92746,
+    "longitude": 108.176501
+  },
+  {
+    "release_id": "6-1076",
+    "name": "将台堡革命旧址",
+    "release_address": "宁夏回族自治区西吉县",
+    "latitude": 35.963885,
+    "longitude": 105.729189
+  },
+  {
+    "release_id": "6-1077",
+    "name": "坎尔井地下水利工程",
+    "release_address": "新疆维吾尔自治区吐鲁番市",
+    "latitude": 42.972736,
+    "longitude": 89.250261
+  },
+  {
+    "release_id": "6-1079",
+    "name": "三区革命政府政治文化活动中心旧址",
+    "release_address": "新疆维吾尔自治区伊宁市",
+    "latitude": 43.908021,
+    "longitude": 81.277715
+  },
+  {
+    "release_id": "7-6",
+    "name": "三各庄遗址",
+    "release_address": "河北省沧州市任丘市",
+    "latitude": 38.685325,
+    "longitude": 116.084412
+  },
+  {
+    "release_id": "7-8",
+    "name": "万军山遗址",
+    "release_address": "河北省唐山市迁安市",
+    "latitude": 39.998861,
+    "longitude": 118.701021
+  },
+  {
+    "release_id": "7-9",
+    "name": "庄窠遗址",
+    "release_address": "河北省张家口市蔚县",
+    "latitude": 39.840154,
+    "longitude": 114.589136
+  },
+  {
+    "release_id": "7-13",
+    "name": "补要村遗址",
+    "release_address": "河北省邢台市临城县",
+    "latitude": 37.444512,
+    "longitude": 114.498651
+  },
+  {
+    "release_id": "7-14",
+    "name": "顶子城遗址",
+    "release_address": "河北省承德市平泉县",
+    "latitude": 41.018482,
+    "longitude": 118.702032
+  },
+  {
+    "release_id": "7-23",
+    "name": "付将沟遗址",
+    "release_address": "河北省承德市兴隆县",
+    "latitude": 40.417358,
+    "longitude": 117.500558
+  },
+  {
+    "release_id": "7-29",
+    "name": "后底阁遗址",
+    "release_address": "河北省邢台市南宫市",
+    "latitude": 37.358907,
+    "longitude": 115.40866
+  },
+  {
+    "release_id": "7-35",
+    "name": "古交遗址",
+    "release_address": "山西省太原市古交市",
+    "latitude": 37.907414,
+    "longitude": 112.175034
+  },
+  {
+    "release_id": "7-37",
+    "name": "梁村遗址",
+    "release_address": "山西省晋中市祁县",
+    "latitude": 37.358425,
+    "longitude": 112.335226
+  },
+  {
+    "release_id": "7-40",
+    "name": "东庄遗址",
+    "release_address": "山西省运城市芮城县",
+    "latitude": 34.694173,
+    "longitude": 110.694418
+  },
+  {
+    "release_id": "7-45",
+    "name": "虞国古城遗址",
+    "release_address": "山西省运城市平陆县",
+    "latitude": 34.829595,
+    "longitude": 111.193957
+  },
+  {
+    "release_id": "7-47",
+    "name": "程村遗址",
+    "release_address": "山西省运城市临猗县",
+    "latitude": 35.144406,
+    "longitude": 110.774553
+  },
+  {
+    "release_id": "7-49",
+    "name": "猗氏故城",
+    "release_address": "山西省运城市临猗县",
+    "latitude": 35.144406,
+    "longitude": 110.774553
+  },
+  {
+    "release_id": "7-51",
+    "name": "蘑菇山北遗址",
+    "release_address": "内蒙古自治区呼伦贝尔市满洲里市",
+    "latitude": 49.59862,
+    "longitude": 117.379134
+  },
+  {
+    "release_id": "7-52",
+    "name": "金斯太洞穴遗址",
+    "release_address": "内蒙古自治区锡林郭勒盟东乌珠穆沁旗",
+    "latitude": 45.497329,
+    "longitude": 116.97526
+  },
+  {
+    "release_id": "7-54",
+    "name": "哈克遗址",
+    "release_address": "内蒙古自治区呼伦贝尔市海拉尔区",
+    "latitude": 49.234715,
+    "longitude": 119.824542
+  },
+  {
+    "release_id": "7-60",
+    "name": "草帽山遗址",
+    "release_address": "内蒙古自治区赤峰市敖汉旗",
+    "latitude": 42.290731,
+    "longitude": 119.921413
+  },
+  {
+    "release_id": "7-62",
+    "name": "三座店石城遗址",
+    "release_address": "内蒙古自治区赤峰市松山区",
+    "latitude": 42.299795,
+    "longitude": 118.916156
+  },
+  {
+    "release_id": "7-65",
+    "name": "尹家店山城遗址",
+    "release_address": "内蒙古自治区赤峰市松山区",
+    "latitude": 42.299795,
+    "longitude": 118.916156
+  },
+  {
+    "release_id": "7-70",
+    "name": "灵安州遗址",
+    "release_address": "内蒙古自治区通辽市库伦旗",
+    "latitude": 42.735556,
+    "longitude": 121.810629
+  },
+  {
+    "release_id": "7-71",
+    "name": "豫州城遗址及墓地",
+    "release_address": "内蒙古自治区通辽市扎鲁特旗",
+    "latitude": 44.567093,
+    "longitude": 120.917953
+  },
+  {
+    "release_id": "7-72",
+    "name": "韩州城遗址",
+    "release_address": "内蒙古自治区通辽市科尔沁左翼后旗",
+    "latitude": 42.935105,
+    "longitude": 122.35677
+  },
+  {
+    "release_id": "7-74",
+    "name": "武安州遗址",
+    "release_address": "内蒙古自治区赤峰市敖汉旗",
+    "latitude": 42.290731,
+    "longitude": 119.921413
+  },
+  {
+    "release_id": "7-75",
+    "name": "宁昌路遗址",
+    "release_address": "内蒙古自治区赤峰市敖汉旗",
+    "latitude": 42.290731,
+    "longitude": 119.921413
+  },
+  {
+    "release_id": "7-78",
+    "name": "燕家梁遗址",
+    "release_address": "内蒙古自治区包头市九原区",
+    "latitude": 40.611346,
+    "longitude": 109.968082
+  },
+  {
+    "release_id": "7-81",
+    "name": "后洼遗址",
+    "release_address": "辽宁省丹东市东港市",
+    "latitude": 39.863193,
+    "longitude": 124.152581
+  },
+  {
+    "release_id": "7-83",
+    "name": "小珠山遗址",
+    "release_address": "辽宁省大连市长海县",
+    "latitude": 39.272779,
+    "longitude": 122.588487
+  },
+  {
+    "release_id": "7-84",
+    "name": "双砣子遗址",
+    "release_address": "辽宁省大连市甘井子区",
+    "latitude": 38.952998,
+    "longitude": 121.525469
+  },
+  {
+    "release_id": "7-86",
+    "name": "团山遗址",
+    "release_address": "辽宁省铁岭市开原市",
+    "latitude": 42.577645,
+    "longitude": 124.051886
+  },
+  {
+    "release_id": "7-87",
+    "name": "永陵南城址",
+    "release_address": "辽宁省抚顺市新宾满族自治县",
+    "latitude": 41.734031,
+    "longitude": 125.039994
+  },
+  {
+    "release_id": "7-89",
+    "name": "高丽城山城",
+    "release_address": "辽宁省营口市盖州市",
+    "latitude": 40.400259,
+    "longitude": 122.34845
+  },
+  {
+    "release_id": "7-90",
+    "name": "巍霸山城（含清泉寺）",
+    "release_address": "辽宁省大连市普兰店市",
+    "latitude": 39.391565,
+    "longitude": 121.938299
+  },
+  {
+    "release_id": "7-91",
+    "name": "下古城子城址",
+    "release_address": "辽宁省本溪市桓仁满族自治县",
+    "latitude": 41.267048,
+    "longitude": 125.361061
+  },
+  {
+    "release_id": "7-92",
+    "name": "燕州城山城",
+    "release_address": "辽宁省辽阳市灯塔市",
+    "latitude": 41.426537,
+    "longitude": 123.339398
+  },
+  {
+    "release_id": "7-93",
+    "name": "邰集屯城址",
+    "release_address": "辽宁省葫芦岛市连山区",
+    "latitude": 40.774784,
+    "longitude": 120.869157
+  },
+  {
+    "release_id": "7-94",
+    "name": "边牛山城址",
+    "release_address": "辽宁省本溪市溪湖区",
+    "latitude": 41.32931,
+    "longitude": 123.767817
+  },
+  {
+    "release_id": "7-95",
+    "name": "大黑山山城",
+    "release_address": "辽宁省大连市金州区",
+    "latitude": 39.050211,
+    "longitude": 121.782513
+  },
+  {
+    "release_id": "7-97",
+    "name": "城子山山城",
+    "release_address": "辽宁省铁岭市西丰县",
+    "latitude": 42.738178,
+    "longitude": 124.727491
+  },
+  {
+    "release_id": "7-99",
+    "name": "冮官屯窑址",
+    "release_address": "辽宁省辽阳市辽阳县",
+    "latitude": 41.206246,
+    "longitude": 123.106426
+  },
+  {
+    "release_id": "7-106",
+    "name": "后太平遗址群",
+    "release_address": "吉林省四平市双辽市",
+    "latitude": 43.518301,
+    "longitude": 123.502398
+  },
+  {
+    "release_id": "7-111",
+    "name": "龙岗遗址群",
+    "release_address": "吉林省通化市通化县",
+    "latitude": 41.680135,
+    "longitude": 125.758927
+  },
+  {
+    "release_id": "7-113",
+    "name": "萨其城址",
+    "release_address": "吉林省延边朝鲜族自治州珲春市",
+    "latitude": 42.862551,
+    "longitude": 130.365829
+  },
+  {
+    "release_id": "7-114",
+    "name": "温特赫部城址与裴优城址",
+    "release_address": "吉林省延边朝鲜族自治州珲春市",
+    "latitude": 42.862551,
+    "longitude": 130.365829
+  },
+  {
+    "release_id": "7-119",
+    "name": "前进古城址",
+    "release_address": "吉林省吉林市蛟河市",
+    "latitude": 43.72382,
+    "longitude": 127.344773
+  },
+  {
+    "release_id": "7-120",
+    "name": "五家子城址",
+    "release_address": "吉林省四平市公主岭市",
+    "latitude": 43.166764,
+    "longitude": 124.350599
+  },
+  {
+    "release_id": "7-127",
+    "name": "团结遗址",
+    "release_address": "黑龙江省牡丹江市东宁县",
+    "latitude": 44.090361,
+    "longitude": 131.124839
+  },
+  {
+    "release_id": "7-132",
+    "name": "鄂伦春神泉祭坛遗址",
+    "release_address": "黑龙江省黑河市逊克县",
+    "latitude": 49.56429,
+    "longitude": 128.478698
+  },
+  {
+    "release_id": "7-138",
+    "name": "中华曙猿化石地点",
+    "release_address": "江苏省常州市溧阳市",
+    "latitude": 31.416967,
+    "longitude": 119.484164
+  },
+  {
+    "release_id": "7-144",
+    "name": "西溪遗址",
+    "release_address": "江苏省无锡市宜兴市",
+    "latitude": 31.338429,
+    "longitude": 119.821873
+  },
+  {
+    "release_id": "7-145",
+    "name": "刘林遗址",
+    "release_address": "江苏省徐州市邳州市",
+    "latitude": 34.339208,
+    "longitude": 118.012511
+  },
+  {
+    "release_id": "7-152",
+    "name": "固城遗址",
+    "release_address": "江苏省南京市高淳县",
+    "latitude": 31.328678,
+    "longitude": 118.892074
+  },
+  {
+    "release_id": "7-162",
+    "name": "乌龟洞遗址",
+    "release_address": "浙江省杭州市建德市",
+    "latitude": 29.474964,
+    "longitude": 119.281195
+  },
+  {
+    "release_id": "7-166",
+    "name": "田螺山遗址",
+    "release_address": "浙江省宁波市余姚市",
+    "latitude": 30.037967,
+    "longitude": 121.154572
+  },
+  {
+    "release_id": "7-177",
+    "name": "城山古城遗址",
+    "release_address": "浙江省湖州市长兴县",
+    "latitude": 31.026962,
+    "longitude": 119.911212
+  },
+  {
+    "release_id": "7-182",
+    "name": "云和银矿遗址",
+    "release_address": "浙江省丽水市云和县",
+    "latitude": 28.116024,
+    "longitude": 119.573454
+  },
+  {
+    "release_id": "7-183",
+    "name": "花岙兵营遗址",
+    "release_address": "浙江省宁波市象山县",
+    "latitude": 29.476826,
+    "longitude": 121.869251
+  },
+  {
+    "release_id": "7-184",
+    "name": "毛竹山、官山遗址",
+    "release_address": "安徽省宣城市宁国市",
+    "latitude": 30.634032,
+    "longitude": 118.983085
+  },
+  {
+    "release_id": "7-197",
+    "name": "徽杭古道绩溪段和古徽道东线郎溪段",
+    "release_address": "安徽省宣城市绩溪县、郎溪县",
+    "latitude": 31.142995,
+    "longitude": 119.184326
+  },
+  {
+    "release_id": "7-199",
+    "name": "奇和洞遗址",
+    "release_address": "福建省龙岩市漳平市",
+    "latitude": 25.290481,
+    "longitude": 117.419823
+  },
+  {
+    "release_id": "7-205",
+    "name": "中村窑遗址",
+    "release_address": "福建省三明市三元区",
+    "latitude": 26.271653,
+    "longitude": 117.646153
+  },
+  {
+    "release_id": "7-207",
+    "name": "社山头遗址",
+    "release_address": "江西省上饶市广丰县",
+    "latitude": 28.463697,
+    "longitude": 118.189729
+  },
+  {
+    "release_id": "7-208",
+    "name": "角山板栗山遗址",
+    "release_address": "江西省鹰潭市月湖区",
+    "latitude": 28.266999,
+    "longitude": 117.10247
+  },
+  {
+    "release_id": "7-210",
+    "name": "鄡阳城遗址",
+    "release_address": "江西省九江市都昌县",
+    "latitude": 29.273803,
+    "longitude": 116.203999
+  },
+  {
+    "release_id": "7-213",
+    "name": "七里镇窑址",
+    "release_address": "江西省赣州市章贡区",
+    "latitude": 25.818247,
+    "longitude": 114.920426
+  },
+  {
+    "release_id": "7-221",
+    "name": "南王绪遗址",
+    "release_address": "山东省烟台市蓬莱市",
+    "latitude": 37.795697,
+    "longitude": 120.829141
+  },
+  {
+    "release_id": "7-224",
+    "name": "大朱家村遗址",
+    "release_address": "山东省日照市莒县",
+    "latitude": 35.59125,
+    "longitude": 118.869059
+  },
+  {
+    "release_id": "7-226",
+    "name": "史家遗址",
+    "release_address": "山东省淄博市桓台县",
+    "latitude": 36.959794,
+    "longitude": 118.097923
+  },
+  {
+    "release_id": "7-227",
+    "name": "北沈遗址",
+    "release_address": "山东省淄博市淄川区",
+    "latitude": 36.644211,
+    "longitude": 117.966978
+  },
+  {
+    "release_id": "7-230",
+    "name": "尚庄遗址",
+    "release_address": "山东省聊城市茌平县",
+    "latitude": 36.580814,
+    "longitude": 116.254865
+  },
+  {
+    "release_id": "7-238",
+    "name": "杭头遗址",
+    "release_address": "山东省日照市莒县",
+    "latitude": 35.59125,
+    "longitude": 118.869059
+  },
+  {
+    "release_id": "7-241",
+    "name": "丰台盐业遗址群",
+    "release_address": "山东省潍坊市寒亭区",
+    "latitude": 36.755925,
+    "longitude": 119.211251
+  },
+  {
+    "release_id": "7-247",
+    "name": "牟国故城遗址",
+    "release_address": "山东省莱芜市钢城区",
+    "latitude": 36.059393,
+    "longitude": 117.811604
+  },
+  {
+    "release_id": "7-260",
+    "name": "土桥闸遗址",
+    "release_address": "山东省聊城市东昌府区",
+    "latitude": 36.412737,
+    "longitude": 116.006399
+  },
+  {
+    "release_id": "7-263",
+    "name": "灵井“许昌人”遗址",
+    "release_address": "河南省许昌市许昌县",
+    "latitude": 34.124729,
+    "longitude": 113.822869
+  },
+  {
+    "release_id": "7-264",
+    "name": "杏花山与小空山遗址",
+    "release_address": "河南省南阳市南召县",
+    "latitude": 33.489804,
+    "longitude": 112.429277
+  },
+  {
+    "release_id": "7-270",
+    "name": "人和寨遗址",
+    "release_address": "河南省郑州市新郑市",
+    "latitude": 34.396479,
+    "longitude": 113.74024
+  },
+  {
+    "release_id": "7-271",
+    "name": "土门遗址",
+    "release_address": "河南省洛阳市伊川县",
+    "latitude": 34.421741,
+    "longitude": 112.425751
+  },
+  {
+    "release_id": "7-272",
+    "name": "桥北村遗址",
+    "release_address": "河南省洛阳市嵩县",
+    "latitude": 34.134639,
+    "longitude": 112.085432
+  },
+  {
+    "release_id": "7-275",
+    "name": "不召寨遗址",
+    "release_address": "河南省三门峡市渑池县",
+    "latitude": 34.767937,
+    "longitude": 111.761753
+  },
+  {
+    "release_id": "7-287",
+    "name": "西金城遗址",
+    "release_address": "河南省焦作市博爱县",
+    "latitude": 35.170332,
+    "longitude": 113.064701
+  },
+  {
+    "release_id": "7-288",
+    "name": "李楼遗址",
+    "release_address": "河南省平顶山市汝州市",
+    "latitude": 34.16717,
+    "longitude": 112.844696
+  },
+  {
+    "release_id": "7-292",
+    "name": "商村遗址",
+    "release_address": "河南省焦作市武陟县",
+    "latitude": 35.099458,
+    "longitude": 113.401848
+  },
+  {
+    "release_id": "7-294",
+    "name": "段岗遗址",
+    "release_address": "河南省开封市杞县",
+    "latitude": 34.549731,
+    "longitude": 114.782629
+  },
+  {
+    "release_id": "7-299",
+    "name": "文集遗址",
+    "release_address": "河南省平顶山市叶县",
+    "latitude": 33.627437,
+    "longitude": 113.357476
+  },
+  {
+    "release_id": "7-301",
+    "name": "南洼遗址",
+    "release_address": "河南省郑州市登封市",
+    "latitude": 34.454877,
+    "longitude": 113.05056
+  },
+  {
+    "release_id": "7-311",
+    "name": "华阳故城",
+    "release_address": "河南省郑州市新郑市",
+    "latitude": 34.396479,
+    "longitude": 113.74024
+  },
+  {
+    "release_id": "7-314",
+    "name": "京城古城址",
+    "release_address": "河南省郑州市荥阳市",
+    "latitude": 34.7866,
+    "longitude": 113.383385
+  },
+  {
+    "release_id": "7-316",
+    "name": "父城遗址",
+    "release_address": "河南省平顶山市宝丰县",
+    "latitude": 33.869159,
+    "longitude": 113.054538
+  },
+  {
+    "release_id": "7-317",
+    "name": "葛陵故城",
+    "release_address": "河南省驻马店市新蔡县",
+    "latitude": 32.74488,
+    "longitude": 114.965519
+  },
+  {
+    "release_id": "7-323",
+    "name": "汉霸二王城",
+    "release_address": "河南省郑州市荥阳市",
+    "latitude": 34.7866,
+    "longitude": 113.383385
+  },
+  {
+    "release_id": "7-334",
+    "name": "严和店窑址",
+    "release_address": "河南省平顶山市汝州市",
+    "latitude": 34.16717,
+    "longitude": 112.844696
+  },
+  {
+    "release_id": "7-338",
+    "name": "桂花树遗址",
+    "release_address": "湖北省荆州市松滋市",
+    "latitude": 30.174717,
+    "longitude": 111.756455
+  },
+  {
+    "release_id": "7-340",
+    "name": "城河遗址",
+    "release_address": "湖北省荆门市沙洋县",
+    "latitude": 30.709167,
+    "longitude": 112.588675
+  },
+  {
+    "release_id": "7-347",
+    "name": "郭家岗遗址",
+    "release_address": "湖北省襄阳市宜城市",
+    "latitude": 31.720278,
+    "longitude": 112.256486
+  },
+  {
+    "release_id": "7-351",
+    "name": "郢城遗址",
+    "release_address": "湖北省荆州市荆州区",
+    "latitude": 30.352984,
+    "longitude": 112.190282
+  },
+  {
+    "release_id": "7-357",
+    "name": "十里岗遗址",
+    "release_address": "湖南省常德市澧县",
+    "latitude": 29.633138,
+    "longitude": 111.758806
+  },
+  {
+    "release_id": "7-371",
+    "name": "采菱城遗址",
+    "release_address": "湖南省常德市桃源县",
+    "latitude": 28.90232,
+    "longitude": 111.488985
+  },
+  {
+    "release_id": "7-378",
+    "name": "云集窑",
+    "release_address": "湖南省衡阳市衡南县",
+    "latitude": 26.739665,
+    "longitude": 112.677572
+  },
+  {
+    "release_id": "7-379",
+    "name": "允山玉井古窑址",
+    "release_address": "湖南省永州市江永县",
+    "latitude": 25.274461,
+    "longitude": 111.343543
+  },
+  {
+    "release_id": "7-382",
+    "name": "水口山铅锌矿冶遗址",
+    "release_address": "湖南省衡阳市常宁市",
+    "latitude": 26.421717,
+    "longitude": 112.399894
+  },
+  {
+    "release_id": "7-389",
+    "name": "蚝岗贝丘遗址",
+    "release_address": "广东省东莞市",
+    "latitude": 23.021016,
+    "longitude": 113.751884
+  },
+  {
+    "release_id": "7-391",
+    "name": "布兵盆地洞穴遗址群",
+    "release_address": "广西壮族自治区百色市田东县",
+    "latitude": 23.596706,
+    "longitude": 107.125609
+  },
+  {
+    "release_id": "7-392",
+    "name": "那赖遗址",
+    "release_address": "广西壮族自治区百色市田阳县",
+    "latitude": 23.735631,
+    "longitude": 106.915424
+  },
+  {
+    "release_id": "7-404",
+    "name": "哈休遗址",
+    "release_address": "四川省阿坝藏族羌族自治州马尔康县",
+    "latitude": 31.905799,
+    "longitude": 102.206386
+  },
+  {
+    "release_id": "7-411",
+    "name": "五粮液老窖池遗址",
+    "release_address": "四川省宜宾市翠屏区",
+    "latitude": 28.766537,
+    "longitude": 104.619853
+  },
+  {
+    "release_id": "7-414",
+    "name": "元谋古猿化石地点",
+    "release_address": "云南省楚雄彝族自治州元谋县",
+    "latitude": 25.704499,
+    "longitude": 101.87434
+  },
+  {
+    "release_id": "7-416",
+    "name": "玉水坪遗址",
+    "release_address": "云南省怒江傈僳族自治州兰坪白族普米族自治县",
+    "latitude": 26.453622,
+    "longitude": 99.416628
+  },
+  {
+    "release_id": "7-423",
+    "name": "洛南盆地旧石器地点群",
+    "release_address": "陕西省商洛市洛南县",
+    "latitude": 34.090815,
+    "longitude": 110.148526
+  },
+  {
+    "release_id": "7-425",
+    "name": "杨家坟山遗址",
+    "release_address": "陕西省延安市黄龙县",
+    "latitude": 35.584655,
+    "longitude": 109.84029
+  },
+  {
+    "release_id": "7-426",
+    "name": "何家湾遗址",
+    "release_address": "陕西省汉中市西乡县",
+    "latitude": 32.983282,
+    "longitude": 107.766477
+  },
+  {
+    "release_id": "7-430",
+    "name": "碾子坡遗址",
+    "release_address": "陕西省咸阳市长武县",
+    "latitude": 35.206273,
+    "longitude": 107.79906
+  },
+  {
+    "release_id": "7-431",
+    "name": "紫荆遗址",
+    "release_address": "陕西省商洛市商州区",
+    "latitude": 33.862979,
+    "longitude": 109.941452
+  },
+  {
+    "release_id": "7-436",
+    "name": "桥镇遗址",
+    "release_address": "陕西省宝鸡市陈仓区",
+    "latitude": 34.35073,
+    "longitude": 107.368993
+  },
+  {
+    "release_id": "7-437",
+    "name": "西峪遗址",
+    "release_address": "陕西省西安市周至县",
+    "latitude": 34.163592,
+    "longitude": 108.222219
+  },
+  {
+    "release_id": "7-443",
+    "name": "征邑漕仓遗址",
+    "release_address": "陕西省渭南市蒲城县",
+    "latitude": 34.955755,
+    "longitude": 109.586263
+  },
+  {
+    "release_id": "7-456",
+    "name": "安仁瓷窑遗址",
+    "release_address": "陕西省咸阳市旬邑县",
+    "latitude": 35.111787,
+    "longitude": 108.333815
+  },
+  {
+    "release_id": "7-459",
+    "name": "狼叫屲遗址",
+    "release_address": "甘肃省天水市武山县",
+    "latitude": 34.72183,
+    "longitude": 104.89121
+  },
+  {
+    "release_id": "7-462",
+    "name": "磨沟遗址（含墓群）",
+    "release_address": "甘肃省甘南藏族自治州临潭县",
+    "latitude": 34.693009,
+    "longitude": 103.353665
+  },
+  {
+    "release_id": "7-466",
+    "name": "缸缸洼遗址",
+    "release_address": "甘肃省酒泉市金塔县",
+    "latitude": 39.984146,
+    "longitude": 98.901523
+  },
+  {
+    "release_id": "7-469",
+    "name": "石沟坪遗址",
+    "release_address": "甘肃省陇南市礼县",
+    "latitude": 34.189345,
+    "longitude": 105.17864
+  },
+  {
+    "release_id": "7-470",
+    "name": "桥村遗址",
+    "release_address": "甘肃省平凉市灵台县",
+    "latitude": 35.070027,
+    "longitude": 107.595874
+  },
+  {
+    "release_id": "7-473",
+    "name": "东灰山遗址",
+    "release_address": "甘肃省张掖市民乐县",
+    "latitude": 38.430318,
+    "longitude": 100.812047
+  },
+  {
+    "release_id": "7-474",
+    "name": "辛店遗址",
+    "release_address": "甘肃省定西市临洮县",
+    "latitude": 35.394993,
+    "longitude": 103.859446
+  },
+  {
+    "release_id": "7-484",
+    "name": "贡萨寺旧址与宗喀巴大殿",
+    "release_address": "青海省玉树藏族自治州治多县",
+    "latitude": 33.844854,
+    "longitude": 95.618954
+  },
+  {
+    "release_id": "7-488",
+    "name": "七营北嘴城址",
+    "release_address": "宁夏回族自治区中卫市海原县",
+    "latitude": 36.565189,
+    "longitude": 105.643449
+  },
+  {
+    "release_id": "7-490",
+    "name": "大营城址",
+    "release_address": "宁夏回族自治区固原市原州区",
+    "latitude": 36.003777,
+    "longitude": 106.28784
+  },
+  {
+    "release_id": "7-492",
+    "name": "骆驼石旧石器遗址",
+    "release_address": "新疆维吾尔自治区塔城地区和布克赛尔蒙古自治县",
+    "latitude": 46.793235,
+    "longitude": 85.728328
+  },
+  {
+    "release_id": "7-493",
+    "name": "岳公台一西黑沟遗址群",
+    "release_address": "新疆维吾尔自治区哈密地区巴里坤哈萨克自治县",
+    "latitude": 43.598756,
+    "longitude": 93.016563
+  },
+  {
+    "release_id": "7-497",
+    "name": "喀拉墩遗址",
+    "release_address": "新疆维吾尔自治区和田地区于田县",
+    "latitude": 36.85708,
+    "longitude": 81.677417
+  },
+  {
+    "release_id": "7-501",
+    "name": "克斯勒塔格佛寺遗址",
+    "release_address": "新疆维吾尔自治区阿克苏地区柯坪县",
+    "latitude": 40.501645,
+    "longitude": 79.054019
+  },
+  {
+    "release_id": "7-502",
+    "name": "兰城遗址",
+    "release_address": "新疆维吾尔自治区巴音郭楞蒙古自治州和硕县",
+    "latitude": 42.28361,
+    "longitude": 86.877688
+  },
+  {
+    "release_id": "7-508",
+    "name": "昌吉州境内烽燧群",
+    "release_address": "新疆维吾尔自治区昌吉回族自治州木垒哈萨克自治县、奇台县、吉木萨尔县、阜康市、昌吉市、呼图壁县、玛纳斯县",
+    "latitude": 44.179362,
+    "longitude": 86.871532
+  },
+  {
+    "release_id": "7-510",
+    "name": "哈密境内烽燧遗址",
+    "release_address": "新疆维吾尔自治区哈密地区哈密市、巴里坤哈萨克自治县、伊吾县",
+    "latitude": 43.598756,
+    "longitude": 93.016563
+  },
+  {
+    "release_id": "7-512",
+    "name": "道尔本厄鲁特森木古城遗址",
+    "release_address": "新疆维吾尔自治区塔城地区和布克赛尔蒙古自治县",
+    "latitude": 46.793235,
+    "longitude": 85.728328
+  },
+  {
+    "release_id": "7-513",
+    "name": "惠远新、老古城遗址",
+    "release_address": "新疆维吾尔自治区伊犁哈萨克自治州霍城县",
+    "latitude": 44.056329,
+    "longitude": 80.878845
+  },
+  {
+    "release_id": "7-514",
+    "name": "阔纳齐兰遗址",
+    "release_address": "新疆维吾尔自治区阿克苏地区柯坪县",
+    "latitude": 40.501645,
+    "longitude": 79.054019
+  },
+  {
+    "release_id": "7-515",
+    "name": "伊犁清代卡伦遗址",
+    "release_address": "新疆维吾尔自治区伊犁哈萨克自治州霍城县、察布查尔锡伯自治县",
+    "latitude": 43.840726,
+    "longitude": 81.151337
+  },
+  {
+    "release_id": "7-517",
+    "name": "林村墓群",
+    "release_address": "河北省邯郸市邯郸县",
+    "latitude": 36.59457,
+    "longitude": 114.531062
+  },
+  {
+    "release_id": "7-521",
+    "name": "王处直墓",
+    "release_address": "河北省保定市曲阳县",
+    "latitude": 38.614409,
+    "longitude": 114.740476
+  },
+  {
+    "release_id": "7-524",
+    "name": "冯古庄墓地",
+    "release_address": "山西省运城市新绛县",
+    "latitude": 35.616007,
+    "longitude": 111.224767
+  },
+  {
+    "release_id": "7-525",
+    "name": "山王墓地",
+    "release_address": "山西省运城市河津市",
+    "latitude": 35.596357,
+    "longitude": 110.712032
+  },
+  {
+    "release_id": "7-528",
+    "name": "羊舌墓地",
+    "release_address": "山西省临汾市曲沃县",
+    "latitude": 35.641883,
+    "longitude": 111.475783
+  },
+  {
+    "release_id": "7-533",
+    "name": "团结墓地",
+    "release_address": "内蒙古自治区呼伦贝尔市海拉尔区",
+    "latitude": 49.234715,
+    "longitude": 119.824542
+  },
+  {
+    "release_id": "7-538",
+    "name": "耶律琮墓",
+    "release_address": "内蒙古自治区赤峰市喀喇沁旗",
+    "latitude": 41.927103,
+    "longitude": 118.701934
+  },
+  {
+    "release_id": "7-542",
+    "name": "和硕端静公主墓",
+    "release_address": "内蒙古自治区赤峰市喀喇沁旗",
+    "latitude": 41.927103,
+    "longitude": 118.701934
+  },
+  {
+    "release_id": "7-544",
+    "name": "马城子墓地",
+    "release_address": "辽宁省本溪市本溪满族自治县",
+    "latitude": 41.301553,
+    "longitude": 124.119545
+  },
+  {
+    "release_id": "7-545",
+    "name": "东山大石盖墓",
+    "release_address": "辽宁省丹东市凤城市",
+    "latitude": 40.45218,
+    "longitude": 124.066873
+  },
+  {
+    "release_id": "7-546",
+    "name": "石棚沟石棚",
+    "release_address": "辽宁省大连市普兰店市",
+    "latitude": 39.391565,
+    "longitude": 121.938299
+  },
+  {
+    "release_id": "7-547",
+    "name": "岗上楼上墓地",
+    "release_address": "辽宁省大连市甘井子区",
+    "latitude": 38.952998,
+    "longitude": 121.525469
+  },
+  {
+    "release_id": "7-552",
+    "name": "雅河流域墓群",
+    "release_address": "辽宁省本溪市桓仁满族自治县",
+    "latitude": 41.267048,
+    "longitude": 125.361061
+  },
+  {
+    "release_id": "7-553",
+    "name": "冯家堡子墓地",
+    "release_address": "辽宁省本溪市桓仁满族自治县",
+    "latitude": 41.267048,
+    "longitude": 125.361061
+  },
+  {
+    "release_id": "7-554",
+    "name": "施家沟墓地",
+    "release_address": "辽宁省抚顺市顺城区",
+    "latitude": 41.883375,
+    "longitude": 123.94504
+  },
+  {
+    "release_id": "7-572",
+    "name": "绍兴越国贵族墓群",
+    "release_address": "浙江省绍兴市绍兴县",
+    "latitude": 30.083039,
+    "longitude": 120.495532
+  },
+  {
+    "release_id": "7-576",
+    "name": "赵孟頫墓",
+    "release_address": "浙江省湖州市德清县",
+    "latitude": 30.54251,
+    "longitude": 119.9774
+  },
+  {
+    "release_id": "7-578",
+    "name": "建平镇土墩墓群",
+    "release_address": "安徽省宣城市郎溪县",
+    "latitude": 31.142995,
+    "longitude": 119.184326
+  },
+  {
+    "release_id": "7-580",
+    "name": "六安汉代王陵墓地",
+    "release_address": "安徽省六安市金安区",
+    "latitude": 31.75014,
+    "longitude": 116.539458
+  },
+  {
+    "release_id": "7-581",
+    "name": "淮南王刘安家族墓地",
+    "release_address": "安徽省六安市寿县",
+    "latitude": 31.735892,
+    "longitude": 116.519729
+  },
+  {
+    "release_id": "7-583",
+    "name": "程端忠墓",
+    "release_address": "安徽省六安市金寨县",
+    "latitude": 31.727295,
+    "longitude": 115.934253
+  },
+  {
+    "release_id": "7-592",
+    "name": "吉水东吴墓",
+    "release_address": "江西省吉安市吉水县",
+    "latitude": 27.229697,
+    "longitude": 115.135963
+  },
+  {
+    "release_id": "7-596",
+    "name": "明益藩王墓地",
+    "release_address": "江西省抚州市南城县",
+    "latitude": 27.570031,
+    "longitude": 116.637228
+  },
+  {
+    "release_id": "7-601",
+    "name": "程家沟古墓",
+    "release_address": "山东省潍坊市青州市",
+    "latitude": 36.685178,
+    "longitude": 118.479637
+  },
+  {
+    "release_id": "7-602",
+    "name": "定陶王墓地（王陵）",
+    "release_address": "山东省菏泽市定陶县",
+    "latitude": 35.105742,
+    "longitude": 115.583172
+  },
+  {
+    "release_id": "7-608",
+    "name": "苌村汉墓",
+    "release_address": "河南省郑州市荥阳市",
+    "latitude": 34.7866,
+    "longitude": 113.383385
+  },
+  {
+    "release_id": "7-611",
+    "name": "徐堌堆墓群",
+    "release_address": "河南省商丘市梁园区",
+    "latitude": 34.444519,
+    "longitude": 115.613609
+  },
+  {
+    "release_id": "7-612",
+    "name": "洛南东汉帝陵",
+    "release_address": "河南省洛阳市偃师市",
+    "latitude": 34.72715,
+    "longitude": 112.789375
+  },
+  {
+    "release_id": "7-618",
+    "name": "程颐、程颢墓",
+    "release_address": "河南省洛阳市伊川县",
+    "latitude": 34.421741,
+    "longitude": 112.425751
+  },
+  {
+    "release_id": "7-620",
+    "name": "明周王墓",
+    "release_address": "河南省许昌市禹州市",
+    "latitude": 34.142442,
+    "longitude": 113.488715
+  },
+  {
+    "release_id": "7-622",
+    "name": "安乐堰墓群",
+    "release_address": "湖北省襄阳市南漳县",
+    "latitude": 31.774649,
+    "longitude": 111.838997
+  },
+  {
+    "release_id": "7-624",
+    "name": "霸王坟墓群",
+    "release_address": "湖北省襄阳市老河口市",
+    "latitude": 32.359068,
+    "longitude": 111.683861
+  },
+  {
+    "release_id": "7-625",
+    "name": "腰子仑春秋墓群",
+    "release_address": "湖南省益阳市桃江县",
+    "latitude": 28.518215,
+    "longitude": 112.156432
+  },
+  {
+    "release_id": "7-628",
+    "name": "里耶麦茶战国墓群",
+    "release_address": "湖南省湘西土家族苗族自治州龙山县",
+    "latitude": 29.457623,
+    "longitude": 109.443974
+  },
+  {
+    "release_id": "7-629",
+    "name": "骑龙岗古墓群",
+    "release_address": "湖南省张家界市慈利县",
+    "latitude": 29.430429,
+    "longitude": 111.139424
+  },
+  {
+    "release_id": "7-635",
+    "name": "龙窖山堆石墓群",
+    "release_address": "湖南省岳阳市临湘市",
+    "latitude": 29.476687,
+    "longitude": 113.450461
+  },
+  {
+    "release_id": "7-636",
+    "name": "张南轩墓（含张浚墓）",
+    "release_address": "湖南省长沙市宁乡县",
+    "latitude": 28.277709,
+    "longitude": 112.551887
+  },
+  {
+    "release_id": "7-644",
+    "name": "汇南墓群",
+    "release_address": "重庆市丰都县",
+    "latitude": 29.863785,
+    "longitude": 107.731056
+  },
+  {
+    "release_id": "7-648",
+    "name": "顺河崖墓群",
+    "release_address": "四川省内江市东兴区",
+    "latitude": 29.593528,
+    "longitude": 105.076107
+  },
+  {
+    "release_id": "7-652",
+    "name": "南广河流域崖墓群及石刻",
+    "release_address": "四川省宜宾市高县",
+    "latitude": 28.436166,
+    "longitude": 104.517748
+  },
+  {
+    "release_id": "7-653",
+    "name": "务川大坪墓群",
+    "release_address": "贵州省遵义市务川仡佬族苗族自治县",
+    "latitude": 28.562921,
+    "longitude": 107.899353
+  },
+  {
+    "release_id": "7-654",
+    "name": "兴义万屯墓群",
+    "release_address": "贵州省黔西南布依族苗族自治州兴义市",
+    "latitude": 25.09196,
+    "longitude": 104.895503
+  },
+  {
+    "release_id": "7-657",
+    "name": "黔南水族墓群",
+    "release_address": "贵州省黔南布依族苗族自治州三都水族自治县、荔波县",
+    "latitude": 25.402528,
+    "longitude": 107.88057
+  },
+  {
+    "release_id": "7-661",
+    "name": "金莲山、学山遗址群",
+    "release_address": "云南省玉溪市澄江县",
+    "latitude": 24.675536,
+    "longitude": 102.904181
+  },
+  {
+    "release_id": "7-663",
+    "name": "瓦石悬棺",
+    "release_address": "云南省昭通市威信县",
+    "latitude": 27.846839,
+    "longitude": 105.049012
+  },
+  {
+    "release_id": "7-664",
+    "name": "顺荡火葬墓群",
+    "release_address": "云南省大理白族自治州云龙县",
+    "latitude": 25.885733,
+    "longitude": 99.371021
+  },
+  {
+    "release_id": "7-670",
+    "name": "杨桥畔汉代城址与墓地",
+    "release_address": "陕西省榆林市靖边县",
+    "latitude": 37.600351,
+    "longitude": 108.794153
+  },
+  {
+    "release_id": "7-676",
+    "name": "兴宁陵",
+    "release_address": "陕西省咸阳市渭城区",
+    "latitude": 34.36202,
+    "longitude": 108.737062
+  },
+  {
+    "release_id": "7-678",
+    "name": "李茂贞墓",
+    "release_address": "陕西省宝鸡市金台区",
+    "latitude": 34.397071,
+    "longitude": 107.232733
+  },
+  {
+    "release_id": "7-680",
+    "name": "宁强羌人墓地",
+    "release_address": "陕西省汉中市宁强县",
+    "latitude": 32.830032,
+    "longitude": 106.257636
+  },
+  {
+    "release_id": "7-682",
+    "name": "磨咀子和五坝山墓群",
+    "release_address": "甘肃省武威市凉州区",
+    "latitude": 37.928217,
+    "longitude": 102.641959
+  },
+  {
+    "release_id": "7-683",
+    "name": "放马滩墓群",
+    "release_address": "甘肃省天水市麦积区",
+    "latitude": 34.571143,
+    "longitude": 105.889452
+  },
+  {
+    "release_id": "7-686",
+    "name": "踏实墓群",
+    "release_address": "甘肃省酒泉市瓜州县",
+    "latitude": 40.520457,
+    "longitude": 95.782255
+  },
+  {
+    "release_id": "7-687",
+    "name": "高昌王和西宁王墓",
+    "release_address": "甘肃省武威市凉州区",
+    "latitude": 37.928217,
+    "longitude": 102.641959
+  },
+  {
+    "release_id": "7-688",
+    "name": "杂涅墓群",
+    "release_address": "青海省玉树藏族自治州玉树县",
+    "latitude": 32.992934,
+    "longitude": 97.009184
+  },
+  {
+    "release_id": "7-689",
+    "name": "玉树古墓群",
+    "release_address": "青海省玉树藏族自治州治多县、玉树县、称多县",
+    "latitude": 33.377504,
+    "longitude": 97.109487
+  },
+  {
+    "release_id": "7-691",
+    "name": "固原北朝隋唐墓地",
+    "release_address": "宁夏回族自治区固原市原州区",
+    "latitude": 36.003777,
+    "longitude": 106.28784
+  },
+  {
+    "release_id": "7-692",
+    "name": "窨子梁唐墓",
+    "release_address": "宁夏回族自治区吴忠市盐池县",
+    "latitude": 37.783276,
+    "longitude": 107.407184
+  },
+  {
+    "release_id": "7-693",
+    "name": "小河墓地",
+    "release_address": "新疆维吾尔自治区巴音郭楞蒙古自治州若羌县",
+    "latitude": 39.022626,
+    "longitude": 88.167226
+  },
+  {
+    "release_id": "7-694",
+    "name": "阔科克古墓群",
+    "release_address": "新疆维吾尔自治区阿勒泰地区布尔津县",
+    "latitude": 47.701892,
+    "longitude": 86.875043
+  },
+  {
+    "release_id": "7-695",
+    "name": "拜其尔墓地",
+    "release_address": "新疆维吾尔自治区哈密地区伊吾县",
+    "latitude": 43.254978,
+    "longitude": 94.697074
+  },
+  {
+    "release_id": "7-696",
+    "name": "大喀纳斯景区墓葬群",
+    "release_address": "新疆维吾尔自治区阿勒泰地区布尔津县",
+    "latitude": 47.701892,
+    "longitude": 86.875043
+  },
+  {
+    "release_id": "7-698",
+    "name": "阿日夏特科克石围及石堆墓群",
+    "release_address": "新疆维吾尔自治区博尔塔拉蒙古自治州温泉县",
+    "latitude": 44.968857,
+    "longitude": 81.024827
+  },
+  {
+    "release_id": "7-699",
+    "name": "阿敦乔鲁石栅古墓群及岩画群",
+    "release_address": "新疆维吾尔自治区博尔塔拉蒙古自治州温泉县",
+    "latitude": 44.968857,
+    "longitude": 81.024827
+  },
+  {
+    "release_id": "7-707",
+    "name": "明北京城城墙遗存",
+    "release_address": "北京市东城区、西城区",
+    "latitude": 39.9126,
+    "longitude": 116.36585
+  },
+  {
+    "release_id": "7-735",
+    "name": "金河寺悬空庵塔群",
+    "release_address": "河北省张家口市蔚县",
+    "latitude": 39.840154,
+    "longitude": 114.589136
+  },
+  {
+    "release_id": "7-742",
+    "name": "故城寺",
+    "release_address": "河北省张家口市蔚县",
+    "latitude": 39.840154,
+    "longitude": 114.589136
+  },
+  {
+    "release_id": "7-748",
+    "name": "天青寺大殿",
+    "release_address": "河北省邯郸市武安市",
+    "latitude": 36.69759,
+    "longitude": 114.203685
+  },
+  {
+    "release_id": "7-766",
+    "name": "郎寨砖塔",
+    "release_address": "山西省临汾市安泽县",
+    "latitude": 36.147921,
+    "longitude": 112.250242
+  },
+  {
+    "release_id": "7-770",
+    "name": "巷口寿圣寺砖塔",
+    "release_address": "山西省运城市芮城县",
+    "latitude": 34.694173,
+    "longitude": 110.694418
+  },
+  {
+    "release_id": "7-782",
+    "name": "上贤梵安寺塔",
+    "release_address": "山西省吕梁市文水县",
+    "latitude": 37.438101,
+    "longitude": 112.028866
+  },
+  {
+    "release_id": "7-784",
+    "name": "韩坊尧王庙大殿",
+    "release_address": "山西省长治市长子县",
+    "latitude": 36.122258,
+    "longitude": 112.877922
+  },
+  {
+    "release_id": "7-792",
+    "name": "尹西东岳庙",
+    "release_address": "山西省晋城市泽州县",
+    "latitude": 35.543499,
+    "longitude": 112.954123
+  },
+  {
+    "release_id": "7-797",
+    "name": "北马玉皇庙",
+    "release_address": "山西省晋城市陵川县",
+    "latitude": 35.775239,
+    "longitude": 113.280755
+  },
+  {
+    "release_id": "7-799",
+    "name": "三王村三嵕庙",
+    "release_address": "山西省晋城市高平市",
+    "latitude": 35.798775,
+    "longitude": 112.923798
+  },
+  {
+    "release_id": "7-801",
+    "name": "苇则寿圣寺",
+    "release_address": "山西省晋中市左权县",
+    "latitude": 37.082746,
+    "longitude": 113.379412
+  },
+  {
+    "release_id": "7-802",
+    "name": "寺坪普照寺大殿",
+    "release_address": "山西省晋中市左权县",
+    "latitude": 37.082746,
+    "longitude": 113.379412
+  },
+  {
+    "release_id": "7-818",
+    "name": "南林交龙泉寺",
+    "release_address": "山西省临汾市曲沃县",
+    "latitude": 35.641883,
+    "longitude": 111.475783
+  },
+  {
+    "release_id": "7-839",
+    "name": "北社三嵕庙",
+    "release_address": "山西省长治市平顺县",
+    "latitude": 36.20037,
+    "longitude": 113.435859
+  },
+  {
+    "release_id": "7-848",
+    "name": "阳曲大王庙大殿",
+    "release_address": "山西省太原市阳曲县",
+    "latitude": 38.058511,
+    "longitude": 112.67292
+  },
+  {
+    "release_id": "7-857",
+    "name": "薛瑄家庙及墓地",
+    "release_address": "山西省运城市万荣县",
+    "latitude": 35.415805,
+    "longitude": 110.837957
+  },
+  {
+    "release_id": "7-864",
+    "name": "前斧柯悬泉寺",
+    "release_address": "山西省太原市阳曲县",
+    "latitude": 38.058511,
+    "longitude": 112.67292
+  },
+  {
+    "release_id": "7-879",
+    "name": "静升文庙",
+    "release_address": "山西省晋中市灵石县",
+    "latitude": 36.848085,
+    "longitude": 111.778692
+  },
+  {
+    "release_id": "7-880",
+    "name": "云峰寺石佛殿",
+    "release_address": "山西省晋中市介休市",
+    "latitude": 37.027538,
+    "longitude": 111.916451
+  },
+  {
+    "release_id": "7-885",
+    "name": "晋源文庙",
+    "release_address": "山西省太原市晋源区",
+    "latitude": 37.715519,
+    "longitude": 112.477869
+  },
+  {
+    "release_id": "7-889",
+    "name": "玄帝庙",
+    "release_address": "山西省运城市河津市",
+    "latitude": 35.596357,
+    "longitude": 110.712032
+  },
+  {
+    "release_id": "7-914",
+    "name": "寿因寺大殿",
+    "release_address": "内蒙古自治区通辽市库伦旗",
+    "latitude": 42.735556,
+    "longitude": 121.810629
+  },
+  {
+    "release_id": "7-927",
+    "name": "东塔山塔",
+    "release_address": "辽宁省阜新市阜新蒙古族自治县",
+    "latitude": 42.065175,
+    "longitude": 121.757901
+  },
+  {
+    "release_id": "7-932",
+    "name": "青峰塔",
+    "release_address": "辽宁省朝阳市朝阳县",
+    "latitude": 41.497923,
+    "longitude": 120.390001
+  },
+  {
+    "release_id": "7-937",
+    "name": "银塔",
+    "release_address": "辽宁省鞍山市海城市",
+    "latitude": 40.882548,
+    "longitude": 122.685176
+  },
+  {
+    "release_id": "7-939",
+    "name": "千山古建筑群",
+    "release_address": "辽宁省鞍山市千山区",
+    "latitude": 41.068901,
+    "longitude": 122.944751
+  },
+  {
+    "release_id": "7-943",
+    "name": "乌拉街清代建筑群",
+    "release_address": "吉林省吉林市龙潭区",
+    "latitude": 43.910743,
+    "longitude": 126.562131
+  },
+  {
+    "release_id": "7-952",
+    "name": "聚沙塔",
+    "release_address": "江苏省苏州市常熟市",
+    "latitude": 31.656016,
+    "longitude": 120.752512
+  },
+  {
+    "release_id": "7-974",
+    "name": "敬业堂",
+    "release_address": "江苏省苏州市昆山市",
+    "latitude": 31.385476,
+    "longitude": 120.980795
+  },
+  {
+    "release_id": "7-976",
+    "name": "耕乐堂",
+    "release_address": "江苏省苏州市吴江区",
+    "latitude": 31.138525,
+    "longitude": 120.645728
+  },
+  {
+    "release_id": "7-979",
+    "name": "史可法墓祠",
+    "release_address": "江苏省扬州市邗江区",
+    "latitude": 32.37741,
+    "longitude": 119.397935
+  },
+  {
+    "release_id": "7-991",
+    "name": "二灵塔",
+    "release_address": "浙江省宁波市鄞州区",
+    "latitude": 29.817302,
+    "longitude": 121.546617
+  },
+  {
+    "release_id": "7-994",
+    "name": "护法寺桥和塔",
+    "release_address": "浙江省温州市苍南县",
+    "latitude": 27.518636,
+    "longitude": 120.425957
+  },
+  {
+    "release_id": "7-997",
+    "name": "南峰塔和福印山塔",
+    "release_address": "浙江省台州市仙居县",
+    "latitude": 28.846856,
+    "longitude": 120.728733
+  },
+  {
+    "release_id": "7-999",
+    "name": "八卦桥和河西桥",
+    "release_address": "浙江省温州市瑞安市",
+    "latitude": 27.778967,
+    "longitude": 120.655245
+  },
+  {
+    "release_id": "7-1008",
+    "name": "绍衣堂和横山塔",
+    "release_address": "浙江省衢州市龙游县",
+    "latitude": 29.028214,
+    "longitude": 119.1723
+  },
+  {
+    "release_id": "7-1012",
+    "name": "㹧犭茶湖避塘",
+    "release_address": "浙江省绍兴市绍兴县",
+    "latitude": 30.083039,
+    "longitude": 120.495532
+  },
+  {
+    "release_id": "7-1015",
+    "name": "河阳村乡土建筑",
+    "release_address": "浙江省丽水市缙云县",
+    "latitude": 28.659294,
+    "longitude": 120.091685
+  },
+  {
+    "release_id": "7-1016",
+    "name": "潘公桥及潘孝墓",
+    "release_address": "浙江省湖州市吴兴区",
+    "latitude": 30.857184,
+    "longitude": 120.185608
+  },
+  {
+    "release_id": "7-1020",
+    "name": "上族祠",
+    "release_address": "浙江省金华市兰溪市",
+    "latitude": 29.209059,
+    "longitude": 119.460404
+  },
+  {
+    "release_id": "7-1021",
+    "name": "积庆堂",
+    "release_address": "浙江省金华市兰溪市",
+    "latitude": 29.209059,
+    "longitude": 119.460404
+  },
+  {
+    "release_id": "7-1022",
+    "name": "余庆堂",
+    "release_address": "浙江省金华市兰溪市",
+    "latitude": 29.209059,
+    "longitude": 119.460404
+  },
+  {
+    "release_id": "7-1025",
+    "name": "新叶村乡土建筑",
+    "release_address": "浙江省杭州市建德市",
+    "latitude": 29.474964,
+    "longitude": 119.281195
+  },
+  {
+    "release_id": "7-1031",
+    "name": "舜王庙",
+    "release_address": "浙江省绍兴市绍兴县",
+    "latitude": 30.083039,
+    "longitude": 120.495532
+  },
+  {
+    "release_id": "7-1035",
+    "name": "三门源叶氏民居",
+    "release_address": "浙江省衢州市龙游县",
+    "latitude": 29.028214,
+    "longitude": 119.1723
+  },
+  {
+    "release_id": "7-1039",
+    "name": "黄山登山古道及古建筑",
+    "release_address": "安徽省黄山市黄山区",
+    "latitude": 30.272991,
+    "longitude": 118.141632
+  },
+  {
+    "release_id": "7-1041",
+    "name": "太平塔",
+    "release_address": "安徽省安庆市潜山县",
+    "latitude": 30.631022,
+    "longitude": 116.581224
+  },
+  {
+    "release_id": "7-1054",
+    "name": "棠樾古民居",
+    "release_address": "安徽省黄山市歙县",
+    "latitude": 29.861354,
+    "longitude": 118.415258
+  },
+  {
+    "release_id": "7-1056",
+    "name": "上庄古建筑群",
+    "release_address": "安徽省宣城市绩溪县",
+    "latitude": 30.067533,
+    "longitude": 118.578519
+  },
+  {
+    "release_id": "7-1067",
+    "name": "北岸廊桥",
+    "release_address": "安徽省黄山市歙县",
+    "latitude": 29.861354,
+    "longitude": 118.415258
+  },
+  {
+    "release_id": "7-1074",
+    "name": "龙华双塔",
+    "release_address": "福建省莆田市仙游县",
+    "latitude": 25.373373,
+    "longitude": 118.689745
+  },
+  {
+    "release_id": "7-1083",
+    "name": "大田土堡群",
+    "release_address": "福建省三明市大田县",
+    "latitude": 25.692535,
+    "longitude": 117.846828
+  },
+  {
+    "release_id": "7-1089",
+    "name": "蓝廷珍府第",
+    "release_address": "福建省漳州市漳浦县",
+    "latitude": 24.11741,
+    "longitude": 117.613783
+  },
+  {
+    "release_id": "7-1099",
+    "name": "凤岐吴氏大宅",
+    "release_address": "福建省宁德市柘荣县",
+    "latitude": 27.23421,
+    "longitude": 119.900597
+  },
+  {
+    "release_id": "7-1105",
+    "name": "马祖塔亭",
+    "release_address": "江西省宜春市靖安县",
+    "latitude": 28.861296,
+    "longitude": 115.362635
+  },
+  {
+    "release_id": "7-1115",
+    "name": "龙图学士和刺史传芳牌楼门",
+    "release_address": "江西省抚州市乐安县",
+    "latitude": 27.428682,
+    "longitude": 115.83099
+  },
+  {
+    "release_id": "7-1120",
+    "name": "庐山御碑亭",
+    "release_address": "江西省九江市庐山区",
+    "latitude": 29.668008,
+    "longitude": 115.992735
+  },
+  {
+    "release_id": "7-1123",
+    "name": "羽琌山馆和云亭别墅",
+    "release_address": "江西省南昌市进贤县",
+    "latitude": 28.377627,
+    "longitude": 116.242468
+  },
+  {
+    "release_id": "7-1124",
+    "name": "永镇桥",
+    "release_address": "江西省赣州市安远县",
+    "latitude": 25.136855,
+    "longitude": 115.393992
+  },
+  {
+    "release_id": "7-1130",
+    "name": "凤山查氏宗祠",
+    "release_address": "江西省上饶市婺源县",
+    "latitude": 29.248491,
+    "longitude": 117.861532
+  },
+  {
+    "release_id": "7-1132",
+    "name": "浒崦名分堂戏台",
+    "release_address": "江西省景德镇市乐平市",
+    "latitude": 28.978521,
+    "longitude": 117.151499
+  },
+  {
+    "release_id": "7-1133",
+    "name": "镇窑",
+    "release_address": "江西省景德镇市昌江区",
+    "latitude": 29.273683,
+    "longitude": 117.182648
+  },
+  {
+    "release_id": "7-1139",
+    "name": "太子灵踪塔",
+    "release_address": "山东省济宁市汶上县",
+    "latitude": 35.711891,
+    "longitude": 116.497277
+  },
+  {
+    "release_id": "7-1151",
+    "name": "戚继光祠堂及戚继光墓",
+    "release_address": "山东省烟台市蓬莱市",
+    "latitude": 37.795697,
+    "longitude": 120.829141
+  },
+  {
+    "release_id": "7-1157",
+    "name": "百寿坊及百狮坊",
+    "release_address": "山东省菏泽市单县",
+    "latitude": 34.779282,
+    "longitude": 116.106396
+  },
+  {
+    "release_id": "7-1159",
+    "name": "五龙口古代水利设施",
+    "release_address": "河南省济源市",
+    "latitude": 35.069057,
+    "longitude": 112.602347
+  },
+  {
+    "release_id": "7-1161",
+    "name": "阳台寺双石塔",
+    "release_address": "河南省安阳市林州市",
+    "latitude": 36.084127,
+    "longitude": 113.819275
+  },
+  {
+    "release_id": "7-1170",
+    "name": "大兴寺塔",
+    "release_address": "河南省安阳市内黄县",
+    "latitude": 35.972016,
+    "longitude": 114.90146
+  },
+  {
+    "release_id": "7-1177",
+    "name": "药王庙大殿",
+    "release_address": "河南省焦作市山阳区",
+    "latitude": 35.215054,
+    "longitude": 113.254581
+  },
+  {
+    "release_id": "7-1178",
+    "name": "坡街关王庙大殿",
+    "release_address": "河南省许昌市禹州市",
+    "latitude": 34.142442,
+    "longitude": 113.488715
+  },
+  {
+    "release_id": "7-1181",
+    "name": "显圣王庙",
+    "release_address": "河南省焦作市孟州市",
+    "latitude": 34.907229,
+    "longitude": 112.791372
+  },
+  {
+    "release_id": "7-1190",
+    "name": "南岳庙",
+    "release_address": "河南省郑州市登封市",
+    "latitude": 34.454877,
+    "longitude": 113.05056
+  },
+  {
+    "release_id": "7-1194",
+    "name": "朱仙镇岳飞庙（含关帝庙）",
+    "release_address": "河南省开封市开封县",
+    "latitude": 34.757546,
+    "longitude": 114.441406
+  },
+  {
+    "release_id": "7-1196",
+    "name": "彰德府城隍庙",
+    "release_address": "河南省安阳市文峰区",
+    "latitude": 36.090593,
+    "longitude": 114.356967
+  },
+  {
+    "release_id": "7-1211",
+    "name": "庙上村地坑窑院",
+    "release_address": "河南省三门峡市陕县",
+    "latitude": 34.72066,
+    "longitude": 111.103252
+  },
+  {
+    "release_id": "7-1219",
+    "name": "杨家湾老屋",
+    "release_address": "湖北省宜昌市夷陵区",
+    "latitude": 30.769875,
+    "longitude": 111.326371
+  },
+  {
+    "release_id": "7-1233",
+    "name": "绣衣坊（含范氏家庙和中丞公祠）",
+    "release_address": "湖南省郴州市汝城县",
+    "latitude": 25.533024,
+    "longitude": 113.685193
+  },
+  {
+    "release_id": "7-1235",
+    "name": "云龙坊与王氏虚堂",
+    "release_address": "湖南省永州市宁远县",
+    "latitude": 25.570817,
+    "longitude": 111.945925
+  },
+  {
+    "release_id": "7-1243",
+    "name": "荆坪村古建筑群",
+    "release_address": "湖南省怀化市中方县",
+    "latitude": 27.440554,
+    "longitude": 109.945436
+  },
+  {
+    "release_id": "7-1246",
+    "name": "龙家大院",
+    "release_address": "湖南省永州市新田县",
+    "latitude": 25.903965,
+    "longitude": 112.203396
+  },
+  {
+    "release_id": "7-1247",
+    "name": "黔城古建筑群",
+    "release_address": "湖南省怀化市洪江市",
+    "latitude": 27.209385,
+    "longitude": 109.836475
+  },
+  {
+    "release_id": "7-1249",
+    "name": "洞口宗祠建筑群",
+    "release_address": "湖南省邵阳市洞口县",
+    "latitude": 27.060274,
+    "longitude": 110.575962
+  },
+  {
+    "release_id": "7-1252",
+    "name": "荫家堂",
+    "release_address": "湖南省邵阳市邵东县",
+    "latitude": 27.259812,
+    "longitude": 111.744268
+  },
+  {
+    "release_id": "7-1257",
+    "name": "岁圆楼古建筑群",
+    "release_address": "湖南省永州市双牌县",
+    "latitude": 25.961909,
+    "longitude": 111.659967
+  },
+  {
+    "release_id": "7-1258",
+    "name": "零陵文武双庙",
+    "release_address": "湖南省永州市零陵区",
+    "latitude": 26.222278,
+    "longitude": 111.629806
+  },
+  {
+    "release_id": "7-1261",
+    "name": "芙蓉楼",
+    "release_address": "湖南省怀化市洪江市",
+    "latitude": 27.209385,
+    "longitude": 109.836475
+  },
+  {
+    "release_id": "7-1269",
+    "name": "石堰坪古建筑群",
+    "release_address": "湖南省张家界市永定区",
+    "latitude": 29.119662,
+    "longitude": 110.537379
+  },
+  {
+    "release_id": "7-1280",
+    "name": "长围村围屋",
+    "release_address": "广东省韶关市始兴县",
+    "latitude": 24.953908,
+    "longitude": 114.061998
+  },
+  {
+    "release_id": "7-1283",
+    "name": "湘山寺塔群与石刻",
+    "release_address": "广西壮族自治区桂林市全州县",
+    "latitude": 25.94939,
+    "longitude": 111.087089
+  },
+  {
+    "release_id": "7-1285",
+    "name": "大芦村古建筑群",
+    "release_address": "广西壮族自治区钦州市灵山县",
+    "latitude": 22.416671,
+    "longitude": 109.290698
+  },
+  {
+    "release_id": "7-1290",
+    "name": "西林岑氏家族建筑群",
+    "release_address": "广西壮族自治区百色市西林县",
+    "latitude": 24.50762,
+    "longitude": 105.097229
+  },
+  {
+    "release_id": "7-1292",
+    "name": "文昌学宫",
+    "release_address": "海南省文昌市",
+    "latitude": 19.544234,
+    "longitude": 110.797473
+  },
+  {
+    "release_id": "7-1299",
+    "name": "灵岩寺及千佛塔",
+    "release_address": "四川省成都市都江堰市",
+    "latitude": 30.988763,
+    "longitude": 103.647193
+  },
+  {
+    "release_id": "7-1307",
+    "name": "白玉嘎托寺",
+    "release_address": "四川省甘孜藏族自治州白玉县",
+    "latitude": 31.209669,
+    "longitude": 98.824025
+  },
+  {
+    "release_id": "7-1312",
+    "name": "乡城夯土碉楼",
+    "release_address": "四川省甘孜藏族自治州乡城县",
+    "latitude": 28.931081,
+    "longitude": 99.798116
+  },
+  {
+    "release_id": "7-1315",
+    "name": "甘泉寺",
+    "release_address": "四川省眉山市仁寿县",
+    "latitude": 29.995638,
+    "longitude": 104.133931
+  },
+  {
+    "release_id": "7-1318",
+    "name": "甲扎尔甲山洞窟壁画",
+    "release_address": "四川省阿坝藏族羌族自治州马尔康县",
+    "latitude": 31.905799,
+    "longitude": 102.206386
+  },
+  {
+    "release_id": "7-1319",
+    "name": "慧严寺大殿",
+    "release_address": "四川省遂宁市蓬溪县",
+    "latitude": 30.75763,
+    "longitude": 105.707498
+  },
+  {
+    "release_id": "7-1327",
+    "name": "南溪城墙",
+    "release_address": "四川省宜宾市南溪区",
+    "latitude": 28.846366,
+    "longitude": 104.969147
+  },
+  {
+    "release_id": "7-1333",
+    "name": "马鞍寺",
+    "release_address": "四川省绵阳市游仙区",
+    "latitude": 31.473788,
+    "longitude": 104.766136
+  },
+  {
+    "release_id": "7-1337",
+    "name": "青林口古建筑群",
+    "release_address": "四川省绵阳市江油市",
+    "latitude": 31.778572,
+    "longitude": 104.74564
+  },
+  {
+    "release_id": "7-1338",
+    "name": "盐神庙",
+    "release_address": "四川省内江市资中县",
+    "latitude": 29.763419,
+    "longitude": 104.851874
+  },
+  {
+    "release_id": "7-1340",
+    "name": "曾达关碉",
+    "release_address": "四川省阿坝藏族羌族自治州金川县",
+    "latitude": 31.47625,
+    "longitude": 102.063821
+  },
+  {
+    "release_id": "7-1355",
+    "name": "高峰山古建筑群",
+    "release_address": "四川省遂宁市蓬溪县",
+    "latitude": 30.75763,
+    "longitude": 105.707498
+  },
+  {
+    "release_id": "7-1361",
+    "name": "榕江大利村古建筑群",
+    "release_address": "贵州省黔东南苗族侗族自治州榕江县",
+    "latitude": 25.931893,
+    "longitude": 108.52188
+  },
+  {
+    "release_id": "7-1362",
+    "name": "楼上村古建筑群",
+    "release_address": "贵州省铜仁市石阡县",
+    "latitude": 27.513499,
+    "longitude": 108.223686
+  },
+  {
+    "release_id": "7-1365",
+    "name": "高阡鼓楼",
+    "release_address": "贵州省黔东南苗族侗族自治州从江县",
+    "latitude": 25.754638,
+    "longitude": 108.904998
+  },
+  {
+    "release_id": "7-1370",
+    "name": "三门塘古建筑群",
+    "release_address": "贵州省黔东南苗族侗族自治州天柱县",
+    "latitude": 26.909548,
+    "longitude": 109.207826
+  },
+  {
+    "release_id": "7-1376",
+    "name": "等觉寺",
+    "release_address": "云南省大理白族自治州巍山彝族回族自治县",
+    "latitude": 25.227065,
+    "longitude": 100.306977
+  },
+  {
+    "release_id": "7-1377",
+    "name": "勐旺塔及西北塔",
+    "release_address": "云南省临沧市临翔区",
+    "latitude": 23.895298,
+    "longitude": 100.082073
+  },
+  {
+    "release_id": "7-1379",
+    "name": "诺邓白族乡土建筑群",
+    "release_address": "云南省大理白族自治州云龙县",
+    "latitude": 25.885733,
+    "longitude": 99.371021
+  },
+  {
+    "release_id": "7-1380",
+    "name": "侬氏土司衙署",
+    "release_address": "云南省文山壮族苗族自治州广南县",
+    "latitude": 24.046378,
+    "longitude": 105.055075
+  },
+  {
+    "release_id": "7-1381",
+    "name": "景谷傣族佛寺建筑群",
+    "release_address": "云南省普洱市景谷傣族彝族自治县",
+    "latitude": 23.496987,
+    "longitude": 100.702807
+  },
+  {
+    "release_id": "7-1382",
+    "name": "沘江古桥梁群",
+    "release_address": "云南省大理白族自治州云龙县",
+    "latitude": 25.885733,
+    "longitude": 99.371021
+  },
+  {
+    "release_id": "7-1383",
+    "name": "景风阁古建筑群",
+    "release_address": "云南省大理白族自治州剑川县",
+    "latitude": 26.536889,
+    "longitude": 99.905041
+  },
+  {
+    "release_id": "7-1387",
+    "name": "绮罗文昌宫",
+    "release_address": "云南省保山市腾冲县",
+    "latitude": 25.020283,
+    "longitude": 98.490276
+  },
+  {
+    "release_id": "7-1400",
+    "name": "拉让宁巴",
+    "release_address": "西藏自治区拉萨市城关区",
+    "latitude": 29.654813,
+    "longitude": 91.140368
+  },
+  {
+    "release_id": "7-1406",
+    "name": "冲赛康",
+    "release_address": "西藏自治区拉萨市城关区",
+    "latitude": 29.654813,
+    "longitude": 91.140368
+  },
+  {
+    "release_id": "7-1412",
+    "name": "慧彻寺南塔",
+    "release_address": "陕西省渭南市蒲城县",
+    "latitude": 34.955755,
+    "longitude": 109.586263
+  },
+  {
+    "release_id": "7-1425",
+    "name": "延昌寺塔",
+    "release_address": "陕西省铜川市耀州区",
+    "latitude": 34.909685,
+    "longitude": 108.980095
+  },
+  {
+    "release_id": "7-1431",
+    "name": "紫云观三清殿",
+    "release_address": "陕西省渭南市韩城市",
+    "latitude": 35.477145,
+    "longitude": 110.44295
+  },
+  {
+    "release_id": "7-1442",
+    "name": "桥上桥",
+    "release_address": "陕西省渭南市华县",
+    "latitude": 34.497019,
+    "longitude": 109.775765
+  },
+  {
+    "release_id": "7-1446",
+    "name": "塔儿庄塔",
+    "release_address": "甘肃省庆阳市宁县",
+    "latitude": 35.509252,
+    "longitude": 107.913463
+  },
+  {
+    "release_id": "7-1449",
+    "name": "脚扎川万佛塔",
+    "release_address": "甘肃省庆阳市华池县",
+    "latitude": 36.461474,
+    "longitude": 107.98972
+  },
+  {
+    "release_id": "7-1456",
+    "name": "洮州卫城",
+    "release_address": "甘肃省甘南藏族自治州临潭县",
+    "latitude": 34.693009,
+    "longitude": 103.353665
+  },
+  {
+    "release_id": "7-1467",
+    "name": "文都寺及班禅大师故居",
+    "release_address": "青海省海东地区循化撒拉族自治县",
+    "latitude": 35.851079,
+    "longitude": 102.488958
+  },
+  {
+    "release_id": "7-1471",
+    "name": "保安古屯田寨堡古建筑群",
+    "release_address": "青海省黄南藏族自治州同仁县",
+    "latitude": 35.515769,
+    "longitude": 102.018663
+  },
+  {
+    "release_id": "7-1475",
+    "name": "珍珠寺",
+    "release_address": "青海省海南藏族自治州贵德县",
+    "latitude": 36.039672,
+    "longitude": 101.43403
+  },
+  {
+    "release_id": "7-1479",
+    "name": "撒拉族清真寺古建筑群",
+    "release_address": "青海省海东地区循化撒拉族自治县",
+    "latitude": 35.851079,
+    "longitude": 102.488958
+  },
+  {
+    "release_id": "7-1480",
+    "name": "湟源城隍庙",
+    "release_address": "青海省西宁市湟源县",
+    "latitude": 36.682426,
+    "longitude": 101.256464
+  },
+  {
+    "release_id": "7-1484",
+    "name": "银川玉皇阁",
+    "release_address": "宁夏回族自治区银川市兴庆区",
+    "latitude": 38.473972,
+    "longitude": 106.288452
+  },
+  {
+    "release_id": "7-1489",
+    "name": "巴仑台黄庙古建筑群",
+    "release_address": "新疆维吾尔自治区巴音郭楞蒙古自治州和静县",
+    "latitude": 42.323625,
+    "longitude": 86.384065
+  },
+  {
+    "release_id": "7-1490",
+    "name": "拜吐拉清真寺宣礼塔",
+    "release_address": "新疆维吾尔自治区伊犁哈萨克自治州伊宁市",
+    "latitude": 43.908021,
+    "longitude": 81.277715
+  },
+  {
+    "release_id": "7-1491",
+    "name": "哈纳喀及赛提喀玛勒清真寺宣礼塔",
+    "release_address": "新疆维吾尔自治区塔城地区塔城市",
+    "latitude": 46.751669,
+    "longitude": 82.986923
+  },
+  {
+    "release_id": "7-1504",
+    "name": "法华洞石窟",
+    "release_address": "河北省邯郸市武安市",
+    "latitude": 36.69759,
+    "longitude": 114.203685
+  },
+  {
+    "release_id": "7-1508",
+    "name": "石马寺石窟",
+    "release_address": "山西省晋中市昔阳县",
+    "latitude": 37.612577,
+    "longitude": 113.707151
+  },
+  {
+    "release_id": "7-1509",
+    "name": "七里脚千佛洞石窟",
+    "release_address": "山西省临汾市隰县",
+    "latitude": 36.693345,
+    "longitude": 110.940752
+  },
+  {
+    "release_id": "7-1511",
+    "name": "桌子山岩画群",
+    "release_address": "内蒙古自治区鄂尔多斯市鄂托克旗，乌海市海勃湾区、海南区",
+    "latitude": 39.441803,
+    "longitude": 106.891472
+  },
+  {
+    "release_id": "7-1515",
+    "name": "庆云摩崖石刻",
+    "release_address": "吉林省通化市梅河口市",
+    "latitude": 42.539183,
+    "longitude": 125.711129
+  },
+  {
+    "release_id": "7-1516",
+    "name": "清追封和硕忠亲王碑",
+    "release_address": "吉林省松原市前郭尔罗斯蒙古族自治县",
+    "latitude": 45.118061,
+    "longitude": 124.823417
+  },
+  {
+    "release_id": "7-1519",
+    "name": "郁林观石刻群",
+    "release_address": "江苏省连云港市新浦区",
+    "latitude": 34.596639,
+    "longitude": 119.221487
+  },
+  {
+    "release_id": "7-1520",
+    "name": "第一山题刻",
+    "release_address": "江苏省淮安市盱眙县",
+    "latitude": 33.011905,
+    "longitude": 118.544545
+  },
+  {
+    "release_id": "7-1522",
+    "name": "仙居古越族岩画群",
+    "release_address": "浙江省台州市仙居县",
+    "latitude": 28.846856,
+    "longitude": 120.728733
+  },
+  {
+    "release_id": "7-1524",
+    "name": "大佛寺石弥勒像和千佛岩造像",
+    "release_address": "浙江省绍兴市新昌县",
+    "latitude": 29.500525,
+    "longitude": 120.903918
+  },
+  {
+    "release_id": "7-1535",
+    "name": "乌石山、于山摩崖石刻及造像",
+    "release_address": "福建省福州市鼓楼区",
+    "latitude": 26.082666,
+    "longitude": 119.304507
+  },
+  {
+    "release_id": "7-1537",
+    "name": "南天寺石佛造像和摩崖石刻",
+    "release_address": "福建省泉州市晋江市",
+    "latitude": 24.781635,
+    "longitude": 118.551659
+  },
+  {
+    "release_id": "7-1543",
+    "name": "棘梁山石刻",
+    "release_address": "山东省泰安市东平县",
+    "latitude": 35.937049,
+    "longitude": 116.470211
+  },
+  {
+    "release_id": "7-1544",
+    "name": "景灵宫碑",
+    "release_address": "山东省济宁市曲阜市",
+    "latitude": 35.581933,
+    "longitude": 116.986212
+  },
+  {
+    "release_id": "7-1550",
+    "name": "禅静寺造像碑",
+    "release_address": "河南省许昌市长葛市",
+    "latitude": 34.195458,
+    "longitude": 113.813972
+  },
+  {
+    "release_id": "7-1551",
+    "name": "洪谷寺塔与千佛洞石窟",
+    "release_address": "河南省安阳市林州市",
+    "latitude": 36.084127,
+    "longitude": 113.819275
+  },
+  {
+    "release_id": "7-1553",
+    "name": "窄涧谷太平寺石窟",
+    "release_address": "河南省焦作市沁阳市",
+    "latitude": 35.087569,
+    "longitude": 112.950873
+  },
+  {
+    "release_id": "7-1557",
+    "name": "新乡文庙大观圣作之碑",
+    "release_address": "河南省新乡市红旗区",
+    "latitude": 35.306182,
+    "longitude": 113.983358
+  },
+  {
+    "release_id": "7-1563",
+    "name": "侍郎坦摩崖石刻群",
+    "release_address": "湖南省郴州市永兴县",
+    "latitude": 26.127155,
+    "longitude": 113.116587
+  },
+  {
+    "release_id": "7-1568",
+    "name": "淡岩石刻",
+    "release_address": "湖南省永州市零陵区",
+    "latitude": 26.222278,
+    "longitude": 111.629806
+  },
+  {
+    "release_id": "7-1570",
+    "name": "丹霞山摩崖石刻",
+    "release_address": "广东省韶关市仁化县",
+    "latitude": 25.085764,
+    "longitude": 113.749175
+  },
+  {
+    "release_id": "7-1572",
+    "name": "会仙山摩崖石刻",
+    "release_address": "广西壮族自治区河池市宜州市",
+    "latitude": 24.500981,
+    "longitude": 108.611303
+  },
+  {
+    "release_id": "7-1573",
+    "name": "石门大佛寺摩崖造像",
+    "release_address": "重庆市江津区",
+    "latitude": 29.319984,
+    "longitude": 106.264435
+  },
+  {
+    "release_id": "7-1574",
+    "name": "瞿塘峡摩崖石刻",
+    "release_address": "重庆市奉节县",
+    "latitude": 31.018505,
+    "longitude": 109.401056
+  },
+  {
+    "release_id": "7-1577",
+    "name": "鹤鸣山道教石窟寺及石刻",
+    "release_address": "四川省广元市剑阁县",
+    "latitude": 32.288681,
+    "longitude": 105.524699
+  },
+  {
+    "release_id": "7-1580",
+    "name": "郑山、刘嘴摩崖造像",
+    "release_address": "四川省眉山市丹棱县",
+    "latitude": 30.014398,
+    "longitude": 103.512859
+  },
+  {
+    "release_id": "7-1587",
+    "name": "中岩寺摩崖造像",
+    "release_address": "四川省眉山市青神县",
+    "latitude": 29.831302,
+    "longitude": 103.846596
+  },
+  {
+    "release_id": "7-1590",
+    "name": "玉蟾山摩崖造像",
+    "release_address": "四川省泸州市泸县",
+    "latitude": 29.1516,
+    "longitude": 105.381879
+  },
+  {
+    "release_id": "7-1592",
+    "name": "清凉洞摩崖造像",
+    "release_address": "四川省泸州市叙永县",
+    "latitude": 28.155631,
+    "longitude": 105.444777
+  },
+  {
+    "release_id": "7-1597",
+    "name": "其多山洞穴岩画",
+    "release_address": "西藏自治区那曲地区班戈县",
+    "latitude": 31.392157,
+    "longitude": 90.009822
+  },
+  {
+    "release_id": "7-1598",
+    "name": "宜君石窟群",
+    "release_address": "陕西省铜川市宜君县",
+    "latitude": 35.398624,
+    "longitude": 109.117063
+  },
+  {
+    "release_id": "7-1599",
+    "name": "清凉山万佛洞石窟及琉璃塔",
+    "release_address": "陕西省延安市宝塔区",
+    "latitude": 36.585138,
+    "longitude": 109.489726
+  },
+  {
+    "release_id": "7-1600",
+    "name": "大黑沟岩画",
+    "release_address": "甘肃省酒泉市肃北蒙古族自治县",
+    "latitude": 39.512158,
+    "longitude": 94.876533
+  },
+  {
+    "release_id": "7-1601",
+    "name": "黑山岩画",
+    "release_address": "甘肃省嘉峪关市",
+    "latitude": 39.77325,
+    "longitude": 98.2882
+  },
+  {
+    "release_id": "7-1605",
+    "name": "和日寺石经墙及和日寺",
+    "release_address": "青海省黄南藏族自治州泽库县",
+    "latitude": 35.035322,
+    "longitude": 101.466565
+  },
+  {
+    "release_id": "7-1607",
+    "name": "伯西哈石窟",
+    "release_address": "新疆维吾尔自治区吐鲁番地区吐鲁番市",
+    "latitude": 42.972736,
+    "longitude": 89.250261
+  },
+  {
+    "release_id": "7-1610",
+    "name": "京张铁路南口段至八达岭段",
+    "release_address": "北京市昌平区、延庆县",
+    "latitude": 40.457033,
+    "longitude": 115.974609
+  },
+  {
+    "release_id": "7-1611",
+    "name": "通州近代学校建筑群",
+    "release_address": "北京市通州区",
+    "latitude": 39.916403,
+    "longitude": 116.72923
+  },
+  {
+    "release_id": "7-1618",
+    "name": "基督教中华圣经会北京分会旧址",
+    "release_address": "北京市东城区",
+    "latitude": 39.928359,
+    "longitude": 116.416334
+  },
+  {
+    "release_id": "7-1636",
+    "name": "秦皇岛港口近代建筑群",
+    "release_address": "河北省秦皇岛市海港区",
+    "latitude": 39.94756,
+    "longitude": 119.564962
+  },
+  {
+    "release_id": "7-1638",
+    "name": "正丰矿工业建筑群",
+    "release_address": "河北省石家庄市井陉矿区",
+    "latitude": 38.065446,
+    "longitude": 114.062258
+  },
+  {
+    "release_id": "7-1644",
+    "name": "中国人民银行总行旧址",
+    "release_address": "河北省石家庄市新华区",
+    "latitude": 38.050749,
+    "longitude": 114.463904
+  },
+  {
+    "release_id": "7-1646",
+    "name": "山西大学堂旧址",
+    "release_address": "山西省太原市迎泽区",
+    "latitude": 37.863308,
+    "longitude": 112.563373
+  },
+  {
+    "release_id": "7-1648",
+    "name": "阎家大院",
+    "release_address": "山西省忻州市定襄县",
+    "latitude": 38.471725,
+    "longitude": 112.957234
+  },
+  {
+    "release_id": "7-1655",
+    "name": "侵华日军阿尔山要塞遗址",
+    "release_address": "内蒙古自治区兴安盟阿尔山市",
+    "latitude": 47.17744,
+    "longitude": 119.943577
+  },
+  {
+    "release_id": "7-1659",
+    "name": "南子弹库旧址",
+    "release_address": "辽宁省大连市旅顺口区",
+    "latitude": 38.851742,
+    "longitude": 121.261982
+  },
+  {
+    "release_id": "7-1663",
+    "name": "关东州总督府旧址",
+    "release_address": "辽宁省大连市旅顺口区",
+    "latitude": 38.851742,
+    "longitude": 121.261982
+  },
+  {
+    "release_id": "7-1669",
+    "name": "沈阳中山广场建筑群",
+    "release_address": "辽宁省沈阳市和平区",
+    "latitude": 41.789766,
+    "longitude": 123.420401
+  },
+  {
+    "release_id": "7-1674",
+    "name": "抗美援朝下河口公路断桥遗址",
+    "release_address": "辽宁省丹东市宽甸满族自治县",
+    "latitude": 40.731319,
+    "longitude": 124.783674
+  },
+  {
+    "release_id": "7-1675",
+    "name": "雷锋墓和雷锋纪念碑",
+    "release_address": "辽宁省抚顺市望花区",
+    "latitude": 41.853484,
+    "longitude": 123.784235
+  },
+  {
+    "release_id": "7-1682",
+    "name": "伪满皇宫及日伪军政机构旧址",
+    "release_address": "吉林省长春市宽城区、朝阳区",
+    "latitude": 43.833845,
+    "longitude": 125.288168
+  },
+  {
+    "release_id": "7-1683",
+    "name": "通化葡萄酒厂地下贮酒窖",
+    "release_address": "吉林省通化市东昌区",
+    "latitude": 41.702872,
+    "longitude": 125.927187
+  },
+  {
+    "release_id": "7-1692",
+    "name": "东北民主联军前线指挥部旧址",
+    "release_address": "黑龙江省哈尔滨市双城市",
+    "latitude": 45.382873,
+    "longitude": 126.31279
+  },
+  {
+    "release_id": "7-1706",
+    "name": "韩公馆",
+    "release_address": "江苏省南通市海安县",
+    "latitude": 32.532853,
+    "longitude": 120.46779
+  },
+  {
+    "release_id": "7-1707",
+    "name": "孙中山临时大总统府及南京国民政府建筑遗存",
+    "release_address": "江苏省南京市玄武区",
+    "latitude": 32.048644,
+    "longitude": 118.797779
+  },
+  {
+    "release_id": "7-1711",
+    "name": "北极阁气象台旧址",
+    "release_address": "江苏省南京市玄武区",
+    "latitude": 32.048644,
+    "longitude": 118.797779
+  },
+  {
+    "release_id": "7-1712",
+    "name": "中央陆军军官学校旧址",
+    "release_address": "江苏省南京市玄武区",
+    "latitude": 32.048644,
+    "longitude": 118.797779
+  },
+  {
+    "release_id": "7-1719",
+    "name": "黄桥战斗旧址",
+    "release_address": "江苏省泰州市泰兴市",
+    "latitude": 32.173072,
+    "longitude": 120.051475
+  },
+  {
+    "release_id": "7-1725",
+    "name": "春晖中学旧址",
+    "release_address": "浙江省绍兴市上虞市",
+    "latitude": 30.033862,
+    "longitude": 120.868571
+  },
+  {
+    "release_id": "7-1736",
+    "name": "洪家大屋",
+    "release_address": "安徽省黄山市祁门县",
+    "latitude": 29.854179,
+    "longitude": 117.717452
+  },
+  {
+    "release_id": "7-1739",
+    "name": "安徽大学红楼及敬敷书院旧址",
+    "release_address": "安徽省安庆市大观区",
+    "latitude": 30.553697,
+    "longitude": 117.013469
+  },
+  {
+    "release_id": "7-1743",
+    "name": "圣雅各中学旧址",
+    "release_address": "安徽省芜湖市镜湖区",
+    "latitude": 31.34056,
+    "longitude": 118.385133
+  },
+  {
+    "release_id": "7-1755",
+    "name": "永安抗战旧址群",
+    "release_address": "福建省三明市永安市",
+    "latitude": 25.941671,
+    "longitude": 117.365046
+  },
+  {
+    "release_id": "7-1756",
+    "name": "五更寮土高炉群",
+    "release_address": "福建省漳州市南靖县",
+    "latitude": 24.5151,
+    "longitude": 117.357061
+  },
+  {
+    "release_id": "7-1757",
+    "name": "同文书院",
+    "release_address": "江西省九江市浔阳区",
+    "latitude": 29.70547,
+    "longitude": 116.001677
+  },
+  {
+    "release_id": "7-1767",
+    "name": "寻乌调查旧址",
+    "release_address": "江西省赣州市寻乌县",
+    "latitude": 24.969513,
+    "longitude": 115.638534
+  },
+  {
+    "release_id": "7-1773",
+    "name": "邓小平旧居与劳动车间",
+    "release_address": "江西省南昌市新建县",
+    "latitude": 28.693192,
+    "longitude": 115.815244
+  },
+  {
+    "release_id": "7-1783",
+    "name": "原齐鲁大学近现代建筑群",
+    "release_address": "山东省济南市历下区",
+    "latitude": 36.666395,
+    "longitude": 117.07632
+  },
+  {
+    "release_id": "7-1786",
+    "name": "新四军军部暨华东军区、华东野战军诞生地旧址",
+    "release_address": "山东省临沂市河东区",
+    "latitude": 35.088936,
+    "longitude": 118.403073
+  },
+  {
+    "release_id": "7-1792",
+    "name": "洛阳西工兵营",
+    "release_address": "河南省洛阳市西工区",
+    "latitude": 34.659959,
+    "longitude": 112.428183
+  },
+  {
+    "release_id": "7-1796",
+    "name": "国共黄河归故谈判旧址",
+    "release_address": "河南省开封市禹王台区",
+    "latitude": 34.777052,
+    "longitude": 114.348105
+  },
+  {
+    "release_id": "7-1797",
+    "name": "豫陕鄂前后方工作委员会旧址",
+    "release_address": "河南省平顶山市鲁山县",
+    "latitude": 33.738434,
+    "longitude": 112.908052
+  },
+  {
+    "release_id": "7-1826",
+    "name": "信义校会建筑群",
+    "release_address": "湖南省益阳市赫山区、资阳区",
+    "latitude": 28.59149,
+    "longitude": 112.324286
+  },
+  {
+    "release_id": "7-1827",
+    "name": "岳阳教会学校",
+    "release_address": "湖南省岳阳市岳阳楼区",
+    "latitude": 29.371356,
+    "longitude": 113.129362
+  },
+  {
+    "release_id": "7-1834",
+    "name": "渌江桥",
+    "release_address": "湖南省株洲市醴陵市",
+    "latitude": 27.6457,
+    "longitude": 113.497119
+  },
+  {
+    "release_id": "7-1846",
+    "name": "人境庐和荣禄第",
+    "release_address": "广东省梅州市梅江区",
+    "latitude": 24.31065,
+    "longitude": 116.116686
+  },
+  {
+    "release_id": "7-1852",
+    "name": "国民革命军东征军总指挥部、政治部旧址",
+    "release_address": "广东省汕头市金平区",
+    "latitude": 23.365716,
+    "longitude": 116.70341
+  },
+  {
+    "release_id": "7-1853",
+    "name": "顺德糖厂早期建筑",
+    "release_address": "广东省佛山市顺德区",
+    "latitude": 22.805413,
+    "longitude": 113.293197
+  },
+  {
+    "release_id": "7-1855",
+    "name": "梧州近代建筑群",
+    "release_address": "广西壮族自治区梧州市万秀区、蝶山区",
+    "latitude": 23.470543,
+    "longitude": 111.318065
+  },
+  {
+    "release_id": "7-1857",
+    "name": "越南共产党驻龙州秘密机关旧址",
+    "release_address": "广西壮族自治区崇左市龙州县",
+    "latitude": 22.343591,
+    "longitude": 106.854001
+  },
+  {
+    "release_id": "7-1860",
+    "name": "临高角灯塔",
+    "release_address": "海南省临高县",
+    "latitude": 19.912025,
+    "longitude": 109.690508
+  },
+  {
+    "release_id": "7-1862",
+    "name": "韩家宅",
+    "release_address": "海南省文昌市",
+    "latitude": 19.544234,
+    "longitude": 110.797473
+  },
+  {
+    "release_id": "7-1870",
+    "name": "国民政府军事委员会政治部旧址",
+    "release_address": "重庆市沙坪坝区",
+    "latitude": 29.541017,
+    "longitude": 106.456939
+  },
+  {
+    "release_id": "7-1874",
+    "name": "林园",
+    "release_address": "重庆市沙坪坝区",
+    "latitude": 29.541017,
+    "longitude": 106.456939
+  },
+  {
+    "release_id": "7-1893",
+    "name": "列宁街石牌坊及红军标语",
+    "release_address": "四川省达州市达县",
+    "latitude": 31.196573,
+    "longitude": 107.511736
+  },
+  {
+    "release_id": "7-1897",
+    "name": "茅台酒酿酒工业遗产群",
+    "release_address": "贵州省遵义市仁怀市",
+    "latitude": 27.791883,
+    "longitude": 106.401322
+  },
+  {
+    "release_id": "7-1900",
+    "name": "福林堂",
+    "release_address": "云南省昆明市五华区",
+    "latitude": 25.043635,
+    "longitude": 102.707262
+  },
+  {
+    "release_id": "7-1903",
+    "name": "滇西军都督府旧址及叠园集刻",
+    "release_address": "云南省保山市腾冲县",
+    "latitude": 25.020283,
+    "longitude": 98.490276
+  },
+  {
+    "release_id": "7-1904",
+    "name": "宝丰隆商号",
+    "release_address": "云南省红河哈尼族彝族自治州个旧市",
+    "latitude": 23.389935,
+    "longitude": 103.152663
+  },
+  {
+    "release_id": "7-1909",
+    "name": "丹桂村中央红军总部驻地旧址与金沙江皎平渡口",
+    "release_address": "云南省昆明市寻甸回族彝族自治县、禄劝彝族苗族自治县",
+    "latitude": 25.551768,
+    "longitude": 102.471993
+  },
+  {
+    "release_id": "7-1920",
+    "name": "南梁陕甘边区革命政府旧址",
+    "release_address": "甘肃省庆阳市华池县",
+    "latitude": 36.461474,
+    "longitude": 107.98972
+  },
+  {
+    "release_id": "7-1925",
+    "name": "天佑德酒作坊",
+    "release_address": "青海省海东地区互助土族自治县",
+    "latitude": 36.844027,
+    "longitude": 101.958519
+  },
+  {
+    "release_id": "7-1926",
+    "name": "青藏公路建设指挥部旧址（将军楼）",
+    "release_address": "青海省海西蒙古族藏族自治州格尔木市",
+    "latitude": 36.407272,
+    "longitude": 94.928293
+  },
+  {
+    "release_id": "7-1932",
+    "name": "三区革命政府旧址",
+    "release_address": "新疆维吾尔自治区伊犁哈萨克自治州伊宁市",
+    "latitude": 43.908021,
+    "longitude": 81.277715
+  },
+  {
+    "release_id": "7-1936",
+    "name": "红山核武器试爆指挥中心旧址",
+    "release_address": "新疆维吾尔自治区巴音郭楞蒙古自治州和硕县",
+    "latitude": 42.28361,
+    "longitude": 86.877688
+  },
+  {
+    "release_id": "7-1941",
+    "name": "景迈古茶园",
+    "release_address": "云南省普洱市澜沧拉祜族自治县",
+    "latitude": 22.555799,
+    "longitude": 99.932045
+  },
+  {
+    "release_id": "8-7",
+    "name": "碧村遗址",
+    "release_address": "山西省兴县",
+    "latitude": 38.461818,
+    "longitude": 111.127486
+  },
+  {
+    "release_id": "8-13",
+    "name": "蒙山开化寺遗址",
+    "release_address": "山西省太原市晋源区",
+    "latitude": 37.715519,
+    "longitude": 112.477869
+  },
+  {
+    "release_id": "8-24",
+    "name": "后套木嘎遗址",
+    "release_address": "吉林省大安市",
+    "latitude": 45.507004,
+    "longitude": 124.291032
+  },
+  {
+    "release_id": "8-28",
+    "name": "霸王朝山城遗址",
+    "release_address": "吉林省集安市",
+    "latitude": 41.125805,
+    "longitude": 126.193172
+  },
+  {
+    "release_id": "8-33",
+    "name": "锅盔山山城遗址",
+    "release_address": "黑龙江省鸡东县",
+    "latitude": 45.260413,
+    "longitude": 131.124083
+  },
+  {
+    "release_id": "8-34",
+    "name": "青龙镇遗址",
+    "release_address": "上海市青浦区",
+    "latitude": 31.15098,
+    "longitude": 121.124249
+  },
+  {
+    "release_id": "8-36",
+    "name": "韩井遗址",
+    "release_address": "江苏省泗洪县",
+    "latitude": 33.476575,
+    "longitude": 118.223941
+  },
+  {
+    "release_id": "8-38",
+    "name": "寺墩遗址",
+    "release_address": "江苏省常州市天宁区",
+    "latitude": 31.79232,
+    "longitude": 119.999439
+  },
+  {
+    "release_id": "8-40",
+    "name": "鲤鱼山—老虎岭水坝遗址",
+    "release_address": "浙江省杭州市余杭区",
+    "latitude": 30.273705,
+    "longitude": 119.978742
+  },
+  {
+    "release_id": "8-43",
+    "name": "沙埠窑遗址",
+    "release_address": "浙江省台州市黄岩区",
+    "latitude": 28.649433,
+    "longitude": 121.261804
+  },
+  {
+    "release_id": "8-45",
+    "name": "金寨遗址",
+    "release_address": "安徽省萧县",
+    "latitude": 34.18884,
+    "longitude": 116.947289
+  },
+  {
+    "release_id": "8-47",
+    "name": "汤家墩遗址",
+    "release_address": "安徽省枞阳县",
+    "latitude": 30.705466,
+    "longitude": 117.250191
+  },
+  {
+    "release_id": "8-48",
+    "name": "合肥曹魏新城遗址",
+    "release_address": "安徽省合肥市庐阳区",
+    "latitude": 31.878722,
+    "longitude": 117.265088
+  },
+  {
+    "release_id": "8-49",
+    "name": "壳丘头遗址群",
+    "release_address": "福建省平潭县",
+    "latitude": 25.498767,
+    "longitude": 119.789893
+  },
+  {
+    "release_id": "8-53",
+    "name": "宝丰银矿遗址",
+    "release_address": "福建省周宁县",
+    "latitude": 27.104797,
+    "longitude": 119.338998
+  },
+  {
+    "release_id": "8-58",
+    "name": "锅底山遗址",
+    "release_address": "江西省宜黄县",
+    "latitude": 27.554744,
+    "longitude": 116.236174
+  },
+  {
+    "release_id": "8-62",
+    "name": "焦家遗址",
+    "release_address": "山东省济南市章丘区",
+    "latitude": 36.681258,
+    "longitude": 117.526228
+  },
+  {
+    "release_id": "8-64",
+    "name": "岗上遗址",
+    "release_address": "山东省滕州市",
+    "latitude": 35.11412,
+    "longitude": 117.165881
+  },
+  {
+    "release_id": "8-65",
+    "name": "十里铺北堌堆遗址",
+    "release_address": "山东省菏泽市定陶区",
+    "latitude": 35.105742,
+    "longitude": 115.583172
+  },
+  {
+    "release_id": "8-67",
+    "name": "梁堌堆遗址",
+    "release_address": "山东省曹县",
+    "latitude": 34.85875,
+    "longitude": 115.556393
+  },
+  {
+    "release_id": "8-75",
+    "name": "孙家洞遗址",
+    "release_address": "河南省栾川县",
+    "latitude": 33.7857,
+    "longitude": 111.615729
+  },
+  {
+    "release_id": "8-77",
+    "name": "后高老家遗址",
+    "release_address": "河南省项城市",
+    "latitude": 33.465609,
+    "longitude": 114.875128
+  },
+  {
+    "release_id": "8-81",
+    "name": "史官遗址",
+    "release_address": "河南省南乐县",
+    "latitude": 36.070219,
+    "longitude": 115.205876
+  },
+  {
+    "release_id": "8-82",
+    "name": "鹤壁刘庄遗址",
+    "release_address": "河南省鹤壁市淇滨区",
+    "latitude": 35.741763,
+    "longitude": 114.298748
+  },
+  {
+    "release_id": "8-83",
+    "name": "淮阳双冢遗址",
+    "release_address": "河南省周口市淮阳区",
+    "latitude": 33.731543,
+    "longitude": 114.852604
+  },
+  {
+    "release_id": "8-87",
+    "name": "官庄遗址",
+    "release_address": "河南省荥阳市",
+    "latitude": 34.7866,
+    "longitude": 113.383385
+  },
+  {
+    "release_id": "8-88",
+    "name": "阳城故城遗址",
+    "release_address": "河南省商水县",
+    "latitude": 33.562072,
+    "longitude": 114.608135
+  },
+  {
+    "release_id": "8-90",
+    "name": "新安故城遗址",
+    "release_address": "河南省义马市",
+    "latitude": 34.747563,
+    "longitude": 111.874726
+  },
+  {
+    "release_id": "8-94",
+    "name": "东沟窑遗址",
+    "release_address": "河南省汝州市",
+    "latitude": 34.16717,
+    "longitude": 112.844696
+  },
+  {
+    "release_id": "8-95",
+    "name": "白龙洞遗址",
+    "release_address": "湖北省郧西县",
+    "latitude": 32.993095,
+    "longitude": 110.426005
+  },
+  {
+    "release_id": "8-97",
+    "name": "庙台子遗址",
+    "release_address": "湖北省随州市曾都区",
+    "latitude": 31.716423,
+    "longitude": 113.371052
+  },
+  {
+    "release_id": "8-99",
+    "name": "襄樊码头遗址",
+    "release_address": "湖北省襄阳市襄城区、樊城区",
+    "latitude": 32.045065,
+    "longitude": 112.135241
+  },
+  {
+    "release_id": "8-102",
+    "name": "磨山遗址",
+    "release_address": "湖南省株洲市渌口区",
+    "latitude": 27.699361,
+    "longitude": 113.143832
+  },
+  {
+    "release_id": "8-104",
+    "name": "马栏嘴遗址",
+    "release_address": "湖南省汉寿县",
+    "latitude": 28.906063,
+    "longitude": 111.970725
+  },
+  {
+    "release_id": "8-105",
+    "name": "益阳故城遗址",
+    "release_address": "湖南省益阳市赫山区",
+    "latitude": 28.58011,
+    "longitude": 112.373895
+  },
+  {
+    "release_id": "8-111",
+    "name": "磨刀山遗址",
+    "release_address": "广东省郁南县",
+    "latitude": 23.234561,
+    "longitude": 111.535387
+  },
+  {
+    "release_id": "8-114",
+    "name": "狮雄山遗址",
+    "release_address": "广东省五华县",
+    "latitude": 23.932568,
+    "longitude": 115.775751
+  },
+  {
+    "release_id": "8-120",
+    "name": "父子岩遗址",
+    "release_address": "广西壮族自治区桂林市雁山区",
+    "latitude": 25.101798,
+    "longitude": 110.286611
+  },
+  {
+    "release_id": "8-123",
+    "name": "定安故城遗址",
+    "release_address": "海南省定安县",
+    "latitude": 19.681215,
+    "longitude": 110.358001
+  },
+  {
+    "release_id": "8-124",
+    "name": "珊瑚岛沉船遗址",
+    "release_address": "海南省三沙市",
+    "latitude": 16.831004,
+    "longitude": 112.338649
+  },
+  {
+    "release_id": "8-141",
+    "name": "刘家洼遗址",
+    "release_address": "陕西省澄城县",
+    "latitude": 35.190256,
+    "longitude": 109.932439
+  },
+  {
+    "release_id": "8-145",
+    "name": "孙家南头仓储遗址",
+    "release_address": "陕西省凤翔县",
+    "latitude": 34.522167,
+    "longitude": 107.401029
+  },
+  {
+    "release_id": "8-147",
+    "name": "西灰山遗址",
+    "release_address": "甘肃省民乐县",
+    "latitude": 38.430318,
+    "longitude": 100.812047
+  },
+  {
+    "release_id": "8-148",
+    "name": "石家及遇村遗址",
+    "release_address": "甘肃省宁县",
+    "latitude": 35.509252,
+    "longitude": 107.913463
+  },
+  {
+    "release_id": "8-165",
+    "name": "小央达克协海尔古城遗址",
+    "release_address": "新疆维吾尔自治区沙雅县",
+    "latitude": 41.221413,
+    "longitude": 82.781774
+  },
+  {
+    "release_id": "8-168",
+    "name": "醇亲王墓",
+    "release_address": "北京市海淀区",
+    "latitude": 39.959893,
+    "longitude": 116.2977
+  },
+  {
+    "release_id": "8-169",
+    "name": "北张庄墓群",
+    "release_address": "河北省邯郸市邯山区",
+    "latitude": 36.59457,
+    "longitude": 114.531062
+  },
+  {
+    "release_id": "8-170",
+    "name": "陶寺北墓地",
+    "release_address": "山西省襄汾县",
+    "latitude": 35.876293,
+    "longitude": 111.441725
+  },
+  {
+    "release_id": "8-174",
+    "name": "喀喇沁右翼旗蒙古王陵",
+    "release_address": "辽宁省建平县",
+    "latitude": 41.402891,
+    "longitude": 119.64328
+  },
+  {
+    "release_id": "8-175",
+    "name": "良茂墓群",
+    "release_address": "吉林省集安市",
+    "latitude": 41.125805,
+    "longitude": 126.193172
+  },
+  {
+    "release_id": "8-177",
+    "name": "洞阳东吴墓",
+    "release_address": "安徽省当涂县",
+    "latitude": 31.570857,
+    "longitude": 118.497873
+  },
+  {
+    "release_id": "8-182",
+    "name": "天湖墓地",
+    "release_address": "河南省罗山县",
+    "latitude": 32.20436,
+    "longitude": 114.512838
+  },
+  {
+    "release_id": "8-183",
+    "name": "徐阳墓地",
+    "release_address": "河南省伊川县",
+    "latitude": 34.421741,
+    "longitude": 112.425751
+  },
+  {
+    "release_id": "8-184",
+    "name": "西朱村曹魏墓",
+    "release_address": "河南省洛阳市洛龙区",
+    "latitude": 34.619711,
+    "longitude": 112.463833
+  },
+  {
+    "release_id": "8-186",
+    "name": "毕升墓",
+    "release_address": "湖北省英山县",
+    "latitude": 30.734989,
+    "longitude": 115.680953
+  },
+  {
+    "release_id": "8-187",
+    "name": "汨罗山墓群",
+    "release_address": "湖南省汨罗市",
+    "latitude": 28.806937,
+    "longitude": 113.067097
+  },
+  {
+    "release_id": "8-189",
+    "name": "赛典赤·赡思丁墓",
+    "release_address": "云南省昆明市盘龙区、官渡区",
+    "latitude": 24.950285,
+    "longitude": 102.748888
+  },
+  {
+    "release_id": "8-190",
+    "name": "故如甲木墓地",
+    "release_address": "西藏自治区噶尔县",
+    "latitude": 32.492078,
+    "longitude": 80.096591
+  },
+  {
+    "release_id": "8-192",
+    "name": "太公庙秦公墓",
+    "release_address": "陕西省宝鸡市陈仓区",
+    "latitude": 34.35073,
+    "longitude": 107.368993
+  },
+  {
+    "release_id": "8-197",
+    "name": "吉尔赞喀勒墓地",
+    "release_address": "新疆维吾尔自治区塔什库尔干塔吉克自治县",
+    "latitude": 37.772094,
+    "longitude": 75.229889
+  },
+  {
+    "release_id": "8-202",
+    "name": "涞水龙严寺塔",
+    "release_address": "河北省涞水县",
+    "latitude": 39.394305,
+    "longitude": 115.713651
+  },
+  {
+    "release_id": "8-206",
+    "name": "上党西岩寺塔",
+    "release_address": "山西省长治市上党区",
+    "latitude": 36.053104,
+    "longitude": 113.051416
+  },
+  {
+    "release_id": "8-207",
+    "name": "栖岩寺塔林",
+    "release_address": "山西省永济市",
+    "latitude": 34.866499,
+    "longitude": 110.447771
+  },
+  {
+    "release_id": "8-223",
+    "name": "梁村洪福寺",
+    "release_address": "山西省祁县",
+    "latitude": 37.358425,
+    "longitude": 112.335226
+  },
+  {
+    "release_id": "8-233",
+    "name": "繁峙琉璃塔",
+    "release_address": "山西省繁峙县",
+    "latitude": 39.188835,
+    "longitude": 113.265464
+  },
+  {
+    "release_id": "8-241",
+    "name": "长则普明寺",
+    "release_address": "山西省平遥县",
+    "latitude": 37.189614,
+    "longitude": 112.175825
+  },
+  {
+    "release_id": "8-256",
+    "name": "解州同善义仓",
+    "release_address": "山西省运城市盐湖区",
+    "latitude": 35.015549,
+    "longitude": 110.998135
+  },
+  {
+    "release_id": "8-264",
+    "name": "垂虹断桥",
+    "release_address": "江苏省苏州市吴江区",
+    "latitude": 31.138525,
+    "longitude": 120.645728
+  },
+  {
+    "release_id": "8-265",
+    "name": "西方寺大殿",
+    "release_address": "江苏省扬州市广陵区",
+    "latitude": 32.395654,
+    "longitude": 119.431785
+  },
+  {
+    "release_id": "8-271",
+    "name": "荡口华氏老义庄",
+    "release_address": "江苏省无锡市锡山区",
+    "latitude": 31.589484,
+    "longitude": 120.357732
+  },
+  {
+    "release_id": "8-280",
+    "name": "独山石牌坊",
+    "release_address": "浙江省遂昌县",
+    "latitude": 28.592388,
+    "longitude": 119.275865
+  },
+  {
+    "release_id": "8-286",
+    "name": "厚吴村古建筑群",
+    "release_address": "浙江省永康市",
+    "latitude": 28.88899,
+    "longitude": 120.047356
+  },
+  {
+    "release_id": "8-298",
+    "name": "贵池百牙山塔",
+    "release_address": "安徽省池州市贵池区",
+    "latitude": 30.688237,
+    "longitude": 117.568087
+  },
+  {
+    "release_id": "8-300",
+    "name": "滁州无梁殿",
+    "release_address": "安徽省滁州市琅琊区",
+    "latitude": 32.334475,
+    "longitude": 118.32115
+  },
+  {
+    "release_id": "8-302",
+    "name": "洪坑牌坊群及洪氏家庙",
+    "release_address": "安徽省黄山市徽州区",
+    "latitude": 29.827291,
+    "longitude": 118.336799
+  },
+  {
+    "release_id": "8-305",
+    "name": "石潭吴氏宗祠",
+    "release_address": "安徽省歙县",
+    "latitude": 29.861354,
+    "longitude": 118.415258
+  },
+  {
+    "release_id": "8-307",
+    "name": "屏山舒氏祠堂",
+    "release_address": "安徽省黟县",
+    "latitude": 29.92477,
+    "longitude": 117.938139
+  },
+  {
+    "release_id": "8-322",
+    "name": "荔城报恩寺塔",
+    "release_address": "福建省莆田市荔城区",
+    "latitude": 25.432268,
+    "longitude": 119.014821
+  },
+  {
+    "release_id": "8-326",
+    "name": "黄道周讲学处",
+    "release_address": "福建省漳浦县",
+    "latitude": 24.11741,
+    "longitude": 117.613783
+  },
+  {
+    "release_id": "8-327",
+    "name": "芷溪宗祠建筑",
+    "release_address": "福建省连城县",
+    "latitude": 25.710538,
+    "longitude": 116.754472
+  },
+  {
+    "release_id": "8-347",
+    "name": "浒湾书坊建筑群",
+    "release_address": "江西省金溪县",
+    "latitude": 27.91973,
+    "longitude": 116.755018
+  },
+  {
+    "release_id": "8-368",
+    "name": "侯湾泰山庙",
+    "release_address": "河南省汝州市",
+    "latitude": 34.16717,
+    "longitude": 112.844696
+  },
+  {
+    "release_id": "8-377",
+    "name": "偃师兴福寺大殿",
+    "release_address": "河南省偃师市",
+    "latitude": 34.72715,
+    "longitude": 112.789375
+  },
+  {
+    "release_id": "8-381",
+    "name": "高家花屋",
+    "release_address": "湖北省竹山县",
+    "latitude": 32.225039,
+    "longitude": 110.229696
+  },
+  {
+    "release_id": "8-385",
+    "name": "中田村古建筑群",
+    "release_address": "湖南省常宁市",
+    "latitude": 26.421717,
+    "longitude": 112.399894
+  },
+  {
+    "release_id": "8-397",
+    "name": "桃树湾刘氏大屋",
+    "release_address": "湖南省浏阳市",
+    "latitude": 28.163866,
+    "longitude": 113.64328
+  },
+  {
+    "release_id": "8-399",
+    "name": "宝镜何家大院",
+    "release_address": "湖南省江华瑶族自治县",
+    "latitude": 25.185257,
+    "longitude": 111.57951
+  },
+  {
+    "release_id": "8-415",
+    "name": "左江归龙斜塔",
+    "release_address": "广西壮族自治区崇左市江州区",
+    "latitude": 22.40609,
+    "longitude": 107.353694
+  },
+  {
+    "release_id": "8-418",
+    "name": "海南省澄迈县冯氏祠堂",
+    "release_address": "海南省澄迈县",
+    "latitude": 19.738885,
+    "longitude": 110.007497
+  },
+  {
+    "release_id": "8-428",
+    "name": "蓝池庙",
+    "release_address": "四川省三台县",
+    "latitude": 31.095826,
+    "longitude": 105.093722
+  },
+  {
+    "release_id": "8-430",
+    "name": "福宝古建筑群",
+    "release_address": "四川省合江县",
+    "latitude": 28.811278,
+    "longitude": 105.831011
+  },
+  {
+    "release_id": "8-432",
+    "name": "井研雷氏民居",
+    "release_address": "四川省井研县",
+    "latitude": 29.65165,
+    "longitude": 104.06968
+  },
+  {
+    "release_id": "8-444",
+    "name": "天峰山古建筑群",
+    "release_address": "云南省祥云县",
+    "latitude": 25.483727,
+    "longitude": 100.549961
+  },
+  {
+    "release_id": "8-449",
+    "name": "江川文庙",
+    "release_address": "云南省玉溪市江川区",
+    "latitude": 24.299441,
+    "longitude": 102.748499
+  },
+  {
+    "release_id": "8-453",
+    "name": "建水学政考棚",
+    "release_address": "云南省建水县",
+    "latitude": 23.635824,
+    "longitude": 102.826178
+  },
+  {
+    "release_id": "8-454",
+    "name": "同乐傈僳族民居建筑群",
+    "release_address": "云南省维西傈僳族自治县",
+    "latitude": 27.163808,
+    "longitude": 99.300937
+  },
+  {
+    "release_id": "8-457",
+    "name": "乃宁曲德寺",
+    "release_address": "西藏自治区康马县",
+    "latitude": 28.555627,
+    "longitude": 89.681663
+  },
+  {
+    "release_id": "8-463",
+    "name": "户县化羊庙东岳献殿",
+    "release_address": "陕西省西安市鄠邑区",
+    "latitude": 34.108707,
+    "longitude": 108.604772
+  },
+  {
+    "release_id": "8-467",
+    "name": "蒲城考院",
+    "release_address": "陕西省蒲城县",
+    "latitude": 34.955755,
+    "longitude": 109.586263
+  },
+  {
+    "release_id": "8-471",
+    "name": "正宁文庙大成殿",
+    "release_address": "甘肃省正宁县",
+    "latitude": 35.492158,
+    "longitude": 108.359964
+  },
+  {
+    "release_id": "8-474",
+    "name": "永昌北海子塔",
+    "release_address": "甘肃省永昌县",
+    "latitude": 38.243534,
+    "longitude": 101.984642
+  },
+  {
+    "release_id": "8-477",
+    "name": "天祝东大寺",
+    "release_address": "甘肃省天祝藏族自治县",
+    "latitude": 36.971978,
+    "longitude": 103.142416
+  },
+  {
+    "release_id": "8-482",
+    "name": "营里千佛洞石窟",
+    "release_address": "山西省乡宁县",
+    "latitude": 35.970834,
+    "longitude": 110.846585
+  },
+  {
+    "release_id": "8-485",
+    "name": "汉建初元年买地刻石",
+    "release_address": "浙江省绍兴市越城区",
+    "latitude": 29.989092,
+    "longitude": 120.582338
+  },
+  {
+    "release_id": "8-489",
+    "name": "道场山祈年题记",
+    "release_address": "浙江省湖州市吴兴区",
+    "latitude": 30.857184,
+    "longitude": 120.185608
+  },
+  {
+    "release_id": "8-493",
+    "name": "魁星岩摩崖造像",
+    "release_address": "福建省永春县",
+    "latitude": 25.321849,
+    "longitude": 118.29416
+  },
+  {
+    "release_id": "8-495",
+    "name": "陶山朝阳洞石刻造像",
+    "release_address": "山东省肥城市",
+    "latitude": 36.181975,
+    "longitude": 116.769098
+  },
+  {
+    "release_id": "8-496",
+    "name": "尹宙碑",
+    "release_address": "河南省鄢陵县",
+    "latitude": 34.102985,
+    "longitude": 114.177329
+  },
+  {
+    "release_id": "8-506",
+    "name": "囊巴朗则石雕",
+    "release_address": "西藏自治区芒康县",
+    "latitude": 29.679957,
+    "longitude": 98.593493
+  },
+  {
+    "release_id": "8-507",
+    "name": "乃甲切木石窟",
+    "release_address": "西藏自治区岗巴县",
+    "latitude": 28.271189,
+    "longitude": 88.515318
+  },
+  {
+    "release_id": "8-515",
+    "name": "焕彩沟石刻",
+    "release_address": "新疆维吾尔自治区哈密市伊州区",
+    "latitude": 42.835492,
+    "longitude": 93.425934
+  },
+  {
+    "release_id": "8-516",
+    "name": "刘平国刻石",
+    "release_address": "新疆维吾尔自治区拜城县",
+    "latitude": 41.795289,
+    "longitude": 81.851289
+  },
+  {
+    "release_id": "8-518",
+    "name": "原子能“一堆一器”旧址",
+    "release_address": "北京市房山区",
+    "latitude": 39.748889,
+    "longitude": 116.143426
+  },
+  {
+    "release_id": "8-519",
+    "name": "北京站车站大楼",
+    "release_address": "北京市东城区",
+    "latitude": 39.928359,
+    "longitude": 116.416334
+  },
+  {
+    "release_id": "8-524",
+    "name": "南开大学思源堂",
+    "release_address": "天津市南开区",
+    "latitude": 39.138551,
+    "longitude": 117.150638
+  },
+  {
+    "release_id": "8-526",
+    "name": "天津市军事管制委员会和中共天津市委旧址",
+    "release_address": "天津市和平区",
+    "latitude": 39.116884,
+    "longitude": 117.214713
+  },
+  {
+    "release_id": "8-533",
+    "name": "小李村太岳行署旧址",
+    "release_address": "山西省安泽县",
+    "latitude": 36.147921,
+    "longitude": 112.250242
+  },
+  {
+    "release_id": "8-538",
+    "name": "侵华日军木石匣工事旧址",
+    "release_address": "内蒙古自治区克什克腾旗",
+    "latitude": 43.265057,
+    "longitude": 117.545413
+  },
+  {
+    "release_id": "8-540",
+    "name": "旅顺沙俄陆防副司令官邸建筑",
+    "release_address": "辽宁省大连市旅顺口区",
+    "latitude": 38.851742,
+    "longitude": 121.261982
+  },
+  {
+    "release_id": "8-544",
+    "name": "侵华日本关东军护路守备队盘山分队旧址",
+    "release_address": "辽宁省盘锦市双台子区",
+    "latitude": 41.212401,
+    "longitude": 122.07597
+  },
+  {
+    "release_id": "8-545",
+    "name": "台吉万人坑遗址",
+    "release_address": "辽宁省北票市",
+    "latitude": 41.801117,
+    "longitude": 120.771389
+  },
+  {
+    "release_id": "8-548",
+    "name": "中俄边界清勘界碑（土字牌）",
+    "release_address": "吉林省珲春市",
+    "latitude": 42.862551,
+    "longitude": 130.365829
+  },
+  {
+    "release_id": "8-558",
+    "name": "鸡西万人坑遗址",
+    "release_address": "黑龙江省鸡西市滴道区",
+    "latitude": 45.349068,
+    "longitude": 130.844193
+  },
+  {
+    "release_id": "8-559",
+    "name": "朝阳山东北抗联第三路军密营遗址",
+    "release_address": "黑龙江省五大连池市",
+    "latitude": 48.517342,
+    "longitude": 126.205446
+  },
+  {
+    "release_id": "8-563",
+    "name": "圣三一基督教堂",
+    "release_address": "上海市黄浦区",
+    "latitude": 31.231661,
+    "longitude": 121.48442
+  },
+  {
+    "release_id": "8-577",
+    "name": "新四军盐阜区抗日阵亡将士纪念塔",
+    "release_address": "江苏省阜宁县",
+    "latitude": 33.758857,
+    "longitude": 119.802271
+  },
+  {
+    "release_id": "8-581",
+    "name": "英国驻温州领事馆旧址",
+    "release_address": "浙江省温州市鹿城区",
+    "latitude": 28.015776,
+    "longitude": 120.655199
+  },
+  {
+    "release_id": "8-587",
+    "name": "仁爱医院旧址",
+    "release_address": "浙江省杭州市下城区",
+    "latitude": 30.319126,
+    "longitude": 120.141503
+  },
+  {
+    "release_id": "8-588",
+    "name": "第一届西湖博览会工业馆旧址",
+    "release_address": "浙江省杭州市西湖区",
+    "latitude": 30.259242,
+    "longitude": 120.130396
+  },
+  {
+    "release_id": "8-589",
+    "name": "五四宪法起草地旧址",
+    "release_address": "浙江省杭州市西湖区",
+    "latitude": 30.259242,
+    "longitude": 120.130396
+  },
+  {
+    "release_id": "8-594",
+    "name": "津浦铁路淮河大铁桥",
+    "release_address": "安徽省蚌埠市蚌山区",
+    "latitude": 32.916393,
+    "longitude": 117.373347
+  },
+  {
+    "release_id": "8-598",
+    "name": "芜湖内思高级工业职业学校旧址",
+    "release_address": "安徽省芜湖市镜湖区",
+    "latitude": 31.34056,
+    "longitude": 118.385133
+  },
+  {
+    "release_id": "8-600",
+    "name": "野寨抗日阵亡将士公墓",
+    "release_address": "安徽省潜山市",
+    "latitude": 30.631022,
+    "longitude": 116.581224
+  },
+  {
+    "release_id": "8-608",
+    "name": "歪嘴寨闽粤边区乌山游击队指挥部旧址",
+    "release_address": "福建省诏安县",
+    "latitude": 23.711674,
+    "longitude": 117.175314
+  },
+  {
+    "release_id": "8-611",
+    "name": "景胜别墅",
+    "release_address": "福建省石狮市",
+    "latitude": 24.731969,
+    "longitude": 118.647945
+  },
+  {
+    "release_id": "8-613",
+    "name": "安源路矿工人补习夜校旧址",
+    "release_address": "江西省萍乡市安源区",
+    "latitude": 27.615,
+    "longitude": 113.87072
+  },
+  {
+    "release_id": "8-615",
+    "name": "中共赣西南第一次党代会旧址",
+    "release_address": "江西省吉安市青原区",
+    "latitude": 27.082012,
+    "longitude": 115.014836
+  },
+  {
+    "release_id": "8-617",
+    "name": "水西红三军团指挥部旧址",
+    "release_address": "江西省新余市渝水区",
+    "latitude": 27.799526,
+    "longitude": 114.944499
+  },
+  {
+    "release_id": "8-618",
+    "name": "黄陂中共苏区中央局第一次扩大会议旧址",
+    "release_address": "江西省宁都县",
+    "latitude": 26.470865,
+    "longitude": 116.009171
+  },
+  {
+    "release_id": "8-620",
+    "name": "中央苏区第四次反“围剿”战役遗址",
+    "release_address": "江西省乐安县、金溪县",
+    "latitude": 27.91973,
+    "longitude": 116.755018
+  },
+  {
+    "release_id": "8-622",
+    "name": "湖坊中共闽赣省委、省革委、省军区旧址",
+    "release_address": "江西省黎川县",
+    "latitude": 27.282729,
+    "longitude": 116.907446
+  },
+  {
+    "release_id": "8-624",
+    "name": "中共中央东南分局旧址",
+    "release_address": "江西省南昌市西湖区",
+    "latitude": 28.657005,
+    "longitude": 115.876998
+  },
+  {
+    "release_id": "8-626",
+    "name": "武霖基督教圣会堂",
+    "release_address": "山东省蓬莱市",
+    "latitude": 37.795697,
+    "longitude": 120.829141
+  },
+  {
+    "release_id": "8-627",
+    "name": "中兴煤矿公司旧址",
+    "release_address": "山东省枣庄市市中区",
+    "latitude": 34.863791,
+    "longitude": 117.556125
+  },
+  {
+    "release_id": "8-629",
+    "name": "青岛朝连岛灯塔",
+    "release_address": "山东省青岛市崂山区",
+    "latitude": 36.107069,
+    "longitude": 120.469282
+  },
+  {
+    "release_id": "8-642",
+    "name": "晋冀鲁豫野战军指挥部旧址",
+    "release_address": "河南省范县",
+    "latitude": 35.85302,
+    "longitude": 115.504081
+  },
+  {
+    "release_id": "8-646",
+    "name": "郑州第二砂轮厂旧址",
+    "release_address": "河南省郑州市中原区",
+    "latitude": 34.74828,
+    "longitude": 113.612966
+  },
+  {
+    "release_id": "8-650",
+    "name": "国民政府第六战区受降堂旧址",
+    "release_address": "湖北省武汉市江汉区",
+    "latitude": 30.601129,
+    "longitude": 114.270763
+  },
+  {
+    "release_id": "8-652",
+    "name": "三线航天066导弹基地旧址",
+    "release_address": "湖北省远安县",
+    "latitude": 31.060904,
+    "longitude": 111.640329
+  },
+  {
+    "release_id": "8-653",
+    "name": "三线火箭炮总装厂旧址",
+    "release_address": "湖北省老河口市",
+    "latitude": 32.359068,
+    "longitude": 111.683861
+  },
+  {
+    "release_id": "8-654",
+    "name": "辰州教案发生地",
+    "release_address": "湖南省沅陵县",
+    "latitude": 28.452103,
+    "longitude": 110.393782
+  },
+  {
+    "release_id": "8-657",
+    "name": "湘赣革命根据地旧址",
+    "release_address": "湖南省茶陵县、攸县",
+    "latitude": 27.01516,
+    "longitude": 113.397152
+  },
+  {
+    "release_id": "8-658",
+    "name": "红四军前委扩大会议旧址",
+    "release_address": "湖南省桂东县",
+    "latitude": 26.077609,
+    "longitude": 113.944792
+  },
+  {
+    "release_id": "8-659",
+    "name": "浏阳红一方面军活动旧址",
+    "release_address": "湖南省浏阳市",
+    "latitude": 28.163866,
+    "longitude": 113.64328
+  },
+  {
+    "release_id": "8-661",
+    "name": "平江惨案遗址",
+    "release_address": "湖南省平江县",
+    "latitude": 28.702018,
+    "longitude": 113.581296
+  },
+  {
+    "release_id": "8-662",
+    "name": "湘西雪峰山抗战旧址",
+    "release_address": "湖南省溆浦县、辰溪县、洞口县",
+    "latitude": 27.908869,
+    "longitude": 110.594419
+  },
+  {
+    "release_id": "8-663",
+    "name": "程潜公馆",
+    "release_address": "湖南省长沙市芙蓉区",
+    "latitude": 28.185351,
+    "longitude": 113.032605
+  },
+  {
+    "release_id": "8-664",
+    "name": "湘西剿匪旧址",
+    "release_address": "湖南省沅陵县、辰溪县",
+    "latitude": 28.452103,
+    "longitude": 110.393782
+  },
+  {
+    "release_id": "8-666",
+    "name": "核工业711功勋铀矿旧址",
+    "release_address": "湖南省郴州市苏仙区",
+    "latitude": 25.799624,
+    "longitude": 113.042364
+  },
+  {
+    "release_id": "8-668",
+    "name": "万木草堂",
+    "release_address": "广东省广州市越秀区",
+    "latitude": 23.128673,
+    "longitude": 113.267065
+  },
+  {
+    "release_id": "8-669",
+    "name": "潮海关旧址",
+    "release_address": "广东省汕头市金平区、濠江区",
+    "latitude": 23.286605,
+    "longitude": 116.726701
+  },
+  {
+    "release_id": "8-670",
+    "name": "中英街界碑",
+    "release_address": "广东省深圳市盐田区",
+    "latitude": 22.557001,
+    "longitude": 114.236739
+  },
+  {
+    "release_id": "8-671",
+    "name": "开平风采堂",
+    "release_address": "广东省开平市",
+    "latitude": 22.377378,
+    "longitude": 112.698113
+  },
+  {
+    "release_id": "8-672",
+    "name": "大埔肇庆堂",
+    "release_address": "广东省大埔县",
+    "latitude": 24.347037,
+    "longitude": 116.694825
+  },
+  {
+    "release_id": "8-673",
+    "name": "中国共产党广东区执行委员会旧址",
+    "release_address": "广东省广州市越秀区",
+    "latitude": 23.128673,
+    "longitude": 113.267065
+  },
+  {
+    "release_id": "8-680",
+    "name": "长岗坡渡槽",
+    "release_address": "广东省罗定市",
+    "latitude": 22.768345,
+    "longitude": 111.569788
+  },
+  {
+    "release_id": "8-681",
+    "name": "西林教案发生地",
+    "release_address": "广西壮族自治区田林县",
+    "latitude": 24.294627,
+    "longitude": 106.22874
+  },
+  {
+    "release_id": "8-682",
+    "name": "法国驻龙州领事馆旧址",
+    "release_address": "广西壮族自治区龙州县",
+    "latitude": 22.343591,
+    "longitude": 106.854001
+  },
+  {
+    "release_id": "8-683",
+    "name": "武宣刘氏庄园",
+    "release_address": "广西壮族自治区武宣县",
+    "latitude": 23.594444,
+    "longitude": 109.663153
+  },
+  {
+    "release_id": "8-684",
+    "name": "武宣郭氏庄园",
+    "release_address": "广西壮族自治区武宣县",
+    "latitude": 23.594444,
+    "longitude": 109.663153
+  },
+  {
+    "release_id": "8-685",
+    "name": "梧州市中共广西早期革命活动旧址",
+    "release_address": "广西壮族自治区梧州市万秀区",
+    "latitude": 23.470543,
+    "longitude": 111.318065
+  },
+  {
+    "release_id": "8-686",
+    "name": "中共广西省第一次代表大会旧址",
+    "release_address": "广西壮族自治区贵港市港北区",
+    "latitude": 23.11136,
+    "longitude": 109.572227
+  },
+  {
+    "release_id": "8-688",
+    "name": "文昌符家宅",
+    "release_address": "海南省文昌市",
+    "latitude": 19.544234,
+    "longitude": 110.797473
+  },
+  {
+    "release_id": "8-690",
+    "name": "侵华日军侵琼八所死难劳工纪念地",
+    "release_address": "海南省东方市",
+    "latitude": 19.095187,
+    "longitude": 108.651829
+  },
+  {
+    "release_id": "8-691",
+    "name": "西山钟楼",
+    "release_address": "重庆市万州区",
+    "latitude": 30.807621,
+    "longitude": 108.408591
+  },
+  {
+    "release_id": "8-692",
+    "name": "重庆大学早期建筑",
+    "release_address": "重庆市沙坪坝区",
+    "latitude": 29.541017,
+    "longitude": 106.456939
+  },
+  {
+    "release_id": "8-693",
+    "name": "瀼渡电厂",
+    "release_address": "重庆市万州区",
+    "latitude": 30.807621,
+    "longitude": 108.408591
+  },
+  {
+    "release_id": "8-698",
+    "name": "洞窝水电站",
+    "release_address": "四川省泸州市龙马潭区",
+    "latitude": 28.913257,
+    "longitude": 105.437751
+  },
+  {
+    "release_id": "8-699",
+    "name": "木门会议旧址",
+    "release_address": "四川省旺苍县",
+    "latitude": 32.229074,
+    "longitude": 106.290124
+  },
+  {
+    "release_id": "8-700",
+    "name": "通江红四方面军总医院旧址",
+    "release_address": "四川省通江县",
+    "latitude": 31.911705,
+    "longitude": 107.245033
+  },
+  {
+    "release_id": "8-701",
+    "name": "红军长征过石厢子旧址",
+    "release_address": "四川省叙永县",
+    "latitude": 28.155631,
+    "longitude": 105.444777
+  },
+  {
+    "release_id": "8-702",
+    "name": "川藏公路大渡河悬索桥",
+    "release_address": "四川省泸定县",
+    "latitude": 29.914103,
+    "longitude": 102.234814
+  },
+  {
+    "release_id": "8-703",
+    "name": "蓬基井",
+    "release_address": "四川省大英县",
+    "latitude": 30.594472,
+    "longitude": 105.236852
+  },
+  {
+    "release_id": "8-704",
+    "name": "三线核武器研制基地旧址",
+    "release_address": "四川省梓潼县",
+    "latitude": 31.642635,
+    "longitude": 105.170746
+  },
+  {
+    "release_id": "8-705",
+    "name": "首座受控核聚变实验装置旧址",
+    "release_address": "四川省乐山市市中区",
+    "latitude": 29.555374,
+    "longitude": 103.761329
+  },
+  {
+    "release_id": "8-706",
+    "name": "奇峰渡槽",
+    "release_address": "四川省泸县",
+    "latitude": 29.1516,
+    "longitude": 105.381879
+  },
+  {
+    "release_id": "8-707",
+    "name": "玛瑙山营盘遗址",
+    "release_address": "贵州省凤冈县",
+    "latitude": 27.954424,
+    "longitude": 107.71646
+  },
+  {
+    "release_id": "8-708",
+    "name": "贵阳达德学校旧址",
+    "release_address": "贵州省贵阳市南明区",
+    "latitude": 26.568055,
+    "longitude": 106.714305
+  },
+  {
+    "release_id": "8-709",
+    "name": "猴场会议旧址",
+    "release_address": "贵州省瓮安县",
+    "latitude": 27.07838,
+    "longitude": 107.471307
+  },
+  {
+    "release_id": "8-710",
+    "name": "苟坝会议旧址",
+    "release_address": "贵州省遵义市播州区",
+    "latitude": 27.535735,
+    "longitude": 106.829081
+  },
+  {
+    "release_id": "8-711",
+    "name": "天门河水电厂旧址",
+    "release_address": "贵州省桐梓县",
+    "latitude": 28.132991,
+    "longitude": 106.824661
+  },
+  {
+    "release_id": "8-713",
+    "name": "三线贵州航空发动机厂旧址",
+    "release_address": "贵州省安顺市平坝区",
+    "latitude": 26.405968,
+    "longitude": 106.255768
+  },
+  {
+    "release_id": "8-714",
+    "name": "三线贵州歼击机总装厂旧址",
+    "release_address": "贵州省安顺市西秀区",
+    "latitude": 26.243928,
+    "longitude": 105.966086
+  },
+  {
+    "release_id": "8-715",
+    "name": "云南大学会泽院",
+    "release_address": "云南省昆明市五华区",
+    "latitude": 25.043635,
+    "longitude": 102.707262
+  },
+  {
+    "release_id": "8-716",
+    "name": "大理天主教堂",
+    "release_address": "云南省大理市",
+    "latitude": 25.678466,
+    "longitude": 100.301614
+  },
+  {
+    "release_id": "8-717",
+    "name": "昆明卢氏公馆",
+    "release_address": "云南省昆明市五华区",
+    "latitude": 25.043635,
+    "longitude": 102.707262
+  },
+  {
+    "release_id": "8-719",
+    "name": "凤凰山天文台近代建筑",
+    "release_address": "云南省昆明市官渡区",
+    "latitude": 24.950285,
+    "longitude": 102.748888
+  },
+  {
+    "release_id": "8-721",
+    "name": "中央电工器材厂一厂旧址",
+    "release_address": "云南省昆明市西山区",
+    "latitude": 25.038039,
+    "longitude": 102.664426
+  },
+  {
+    "release_id": "8-722",
+    "name": "滇缅铁路禄丰炼象关桥隧群",
+    "release_address": "云南省禄丰县",
+    "latitude": 25.151061,
+    "longitude": 102.079082
+  },
+  {
+    "release_id": "8-723",
+    "name": "凤庆茶厂老厂区旧址",
+    "release_address": "云南省凤庆县",
+    "latitude": 24.580559,
+    "longitude": 99.92873
+  },
+  {
+    "release_id": "8-724",
+    "name": "开远发电厂旧址",
+    "release_address": "云南省开远市",
+    "latitude": 23.714518,
+    "longitude": 103.266908
+  },
+  {
+    "release_id": "8-725",
+    "name": "开远长虹桥",
+    "release_address": "云南省开远市",
+    "latitude": 23.714518,
+    "longitude": 103.266908
+  },
+  {
+    "release_id": "8-726",
+    "name": "亚东海关遗址",
+    "release_address": "西藏自治区亚东县",
+    "latitude": 27.486094,
+    "longitude": 88.907136
+  },
+  {
+    "release_id": "8-727",
+    "name": "昌都地区人民解放委员会办公旧址",
+    "release_address": "西藏自治区昌都市卡若区",
+    "latitude": 31.112087,
+    "longitude": 97.196021
+  },
+  {
+    "release_id": "8-728",
+    "name": "川藏、青藏公路纪念碑",
+    "release_address": "西藏自治区拉萨市城关区",
+    "latitude": 29.654813,
+    "longitude": 91.140368
+  },
+  {
+    "release_id": "8-729",
+    "name": "革命公园",
+    "release_address": "陕西省西安市新城区",
+    "latitude": 34.266601,
+    "longitude": 108.960707
+  },
+  {
+    "release_id": "8-732",
+    "name": "马栏革命旧址",
+    "release_address": "陕西省旬邑县",
+    "latitude": 35.111787,
+    "longitude": 108.333815
+  },
+  {
+    "release_id": "8-733",
+    "name": "宝鸡申新纱厂旧址",
+    "release_address": "陕西省宝鸡市金台区",
+    "latitude": 34.397071,
+    "longitude": 107.232733
+  },
+  {
+    "release_id": "8-734",
+    "name": "金盆湾八路军三五九旅旅部旧址",
+    "release_address": "陕西省延安市宝塔区",
+    "latitude": 36.585138,
+    "longitude": 109.489726
+  },
+  {
+    "release_id": "8-735",
+    "name": "陕甘宁边区高等法院旧址",
+    "release_address": "陕西省延安市宝塔区",
+    "latitude": 36.585138,
+    "longitude": 109.489726
+  },
+  {
+    "release_id": "8-736",
+    "name": "延安陕甘宁晋绥联防军司令部旧址",
+    "release_address": "陕西省延安市宝塔区",
+    "latitude": 36.585138,
+    "longitude": 109.489726
+  },
+  {
+    "release_id": "8-737",
+    "name": "美军驻延安观察组驻地旧址",
+    "release_address": "陕西省延安市宝塔区",
+    "latitude": 36.585138,
+    "longitude": 109.489726
+  },
+  {
+    "release_id": "8-738",
+    "name": "张思德牺牲纪念地",
+    "release_address": "陕西省延安市安塞区",
+    "latitude": 36.864571,
+    "longitude": 109.329236
+  },
+  {
+    "release_id": "8-739",
+    "name": "小河会议旧址",
+    "release_address": "陕西省靖边县",
+    "latitude": 37.600351,
+    "longitude": 108.794153
+  },
+  {
+    "release_id": "8-740",
+    "name": "山城堡战役旧址",
+    "release_address": "甘肃省环县",
+    "latitude": 36.568566,
+    "longitude": 107.308788
+  },
+  {
+    "release_id": "8-741",
+    "name": "河连湾陕甘宁省苏维埃政府旧址",
+    "release_address": "甘肃省环县",
+    "latitude": 36.568566,
+    "longitude": 107.308788
+  },
+  {
+    "release_id": "8-742",
+    "name": "尕路田大房子",
+    "release_address": "甘肃省临潭县",
+    "latitude": 34.693009,
+    "longitude": 103.353665
+  },
+  {
+    "release_id": "8-743",
+    "name": "果洛红军沟",
+    "release_address": "青海省班玛县",
+    "latitude": 32.932723,
+    "longitude": 100.737138
+  },
+  {
+    "release_id": "8-744",
+    "name": "囊拉千户院",
+    "release_address": "青海省尖扎县",
+    "latitude": 35.943253,
+    "longitude": 102.040094
+  },
+  {
+    "release_id": "8-745",
+    "name": "果洛和平解放纪念地",
+    "release_address": "青海省达日县",
+    "latitude": 33.739293,
+    "longitude": 99.651863
+  },
+  {
+    "release_id": "8-747",
+    "name": "赛图拉哨卡遗址",
+    "release_address": "新疆维吾尔自治区皮山县",
+    "latitude": 37.578264,
+    "longitude": 78.28548
+  },
+  {
+    "release_id": "8-748",
+    "name": "毛泽民办公室及宿舍旧址",
+    "release_address": "新疆维吾尔自治区乌鲁木齐市天山区",
+    "latitude": 43.794312,
+    "longitude": 87.631986
+  },
+  {
+    "release_id": "8-749",
+    "name": "石河子军垦旧址",
+    "release_address": "新疆生产建设兵团第八师石河子市",
+    "latitude": 44.305368,
+    "longitude": 86.080397
+  },
+  {
+    "release_id": "8-750",
+    "name": "玉尔滚军垦旧址",
+    "release_address": "新疆生产建设兵团第一师阿拉尔市",
+    "latitude": 40.547205,
+    "longitude": 81.280532
+  },
+  {
+    "release_id": "8-752",
+    "name": "兴化垛田",
+    "release_address": "江苏省兴化市",
+    "latitude": 32.911952,
+    "longitude": 119.85255
+  },
+  {
+    "release_id": "8-753",
+    "name": "江阴蚕种场",
+    "release_address": "江苏省江阴市",
+    "latitude": 31.921642,
+    "longitude": 120.284794
+  },
+  {
+    "release_id": "8-754",
+    "name": "洋河地下酒窖",
+    "release_address": "江苏省宿迁市宿城区",
+    "latitude": 33.963891,
+    "longitude": 118.242048
+  },
+  {
+    "release_id": "8-755",
+    "name": "太湖溇港",
+    "release_address": "浙江省湖州市吴兴区",
+    "latitude": 30.857184,
+    "longitude": 120.185608
+  },
+  {
+    "release_id": "8-756",
+    "name": "钱塘江海塘海盐敕海庙段和海宁段",
+    "release_address": "浙江省海盐县、海宁市",
+    "latitude": 30.511536,
+    "longitude": 120.680224
+  },
+  {
+    "release_id": "8-757",
+    "name": "矾山矾矿遗址",
+    "release_address": "浙江省苍南县",
+    "latitude": 27.518636,
+    "longitude": 120.425957
+  },
+  {
+    "release_id": "8-758",
+    "name": "霍童灌溉工程",
+    "release_address": "福建省宁德市蕉城区",
+    "latitude": 26.660658,
+    "longitude": 119.526284
+  },
+  {
+    "release_id": "8-759",
+    "name": "渠江茶园",
+    "release_address": "湖南省安化县",
+    "latitude": 28.374223,
+    "longitude": 111.213296
+  },
+  {
+    "release_id": "8-760",
+    "name": "岩塘陂、亭塘陂水利工程",
+    "release_address": "海南省海口市琼山区",
+    "latitude": 19.984293,
+    "longitude": 110.384318
+  },
+  {
+    "release_id": "8-761",
+    "name": "先市酱油酿造作坊群",
+    "release_address": "四川省合江县",
+    "latitude": 28.811278,
+    "longitude": 105.831011
+  }
+]

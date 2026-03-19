@@ -2,6 +2,8 @@
 *.json
 !heritage_sites_geocoded.json
 !missing_coords.json
+!encoding_issues.json
+!geocode_fallback_list.json
 *.html
 *.png
 *.txt
