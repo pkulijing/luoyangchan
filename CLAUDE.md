@@ -47,8 +47,10 @@
 
 - **Next.js 16** (App Router) + **React 19** + **TypeScript 5**
 - **Tailwind CSS v4** + **shadcn/ui**
-- **高德地图 JS API 2.0**（`@amap/amap-jsapi-loader`）：地图渲染、MarkerCluster 聚合
-- `coordtransform`：WGS-84 ↔ GCJ-02 坐标系转换（Wikipedia 数据为 WGS-84，高德地图使用 GCJ-02）
+- **Leaflet 1.9.4** + **leaflet.markercluster**：地图渲染、MarkerCluster 聚合（`vanilla` 模式，非 react-leaflet）
+- **天地图 WMTS**：底图瓦片服务（矢量底图 `vec_w` + 中文注记 `cva_w`），坐标系 WGS-84/CGCS2000
+- `coordtransform`：GCJ-02 → WGS-84 坐标转换（数据库存高德地理编码产出的 GCJ-02，Leaflet/天地图需要 WGS-84）
+- 高德 Web 服务 API（仅用于数据采集 Python 脚本，前端不使用高德任何 SDK）
 - **Supabase**（本地 Docker 开发，通过 Supabase CLI 管理），本地地址 `http://127.0.0.1:54321`，Studio `http://127.0.0.1:54323`
 - **Python 3.12** + **uv** 管理依赖（不使用 pip/pip3）
 
@@ -67,9 +69,8 @@ npm run dev      # 启动前端
 NEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321
 NEXT_PUBLIC_SUPABASE_ANON_KEY=<publishable key>
 SUPABASE_SERVICE_ROLE_KEY=<secret key>
-NEXT_PUBLIC_AMAP_KEY=<高德地图 JS API Key>
-NEXT_PUBLIC_AMAP_SECRET=<高德地图安全密钥>
 AMAP_GEOCODING_KEY=<高德 Web 服务 Key，用于地理编码脚本>
+NEXT_PUBLIC_TIANDITU_TK=<天地图应用TK>
 ```
 
 ## 项目约定
@@ -89,4 +90,4 @@ AMAP_GEOCODING_KEY=<高德 Web 服务 Key，用于地理编码脚本>
 
 ### 调试页面惯例
 
-- **`/example/*` **：遇到第三方 API（尤其是高德地图）不确定的用法时，先在 `src/app/example/<功能名>/page.tsx` 下创建最小化 demo 页面验证，再移植到业务组件。demo 页面应包含右侧实时日志面板，便于观察执行步骤和返回类型。这些页面仅用于开发调试，不对外暴露功能入口。
+- **`/example/*` **：遇到第三方 API（Leaflet、天地图等）不确定的用法时，先在 `src/app/example/<功能名>/page.tsx` 下创建最小化 demo 页面验证，再移植到业务组件。demo 页面应包含右侧实时日志面板，便于观察执行步骤和返回类型。这些页面仅用于开发调试，不对外暴露功能入口。

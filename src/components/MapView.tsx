@@ -5,16 +5,17 @@ import FilterPanel from "@/components/filters/FilterPanel";
 import { useFilters } from "@/hooks/useFilters";
 import type { SiteListItem } from "@/lib/types";
 
-const AMapContainer = dynamic(() => import("@/components/map/AMapContainer"), {
-  ssr: false,
-});
+const LeafletContainer = dynamic(
+  () => import("@/components/map/LeafletContainer"),
+  { ssr: false }
+);
 
 export default function MapView({ sites }: { sites: SiteListItem[] }) {
   const { filters, setFilters, filteredSites, markerData } = useFilters(sites);
 
   return (
     <main className="relative w-screen h-screen overflow-hidden">
-      <AMapContainer sites={markerData} />
+      <LeafletContainer sites={markerData} />
 
       <div className="absolute top-4 left-4 z-10">
         <FilterPanel
