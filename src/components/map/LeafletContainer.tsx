@@ -18,6 +18,24 @@ const DEFAULT_CENTER: [number, number] = [
   MAP_DEFAULT_CENTER[0],
 ];
 
+// 聚合半径随缩放级别的线性衰减参数
+// zoom <= CLUSTER_FULL_ZOOM 时 radius = CLUSTER_MAX_RADIUS
+// zoom >= CLUSTER_ZERO_AT_ZOOM 时 radius = 0，中间线性插值
+// 调整 CLUSTER_ZERO_AT_ZOOM 可改变"开始独立显示"的缩放阈值
+const CLUSTER_MAX_RADIUS = 40;
+const CLUSTER_FULL_ZOOM = 4;
+const CLUSTER_ZERO_AT_ZOOM = 8; // 约等于"北京市"视野，可按需调整
+
+function calcClusterRadius(zoom: number): number {
+  if (zoom >= CLUSTER_ZERO_AT_ZOOM) return 0;
+  if (zoom <= CLUSTER_FULL_ZOOM) return CLUSTER_MAX_RADIUS;
+  return Math.round(
+    ((CLUSTER_ZERO_AT_ZOOM - zoom) /
+      (CLUSTER_ZERO_AT_ZOOM - CLUSTER_FULL_ZOOM)) *
+      CLUSTER_MAX_RADIUS,
+  );
+}
+
 interface LeafletContainerProps {
   sites: SiteMarkerData[];
   onSiteClick?: (siteId: string) => void;
@@ -33,6 +51,8 @@ export default function LeafletContainer({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const clusterRef = useRef<any>(null);
   const [mapReady, setMapReady] = useState(false);
+  const [zoom, setZoom] = useState(MAP_DEFAULT_ZOOM);
+  const prevSitesRef = useRef<SiteMarkerData[] | null>(null);
 
   // 初始化地图（只运行一次）
   useEffect(() => {
@@ -58,17 +78,22 @@ export default function LeafletContainer({
       // 天地图矢量底图
       L.tileLayer(
         `http://t{s}.tianditu.gov.cn/vec_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=vec&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}&tk=${tk}`,
-        { subdomains: "01234567", maxZoom: 18, attribution: "天地图" }
+        { subdomains: "01234567", maxZoom: 18, attribution: "天地图" },
       ).addTo(map);
 
       // 天地图中文注记图层
       L.tileLayer(
         `http://t{s}.tianditu.gov.cn/cva_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=cva&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}&tk=${tk}`,
-        { subdomains: "01234567", maxZoom: 18 }
+        { subdomains: "01234567", maxZoom: 18 },
       ).addTo(map);
 
       L.control.scale({ imperial: false }).addTo(map);
 
+      map.on("zoomend", () => {
+        const z = map.getZoom();
+        console.log(`[zoom] ${z} → clusterRadius: ${calcClusterRadius(z)}`);
+        setZoom(z);
+      });
       mapRef.current = map;
       setMapReady(true);
     }
@@ -104,7 +129,7 @@ export default function LeafletContainer({
          <p style="margin:0 0 8px;color:#666;font-size:13px;">${site.province}</p>
          <a href="/site/${site.id}" style="color:#1890ff;font-size:13px;text-decoration:none;">查看详情 →</a>
        </div>`,
-    []
+    [],
   );
 
   // 构建坐标重合的多条目 popup HTML（用于 debug）
@@ -117,7 +142,7 @@ export default function LeafletContainer({
                <a href="/site/${s.id}" style="color:#1890ff;font-size:13px;font-weight:500;text-decoration:none;">${s.name}</a>
                <span style="color:#999;font-size:12px;margin-left:6px;">${s.category}</span>
                ${s.era ? `<span style="color:#999;font-size:12px;"> · ${s.era}</span>` : ""}
-             </div>`
+             </div>`,
         )
         .join("");
       return `<div style="padding:8px;min-width:220px;max-height:300px;overflow-y:auto;">
@@ -127,7 +152,7 @@ export default function LeafletContainer({
                 ${items}
               </div>`;
     },
-    []
+    [],
   );
 
   // 更新标记（sites 或 mapReady 变化时重建聚合层）
@@ -145,12 +170,12 @@ export default function LeafletContainer({
       }
 
       const validSites = sites.filter(
-        (s) => s.latitude != null && s.longitude != null
+        (s) => s.latitude != null && s.longitude != null,
       );
       if (validSites.length === 0) return;
 
       const cluster = L.markerClusterGroup({
-        maxClusterRadius: 60,
+        maxClusterRadius: calcClusterRadius(zoom),
         disableClusteringAtZoom: 17,
         chunkedLoading: true,
         iconCreateFunction: (c) => {
@@ -223,20 +248,31 @@ export default function LeafletContainer({
       mapRef.current.addLayer(cluster);
       clusterRef.current = cluster;
 
-      try {
-        const bounds = cluster.getBounds();
-        if (bounds.isValid()) {
-          mapRef.current.fitBounds(bounds, { padding: [40, 40] });
+      // 只在 sites 真正变化时 fitBounds，调整 clusterRadius 不重置视角
+      if (prevSitesRef.current !== sites) {
+        prevSitesRef.current = sites;
+        try {
+          const bounds = cluster.getBounds();
+          if (bounds.isValid()) {
+            mapRef.current.fitBounds(bounds, { padding: [40, 40] });
+          }
+        } catch (e) {
+          console.warn("[LeafletContainer] fitBounds failed", e);
         }
-      } catch (e) {
-        console.warn("[LeafletContainer] fitBounds failed", e);
       }
     }
 
     updateMarkers().catch((e) =>
-      console.error("[LeafletContainer] updateMarkers failed", e)
+      console.error("[LeafletContainer] updateMarkers failed", e),
     );
-  }, [sites, mapReady, buildPopupHtml, buildStackedPopupHtml, onSiteClick]);
+  }, [
+    sites,
+    mapReady,
+    zoom,
+    buildPopupHtml,
+    buildStackedPopupHtml,
+    onSiteClick,
+  ]);
 
   return <div ref={containerRef} className="w-full h-full" />;
 }
