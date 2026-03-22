@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { loadAMap } from "@/lib/amap";
+import "leaflet/dist/leaflet.css";
+import { gcj02ToWgs84 } from "@/lib/coordConvert";
 
-// 几个有代表性的城市坐标（GCJ-02，高德直接用）
+// 测试坐标为 GCJ-02（高德坐标系），模拟从数据库读取的数据
 const TEST_MARKERS = [
   { name: "北京", lng: 116.3912, lat: 39.9062 },
   { name: "上海", lng: 121.4737, lat: 31.2304 },
@@ -31,45 +32,61 @@ export default function MarkerExamplePage() {
     let disposed = false;
 
     async function init() {
-      log("loadAMap() 开始...");
-      await loadAMap();
-      log("loadAMap() 完成");
+      log("加载 Leaflet...");
+      const L = (await import("leaflet")).default;
+      log(`Leaflet ${L.version} 就绪`);
 
       if (disposed || !containerRef.current) return;
 
-      const map = new AMap.Map(containerRef.current, {
+      const map = L.map(containerRef.current, {
+        center: [35.0, 104.0], // [lat, lng]
         zoom: 5,
-        center: [104.0, 35.0],
-        viewMode: "2D",
-        mapStyle: "amap://styles/whitesmoke",
       });
-      log("AMap.Map 创建完成");
 
-      map.addControl(new AMap.Scale());
-      map.addControl(new AMap.ToolBar({ position: "RT" }));
+      const tk = process.env.NEXT_PUBLIC_TIANDITU_TK ?? "";
+      L.tileLayer(
+        `http://t{s}.tianditu.gov.cn/vec_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=vec&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}&tk=${tk}`,
+        { subdomains: "01234567", maxZoom: 18, attribution: "天地图" },
+      ).addTo(map);
+      L.tileLayer(
+        `http://t{s}.tianditu.gov.cn/cva_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=cva&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}&tk=${tk}`,
+        { subdomains: "01234567", maxZoom: 18 },
+      ).addTo(map);
+      log("天地图底图已添加");
 
-      const markers: AMap.Marker[] = [];
+      const leafletMarkers: ReturnType<typeof L.marker>[] = [];
 
       for (const point of TEST_MARKERS) {
-        const marker = new AMap.Marker({
-          position: new AMap.LngLat(point.lng, point.lat),
+        // GCJ-02 → WGS-84 坐标转换
+        const [wgsLng, wgsLat] = gcj02ToWgs84(point.lng, point.lat);
+        log(
+          `${point.name}: GCJ-02(${point.lng}, ${point.lat}) → WGS-84(${wgsLng.toFixed(4)}, ${wgsLat.toFixed(4)})`,
+        );
+
+        const marker = L.marker([wgsLat, wgsLng], {
           title: point.name,
-          content: `
-            <div style="display:flex;flex-direction:column;align-items:center;transform:translateY(-8px)">
-              <div style="width:14px;height:14px;border-radius:50%;background:#e74c3c;border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.3)"></div>
-              <div style="width:2px;height:7px;background:#e74c3c;opacity:.9"></div>
-            </div>
-          `,
-          offset: new AMap.Pixel(-7, -21),
+          icon: L.divIcon({
+            html: `<div style="display:flex;flex-direction:column;align-items:center;transform:translateY(-8px)">
+                     <div style="width:14px;height:14px;border-radius:50%;background:#e74c3c;border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.3)"></div>
+                     <div style="width:2px;height:7px;background:#e74c3c;opacity:.9"></div>
+                   </div>`,
+            className: "",
+            iconSize: [14, 21],
+            iconAnchor: [7, 21],
+          }),
         });
         marker.on("click", () => log(`点击了：${point.name}`));
-        marker.setMap(map);
-        markers.push(marker);
+        marker.addTo(map);
+        leafletMarkers.push(marker);
       }
 
-      log(`已添加 ${markers.length} 个 Marker`);
-      map.setFitView(markers, false, [40, 40, 40, 40]);
-      log("setFitView() 完成");
+      log(`已添加 ${leafletMarkers.length} 个 Marker`);
+
+      const group = L.featureGroup(leafletMarkers);
+      map.fitBounds(group.getBounds(), { padding: [40, 40] });
+      log("fitBounds() 完成");
+
+      L.control.scale({ imperial: false }).addTo(map);
     }
 
     init().catch((err) => {
@@ -85,13 +102,14 @@ export default function MarkerExamplePage() {
   return (
     <div className="flex flex-col h-screen">
       <div className="p-3 bg-gray-800 text-white text-sm font-mono">
-        /example/marker — 基础 AMap.Marker 测试（{TEST_MARKERS.length} 个点）
+        /example/marker — Leaflet + 天地图 Marker 测试（{TEST_MARKERS.length}{" "}
+        个点，含 GCJ-02→WGS-84 转换）
       </div>
       <div className="flex flex-1 overflow-hidden">
         <div ref={containerRef} className="flex-1" />
         <div
           ref={logRef}
-          className="w-72 overflow-y-auto bg-gray-900 text-green-400 text-xs font-mono p-2 space-y-1"
+          className="w-80 overflow-y-auto bg-gray-900 text-green-400 text-xs font-mono p-2 space-y-1"
         />
       </div>
     </div>

@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CATEGORY_COLORS, BATCH_YEARS } from "@/lib/constants";
 import { getSiteById } from "@/lib/supabase/queries";
 import BackButton from "@/components/site/BackButton";
-import SiteMap from "@/components/map/SiteMap";
+import SiteMapClient from "@/components/map/SiteMapClient";
 import type { SiteCategory } from "@/lib/types";
 import Link from "next/link";
 
@@ -103,7 +103,7 @@ export default async function SiteDetailPage({
               </CardHeader>
               <CardContent>
                 <div className="h-64 rounded-md overflow-hidden">
-                  <SiteMap
+                  <SiteMapClient
                     latitude={site.latitude}
                     longitude={site.longitude}
                     name={site.name}
