@@ -13,14 +13,14 @@ from pathlib import Path
 
 import requests
 
-DATA_DIR = Path(__file__).parent.parent / "data"
+DATA_DIR = Path(__file__).parent.parent.parent / "data"
 DEFAULT_INPUT = DATA_DIR / "heritage_sites_geocoded.json"
 
 
 def load_env() -> dict[str, str]:
     """从 .env.local 读取环境变量（不覆盖已有的系统环境变量）。"""
     env: dict[str, str] = {}
-    env_file = Path(__file__).parent.parent / ".env.local"
+    env_file = Path(__file__).parent.parent.parent / ".env.local"
     if env_file.exists():
         for line in env_file.read_text(encoding="utf-8").splitlines():
             line = line.strip()

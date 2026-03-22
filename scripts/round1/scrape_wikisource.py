@@ -28,7 +28,7 @@ from pathlib import Path
 import requests
 from bs4 import BeautifulSoup, Tag
 
-DATA_DIR = Path(__file__).parent.parent / "data"
+DATA_DIR = Path(__file__).parent.parent.parent / "data"
 OUTPUT_FILE = DATA_DIR / "heritage_sites_gov.json"
 
 BATCH_YEARS = {

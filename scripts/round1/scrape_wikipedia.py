@@ -14,7 +14,7 @@ from pathlib import Path
 import requests
 from bs4 import BeautifulSoup, Tag
 
-OUTPUT_DIR = Path(__file__).parent.parent / "data"
+OUTPUT_DIR = Path(__file__).parent.parent.parent / "data"
 OUTPUT_DIR.mkdir(exist_ok=True)
 
 WIKI_API = "https://zh.wikipedia.org/w/api.php"

@@ -8,7 +8,7 @@
 import json
 from pathlib import Path
 
-DATA_DIR = Path(__file__).parent.parent / "data"
+DATA_DIR = Path(__file__).parent.parent.parent / "data"
 INPUT = DATA_DIR / "heritage_sites_geocoded.json"
 OUTPUT = DATA_DIR / "missing_coords.json"
 

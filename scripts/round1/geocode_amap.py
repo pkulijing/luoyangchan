@@ -29,7 +29,7 @@ from pathlib import Path
 
 import requests
 
-DATA_DIR = Path(__file__).parent.parent / "data"
+DATA_DIR = Path(__file__).parent.parent.parent / "data"
 DEFAULT_INPUT = DATA_DIR / "heritage_sites_geocoded.json"
 DEFAULT_OUTPUT = DATA_DIR / "heritage_sites_geocoded.json"
 
@@ -56,7 +56,7 @@ def load_env_key() -> str | None:
         if key:
             return key
     # 再试 .env.local
-    env_file = Path(__file__).parent.parent / ".env.local"
+    env_file = Path(__file__).parent.parent.parent / ".env.local"
     if env_file.exists():
         for line in env_file.read_text(encoding="utf-8").splitlines():
             line = line.strip()
