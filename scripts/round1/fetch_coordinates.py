@@ -16,7 +16,7 @@ from urllib.parse import unquote
 
 import requests
 
-DATA_DIR = Path(__file__).parent.parent / "data"
+DATA_DIR = Path(__file__).parent.parent.parent / "data"
 INPUT_FILE = DATA_DIR / "heritage_sites.json"
 OUTPUT_FILE = DATA_DIR / "heritage_sites_with_coords.json"
 

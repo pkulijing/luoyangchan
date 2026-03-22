@@ -11,7 +11,7 @@ import json
 import argparse
 from pathlib import Path
 
-DATA_DIR = Path(__file__).parent.parent / "data"
+DATA_DIR = Path(__file__).parent.parent.parent / "data"
 ISSUES_FILE = DATA_DIR / "encoding_issues.json"
 GEOCODED_FILE = DATA_DIR / "heritage_sites_geocoded.json"
 

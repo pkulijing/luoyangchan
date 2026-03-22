@@ -20,7 +20,7 @@ from pathlib import Path
 
 import zhconv
 
-DATA_DIR = Path(__file__).parent.parent / "data"
+DATA_DIR = Path(__file__).parent.parent.parent / "data"
 GOV_FILE = DATA_DIR / "heritage_sites_gov.json"
 WIKI_FILE = DATA_DIR / "heritage_sites_with_coords.json"
 MERGED_FILE = DATA_DIR / "heritage_sites_merged.json"
