@@ -191,21 +191,32 @@ def parse_data_table(table: Tag, batch: int) -> list[dict]:
                 f"{batch}-{seq}", parent_name, parent_era, parent_address, category, batch
             ))
         else:
-            # 拆分为子条目，父条目不单独输出
+            # 父行也占一个序号（修复：之前未自增导致后续条目 release_id 全部偏小 1）
+            seq += 1
+            parent_release_id = f"{batch}-{seq}"
+            # 输出父记录（无独立地址/坐标，geocode 阶段会跳过）
+            parent_entry = _make_entry(
+                parent_release_id, parent_name, parent_era, parent_address, category, batch
+            )
+            parent_entry["_is_parent"] = True
+            sites.append(parent_entry)
+            # 输出子记录
             for i, sub_cells in enumerate(sub_cells_list, 1):
                 sub_name = sub_cells[2].get_text(" ", strip=True)
                 if not sub_name:
                     continue
                 sub_era = sub_cells[3].get_text(" ", strip=True) or parent_era
                 sub_address = sub_cells[4].get_text(" ", strip=True) or parent_address
-                sites.append(_make_entry(
-                    f"{batch}-{parent_seq_raw}-{i}",
+                child_entry = _make_entry(
+                    f"{batch}-{seq}-{i}",
                     f"{parent_name}-{sub_name}",
                     sub_era,
                     sub_address,
                     category,
                     batch,
-                ))
+                )
+                child_entry["_parent_release_id"] = parent_release_id
+                sites.append(child_entry)
 
     return sites
 

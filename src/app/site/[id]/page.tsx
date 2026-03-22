@@ -67,12 +67,14 @@ export default async function SiteDetailPage({
                   <p>{site.address}</p>
                 </div>
               )}
-              <div>
-                <span className="text-sm font-medium text-muted-foreground">
-                  省份
-                </span>
-                <p>{site.province}</p>
-              </div>
+              {site.province && (
+                <div>
+                  <span className="text-sm font-medium text-muted-foreground">
+                    省份
+                  </span>
+                  <p>{site.province}</p>
+                </div>
+              )}
               {site.city && (
                 <div>
                   <span className="text-sm font-medium text-muted-foreground">
@@ -116,6 +118,69 @@ export default async function SiteDetailPage({
             </Card>
           )}
         </div>
+
+        {/* 子记录列表（父记录详情页） */}
+        {site.children.length > 0 && (
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">
+                包含分段（{site.children.length}）
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-1">
+                {site.children.map((child) => (
+                  <li key={child.id}>
+                    <Link
+                      href={`/site/${child.id}`}
+                      className="text-blue-600 hover:underline text-sm"
+                    >
+                      {child.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* 所属文保单位 + 兄弟分段（子记录详情页） */}
+        {site.parent && (
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">所属文保单位</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <div>
+                <Link
+                  href={`/site/${site.parent.id}`}
+                  className="text-blue-600 hover:underline font-medium"
+                >
+                  {site.parent.name}
+                </Link>
+              </div>
+              {site.siblings.length > 0 && (
+                <div>
+                  <span className="text-sm font-medium text-muted-foreground">
+                    其他分段
+                  </span>
+                  <ul className="mt-1 space-y-1">
+                    {site.siblings.map((sib) => (
+                      <li key={sib.id}>
+                        <Link
+                          href={`/site/${sib.id}`}
+                          className="text-blue-600 hover:underline text-sm"
+                        >
+                          {sib.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        )}
 
         {site.description && (
           <Card>
