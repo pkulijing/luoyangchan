@@ -258,6 +258,7 @@ def run_batch(
     need_geocode = [
         (i, s) for i, s in enumerate(sites)
         if not (s.get("latitude") and s.get("longitude"))
+        and not s.get("_is_parent")  # 父记录无独立坐标，跳过
     ]
     already_has = len(sites) - len(need_geocode)
 

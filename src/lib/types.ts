@@ -1,7 +1,7 @@
 export interface HeritageSite {
   id: string;
   name: string;
-  province: string;
+  province: string | null;
   city: string | null;
   district: string | null;
   address: string | null;
@@ -17,14 +17,22 @@ export interface HeritageSite {
   is_open: boolean | null;
   release_id: string | null;
   release_address: string | null;
+  parent_id: string | null;
   created_at: string;
   updated_at: string;
 }
 
 export type SiteListItem = Pick<
   HeritageSite,
-  "id" | "name" | "province" | "city" | "category" | "era" | "batch" | "batch_year" | "latitude" | "longitude"
+  "id" | "name" | "province" | "city" | "category" | "era" | "batch" | "batch_year" | "latitude" | "longitude" | "parent_id"
 >;
+
+/** 详情页专用：携带父记录概要和兄弟/子记录列表 */
+export interface SiteWithRelations extends HeritageSite {
+  parent: Pick<HeritageSite, "id" | "name" | "release_id"> | null;
+  siblings: Pick<HeritageSite, "id" | "name" | "latitude" | "longitude">[];
+  children: Pick<HeritageSite, "id" | "name" | "latitude" | "longitude">[];
+}
 
 export type SiteCategory =
   | "古遗址"
