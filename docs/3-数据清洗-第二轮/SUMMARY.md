@@ -55,7 +55,7 @@
 
 ## 后续 TODO
 
-- [ ] **寻找高德地图 SDK/API 的合理替代**：高德商业化门槛（50000 元）不合理，考虑替代方案：
+- [x] **寻找高德地图 SDK/API 的合理替代**：高德商业化门槛（50000 元）不合理，考虑替代方案：
   - 地图渲染：Leaflet.js（开源）+ OpenStreetMap 瓦片，或 MapLibre GL JS
   - 地理编码/POI 搜索：Nominatim（OpenStreetMap 免费服务）、腾讯地图 API（国内坐标系，免费额度更高）、百度地图 API
   - 坐标系注意：高德/腾讯使用 GCJ-02，百度使用 BD-09，OSM 使用 WGS-84，切换时需调整 `coordtransform` 逻辑
