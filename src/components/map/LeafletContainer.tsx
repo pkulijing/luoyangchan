@@ -49,8 +49,9 @@ export default function LeafletContainer({
       const map = L.map(containerRef.current, {
         center: DEFAULT_CENTER,
         zoom: MAP_DEFAULT_ZOOM,
-        zoomControl: true,
+        zoomControl: false,
       });
+      L.control.zoom({ position: "bottomleft" }).addTo(map);
 
       const tk = process.env.NEXT_PUBLIC_TIANDITU_TK ?? "";
 

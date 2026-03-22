@@ -15,7 +15,10 @@ export default function MapView({ sites }: { sites: SiteListItem[] }) {
 
   return (
     <main className="relative w-screen h-screen overflow-hidden">
-      <LeafletContainer sites={markerData} />
+      {/* z-0 给 Leaflet 创建独立 stacking context，避免内部高 z-index 的 pane 盖住 UI 浮层 */}
+      <div className="absolute inset-0 z-0">
+        <LeafletContainer sites={markerData} />
+      </div>
 
       <div className="absolute top-4 left-4 z-10">
         <FilterPanel

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import {
   Select,
   SelectContent,
@@ -10,6 +11,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { SlidersHorizontal, X } from "lucide-react";
 import { PROVINCES, SITE_CATEGORIES } from "@/lib/constants";
 import type { FilterState, SiteCategory } from "@/lib/types";
 
@@ -26,6 +28,8 @@ export default function FilterPanel({
   totalCount,
   filteredCount,
 }: FilterPanelProps) {
+  const [open, setOpen] = useState(false);
+
   const updateFilter = (key: keyof FilterState, value: string | null) => {
     onFiltersChange({ ...filters, [key]: value });
   };
@@ -37,13 +41,38 @@ export default function FilterPanel({
   const hasActiveFilters =
     filters.province || filters.category || filters.era || filters.search;
 
+  if (!open) {
+    return (
+      <button
+        onClick={() => setOpen(true)}
+        className="flex items-center gap-2 bg-white/95 backdrop-blur-sm shadow-lg rounded-lg px-3 py-2 hover:bg-white transition-colors"
+      >
+        <SlidersHorizontal size={16} />
+        <span className="text-sm font-medium">筛选</span>
+        {hasActiveFilters && (
+          <Badge variant="secondary" className="ml-1">
+            {filteredCount} / {totalCount}
+          </Badge>
+        )}
+      </button>
+    );
+  }
+
   return (
     <div className="w-80 bg-white/95 backdrop-blur-sm shadow-lg rounded-lg p-4 space-y-4">
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-semibold">筛选</h2>
-        <Badge variant="secondary">
-          {filteredCount} / {totalCount}
-        </Badge>
+        <div className="flex items-center gap-2">
+          <Badge variant="secondary">
+            {filteredCount} / {totalCount}
+          </Badge>
+          <button
+            onClick={() => setOpen(false)}
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <X size={16} />
+          </button>
+        </div>
       </div>
 
       <Input
