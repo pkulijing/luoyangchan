@@ -107,6 +107,29 @@ export default function LeafletContainer({
     []
   );
 
+  // 构建坐标重合的多条目 popup HTML（用于 debug）
+  const buildStackedPopupHtml = useCallback(
+    (stackedSites: SiteMarkerData[]) => {
+      const items = stackedSites
+        .map(
+          (s) =>
+            `<div style="padding:6px 0;border-bottom:1px solid #eee;">
+               <a href="/site/${s.id}" style="color:#1890ff;font-size:13px;font-weight:500;text-decoration:none;">${s.name}</a>
+               <span style="color:#999;font-size:12px;margin-left:6px;">${s.category}</span>
+               ${s.era ? `<span style="color:#999;font-size:12px;"> · ${s.era}</span>` : ""}
+             </div>`
+        )
+        .join("");
+      return `<div style="padding:8px;min-width:220px;max-height:300px;overflow-y:auto;">
+                <p style="margin:0 0 8px;font-size:13px;font-weight:600;color:#e67e22;">
+                  ⚠ ${stackedSites.length} 条数据共用此坐标
+                </p>
+                ${items}
+              </div>`;
+    },
+    []
+  );
+
   // 更新标记（sites 或 mapReady 变化时重建聚合层）
   useEffect(() => {
     if (!mapRef.current || !mapReady) return;
@@ -145,27 +168,56 @@ export default function LeafletContainer({
         },
       });
 
+      // 按原始坐标分组，检测重合点
+      const coordGroups = new Map<string, SiteMarkerData[]>();
       for (const site of validSites) {
+        const key = `${site.longitude},${site.latitude}`;
+        if (!coordGroups.has(key)) coordGroups.set(key, []);
+        coordGroups.get(key)!.push(site);
+      }
+
+      for (const group of coordGroups.values()) {
+        const site = group[0];
         const [wgsLng, wgsLat] = gcj02ToWgs84(site.longitude, site.latitude);
-        const color = CATEGORY_COLORS[site.category] ?? "#95a5a6";
 
-        const marker = L.marker([wgsLat, wgsLng], {
-          title: site.name,
-          icon: L.divIcon({
-            html: `<div style="display:flex;flex-direction:column;align-items:center;transform:translateY(-8px)">
-                     <div style="width:14px;height:14px;border-radius:50%;background:${color};border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,0.3)"></div>
-                     <div style="width:2px;height:7px;background:${color};opacity:0.9"></div>
-                   </div>`,
-            className: "",
-            iconSize: [14, 21] as [number, number],
-            iconAnchor: [7, 21] as [number, number],
-          }),
-        });
-
-        marker.bindPopup(buildPopupHtml(site, color), { maxWidth: 280 });
-        marker.on("click", () => onSiteClick?.(site.id));
-
-        cluster.addLayer(marker);
+        if (group.length > 1) {
+          // 多条数据共用坐标：显示堆叠标记
+          const count = group.length;
+          const marker = L.marker([wgsLat, wgsLng], {
+            title: `${count} 条数据（坐标相同）`,
+            icon: L.divIcon({
+              html: `<div style="display:flex;flex-direction:column;align-items:center;transform:translateY(-10px)">
+                       <div style="min-width:20px;height:20px;border-radius:4px;background:#e67e22;border:2px solid #fff;
+                                   box-shadow:0 1px 5px rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;
+                                   padding:0 4px;font-size:11px;font-weight:700;color:#fff;white-space:nowrap;">${count}</div>
+                       <div style="width:2px;height:8px;background:#e67e22;opacity:0.9"></div>
+                     </div>`,
+              className: "",
+              iconSize: [20, 30] as [number, number],
+              iconAnchor: [10, 30] as [number, number],
+            }),
+          });
+          marker.bindPopup(buildStackedPopupHtml(group), { maxWidth: 300 });
+          cluster.addLayer(marker);
+        } else {
+          // 单条数据：正常标记
+          const color = CATEGORY_COLORS[site.category] ?? "#95a5a6";
+          const marker = L.marker([wgsLat, wgsLng], {
+            title: site.name,
+            icon: L.divIcon({
+              html: `<div style="display:flex;flex-direction:column;align-items:center;transform:translateY(-8px)">
+                       <div style="width:14px;height:14px;border-radius:50%;background:${color};border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,0.3)"></div>
+                       <div style="width:2px;height:7px;background:${color};opacity:0.9"></div>
+                     </div>`,
+              className: "",
+              iconSize: [14, 21] as [number, number],
+              iconAnchor: [7, 21] as [number, number],
+            }),
+          });
+          marker.bindPopup(buildPopupHtml(site, color), { maxWidth: 280 });
+          marker.on("click", () => onSiteClick?.(site.id));
+          cluster.addLayer(marker);
+        }
       }
 
       mapRef.current.addLayer(cluster);
@@ -184,7 +236,7 @@ export default function LeafletContainer({
     updateMarkers().catch((e) =>
       console.error("[LeafletContainer] updateMarkers failed", e)
     );
-  }, [sites, mapReady, buildPopupHtml, onSiteClick]);
+  }, [sites, mapReady, buildPopupHtml, buildStackedPopupHtml, onSiteClick]);
 
   return <div ref={containerRef} className="w-full h-full" />;
 }
