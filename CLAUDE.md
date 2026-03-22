@@ -73,6 +73,8 @@ AMAP_GEOCODING_KEY=<高德 Web 服务 Key，用于地理编码脚本>
 NEXT_PUBLIC_TIANDITU_TK=<天地图应用TK>
 ```
 
+新增、删除、改名环境变量时，需要在 .env.example 中做相同处理，以便开发者参考。
+
 ## 项目约定
 
 ### git 规则
