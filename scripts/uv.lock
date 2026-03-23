@@ -141,6 +141,20 @@ wheels = [
 ]
 
 [[package]]
+name = "coordtransform"
+version = "0.2.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/30/c9/c8409b5de4cd090aaf03a044c18d0421bdb90d2caf2a90fdeca51101eada/coordtransform-0.2.1.tar.gz", hash = "sha256:0c89eb027f2b3d8b8e462ddb6d8ac95de873757ef9b99b187d49dec9342b9a9d", size = 11013, upload-time = "2026-03-19T10:40:29.841Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/1a/be/cffb00a2172470a82f489df967a1a6979149ab4bd39cebe011ca06c1ade6/coordtransform-0.2.1-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:5f83888428451aa4035f545f187d77c449467df25dd74fcd9249e303137e9b6d", size = 17278, upload-time = "2026-03-19T10:40:06.668Z" },
+    { url = "https://files.pythonhosted.org/packages/52/67/20e7738aabd17aa900454a4e68cc88609488ebd2eba8a67f4dae744db8d6/coordtransform-0.2.1-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:42fc4b8fb46870c34b6a58fb1591328b2588124800d54b64ca865efc21964f61", size = 17058, upload-time = "2026-03-19T10:40:07.588Z" },
+    { url = "https://files.pythonhosted.org/packages/1d/f7/ae885c0ce785b28282c30ae4ead2c2d4054b4c7290b336eed1ae50b9d159/coordtransform-0.2.1-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:290c128bbf5b84197ef3a49091dc8f1dfcd785b966d4251c87fc2d3e76ca3510", size = 40891, upload-time = "2026-03-19T10:40:16.249Z" },
+    { url = "https://files.pythonhosted.org/packages/a2/35/9e7e1b1e6363e516a6bbc1aacb1610553c1906a153d2f82c63f18edcb08b/coordtransform-0.2.1-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:df19a68e4830f3dfad397350c69d3213ec26fdc9a4be08640220dd6d8d8aa9a6", size = 44628, upload-time = "2026-03-19T10:40:17.051Z" },
+    { url = "https://files.pythonhosted.org/packages/99/a2/b34b6d84b38f0d650d3a0d79f801d9a7e18f0abb3ed87ee70fc623c04aaf/coordtransform-0.2.1-cp312-cp312-win32.whl", hash = "sha256:2630e24777d041ee1ee09b46915f43887b0009376dd7c59d05ab46565ffeb2ca", size = 18782, upload-time = "2026-03-19T10:40:24.829Z" },
+    { url = "https://files.pythonhosted.org/packages/50/67/5b3a64785070d37bcf2e7084e04ab3e91d4887d2abd5ff10628d426706b8/coordtransform-0.2.1-cp312-cp312-win_amd64.whl", hash = "sha256:3a7767285c512d00c7cd2fe1466002c61328f92a65e3cb583971ab21cb257134", size = 20346, upload-time = "2026-03-19T10:40:25.595Z" },
+]
+
+[[package]]
 name = "ddgs"
 version = "9.11.4"
 source = { registry = "https://pypi.org/simple" }
@@ -595,6 +609,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "beautifulsoup4" },
+    { name = "coordtransform" },
     { name = "ddgs" },
     { name = "openai" },
     { name = "playwright" },
@@ -605,6 +620,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "beautifulsoup4", specifier = ">=4.14.3" },
+    { name = "coordtransform", specifier = ">=0.2.1" },
     { name = "ddgs", specifier = ">=9.11.4" },
     { name = "openai", specifier = ">=2.29.0" },
     { name = "playwright", specifier = ">=1.40" },
