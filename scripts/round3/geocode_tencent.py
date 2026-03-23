@@ -4,10 +4,9 @@
 使用腾讯地图 Web 服务 API，对 needs_regeocode.json 中的记录重新地理编码。
 
 策略（优先级从高到低）：
-  1. Gemini 提供的 address_for_geocoding → 腾讯地理编码（高配额）
+  1. LLM 提供的 address_for_geocoding → 腾讯地理编码（高配额）
   2. 腾讯 POI 搜索（配额 200/天，仅在1失败时使用）
-  3. 原始 release_address → 腾讯地理编码
-  4. 保留原坐标（最终 fallback）
+  3. 保留原坐标（最终 fallback）
 
 核心改进：省份验证
   每次 geocoding 后验证结果省份与预期省份是否匹配，
@@ -16,7 +15,7 @@
 所需环境变量：TENCENT_MAP_KEY（设置在 .env.local）
 
 用法:
-  uv run python geocode_tencent.py --test        # 测试前 5 条（不写入）
+  uv run python geocode_tencent.py --test        # 测试前 1 条（不写入）
   uv run python geocode_tencent.py --limit 100   # 处理前 N 条
   uv run python geocode_tencent.py               # 全量处理
   uv run python geocode_tencent.py --resume      # 从断点续跑
@@ -24,9 +23,11 @@
 
 import argparse
 import difflib
+import hashlib
 import json
 import os
 import time
+import urllib.parse
 from pathlib import Path
 
 import requests
@@ -36,13 +37,14 @@ from geocode_utils import extract_expected_province, is_province_ok
 DATA_DIR = Path(__file__).parent.parent.parent / "data"
 MAIN_FILE = DATA_DIR / "heritage_sites_geocoded.json"
 ROUND3_DIR = DATA_DIR / "round3"
+BATCH_DIR = ROUND3_DIR / "geocode_batches"
 GEMINI_HINTS = ROUND3_DIR / "gemini_geocode_result.json"
 CHECKPOINT_FILE = ROUND3_DIR / "tencent_checkpoint.json"
 
 TENCENT_GEOCODE_URL = "https://apis.map.qq.com/ws/geocoder/v1/"
 TENCENT_SEARCH_URL = "https://apis.map.qq.com/ws/place/v1/search"
 
-REQUEST_INTERVAL = 0.25       # 250ms，保守 4 QPS
+REQUEST_INTERVAL = 1.0        # 1s，1 QPS
 CHECKPOINT_EVERY = 50
 POI_SIMILARITY_THRESHOLD = 0.4
 
@@ -55,17 +57,29 @@ POI_COUNT_FILE = ROUND3_DIR / "poi_daily_count.json"
 # API key 加载
 # ---------------------------------------------------------------------------
 
-def load_api_key() -> str | None:
+def load_env_keys() -> tuple[str | None, str | None]:
+    """加载 API Key 和签名密钥。"""
     key = os.environ.get("TENCENT_MAP_KEY")
+    sk = os.environ.get("TENCENT_MAP_SIGN_SECRET_KEY")
     if key:
-        return key
+        return key, sk
     env_file = Path(__file__).parent.parent.parent / ".env.local"
     if env_file.exists():
         for line in env_file.read_text(encoding="utf-8").splitlines():
             line = line.strip()
             if line.startswith("TENCENT_MAP_KEY="):
-                return line.split("=", 1)[1].strip()
-    return None
+                key = line.split("=", 1)[1].strip()
+            elif line.startswith("TENCENT_MAP_SIGN_SECRET_KEY="):
+                sk = line.split("=", 1)[1].strip()
+    return key, sk
+
+
+def compute_sig(path: str, params: dict, sk: str) -> str:
+    """计算腾讯地图 API 签名。sig = MD5(path?sorted_params_no_encode + SK)"""
+    sorted_params = sorted(params.items())
+    query_string = "&".join(f"{k}={v}" for k, v in sorted_params)
+    sig_raw = f"{path}?{query_string}{sk}"
+    return hashlib.md5(sig_raw.encode("utf-8")).hexdigest()
 
 
 # ---------------------------------------------------------------------------
@@ -93,21 +107,25 @@ def save_poi_count(count: int):
 # 腾讯地图 API 调用
 # ---------------------------------------------------------------------------
 
-def geocode_by_address(address: str, api_key: str) -> dict | None:
+def geocode_by_address(address: str, api_key: str, sk: str | None = None) -> dict | None:
     """腾讯地理编码：地址 → 坐标。"""
     try:
-        resp = requests.get(
-            TENCENT_GEOCODE_URL,
-            params={"address": address, "key": api_key, "output": "json"},
-            timeout=10,
-        )
+        params = {"address": address, "key": api_key, "output": "json"}
+        if sk:
+            params["sig"] = compute_sig("/ws/geocoder/v1/", params, sk)
+        resp = requests.get(TENCENT_GEOCODE_URL, params=params, timeout=10)
         resp.raise_for_status()
         data = resp.json()
     except Exception as e:
         print(f"    地理编码请求失败: {e}")
         return None
 
-    if data.get("status") != 0:
+    status = data.get("status")
+    if status != 0:
+        if status == 121:
+            print(f"    ✗ 地理编码 API 今日配额已耗尽")
+        elif status != 0:
+            print(f"    ✗ 地理编码返回错误 status={status}: {data.get('message', '')}")
         return None
 
     result = data.get("result", {})
@@ -136,7 +154,7 @@ def geocode_by_address(address: str, api_key: str) -> dict | None:
     }
 
 
-def search_poi(name: str, city_hint: str | None, api_key: str) -> dict | None:
+def search_poi(name: str, city_hint: str | None, api_key: str, sk: str | None = None) -> dict | None:
     """腾讯 POI 关键词搜索。仅在地理编码失败且有配额时调用。"""
     params = {
         "keyword": name,
@@ -147,6 +165,8 @@ def search_poi(name: str, city_hint: str | None, api_key: str) -> dict | None:
     }
     if city_hint:
         params["boundary"] = f"region({city_hint},0)"
+    if sk:
+        params["sig"] = compute_sig("/ws/place/v1/search", params, sk)
 
     try:
         resp = requests.get(TENCENT_SEARCH_URL, params=params, timeout=10)
@@ -156,7 +176,12 @@ def search_poi(name: str, city_hint: str | None, api_key: str) -> dict | None:
         print(f"    POI 搜索请求失败: {e}")
         return None
 
-    if data.get("status") != 0 or not data.get("data"):
+    status = data.get("status")
+    if status != 0 or not data.get("data"):
+        if status == 121:
+            print(f"    ✗ POI 搜索 API 今日配额已耗尽")
+        elif status and status != 0:
+            print(f"    ✗ POI 搜索返回错误 status={status}: {data.get('message', '')}")
         return None
 
     best_poi = None
@@ -201,7 +226,7 @@ def search_poi(name: str, city_hint: str | None, api_key: str) -> dict | None:
 # 单条记录 geocoding 策略
 # ---------------------------------------------------------------------------
 
-def geocode_record(rec: dict, hint: dict | None, api_key: str, poi_count: int) -> tuple[dict | None, int]:
+def geocode_record(rec: dict, hint: dict | None, api_key: str, sk: str | None, poi_count: int) -> tuple[dict | None, int]:
     """
     对单条记录尝试 geocoding，返回 (结果, 更新后的poi_count)。
     结果为 None 表示失败（保留原坐标）。
@@ -232,10 +257,11 @@ def geocode_record(rec: dict, hint: dict | None, api_key: str, poi_count: int) -
     if hint and hint.get("address_for_geocoding"):
         precise_addr = hint["address_for_geocoding"]
         print(f"    → 策略1: 腾讯地理编码（Gemini 精确地址）: {precise_addr}")
-        result = validate(geocode_by_address(precise_addr, api_key))
+        result = validate(geocode_by_address(precise_addr, api_key, sk))
         time.sleep(REQUEST_INTERVAL)
         if result:
             result["_geocode_method"] = "tencent_geocode_gemini"
+            result["address"] = precise_addr  # API 不返回 address，用 LLM 精确地址
             return result, poi_count
 
     # 策略2: 腾讯 POI 搜索（限配额）
@@ -243,7 +269,7 @@ def geocode_record(rec: dict, hint: dict | None, api_key: str, poi_count: int) -
     search_name = keyword or name
     if poi_count < POI_DAILY_LIMIT:
         print(f"    → 策略2: 腾讯 POI 搜索 ({poi_count+1}/{POI_DAILY_LIMIT}): {search_name}")
-        result = validate(search_poi(search_name, city_hint, api_key))
+        result = validate(search_poi(search_name, city_hint, api_key, sk))
         poi_count += 1
         time.sleep(REQUEST_INTERVAL)
         if result:
@@ -252,14 +278,6 @@ def geocode_record(rec: dict, hint: dict | None, api_key: str, poi_count: int) -
             return result, poi_count
     else:
         print(f"    → 策略2: POI 搜索跳过（今日配额已用完 {poi_count}/{POI_DAILY_LIMIT}）")
-
-    # 策略3: 原始 release_address → 腾讯地理编码
-    if release_address:
-        print(f"    → 策略3: 腾讯地理编码（release_address）: {release_address[:50]}")
-        result = validate(geocode_by_address(release_address, api_key))
-        time.sleep(REQUEST_INTERVAL)
-        if result:
-            return result, poi_count
 
     print(f"    ✗ 所有策略失败，保留原坐标")
     return None, poi_count
@@ -274,13 +292,19 @@ def main():
     parser.add_argument("--test", action="store_true", help="仅测试前5条（不写入）")
     parser.add_argument("--limit", type=int, default=0, help="仅处理前 N 条")
     parser.add_argument("--resume", action="store_true", help="从断点续跑")
+    parser.add_argument("--batch", type=int, default=0,
+                        help="仅处理指定批次（如 --batch 1 处理 batch_001）")
     args = parser.parse_args()
 
-    api_key = load_api_key()
+    api_key, sk = load_env_keys()
     if not api_key:
         print("错误: 找不到 TENCENT_MAP_KEY")
         print("请在 .env.local 中添加: TENCENT_MAP_KEY=your_key")
         return
+    if sk:
+        print(f"已加载签名密钥（TENCENT_MAP_SIGN_SECRET_KEY）")
+    else:
+        print("提示: 未配置 TENCENT_MAP_SIGN_SECRET_KEY，若 API 启用签名校验将失败")
 
     # 从主数据文件实时推导目标列表（不依赖静态 needs_regeocode.json）
     # 这样多地址拆分后直接重跑，自动包含新子记录、排除已变为父记录的条目
@@ -289,17 +313,38 @@ def main():
         all_records: list[dict] = json.load(f)
     targets: list[dict] = collect_targets(all_records)
 
-    # 加载 Gemini hints（可选）
+    # 加载 LLM hints（来自 batch result 文件或 gemini_geocode_result.json）
     hints_by_id: dict[str, dict] = {}
-    if GEMINI_HINTS.exists():
+    batch_filter_ids: set[str] | None = None
+
+    if args.batch:
+        batch_num = f"{args.batch:03d}"
+        batch_file = BATCH_DIR / f"batch_{batch_num}.json"
+        result_file = BATCH_DIR / f"result_{batch_num}.json"
+
+        if not batch_file.exists():
+            print(f"错误: 批次文件不存在: {batch_file}")
+            return
+        with open(batch_file, encoding="utf-8") as f:
+            batch_filter_ids = {r["release_id"] for r in json.load(f)}
+        print(f"批次模式: batch_{batch_num}，目标 {len(batch_filter_ids)} 条")
+
+        if result_file.exists():
+            with open(result_file, encoding="utf-8") as f:
+                for h in json.load(f):
+                    hints_by_id[h["release_id"]] = h
+            print(f"已加载 LLM hints: {len(hints_by_id)} 条（来自 result_{batch_num}.json）")
+        else:
+            print(f"警告: {result_file.name} 不存在，将不使用 LLM 精确地址")
+    elif GEMINI_HINTS.exists():
         with open(GEMINI_HINTS, encoding="utf-8") as f:
             hints_raw = json.load(f)
         for h in hints_raw:
             hints_by_id[h["release_id"]] = h
         print(f"已加载 Gemini hints: {len(hints_by_id)} 条")
     else:
-        print(f"提示: {GEMINI_HINTS.name} 不存在，将不使用 Gemini 精确地址")
-        print("  建议先运行 generate_gemini_prompt_geocode.py，跑 Gemini，再来此脚本")
+        print(f"提示: 无 hints 文件，将不使用 LLM 精确地址")
+        print("  建议先运行 batch_geocode_helper.py 或使用 --batch N 指定批次")
 
     # 加载断点
     done_ids: set[str] = set()
@@ -319,11 +364,13 @@ def main():
 
     # 确定处理目标
     process_targets = [t for t in targets if t["release_id"] not in done_ids]
+    if batch_filter_ids is not None:
+        process_targets = [t for t in process_targets if t["release_id"] in batch_filter_ids]
     if args.limit:
         process_targets = process_targets[:args.limit]
     if args.test:
-        process_targets = process_targets[:5]
-        print("=== TEST MODE（只处理5条，不写入）===")
+        process_targets = process_targets[:1]
+        print("=== TEST MODE（只处理1条，不写入）===")
 
     print(f"待处理: {len(process_targets)} 条")
 
@@ -340,7 +387,7 @@ def main():
         if hint and hint.get("address_for_geocoding"):
             print(f"    Gemini: {hint['address_for_geocoding']}")
 
-        result, poi_count = geocode_record(target, hint, api_key, poi_count)
+        result, poi_count = geocode_record(target, hint, api_key, sk, poi_count)
 
         if result:
             updated[rid] = result

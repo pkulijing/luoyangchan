@@ -90,22 +90,12 @@ def cmd_merge():
 
     print(f"Merged {len(all_results)} records from {len(result_files)} files → {MERGED_FILE}")
 
-    # Also generate the final file compatible with downstream geocode_tencent.py
-    final = []
-    for r in all_results:
-        entry = {
-            "release_id": r["release_id"],
-            "poi_keywords": [r["poi_name"]] if r.get("poi_name") else [],
-            "precise_address": r.get("address_for_geocoding", ""),
-        }
-        if r.get("notes"):
-            entry["notes"] = r["notes"]
-        final.append(entry)
-
+    # Also generate the final hints file for geocode_tencent.py (non-batch mode)
+    # Keep same field names (address_for_geocoding, poi_name) as result files
     with open(FINAL_FILE, "w") as f:
-        json.dump(final, f, ensure_ascii=False, indent=2)
+        json.dump(all_results, f, ensure_ascii=False, indent=2)
 
-    print(f"Final output: {len(final)} records → {FINAL_FILE}")
+    print(f"Final output: {len(all_results)} records → {FINAL_FILE}")
 
 
 def cmd_validate():
