@@ -1,10 +1,1 @@
-# JSON 数据文件均为 pipeline 中间产物，数据以 Supabase 为准，不纳入版本管理
-# 小型参考文件（missing_coords、encoding_issues）除外
-*.json
-!missing_coords.json
-!encoding_issues.json
-*.html
-*.png
-*.txt
-
-/round3
+*
