@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "beautifulsoup4>=4.14.3",
-    "duckduckgo-search>=8.1.1",
+    "ddgs>=9.11.4",
     "openai>=2.29.0",
     "playwright>=1.40",
     "requests>=2.32.5",
