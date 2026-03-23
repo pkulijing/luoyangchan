@@ -215,44 +215,11 @@ def deepseek_synthesize(rec: dict, source_info: str, source_type: str) -> dict |
 
 
 # ---------------------------------------------------------------------------
-# GCJ-02 → WGS-84
-# ---------------------------------------------------------------------------
-
-def gcj02_to_wgs84(lng: float, lat: float) -> tuple[float, float]:
-    a = 6378245.0
-    ee = 0.00669342162296594323
-
-    def _tlat(x, y):
-        r = -100.0 + 2.0*x + 3.0*y + 0.2*y*y + 0.1*x*y + 0.2*math.sqrt(abs(x))
-        r += (20.0*math.sin(6.0*x*math.pi) + 20.0*math.sin(2.0*x*math.pi)) * 2.0/3.0
-        r += (20.0*math.sin(y*math.pi) + 40.0*math.sin(y/3.0*math.pi)) * 2.0/3.0
-        r += (160.0*math.sin(y/12.0*math.pi) + 320.0*math.sin(y*math.pi/30.0)) * 2.0/3.0
-        return r
-
-    def _tlng(x, y):
-        r = 300.0 + x + 2.0*y + 0.1*x*x + 0.1*x*y + 0.1*math.sqrt(abs(x))
-        r += (20.0*math.sin(6.0*x*math.pi) + 20.0*math.sin(2.0*x*math.pi)) * 2.0/3.0
-        r += (20.0*math.sin(x*math.pi) + 40.0*math.sin(x/3.0*math.pi)) * 2.0/3.0
-        r += (150.0*math.sin(x/12.0*math.pi) + 300.0*math.sin(x/30.0*math.pi)) * 2.0/3.0
-        return r
-
-    dlat = _tlat(lng - 105.0, lat - 35.0)
-    dlng = _tlng(lng - 105.0, lat - 35.0)
-    radlat = lat / 180.0 * math.pi
-    magic = math.sin(radlat)
-    magic = 1 - ee * magic * magic
-    sqrtm = math.sqrt(magic)
-    dlat = (dlat * 180.0) / ((a * (1 - ee)) / (magic * sqrtm) * math.pi)
-    dlng = (dlng * 180.0) / (a / sqrtm * math.cos(radlat) * math.pi)
-    return round(lng - dlng, 6), round(lat - dlat, 6)
-
-
-# ---------------------------------------------------------------------------
 # Geocoding
 # ---------------------------------------------------------------------------
 
 def geocode_amap(address: str) -> dict | None:
-    """高德 geocoding，返回 WGS-84 坐标。"""
+    """高德 geocoding，返回 GCJ-02 坐标（与腾讯一致，直接存储不转换）。"""
     sys.path.insert(0, str(Path(__file__).parent.parent / "round1"))
     from geocode_amap import geocode, load_env_key as load_amap_key
 
@@ -265,9 +232,7 @@ def geocode_amap(address: str) -> dict | None:
     if not result or not result.get("latitude") or not result.get("longitude"):
         return None
 
-    wgs_lng, wgs_lat = gcj02_to_wgs84(result["longitude"], result["latitude"])
-    result["latitude"] = wgs_lat
-    result["longitude"] = wgs_lng
+    # 高德返回 GCJ-02，直接存储，不做坐标转换
     result["_geocode_method"] = "amap_geocode"
     result["_geocode_reliability"] = None
     return result

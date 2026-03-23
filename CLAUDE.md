@@ -49,7 +49,14 @@
 - **Tailwind CSS v4** + **shadcn/ui**
 - **Leaflet 1.9.4** + **leaflet.markercluster**：地图渲染、MarkerCluster 聚合（`vanilla` 模式，非 react-leaflet）
 - **天地图 WMTS**：底图瓦片服务（矢量底图 `vec_w` + 中文注记 `cva_w`），坐标系 WGS-84/CGCS2000
-- `coordtransform`：GCJ-02 → WGS-84 坐标转换（数据库存高德地理编码产出的 GCJ-02，Leaflet/天地图需要 WGS-84）
+- `coordtransform`：GCJ-02 → WGS-84 坐标转换（数据库存 GCJ-02，Leaflet/天地图需要 WGS-84）
+
+### 坐标系规则（重要）
+
+- **数据库/JSON 统一存储 GCJ-02 坐标**。所有 geocoding 结果（高德、腾讯）均返回 GCJ-02，直接存储，**不做任何坐标转换**。
+- **前端展示时转换**：Leaflet + 天地图使用 WGS-84，前端读取数据后通过 `coordtransform` 的 `gcj02_to_wgs84()` 转换。
+- **维基百科等外部来源的 WGS-84 坐标**必须先通过 `wgs84_to_gcj02()` 转换为 GCJ-02 后再存入数据库。
+- **绝对禁止**在 Python 数据清洗脚本中对 geocoding 结果做 GCJ-02→WGS-84 转换后存入 JSON。
 - 高德 Web 服务 API（仅用于数据采集 Python 脚本，前端不使用高德任何 SDK）
 - **Supabase**（本地 Docker 开发，通过 Supabase CLI 管理），本地地址 `http://127.0.0.1:54321`，Studio `http://127.0.0.1:54323`
 - **Python 3.12** + **uv** 管理依赖（不使用 pip/pip3）

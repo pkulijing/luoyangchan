@@ -61,9 +61,7 @@ def geocode(address: str, api_key: str) -> dict | None:
     except (ValueError, AttributeError):
         return None
 
-    # GCJ-02 → WGS-84
-    lng_wgs, lat_wgs = gcj02_to_wgs84(lng_gcj, lat_gcj)
-
+    # 高德返回 GCJ-02，直接存储不转换
     province = geo.get("province") or None
     city = geo.get("city") or None
     if isinstance(city, list):
@@ -79,8 +77,8 @@ def geocode(address: str, api_key: str) -> dict | None:
         "city": city,
         "district": district,
         "address": formatted_address,
-        "longitude": round(lng_wgs, 6),
-        "latitude": round(lat_wgs, 6),
+        "longitude": round(lng_gcj, 6),
+        "latitude": round(lat_gcj, 6),
         "_geocode_level": level,
     }
 

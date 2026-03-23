@@ -95,8 +95,8 @@ def main():
             time.sleep(0.2)
 
             if result and result.get("latitude") and result.get("longitude"):
-                # GCJ-02 → WGS-84
-                wgs_lng, wgs_lat = gcj02_to_wgs84(result["longitude"], result["latitude"])
+                # 高德返回 GCJ-02，直接使用不转换
+                new_lat, new_lng = result["latitude"], result["longitude"]
                 old_lat, old_lng = main_rec.get("latitude"), main_rec.get("longitude")
 
                 # 省份验证
@@ -108,22 +108,22 @@ def main():
 
                 # 检查坐标是否有变化（距离>100m 认为有意义）
                 import math
-                dlat = abs(wgs_lat - old_lat) if old_lat else 999
-                dlng = abs(wgs_lng - old_lng) if old_lng else 999
+                dlat = abs(new_lat - old_lat) if old_lat else 999
+                dlng = abs(new_lng - old_lng) if old_lng else 999
                 dist_approx = math.sqrt(dlat**2 + dlng**2) * 111000  # 粗略距离(米)
 
                 level = result.get("_geocode_level", "")
-                print(f"    高德: ({wgs_lat}, {wgs_lng}) level={level} dist={dist_approx:.0f}m")
+                print(f"    高德: ({new_lat}, {new_lng}) level={level} dist={dist_approx:.0f}m")
 
                 if dist_approx > 100:
                     if not args.dry_run:
-                        main_rec["latitude"] = wgs_lat
-                        main_rec["longitude"] = wgs_lng
+                        main_rec["latitude"] = new_lat
+                        main_rec["longitude"] = new_lng
                         main_rec["_geocode_method"] = "amap_geocode"
                     updated += 1
                     print(f"    ✓ 已更新（偏移 {dist_approx:.0f}m）")
                     results.append({"release_id": rid, "name": name, "status": "updated",
-                                    "old": [old_lat, old_lng], "new": [wgs_lat, wgs_lng],
+                                    "old": [old_lat, old_lng], "new": [new_lat, new_lng],
                                     "dist_m": round(dist_approx), "level": level})
                 else:
                     print(f"    — 坐标差异不大，保持原样")
