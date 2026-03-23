@@ -61,6 +61,15 @@ supabase start   # 启动本地 Supabase（需 Docker）
 npm run dev      # 启动前端
 ```
 
+### 数据导入 Supabase
+
+数据清洗/修复后，需要将 `data/heritage_sites_geocoded.json` 重新导入本地 Supabase：
+
+```bash
+cd scripts
+uv run python db/seed_supabase.py --clear   # --clear 会先清空表再导入
+```
+
 ### 环境变量
 
 `.env.local`（不提交到 git）：
