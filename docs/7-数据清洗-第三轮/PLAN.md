@@ -100,41 +100,42 @@ Phase 4: 更新 fallback 列表 + 重新 seed 数据库
 
 ## Phase 2: 腾讯地图批量 geocoding
 
-### Step 2.1: 生成 Gemini geocoding prompt（一次性，不分批）
+### Step 2.1: LLM 生成精确地址（Claude Code Agent 批处理）
 
-**`scripts/generate_gemini_prompt_geocode.py`**
+原计划用 Gemini 一次性处理 1712 条，因数据量过大放弃。改为 Claude Code 内用 Agent 子代理 + WebSearch 批量处理。
 
-- 读取 `needs_regeocode.json` + Phase 1 新增的无坐标子记录
-- 输出：
-  - `data/round3/gemini_prompt_geocode.md` — prompt 正文（指导 Gemini 任务）
-  - `data/round3/gemini_geocode_input.json` — 附件（全量问题记录，传给 Gemini）
-- Gemini 一次处理全部记录，返回每条记录的推荐搜索词和精确地址
+**辅助脚本**：`scripts/round3/batch_geocode_helper.py`（split / merge / status / validate）
 
-**Gemini 输出格式**（保存到 `data/round3/gemini_geocode_result.json`）：
+**批次文件**：
+- 输入：`data/round3/geocode_batches/batch_001.json` ~ `batch_018.json`（每批 100 条，最后一批 12 条）
+- 结果：`data/round3/geocode_batches/result_001.json` ~ `result_018.json`
+
+**结果格式**：
 ```json
 [
   {
     "release_id": "1-4",
-    "poi_keywords": ["韶山毛泽东故居", "韶山冲毛主席旧居"],
-    "city_hint": "湘潭市",
-    "precise_address": "湖南省湘潭市韶山市韶山冲上屋场"
+    "address_for_geocoding": "湖南省湘潭市韶山市韶山冲",
+    "poi_name": "毛泽东同志故居",
+    "notes": null
   }
 ]
 ```
 
+**当前进度**：batch_001–011 完成（1100 条），012–018 待处理。详见 `GEOCODE_PROGRESS.md`。
+
 ### Step 2.2: 腾讯地图 geocoding 核心脚本
 
-**`scripts/geocode_tencent.py`**
+**`scripts/round3/geocode_tencent.py`**
 
 **API 端点**：
-- POI 搜索：`https://apis.map.qq.com/ws/place/v1/search`
-- 地址编码：`https://apis.map.qq.com/ws/geocoder/v1/`
+- 地址编码：`https://apis.map.qq.com/ws/geocoder/v1/`（配额充足，10,000/天）
+- POI 搜索：`https://apis.map.qq.com/ws/place/v1/search`（配额紧张，200/天）
 
-**搜索策略**（每条记录依次尝试，直到命中）：
-1. Gemini 推荐关键词 + 城市限定 POI 搜索（如有 hints）
-2. 原始 name + city hint POI 搜索
-3. Gemini 的 precise_address 地址编码（如有）
-4. release_address 地址编码（最终 fallback）
+**搜索策略**（优先级从高到低）：
+1. LLM 精确地址 → 腾讯地理编码（主策略，高配额）
+2. 腾讯 POI 搜索（配额有限，仅在 1 失败时使用）
+3. 原始 release_address → 腾讯地理编码（最终 fallback）
 
 **核心改进——省份验证**：
 - 每次 geocoding 后，验证结果省份 vs 预期省份
@@ -142,11 +143,34 @@ Phase 4: 更新 fallback 列表 + 重新 seed 数据库
 - 这是比 Round 2 最关键的改进，防止跨省 POI 错匹配
 
 **实现细节**：
-- 速率：0.2s/请求（5 QPS，远低于 10,000/天限额）
-- checkpoint：每 50 条保存到 `data/round3/tencent_checkpoint.json`
-- difflib 相似度阈值：0.5（Gemini 推荐词）/ 0.5（原始名）
-- 新 `_geocode_method` 值：`tencent_poi_gemini` / `tencent_poi` / `tencent_geocode`
-- CLI 选项：`--test`（前 5 条）、`--limit N`、`--resume`
+- 速率：0.25s/请求（4 QPS）
+- checkpoint：每 50 条保存
+- POI 搜索日配额管理：跟踪今日已用次数，超额则自动跳过
+- difflib 相似度阈值：0.4
+- 新 `_geocode_method` 值：`tencent_geocode_gemini` / `tencent_poi_gemini` / `tencent_poi` / `tencent_geocode`
+- CLI 选项：`--test`（前 5 条）、`--limit N`、`--resume`、**`--batch N`（仅处理指定批次）**
+
+### Step 2.2 试点：batch_001 先行验证
+
+在全量处理前，先用 batch_001 的 100 条记录跑通整个 pipeline，验证：
+- 腾讯地图 API 的命中率和精度
+- 省份验证逻辑是否正常
+- LLM 提供的 address_for_geocoding 质量
+- POI 搜索配额消耗情况
+
+```bash
+# 试点运行（仅 batch_001 的 100 条）
+cd scripts/round3
+uv run python geocode_tencent.py --batch 1 --test   # 先测 5 条
+uv run python geocode_tencent.py --batch 1           # 跑全部 100 条
+```
+
+`--batch N` 模式：
+- 从 `geocode_batches/batch_N.json` 读取目标 release_id 列表
+- 从 `geocode_batches/result_N.json` 加载 LLM hints
+- 仅处理该批次内的记录，不影响其他数据
+
+试点通过后再扩大到 batch_001–011（1100 条），最后处理剩余 012–018。
 
 ---
 
@@ -182,32 +206,31 @@ Phase 4: 更新 fallback 列表 + 重新 seed 数据库
 ## 新增文件
 
 ```
-scripts/
+scripts/round3/
   analyze_data_quality.py          # Phase 0
   generate_gemini_prompt_multi_address.py  # Phase 1.1
   apply_multi_address_split.py     # Phase 1.2
   generate_gemini_prompt_geocode.py  # Phase 2.1
+  batch_geocode_helper.py          # Phase 2.1 辅助（split/merge/status/validate）
   geocode_tencent.py               # Phase 2.2
+  geocode_utils.py                 # 共享工具（省份提取/验证）
   verify_round3.py                 # Phase 3.1
   apply_manual_corrections.py      # Phase 3.2
   update_fallback_list.py          # Phase 4
 
-data/round3/           # 中间产物（加入 .gitignore）
-  gemini_prompt_multi_address.md
-  gemini_multi_address_input.json
-  gemini_multi_address_result.json   # 用户填写
-  needs_regeocode.json
-  gemini_prompt_geocode.md
-  gemini_geocode_input.json
-  gemini_geocode_result.json         # 用户填写
+data/round3/
+  gemini_geocode_input.json        # 1712 条待处理记录
+  geocode_batches/                 # 批次目录
+    batch_001.json ~ batch_018.json  # 每批 100 条输入
+    result_001.json ~ result_018.json # LLM 处理结果
   tencent_checkpoint.json
   verification_report.json
   still_problematic.json
-  manual_corrections.json            # 用户填写（如有）
-  backup/                            # 自动备份
+  manual_corrections.json          # 用户填写（如有）
+  backup/                          # 自动备份
 
 docs/7-数据清洗-第三轮/
-  PROMPT.md  PLAN.md  SUMMARY.md
+  PROMPT.md  PLAN.md  GEOCODE_PROGRESS.md  SUMMARY.md
 ```
 
 **修改文件**：
@@ -215,17 +238,14 @@ docs/7-数据清洗-第三轮/
 - `data/heritage_sites_geocoded.json` — 最终更新
 - `data/geocode_fallback_list.json` — 重新生成
 
-## 参考实现
-
-- `scripts/regeocode_by_name.py` — geocode_tencent.py 的架构参考（checkpoint/resume、difflib、city hint）
-- `scripts/apply_name_corrections.py` — dry-run/apply 模式参考
-
 ## 执行节奏
 
 | 阶段 | 人类操作 | Agent 操作 |
 |------|---------|-----------|
 | Phase 0 | 无 | 写脚本 → 运行分析 |
 | Phase 1 | 跑 Gemini（1次，传 multi_address_input.json） | 写脚本 → 执行拆分 |
-| Phase 2 | 注册腾讯 API Key，TENCENT_MAP_KEY 写入 .env.local；跑 Gemini（1次，传 geocode_input.json） | 写脚本 → 运行 geocoding |
-| Phase 3 | 跑 Gemini（少量）/ 人工校正 | 写脚本 → 运行验证 |
+| Phase 2.1 | 无 | Claude Code Agent 批量处理（WebSearch + 模型知识）|
+| Phase 2.2 试点 | TENCENT_MAP_KEY 写入 .env.local | `geocode_tencent.py --batch 1` 验证 pipeline |
+| Phase 2.2 全量 | 确认试点结果 | 逐批扩大到 001–011，再处理 012–018 |
+| Phase 3 | 人工校正（少量） | 写脚本 → 运行验证 |
 | Phase 4 | 无 | 更新列表 → 重新 seed |
