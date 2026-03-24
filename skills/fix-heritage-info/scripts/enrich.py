@@ -152,9 +152,16 @@ def _wiki_search(name: str, session: requests.Session) -> str | None:
 
 # --- 百度百科 ---
 
-def fetch_baike(name: str) -> dict:
-    """直接构造 URL 获取百度百科内容。返回 {url, abstract}。"""
-    result = {"url": None, "abstract": ""}
+def fetch_baike(name: str, existing_url: str | None = None) -> dict:
+    """获取百度百科内容。优先用已有 URL，否则按名字构造。返回 {url, abstract}。"""
+    result = {"url": existing_url, "abstract": ""}
+
+    # 优先用已有 URL 抓内容
+    if existing_url:
+        abstract = _baike_scrape(existing_url)
+        if abstract:
+            result["abstract"] = abstract
+            return result
 
     url, abstract = _baike_direct(name)
     if url:
@@ -172,6 +179,24 @@ def fetch_baike(name: str) -> dict:
             return result
 
     return result
+
+
+def _baike_scrape(url: str) -> str:
+    """用已有 URL 直接抓取百度百科摘要。"""
+    from bs4 import BeautifulSoup
+    try:
+        resp = requests.get(url, headers=BAIKE_HEADERS, timeout=15, allow_redirects=True)
+        if resp.status_code == 200:
+            soup = BeautifulSoup(resp.text, "html.parser")
+            summary = soup.select_one(".lemma-summary, .J-summary, .lemmaSummary")
+            if summary:
+                return re.sub(r"\[\d+\]", "", summary.get_text(strip=True))
+            meta = soup.find("meta", attrs={"name": "description"})
+            if meta and meta.get("content"):
+                return meta["content"].strip()
+    except Exception:
+        pass
+    return ""
 
 
 def _baike_direct(name: str) -> tuple[str | None, str]:
@@ -340,7 +365,7 @@ def enrich_single(release_id: str, extra_context: str, dry_run: bool, sites: lis
 
     # Step 2: 获取百度百科
     print("  [2/4] 获取百度百科...")
-    baike = fetch_baike(site["name"])
+    baike = fetch_baike(site["name"], site.get("baike_url"))
     if baike["url"]:
         print(f"    URL: {baike['url']}")
         print(f"    摘要: {baike['abstract'][:80]}...")
@@ -357,22 +382,49 @@ def enrich_single(release_id: str, extra_context: str, dry_run: bool, sites: lis
         print("\n  [dry-run] 不写入")
         return True
 
-    # Step 4: 写入
-    print("  [4/4] 写入数据...")
+    # 构建结果
+    result = {"release_id": release_id}
     if wiki["url"] and not site.get("wikipedia_url"):
-        site["wikipedia_url"] = wiki["url"]
+        result["wikipedia_url"] = wiki["url"]
     if baike["url"]:
-        site["baike_url"] = baike["url"]
+        result["baike_url"] = baike["url"]
     if enrichment["description"]:
-        site["description"] = enrichment["description"]
+        result["description"] = enrichment["description"]
     if enrichment["tags"]:
-        site["tags"] = enrichment["tags"]
+        result["tags"] = enrichment["tags"]
 
+    return result
+
+
+CHECKPOINT_FILE = Path(__file__).parent / ".enrich_checkpoint.json"
+
+
+def load_checkpoint() -> set[str]:
+    if CHECKPOINT_FILE.exists():
+        return set(json.load(CHECKPOINT_FILE.open(encoding="utf-8")))
+    return set()
+
+
+def save_checkpoint(done: set[str]):
+    with open(CHECKPOINT_FILE, "w", encoding="utf-8") as f:
+        json.dump(sorted(done), f, ensure_ascii=False)
+
+
+COLLECT_DIR = _ROOT / "data" / "round5" / "enrich_collect"
+
+
+def apply_results(results: list[dict], sites: list[dict]):
+    """将收集的结果合并写入主 JSON 并同步 Supabase。"""
+    site_map = {s["release_id"]: s for s in sites}
+    for r in results:
+        site = site_map.get(r["release_id"])
+        if not site:
+            continue
+        for key in ("wikipedia_url", "baike_url", "description", "tags"):
+            if key in r:
+                site[key] = r[key]
+        sync_to_supabase(site)
     save_sites(sites)
-    print("    JSON 已更新")
-
-    sync_to_supabase(site)
-    return True
 
 
 def main():
@@ -380,14 +432,55 @@ def main():
     parser.add_argument("release_ids", nargs="+", help="要富化的 release_id")
     parser.add_argument("--context", "-c", default="", help="用户提供的额外参考信息")
     parser.add_argument("--dry-run", action="store_true", help="只展示结果，不写入")
+    parser.add_argument("--collect", action="store_true", help="结果写独立文件，不碰主 JSON（支持并发）")
+    parser.add_argument("--apply", action="store_true", help="将 collect 目录的结果合并写入主 JSON")
     args = parser.parse_args()
 
     sites = load_sites()
 
+    # --apply: 合并已收集的结果
+    if args.apply:
+        COLLECT_DIR.mkdir(parents=True, exist_ok=True)
+        all_results = []
+        for f in sorted(COLLECT_DIR.glob("*.json")):
+            all_results.extend(json.load(f.open(encoding="utf-8")))
+        print(f"合并 {len(all_results)} 条结果...")
+        apply_results(all_results, sites)
+        print("完成，清理 collect 目录")
+        import shutil
+        shutil.rmtree(COLLECT_DIR)
+        return
+
+    # --collect: 结果写独立文件
+    if args.collect:
+        COLLECT_DIR.mkdir(parents=True, exist_ok=True)
+
+    results = []
     success = 0
-    for rid in args.release_ids:
-        if enrich_single(rid, args.context, args.dry_run, sites):
+    for i, rid in enumerate(args.release_ids):
+        print(f"\n[{i + 1}/{len(args.release_ids)}]", end="")
+        result = enrich_single(rid, args.context, args.dry_run, sites)
+        if result:
             success += 1
+            if not args.dry_run:
+                if args.collect:
+                    results.append(result)
+                else:
+                    # 直接写主 JSON（串行模式）
+                    site = find_site(sites, rid)
+                    for key in ("wikipedia_url", "baike_url", "description", "tags"):
+                        if key in result:
+                            site[key] = result[key]
+                    save_sites(sites)
+                    sync_to_supabase(site)
+                    print("    已写入")
+
+    if args.collect and results and not args.dry_run:
+        # 用第一个 ID 命名文件
+        fname = COLLECT_DIR / f"{args.release_ids[0]}.json"
+        with open(fname, "w", encoding="utf-8") as f:
+            json.dump(results, f, ensure_ascii=False, indent=2)
+        print(f"\n{len(results)} 条结果已保存到 {fname}")
 
     print(f"\n完成: {success}/{len(args.release_ids)}")
 
