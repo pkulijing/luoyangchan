@@ -89,15 +89,15 @@ export default async function SiteDetailPage({
                   <p>{site.city}</p>
                 </div>
               )}
-              {site.wikipedia_url && (
+              {site.baike_url && (
                 <div>
                   <Link
-                    href={site.wikipedia_url}
+                    href={site.baike_url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:underline text-sm"
                   >
-                    Wikipedia 页面 →
+                    百度百科 →
                   </Link>
                 </div>
               )}
