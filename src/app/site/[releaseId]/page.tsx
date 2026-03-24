@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CATEGORY_COLORS, BATCH_YEARS } from "@/lib/constants";
-import { getSiteById } from "@/lib/supabase/queries";
+import { getSiteByReleaseId } from "@/lib/supabase/queries";
 import BackButton from "@/components/site/BackButton";
 import SiteMapClient from "@/components/map/SiteMapClient";
 import type { SiteCategory } from "@/lib/types";
@@ -10,10 +10,10 @@ import Link from "next/link";
 export default async function SiteDetailPage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ releaseId: string }>;
 }) {
-  const { id } = await params;
-  const site = await getSiteById(id);
+  const { releaseId } = await params;
+  const site = await getSiteByReleaseId(releaseId);
 
   if (!site) {
     return (
@@ -33,6 +33,12 @@ export default async function SiteDetailPage({
       <header className="bg-white border-b px-6 py-4 flex items-center gap-4">
         <BackButton />
         <h1 className="text-2xl font-bold">{site.name}</h1>
+        <Link
+          href={`/site/${site.release_id}/raw`}
+          className="ml-auto text-xs text-gray-400 hover:text-gray-600"
+        >
+          raw
+        </Link>
       </header>
 
       <div className="max-w-4xl mx-auto p-6 space-y-6">
@@ -132,7 +138,7 @@ export default async function SiteDetailPage({
                 {site.children.map((child) => (
                   <li key={child.id}>
                     <Link
-                      href={`/site/${child.id}`}
+                      href={`/site/${child.release_id}`}
                       className="text-blue-600 hover:underline text-sm"
                     >
                       {child.name}
@@ -153,7 +159,7 @@ export default async function SiteDetailPage({
             <CardContent className="space-y-3">
               <div>
                 <Link
-                  href={`/site/${site.parent.id}`}
+                  href={`/site/${site.parent.release_id}`}
                   className="text-blue-600 hover:underline font-medium"
                 >
                   {site.parent.name}
@@ -168,7 +174,7 @@ export default async function SiteDetailPage({
                     {site.siblings.map((sib) => (
                       <li key={sib.id}>
                         <Link
-                          href={`/site/${sib.id}`}
+                          href={`/site/${sib.release_id}`}
                           className="text-blue-600 hover:underline text-sm"
                         >
                           {sib.name}

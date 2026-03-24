@@ -37,6 +37,7 @@ export function useFilters(sites: SiteListItem[]) {
       .filter((s) => s.latitude != null && s.longitude != null)
       .map((s) => ({
         id: s.id,
+        release_id: s.release_id!,
         name: s.name,
         latitude: s.latitude!,
         longitude: s.longitude!,

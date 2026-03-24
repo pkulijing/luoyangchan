@@ -12,7 +12,9 @@ export interface HeritageSite {
   latitude: number | null;
   longitude: number | null;
   description: string | null;
+  tags: string[] | null;
   wikipedia_url: string | null;
+  baike_url: string | null;
   image_url: string | null;
   is_open: boolean | null;
   release_id: string | null;
@@ -24,14 +26,14 @@ export interface HeritageSite {
 
 export type SiteListItem = Pick<
   HeritageSite,
-  "id" | "name" | "province" | "city" | "category" | "era" | "batch" | "batch_year" | "latitude" | "longitude" | "parent_id"
+  "id" | "name" | "release_id" | "province" | "city" | "category" | "era" | "batch" | "batch_year" | "latitude" | "longitude" | "parent_id"
 >;
 
 /** 详情页专用：携带父记录概要和兄弟/子记录列表 */
 export interface SiteWithRelations extends HeritageSite {
   parent: Pick<HeritageSite, "id" | "name" | "release_id"> | null;
-  siblings: Pick<HeritageSite, "id" | "name" | "latitude" | "longitude">[];
-  children: Pick<HeritageSite, "id" | "name" | "latitude" | "longitude">[];
+  siblings: Pick<HeritageSite, "id" | "name" | "release_id" | "latitude" | "longitude">[];
+  children: Pick<HeritageSite, "id" | "name" | "release_id" | "latitude" | "longitude">[];
 }
 
 export type SiteCategory =
@@ -49,12 +51,13 @@ export type SiteCategory =
 
 export interface SiteMarkerData {
   id: string;
+  release_id: string;
   name: string;
   latitude: number;
   longitude: number;
   category: SiteCategory;
   era: string | null;
-  province: string;
+  province: string | null;
 }
 
 export interface FilterState {

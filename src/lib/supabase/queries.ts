@@ -12,7 +12,7 @@ export async function getAllSites(): Promise<SiteListItem[]> {
     const { data, error } = await supabase
       .from("heritage_sites")
       .select(
-        "id, name, province, city, category, era, batch, batch_year, latitude, longitude, parent_id",
+        "id, name, release_id, province, city, category, era, batch, batch_year, latitude, longitude, parent_id",
       )
       .not("latitude", "is", null)  // 排除父记录（无坐标）
       .order("id", { ascending: true })
@@ -30,12 +30,12 @@ export async function getAllSites(): Promise<SiteListItem[]> {
   return allSites;
 }
 
-export async function getSiteById(id: string): Promise<SiteWithRelations | null> {
+export async function getSiteByReleaseId(releaseId: string): Promise<SiteWithRelations | null> {
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("heritage_sites")
     .select("*")
-    .eq("id", id)
+    .eq("release_id", releaseId)
     .single();
   if (error) return null;
   const site = data as HeritageSite;
@@ -51,20 +51,20 @@ export async function getSiteById(id: string): Promise<SiteWithRelations | null>
       : Promise.resolve({ data: null, error: null }),
     supabase
       .from("heritage_sites")
-      .select("id, name, latitude, longitude")
-      .eq("parent_id", id),
+      .select("id, name, release_id, latitude, longitude")
+      .eq("parent_id", site.id),
   ]);
 
   const parent = parentResult.data as Pick<HeritageSite, "id" | "name" | "release_id"> | null;
 
   // 兄弟：同父、非自身（仅有父记录时才查）
-  let siblings: Pick<HeritageSite, "id" | "name" | "latitude" | "longitude">[] = [];
+  let siblings: Pick<HeritageSite, "id" | "name" | "release_id" | "latitude" | "longitude">[] = [];
   if (site.parent_id) {
     const { data: sibData } = await supabase
       .from("heritage_sites")
-      .select("id, name, latitude, longitude")
+      .select("id, name, release_id, latitude, longitude")
       .eq("parent_id", site.parent_id)
-      .neq("id", id);
+      .neq("id", site.id);
     siblings = (sibData ?? []) as typeof siblings;
   }
 
@@ -72,6 +72,6 @@ export async function getSiteById(id: string): Promise<SiteWithRelations | null>
     ...site,
     parent,
     siblings,
-    children: (childrenResult.data ?? []) as Pick<HeritageSite, "id" | "name" | "latitude" | "longitude">[],
+    children: (childrenResult.data ?? []) as Pick<HeritageSite, "id" | "name" | "release_id" | "latitude" | "longitude">[],
   };
 }

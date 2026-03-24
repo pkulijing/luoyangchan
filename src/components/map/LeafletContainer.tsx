@@ -127,7 +127,7 @@ export default function LeafletContainer({
          </p>
          ${site.era ? `<p style="margin:0 0 4px;color:#666;font-size:13px;">时代：${site.era}</p>` : ""}
          <p style="margin:0 0 8px;color:#666;font-size:13px;">${site.province}</p>
-         <a href="/site/${site.id}" style="color:#1890ff;font-size:13px;text-decoration:none;">查看详情 →</a>
+         <a href="/site/${site.release_id}" style="color:#1890ff;font-size:13px;text-decoration:none;">查看详情 →</a>
        </div>`,
     [],
   );
@@ -139,7 +139,7 @@ export default function LeafletContainer({
         .map(
           (s) =>
             `<div style="padding:6px 0;border-bottom:1px solid #eee;">
-               <a href="/site/${s.id}" style="color:#1890ff;font-size:13px;font-weight:500;text-decoration:none;">${s.name}</a>
+               <a href="/site/${s.release_id}" style="color:#1890ff;font-size:13px;font-weight:500;text-decoration:none;">${s.name}</a>
                <span style="color:#999;font-size:12px;margin-left:6px;">${s.category}</span>
                ${s.era ? `<span style="color:#999;font-size:12px;"> · ${s.era}</span>` : ""}
              </div>`,
