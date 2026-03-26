@@ -43,10 +43,10 @@ from utils import (
     compute_tencent_sig,
 )
 
-_ROOT = Path(__file__).parent.parent.parent.parent
+_ROOT = Path(__file__).parent.parent.parent.parent.parent
 DATA_DIR = _ROOT / "data"
 MAIN_FILE = DATA_DIR / "heritage_sites_geocoded.json"
-BAIKE_SCRIPT = _ROOT / "skills" / "baidu-baike" / "scripts"
+BAIKE_SCRIPT = _ROOT / ".claude" / "skills" / "baidu-baike" / "scripts"
 
 LOCATION_KEYS = ["地理位置", "位置", "所在地", "地点", "所在地点", "地址", "所处位置", "出土地点"]
 

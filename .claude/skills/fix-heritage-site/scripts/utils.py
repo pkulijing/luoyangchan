@@ -6,7 +6,7 @@ import hashlib
 import os
 from pathlib import Path
 
-_ROOT = Path(__file__).parent.parent.parent.parent
+_ROOT = Path(__file__).parent.parent.parent.parent.parent
 
 ALL_PROVINCES = [
     "北京市", "天津市", "上海市", "重庆市",

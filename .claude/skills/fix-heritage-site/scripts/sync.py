@@ -22,7 +22,7 @@ from pathlib import Path
 
 import requests
 
-_ROOT = Path(__file__).parent.parent.parent.parent
+_ROOT = Path(__file__).parent.parent.parent.parent.parent
 DATA_DIR = _ROOT / "data"
 MAIN_FILE = DATA_DIR / "heritage_sites_geocoded.json"
 
