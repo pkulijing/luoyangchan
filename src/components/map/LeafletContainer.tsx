@@ -25,7 +25,7 @@ const DEFAULT_CENTER: [number, number] = [
 const CLUSTER_MAX_RADIUS = 40;
 const CLUSTER_FULL_ZOOM = 4;
 const CLUSTER_ZERO_AT_ZOOM = 8; // 约等于"北京市"视野，可按需调整
-const TEXT_LABEL_MIN_ZOOM = 10; // zoom >= 此值时，圆点标记切换为文字标签
+const TEXT_LABEL_MIN_ZOOM = 9; // zoom >= 此值时，圆点标记切换为文字标签
 
 function calcClusterRadius(zoom: number): number {
   if (zoom >= CLUSTER_ZERO_AT_ZOOM) return 0;
@@ -102,7 +102,9 @@ export default function LeafletContainer({
       });
       // 事件委托：拦截 popup 内 [data-release-id] 链接点击
       containerRef.current!.addEventListener("click", (e) => {
-        const target = (e.target as HTMLElement).closest<HTMLElement>("[data-release-id]");
+        const target = (e.target as HTMLElement).closest<HTMLElement>(
+          "[data-release-id]",
+        );
         if (target) {
           e.preventDefault();
           const releaseId = target.dataset.releaseId;
@@ -131,7 +133,7 @@ export default function LeafletContainer({
             console.warn("[Geolocation] 获取位置失败:", error.message);
             // 定位失败，保持默认视角，后续会 fitBounds
           },
-          { enableHighAccuracy: false, timeout: 5000, maximumAge: 300000 }
+          { enableHighAccuracy: false, timeout: 5000, maximumAge: 300000 },
         );
       }
     }
@@ -308,13 +310,7 @@ export default function LeafletContainer({
     updateMarkers().catch((e) =>
       console.error("[LeafletContainer] updateMarkers failed", e),
     );
-  }, [
-    sites,
-    mapReady,
-    zoom,
-    buildStackedPopupHtml,
-    onSiteClick,
-  ]);
+  }, [sites, mapReady, zoom, buildStackedPopupHtml, onSiteClick]);
 
   return <div ref={containerRef} className="w-full h-full" />;
 }
