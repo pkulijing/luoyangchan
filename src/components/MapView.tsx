@@ -1,7 +1,9 @@
 "use client";
 
+import { useCallback, useState } from "react";
 import dynamic from "next/dynamic";
 import FilterPanel from "@/components/filters/FilterPanel";
+import SiteDetailPanel from "@/components/site/SiteDetailPanel";
 import { useFilters } from "@/hooks/useFilters";
 import type { SiteListItem } from "@/lib/types";
 
@@ -12,12 +14,21 @@ const LeafletContainer = dynamic(
 
 export default function MapView({ sites }: { sites: SiteListItem[] }) {
   const { filters, setFilters, filteredSites, markerData } = useFilters(sites);
+  const [selectedReleaseId, setSelectedReleaseId] = useState<string | null>(null);
+
+  const handleSiteClick = useCallback((releaseId: string) => {
+    setSelectedReleaseId(releaseId);
+  }, []);
+
+  const handlePanelClose = useCallback(() => {
+    setSelectedReleaseId(null);
+  }, []);
 
   return (
     <main className="relative w-screen h-screen overflow-hidden">
       {/* z-0 给 Leaflet 创建独立 stacking context，避免内部高 z-index 的 pane 盖住 UI 浮层 */}
       <div className="absolute inset-0 z-0">
-        <LeafletContainer sites={markerData} />
+        <LeafletContainer sites={markerData} onSiteClick={handleSiteClick} />
       </div>
 
       <div className="absolute top-4 left-4 z-10">
@@ -37,6 +48,12 @@ export default function MapView({ sites }: { sites: SiteListItem[] }) {
           </p>
         </div>
       </div>
+
+      <SiteDetailPanel
+        releaseId={selectedReleaseId}
+        onClose={handlePanelClose}
+        onNavigate={handleSiteClick}
+      />
     </main>
   );
 }

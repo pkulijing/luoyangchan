@@ -25,6 +25,7 @@ const DEFAULT_CENTER: [number, number] = [
 const CLUSTER_MAX_RADIUS = 40;
 const CLUSTER_FULL_ZOOM = 4;
 const CLUSTER_ZERO_AT_ZOOM = 8; // 约等于"北京市"视野，可按需调整
+const TEXT_LABEL_MIN_ZOOM = 10; // zoom >= 此值时，圆点标记切换为文字标签
 
 function calcClusterRadius(zoom: number): number {
   if (zoom >= CLUSTER_ZERO_AT_ZOOM) return 0;
@@ -38,7 +39,7 @@ function calcClusterRadius(zoom: number): number {
 
 interface LeafletContainerProps {
   sites: SiteMarkerData[];
-  onSiteClick?: (siteId: string) => void;
+  onSiteClick?: (releaseId: string) => void;
 }
 
 export default function LeafletContainer({
@@ -53,6 +54,11 @@ export default function LeafletContainer({
   const [mapReady, setMapReady] = useState(false);
   const [zoom, setZoom] = useState(MAP_DEFAULT_ZOOM);
   const prevSitesRef = useRef<SiteMarkerData[] | null>(null);
+  // 标记是否已通过用户定位设置了初始视角，避免 fitBounds 覆盖
+  const userLocatedRef = useRef(false);
+  // 用 ref 追踪最新回调，避免在 init effect 中捕获旧闭包
+  const onSiteClickRef = useRef(onSiteClick);
+  onSiteClickRef.current = onSiteClick;
 
   // 初始化地图（只运行一次）
   useEffect(() => {
@@ -94,8 +100,40 @@ export default function LeafletContainer({
         console.log(`[zoom] ${z} → clusterRadius: ${calcClusterRadius(z)}`);
         setZoom(z);
       });
+      // 事件委托：拦截 popup 内 [data-release-id] 链接点击
+      containerRef.current!.addEventListener("click", (e) => {
+        const target = (e.target as HTMLElement).closest<HTMLElement>("[data-release-id]");
+        if (target) {
+          e.preventDefault();
+          const releaseId = target.dataset.releaseId;
+          if (releaseId) {
+            map.closePopup();
+            onSiteClickRef.current?.(releaseId);
+          }
+        }
+      });
+
       mapRef.current = map;
       setMapReady(true);
+
+      // 尝试获取用户位置，成功则定位到用户位置
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const { latitude, longitude } = position.coords;
+            console.log(`[Geolocation] 用户位置: ${latitude}, ${longitude}`);
+            // 浏览器返回的是 WGS-84 坐标，可以直接用于 Leaflet + 天地图
+            map.setView([latitude, longitude], 11);
+            userLocatedRef.current = true;
+            setZoom(11);
+          },
+          (error) => {
+            console.warn("[Geolocation] 获取位置失败:", error.message);
+            // 定位失败，保持默认视角，后续会 fitBounds
+          },
+          { enableHighAccuracy: false, timeout: 5000, maximumAge: 300000 }
+        );
+      }
     }
 
     init().catch((error) => {
@@ -116,30 +154,14 @@ export default function LeafletContainer({
     };
   }, []);
 
-  // 构建单个标记的 popup HTML
-  const buildPopupHtml = useCallback(
-    (site: SiteMarkerData, color: string) =>
-      `<div style="padding:8px;min-width:200px;">
-         <h3 style="margin:0 0 8px;font-size:16px;font-weight:600;">${site.name}</h3>
-         <p style="margin:0 0 4px;color:#666;font-size:13px;">
-           <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${color};margin-right:6px;"></span>
-           ${site.category}
-         </p>
-         ${site.era ? `<p style="margin:0 0 4px;color:#666;font-size:13px;">时代：${site.era}</p>` : ""}
-         <p style="margin:0 0 8px;color:#666;font-size:13px;">${site.province}</p>
-         <a href="/site/${site.release_id}" style="color:#1890ff;font-size:13px;text-decoration:none;">查看详情 →</a>
-       </div>`,
-    [],
-  );
-
-  // 构建坐标重合的多条目 popup HTML（用于 debug）
+  // 构建坐标重合的多条目 popup HTML
   const buildStackedPopupHtml = useCallback(
     (stackedSites: SiteMarkerData[]) => {
       const items = stackedSites
         .map(
           (s) =>
             `<div style="padding:6px 0;border-bottom:1px solid #eee;">
-               <a href="/site/${s.release_id}" style="color:#1890ff;font-size:13px;font-weight:500;text-decoration:none;">${s.name}</a>
+               <a href="#" data-release-id="${s.release_id}" style="color:#1890ff;font-size:13px;font-weight:500;text-decoration:none;cursor:pointer;">${s.name}</a>
                <span style="color:#999;font-size:12px;margin-left:6px;">${s.category}</span>
                ${s.era ? `<span style="color:#999;font-size:12px;"> · ${s.era}</span>` : ""}
              </div>`,
@@ -147,7 +169,7 @@ export default function LeafletContainer({
         .join("");
       return `<div style="padding:8px;min-width:220px;max-height:300px;overflow-y:auto;">
                 <p style="margin:0 0 8px;font-size:13px;font-weight:600;color:#e67e22;">
-                  ⚠ ${stackedSites.length} 条数据共用此坐标
+                  ${stackedSites.length} 条数据共用此坐标
                 </p>
                 ${items}
               </div>`;
@@ -225,22 +247,36 @@ export default function LeafletContainer({
           marker.bindPopup(buildStackedPopupHtml(group), { maxWidth: 300 });
           cluster.addLayer(marker);
         } else {
-          // 单条数据：正常标记
+          // 单条数据：zoom 较大时显示文字标签，否则显示圆点
           const color = CATEGORY_COLORS[site.category] ?? "#95a5a6";
+          const useTextLabel = zoom >= TEXT_LABEL_MIN_ZOOM;
+          const icon = useTextLabel
+            ? L.divIcon({
+                html: `<div style="display:flex;flex-direction:column;align-items:center">
+                         <div style="padding:2px 6px;border-radius:3px;background:${color};
+                                     font-size:12px;font-weight:600;color:#fff;white-space:nowrap;
+                                     box-shadow:0 1px 4px rgba(0,0,0,0.3);line-height:1.3">${site.name}</div>
+                         <div style="width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;
+                                     border-top:4px solid ${color}"></div>
+                       </div>`,
+                className: "",
+                iconSize: [0, 0] as [number, number],
+                iconAnchor: [0, 24] as [number, number],
+              })
+            : L.divIcon({
+                html: `<div style="display:flex;flex-direction:column;align-items:center;transform:translateY(-8px)">
+                         <div style="width:14px;height:14px;border-radius:50%;background:${color};border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,0.3)"></div>
+                         <div style="width:2px;height:7px;background:${color};opacity:0.9"></div>
+                       </div>`,
+                className: "",
+                iconSize: [14, 21] as [number, number],
+                iconAnchor: [7, 21] as [number, number],
+              });
           const marker = L.marker([wgsLat, wgsLng], {
             title: site.name,
-            icon: L.divIcon({
-              html: `<div style="display:flex;flex-direction:column;align-items:center;transform:translateY(-8px)">
-                       <div style="width:14px;height:14px;border-radius:50%;background:${color};border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,0.3)"></div>
-                       <div style="width:2px;height:7px;background:${color};opacity:0.9"></div>
-                     </div>`,
-              className: "",
-              iconSize: [14, 21] as [number, number],
-              iconAnchor: [7, 21] as [number, number],
-            }),
+            icon,
           });
-          marker.bindPopup(buildPopupHtml(site, color), { maxWidth: 280 });
-          marker.on("click", () => onSiteClick?.(site.id));
+          marker.on("click", () => onSiteClick?.(site.release_id));
           cluster.addLayer(marker);
         }
       }
@@ -249,15 +285,22 @@ export default function LeafletContainer({
       clusterRef.current = cluster;
 
       // 只在 sites 真正变化时 fitBounds，调整 clusterRadius 不重置视角
+      // 如果用户已通过 Geolocation 定位，跳过首次 fitBounds
       if (prevSitesRef.current !== sites) {
+        const isFirstLoad = prevSitesRef.current === null;
         prevSitesRef.current = sites;
-        try {
-          const bounds = cluster.getBounds();
-          if (bounds.isValid()) {
-            mapRef.current.fitBounds(bounds, { padding: [40, 40] });
+        if (isFirstLoad && userLocatedRef.current) {
+          // 用户已定位，不覆盖视角
+          console.log("[LeafletContainer] 用户已定位，跳过 fitBounds");
+        } else if (!isFirstLoad || !userLocatedRef.current) {
+          try {
+            const bounds = cluster.getBounds();
+            if (bounds.isValid()) {
+              mapRef.current.fitBounds(bounds, { padding: [40, 40] });
+            }
+          } catch (e) {
+            console.warn("[LeafletContainer] fitBounds failed", e);
           }
-        } catch (e) {
-          console.warn("[LeafletContainer] fitBounds failed", e);
         }
       }
     }
@@ -269,7 +312,6 @@ export default function LeafletContainer({
     sites,
     mapReady,
     zoom,
-    buildPopupHtml,
     buildStackedPopupHtml,
     onSiteClick,
   ]);
