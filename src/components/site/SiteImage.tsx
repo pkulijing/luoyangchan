@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { gcj02ToWgs84 } from "@/lib/coordConvert";
 
 interface SiteImageProps {
@@ -16,15 +17,16 @@ interface SiteImageProps {
 }
 
 const useBaikeImages = process.env.NEXT_PUBLIC_USE_BAIKE_IMAGES !== "false";
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
 
 /**
- * 站点图片组件，4 级优先级：
- * 1. image_url（自托管 Supabase Storage 相对路径）
+ * 站点图片组件，4 级优先级（自动降级）：
+ * 1. image_url（自托管 Supabase Storage）
  * 2. baike_image_url（百度 CDN，可配置关闭）
  * 3. 天地图卫星静态图（有坐标时）
  * 4. 占位提示
  *
- * 百度搜索图片链接始终显示。
+ * 每级加载失败时自动尝试下一级。百度搜索图片链接始终显示。
  */
 export default function SiteImage({
   imageUrl,
@@ -35,34 +37,24 @@ export default function SiteImage({
   heightClass = "h-48",
   className = "",
 }: SiteImageProps) {
+  // 跟踪哪些来源已失败
+  const [selfHostedFailed, setSelfHostedFailed] = useState(false);
+  const [baikeFailed, setBaikeFailed] = useState(false);
+
   const baiduSearchUrl = `https://image.baidu.com/search/index?tn=baiduimage&word=${encodeURIComponent(name)}`;
 
-  // 构造实际展示的图片 URL
+  // 按优先级决定当前展示的图片
   let resolvedUrl: string | null = null;
   let isBaikeCdn = false;
 
-  if (imageUrl) {
-    // 自托管：相对路径拼接 Supabase URL
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
+  if (imageUrl && !selfHostedFailed) {
     resolvedUrl = `${supabaseUrl}/storage/v1/object/public/${imageUrl}`;
-  } else if (baikeImageUrl && useBaikeImages) {
+  } else if (baikeImageUrl && useBaikeImages && !baikeFailed) {
     resolvedUrl = baikeImageUrl;
     isBaikeCdn = true;
   }
 
-  // 搜索链接（始终显示）
-  const searchLink = (
-    <a
-      href={baiduSearchUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-xs text-blue-500 hover:underline"
-    >
-      搜索更多图片 →
-    </a>
-  );
-
-  // 有图片（自托管或百度 CDN）
+  // 有可用图片
   if (resolvedUrl) {
     return (
       <div className={className}>
@@ -72,9 +64,12 @@ export default function SiteImage({
             alt={name}
             referrerPolicy={isBaikeCdn ? "no-referrer" : undefined}
             className="w-full h-full object-cover"
+            onError={() => {
+              if (!isBaikeCdn) setSelfHostedFailed(true);
+              else setBaikeFailed(true);
+            }}
           />
         </div>
-        <div className="px-1 py-1">{searchLink}</div>
       </div>
     );
   }
@@ -83,11 +78,12 @@ export default function SiteImage({
   if (longitude && latitude) {
     const tk = process.env.NEXT_PUBLIC_TIANDITU_TK ?? "";
     const [wgsLng, wgsLat] = gcj02ToWgs84(longitude, latitude);
-    const staticUrl = `http://api.tianditu.gov.cn/staticimage`
-      + `?center=${wgsLng.toFixed(6)},${wgsLat.toFixed(6)}`
-      + `&width=600&height=300&zoom=16`
-      + `&layers=img_c,cia_c`
-      + `&tk=${tk}`;
+    const staticUrl =
+      `http://api.tianditu.gov.cn/staticimage` +
+      `?center=${wgsLng.toFixed(6)},${wgsLat.toFixed(6)}` +
+      `&width=600&height=300&zoom=16` +
+      `&layers=img_c,cia_c` +
+      `&tk=${tk}`;
 
     return (
       <div className={className}>
@@ -101,7 +97,6 @@ export default function SiteImage({
             <span className="text-xs text-white/80">卫星图 · 天地图</span>
           </div>
         </div>
-        <div className="px-1 py-1">{searchLink}</div>
       </div>
     );
   }
@@ -127,7 +122,6 @@ export default function SiteImage({
           />
         </svg>
         <span className="text-xs mb-1">图片暂缺</span>
-        {searchLink}
       </div>
     </div>
   );
