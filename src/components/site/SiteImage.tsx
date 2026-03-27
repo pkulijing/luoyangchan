@@ -7,7 +7,7 @@ interface SiteImageProps {
   imageUrl: string | null;
   baikeImageUrl: string | null;
   name: string;
-  /** GCJ-02 经度（用于天地图静态图 fallback） */
+  /** GCJ-02 经度（用于静态地图 fallback） */
   longitude?: number | null;
   /** GCJ-02 纬度 */
   latitude?: number | null;
@@ -74,7 +74,7 @@ export default function SiteImage({
     );
   }
 
-  // 无图但有坐标 → 天地图卫星静态图
+  // 无图但有坐标 → 天地图卫星静态图（无论地图提供者，静态图统一用天地图）
   if (longitude && latitude) {
     const tk = process.env.NEXT_PUBLIC_TIANDITU_TK ?? "";
     const [wgsLng, wgsLat] = gcj02ToWgs84(longitude, latitude);
@@ -84,6 +84,7 @@ export default function SiteImage({
       `&width=600&height=300&zoom=16` +
       `&layers=img_c,cia_c` +
       `&tk=${tk}`;
+    const label = "卫星图 · 天地图";
 
     return (
       <div className={className}>
@@ -94,7 +95,7 @@ export default function SiteImage({
             className="w-full h-full object-cover"
           />
           <div className="absolute bottom-0 inset-x-0 bg-black/50 px-2 py-1">
-            <span className="text-xs text-white/80">卫星图 · 天地图</span>
+            <span className="text-xs text-white/80">{label}</span>
           </div>
         </div>
       </div>

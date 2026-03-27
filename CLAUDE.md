@@ -45,19 +45,19 @@
 
 - **Next.js 16** (App Router) + **React 19** + **TypeScript 5**
 - **Tailwind CSS v4** + **shadcn/ui**
-- **Leaflet 1.9.4** + **leaflet.markercluster**：地图渲染、MarkerCluster 聚合（`vanilla` 模式，非 react-leaflet）
-- **天地图 WMTS**：底图瓦片服务（矢量底图 `vec_w` + 中文注记 `cva_w`），坐标系 WGS-84/CGCS2000
-- `coordtransform`：GCJ-02 → WGS-84 坐标转换（数据库存 GCJ-02，Leaflet/天地图需要 WGS-84）
+- **地图可视化**（双提供者，通过 `NEXT_PUBLIC_MAP_PROVIDER` 切换）：
+  - **高德 JS API 2.0**（`amap`，默认）：`@amap/amap-jsapi-loader`，内置底图，GCJ-02 坐标原生支持
+  - **Leaflet 1.9.4** + **天地图 WMTS**（`tianditu`）：`leaflet` + `leaflet.markercluster`，`coordtransform` 做 GCJ-02→WGS-84 转换
+- **Supabase**（本地 Docker 开发，通过 Supabase CLI 管理），本地地址 `http://127.0.0.1:54321`，Studio `http://127.0.0.1:54323`
+- **Python 3.12** + **uv** 管理依赖（不使用 pip/pip3）
 
 ### 坐标系规则
 
 - **数据库/JSON 统一存储 GCJ-02 坐标**。所有 geocoding 结果（高德、腾讯）均返回 GCJ-02，直接存储，**不做任何坐标转换**。
-- **前端展示时转换**：Leaflet + 天地图使用 WGS-84，前端读取数据后通过 `coordtransform` 的 `gcj02_to_wgs84()` 转换。
+- **高德模式**：AMap JS API 原生使用 GCJ-02，前端无需坐标转换。
+- **天地图模式**：Leaflet + 天地图使用 WGS-84，前端读取数据后通过 `coordtransform` 的 `gcj02_to_wgs84()` 转换。
 - **维基百科等外部来源的 WGS-84 坐标**必须先通过 `wgs84_to_gcj02()` 转换为 GCJ-02 后再存入数据库。
 - **绝对禁止**在 Python 数据清洗脚本中对 geocoding 结果做 GCJ-02→WGS-84 转换后存入 JSON。
-- 高德 Web 服务 API（仅用于数据采集 Python 脚本，前端不使用高德任何 SDK）
-- **Supabase**（本地 Docker 开发，通过 Supabase CLI 管理），本地地址 `http://127.0.0.1:54321`，Studio `http://127.0.0.1:54323`
-- **Python 3.12** + **uv** 管理依赖（不使用 pip/pip3）
 
 ### 本地开发
 
@@ -110,8 +110,11 @@ uv run python db/seed_supabase.py --clear  # 需用户明确授权
 NEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321
 NEXT_PUBLIC_SUPABASE_ANON_KEY=<publishable key>
 SUPABASE_SERVICE_ROLE_KEY=<secret key>
+NEXT_PUBLIC_MAP_PROVIDER=amap              # amap（默认）| tianditu
+NEXT_PUBLIC_AMAP_KEY=<高德 JS API Key>     # MAP_PROVIDER=amap 时必填
+NEXT_PUBLIC_AMAP_SECRET=<高德安全密钥>      # MAP_PROVIDER=amap 时必填
+NEXT_PUBLIC_TIANDITU_TK=<天地图应用TK>     # MAP_PROVIDER=tianditu 时必填
 AMAP_GEOCODING_KEY=<高德 Web 服务 Key，用于地理编码脚本>
-NEXT_PUBLIC_TIANDITU_TK=<天地图应用TK>
 ```
 
 新增、删除、改名环境变量时，需要在 .env.example 中做相同处理，以便开发者参考。
@@ -137,4 +140,4 @@ NEXT_PUBLIC_TIANDITU_TK=<天地图应用TK>
 
 ### 调试页面惯例
 
-- **`/example/*` **：遇到第三方 API（Leaflet、天地图等）不确定的用法时，先在 `src/app/example/<功能名>/page.tsx` 下创建最小化 demo 页面验证，再移植到业务组件。demo 页面应包含右侧实时日志面板，便于观察执行步骤和返回类型。这些页面仅用于开发调试，不对外暴露功能入口。
+- **`/example/*` **：遇到第三方 API（高德 JS API、Leaflet、天地图等）不确定的用法时，先在 `src/app/example/<功能名>/page.tsx` 下创建最小化 demo 页面验证，再移植到业务组件。demo 页面应包含右侧实时日志面板，便于观察执行步骤和返回类型。这些页面仅用于开发调试，不对外暴露功能入口。

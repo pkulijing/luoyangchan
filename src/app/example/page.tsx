@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 const examples = [
+  { name: "AMap", path: "/example/amap", desc: "高德 JS API 2.0 底图 + MarkerCluster" },
   { name: "Tianditu", path: "/example/tianditu", desc: "天地图 WMTS 底图加载" },
   { name: "Marker", path: "/example/marker", desc: "Leaflet Marker 基础用法" },
   { name: "MarkerCluster", path: "/example/markercluster", desc: "MarkerCluster 聚合展示" },

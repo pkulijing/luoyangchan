@@ -8,10 +8,14 @@ import { UserMenu } from "@/components/auth/UserMenu";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { createClient } from "@/lib/supabase/client";
 import { useFilters } from "@/hooks/useFilters";
+import { MAP_PROVIDER } from "@/lib/mapProvider";
 import type { MarkType, SiteListItem } from "@/lib/types";
 
-const LeafletContainer = dynamic(
-  () => import("@/components/map/LeafletContainer"),
+const MapContainer = dynamic(
+  () =>
+    MAP_PROVIDER === "amap"
+      ? import("@/components/map/AMapContainer")
+      : import("@/components/map/LeafletContainer"),
   { ssr: false },
 );
 
@@ -74,9 +78,9 @@ export default function MapView({ sites }: { sites: SiteListItem[] }) {
 
   return (
     <main className="relative w-screen h-screen overflow-hidden">
-      {/* z-0 给 Leaflet 创建独立 stacking context，避免内部高 z-index 的 pane 盖住 UI 浮层 */}
+      {/* z-0 创建独立 stacking context，避免地图内部高 z-index 盖住 UI 浮层 */}
       <div className="absolute inset-0 z-0">
-        <LeafletContainer sites={markerDataWithMarks} onSiteClick={handleSiteClick} />
+        <MapContainer sites={markerDataWithMarks} onSiteClick={handleSiteClick} />
       </div>
 
       <div className="absolute top-4 left-4 z-10">
