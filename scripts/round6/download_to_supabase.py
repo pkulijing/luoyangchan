@@ -55,7 +55,7 @@ def image_url_to_thumb(url: str, width: int = THUMB_WIDTH) -> str:
     return f"{parts}/{width}px-{filename}"
 
 
-MAX_IMAGE_SIZE = 500 * 1024  # 500KB，正常 600px 缩略图不超过 200KB
+MAX_IMAGE_SIZE = 1024 * 1024  # 1MB
 
 
 def download_image(url: str, session: requests.Session) -> bytes | None:
