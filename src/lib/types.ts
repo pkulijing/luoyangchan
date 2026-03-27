@@ -54,7 +54,10 @@ export interface SiteMarkerData {
   category: SiteCategory;
   era: string | null;
   province: string | null;
+  markType?: MarkType;
 }
+
+export type MarkFilter = "visited" | "wishlist" | "marked";
 
 export interface FilterState {
   search: string;
@@ -62,6 +65,7 @@ export interface FilterState {
   province: string | null;
   city: string | null;
   district: string | null;
+  markFilter: MarkFilter | null;
 }
 
 // ===========================

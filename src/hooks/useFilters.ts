@@ -1,15 +1,16 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import type { FilterState, SiteListItem, SiteMarkerData } from "@/lib/types";
+import type { FilterState, MarkType, SiteListItem, SiteMarkerData } from "@/lib/types";
 
-export function useFilters(sites: SiteListItem[]) {
+export function useFilters(sites: SiteListItem[], userMarks?: Map<string, MarkType>) {
   const [filters, setFilters] = useState<FilterState>({
     search: "",
     category: null,
     province: null,
     city: null,
     district: null,
+    markFilter: null,
   });
 
   const filteredSites = useMemo(() => {
@@ -32,9 +33,17 @@ export function useFilters(sites: SiteListItem[]) {
       ) {
         return false;
       }
+      if (filters.markFilter && userMarks) {
+        const mark = userMarks.get(site.id);
+        if (filters.markFilter === "marked") {
+          if (!mark) return false;
+        } else {
+          if (mark !== filters.markFilter) return false;
+        }
+      }
       return true;
     });
-  }, [sites, filters]);
+  }, [sites, filters, userMarks]);
 
   // 从数据中动态提取省市县选项
   const provinces = useMemo(() => {

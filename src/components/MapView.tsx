@@ -1,12 +1,14 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import FilterPanel from "@/components/filters/FilterPanel";
 import SiteDetailPanel from "@/components/site/SiteDetailPanel";
 import { UserMenu } from "@/components/auth/UserMenu";
+import { useAuth } from "@/components/auth/AuthProvider";
+import { createClient } from "@/lib/supabase/client";
 import { useFilters } from "@/hooks/useFilters";
-import type { SiteListItem } from "@/lib/types";
+import type { MarkType, SiteListItem } from "@/lib/types";
 
 const LeafletContainer = dynamic(
   () => import("@/components/map/LeafletContainer"),
@@ -14,6 +16,35 @@ const LeafletContainer = dynamic(
 );
 
 export default function MapView({ sites }: { sites: SiteListItem[] }) {
+  const [selectedReleaseId, setSelectedReleaseId] = useState<string | null>(null);
+
+  // 获取用户标记
+  const { user } = useAuth();
+  const [userMarks, setUserMarks] = useState<Map<string, MarkType>>(new Map());
+  const [marksVersion, setMarksVersion] = useState(0);
+
+  useEffect(() => {
+    if (!user) {
+      setUserMarks(new Map());
+      return;
+    }
+    const supabase = createClient();
+    supabase
+      .from("user_site_marks")
+      .select("site_id, mark_type")
+      .eq("user_id", user.id)
+      .then(({ data }) => {
+        if (data) {
+          setUserMarks(new Map(data.map((d) => [d.site_id, d.mark_type as MarkType])));
+        }
+      });
+  }, [user, marksVersion]);
+
+  const handleMarkChange = useCallback(() => {
+    setMarksVersion((v) => v + 1);
+  }, []);
+
+  // 筛选（传入 userMarks 以支持标记筛选）
   const {
     filters,
     setFilters,
@@ -22,10 +53,16 @@ export default function MapView({ sites }: { sites: SiteListItem[] }) {
     provinces,
     cities,
     districts,
-  } = useFilters(sites);
-  const [selectedReleaseId, setSelectedReleaseId] = useState<string | null>(
-    null,
-  );
+  } = useFilters(sites, userMarks);
+
+  // 合并标记状态到 markerData
+  const markerDataWithMarks = useMemo(() => {
+    if (userMarks.size === 0) return markerData;
+    return markerData.map((m) => {
+      const markType = userMarks.get(m.id);
+      return markType ? { ...m, markType } : m;
+    });
+  }, [markerData, userMarks]);
 
   const handleSiteClick = useCallback((releaseId: string) => {
     setSelectedReleaseId(releaseId);
@@ -39,7 +76,7 @@ export default function MapView({ sites }: { sites: SiteListItem[] }) {
     <main className="relative w-screen h-screen overflow-hidden">
       {/* z-0 给 Leaflet 创建独立 stacking context，避免内部高 z-index 的 pane 盖住 UI 浮层 */}
       <div className="absolute inset-0 z-0">
-        <LeafletContainer sites={markerData} onSiteClick={handleSiteClick} />
+        <LeafletContainer sites={markerDataWithMarks} onSiteClick={handleSiteClick} />
       </div>
 
       <div className="absolute top-4 left-4 z-10">
@@ -51,6 +88,7 @@ export default function MapView({ sites }: { sites: SiteListItem[] }) {
           provinces={provinces}
           cities={cities}
           districts={districts}
+          isLoggedIn={!!user}
         />
       </div>
 
@@ -70,6 +108,7 @@ export default function MapView({ sites }: { sites: SiteListItem[] }) {
         releaseId={selectedReleaseId}
         onClose={handlePanelClose}
         onNavigate={handleSiteClick}
+        onMarkChange={handleMarkChange}
       />
     </main>
   );

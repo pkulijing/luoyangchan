@@ -44,10 +44,12 @@ const CATEGORY_ICONS: Record<string, string> = {
 };
 
 // 生成带图标的标记 HTML
-function buildIconMarkerHtml(color: string, category: string): string {
+function buildIconMarkerHtml(color: string, category: string, markType?: string): string {
   const iconPath = CATEGORY_ICONS[category] || CATEGORY_ICONS["其他"];
+  const ringColor = markType === "visited" ? "#16a34a" : markType === "wishlist" ? "#f59e0b" : "";
+  const ring = ringColor ? `outline:2.5px solid ${ringColor};outline-offset:1px;` : "";
   return `<div style="display:flex;flex-direction:column;align-items:center;transform:translateY(-8px)">
-            <div style="width:18px;height:18px;border-radius:50%;background:${color};border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center">
+            <div style="width:18px;height:18px;border-radius:50%;background:${color};border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;${ring}">
               <svg width="12" height="12" viewBox="0 0 12 12">${iconPath}</svg>
             </div>
             <div style="width:2px;height:6px;background:${color};opacity:0.9"></div>
@@ -203,12 +205,14 @@ export default function LeafletContainer({
     (stackedSites: SiteMarkerData[]) => {
       const items = stackedSites
         .map(
-          (s) =>
-            `<div style="padding:6px 0;border-bottom:1px solid #eee;">
-               <a href="#" data-release-id="${s.release_id}" style="color:#1890ff;font-size:13px;font-weight:500;text-decoration:none;cursor:pointer;">${s.name}</a>
+          (s) => {
+            const prefix = s.markType === "visited" ? `<span style="color:#16a34a;margin-right:2px;">✓</span>` : s.markType === "wishlist" ? `<span style="color:#f59e0b;margin-right:2px;">☆</span>` : "";
+            return `<div style="padding:6px 0;border-bottom:1px solid #eee;">
+               ${prefix}<a href="#" data-release-id="${s.release_id}" style="color:#1890ff;font-size:13px;font-weight:500;text-decoration:none;cursor:pointer;">${s.name}</a>
                <span style="color:#999;font-size:12px;margin-left:6px;">${s.category}</span>
                ${s.era ? `<span style="color:#999;font-size:12px;"> · ${s.era}</span>` : ""}
-             </div>`,
+             </div>`;
+          },
         )
         .join("");
       return `<div style="padding:8px;min-width:220px;max-height:300px;overflow-y:auto;">
@@ -294,12 +298,18 @@ export default function LeafletContainer({
           // 单条数据：zoom 较大时显示文字标签，否则显示圆点
           const color = CATEGORY_COLORS[site.category] ?? "#95a5a6";
           const useTextLabel = zoom >= TEXT_LABEL_MIN_ZOOM;
+          const markPrefix = site.markType === "visited" ? "✓ " : site.markType === "wishlist" ? "☆ " : "";
+          const markBorder = site.markType === "visited"
+            ? "border:2px solid #16a34a;"
+            : site.markType === "wishlist"
+              ? "border:2px solid #f59e0b;"
+              : "";
           const icon = useTextLabel
             ? L.divIcon({
                 html: `<div style="display:flex;flex-direction:column;align-items:center">
                          <div style="padding:2px 6px;border-radius:3px;background:${color};
                                      font-size:12px;font-weight:600;color:#fff;white-space:nowrap;
-                                     box-shadow:0 1px 4px rgba(0,0,0,0.3);line-height:1.3">${site.name}</div>
+                                     box-shadow:0 1px 4px rgba(0,0,0,0.3);line-height:1.3;${markBorder}">${markPrefix}${site.name}</div>
                          <div style="width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;
                                      border-top:4px solid ${color}"></div>
                        </div>`,
@@ -308,7 +318,7 @@ export default function LeafletContainer({
                 iconAnchor: [0, 24] as [number, number],
               })
             : L.divIcon({
-                html: buildIconMarkerHtml(color, site.category),
+                html: buildIconMarkerHtml(color, site.category, site.markType),
                 className: "",
                 iconSize: [18, 24] as [number, number],
                 iconAnchor: [9, 24] as [number, number],
@@ -325,8 +335,10 @@ export default function LeafletContainer({
       mapRef.current.addLayer(cluster);
       clusterRef.current = cluster;
 
-      // 只在 sites 真正变化时 fitBounds，调整 clusterRadius 不重置视角
-      if (prevSitesRef.current !== sites) {
+      // 只在站点集合真正变化时 fitBounds（标记状态变化不应触发）
+      const prevIds = prevSitesRef.current?.map((s) => s.id).join(",") ?? null;
+      const currIds = sites.map((s) => s.id).join(",");
+      if (prevIds !== currIds) {
         const isFirstLoad = prevSitesRef.current === null;
         prevSitesRef.current = sites;
 
@@ -361,6 +373,9 @@ export default function LeafletContainer({
             }
           }, 3000);
         }
+      } else {
+        // 站点集合未变（仅标记状态更新），更新引用但不 fitBounds
+        prevSitesRef.current = sites;
       }
     }
 

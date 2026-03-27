@@ -13,12 +13,15 @@ interface SiteDetailPanelProps {
   onClose: () => void;
   /** 点击面板内的站点链接时，切换到该站点 */
   onNavigate: (releaseId: string) => void;
+  /** 用户标记变更时回调，用于刷新地图标记 */
+  onMarkChange?: () => void;
 }
 
 export default function SiteDetailPanel({
   releaseId,
   onClose,
   onNavigate,
+  onMarkChange,
 }: SiteDetailPanelProps) {
   const [site, setSite] = useState<SiteWithRelations | null>(null);
   const [loading, setLoading] = useState(false);
@@ -122,7 +125,7 @@ export default function SiteDetailPanel({
 
               {/* 标记按钮 */}
               <div className="flex flex-col gap-2">
-                <SiteMarkButton siteId={site.id} />
+                <SiteMarkButton siteId={site.id} onMarkChange={onMarkChange} />
                 <SiteMarkStats siteId={site.id} />
               </div>
 

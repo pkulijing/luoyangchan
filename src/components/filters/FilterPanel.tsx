@@ -14,7 +14,21 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { SlidersHorizontal, X } from "lucide-react";
 import { SITE_CATEGORIES } from "@/lib/constants";
-import type { FilterState } from "@/lib/types";
+import type { FilterState, MarkFilter } from "@/lib/types";
+
+const MARK_FILTER_LABELS: Record<string, string> = {
+  all: "全部",
+  visited: "✓ 去过",
+  wishlist: "☆ 想去",
+  marked: "去过 + 想去",
+};
+
+const MARK_FILTER_FROM_LABEL: Record<string, MarkFilter | null> = {
+  "全部": null,
+  "✓ 去过": "visited",
+  "☆ 想去": "wishlist",
+  "去过 + 想去": "marked",
+};
 
 interface FilterPanelProps {
   filters: FilterState;
@@ -24,6 +38,7 @@ interface FilterPanelProps {
   provinces: string[];
   cities: string[];
   districts: string[];
+  isLoggedIn?: boolean;
 }
 
 export default function FilterPanel({
@@ -34,6 +49,7 @@ export default function FilterPanel({
   provinces,
   cities,
   districts,
+  isLoggedIn,
 }: FilterPanelProps) {
   const [open, setOpen] = useState(false);
 
@@ -49,11 +65,11 @@ export default function FilterPanel({
   };
 
   const clearFilters = () => {
-    onFiltersChange({ search: "", category: null, province: null, city: null, district: null });
+    onFiltersChange({ search: "", category: null, province: null, city: null, district: null, markFilter: null });
   };
 
   const hasActiveFilters =
-    filters.province || filters.category || filters.search || filters.city || filters.district;
+    filters.province || filters.category || filters.search || filters.city || filters.district || filters.markFilter;
 
   if (!open) {
     return (
@@ -152,6 +168,26 @@ export default function FilterPanel({
           </SelectContent>
         </Select>
       </div>
+
+      {isLoggedIn && (
+        <div className="space-y-1">
+          <label className="text-sm font-medium text-muted-foreground">我的标记</label>
+          <Select
+            value={MARK_FILTER_LABELS[filters.markFilter ?? "all"]}
+            onValueChange={(v) => updateFilter("markFilter", MARK_FILTER_FROM_LABEL[v as string] ?? null)}
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="全部" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="全部">全部</SelectItem>
+              <SelectItem value="✓ 去过">✓ 去过</SelectItem>
+              <SelectItem value="☆ 想去">☆ 想去</SelectItem>
+              <SelectItem value="去过 + 想去">去过 + 想去</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+      )}
 
       {hasActiveFilters && (
         <Button variant="outline" size="sm" onClick={clearFilters} className="w-full">
