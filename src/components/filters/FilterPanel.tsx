@@ -9,11 +9,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
+import { SearchableSelect } from "@/components/ui/searchable-select";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { SlidersHorizontal, X } from "lucide-react";
 import { SITE_CATEGORIES } from "@/lib/constants";
-import type { FilterState, SiteCategory } from "@/lib/types";
+import type { FilterState } from "@/lib/types";
 
 interface FilterPanelProps {
   filters: FilterState;
@@ -38,7 +39,6 @@ export default function FilterPanel({
 
   const updateFilter = (key: keyof FilterState, value: string | null) => {
     const next = { ...filters, [key]: value };
-    // 级联清除：改省时清市县，改市时清县
     if (key === "province") {
       next.city = null;
       next.district = null;
@@ -73,7 +73,7 @@ export default function FilterPanel({
   }
 
   return (
-    <div className="w-80 bg-white/95 backdrop-blur-sm shadow-lg rounded-lg p-4 space-y-4">
+    <div className="w-96 bg-white/95 backdrop-blur-sm shadow-lg rounded-lg p-4 space-y-3">
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-semibold">筛选</h2>
         <div className="flex items-center gap-2">
@@ -95,66 +95,45 @@ export default function FilterPanel({
         onChange={(e) => updateFilter("search", e.target.value)}
       />
 
-      {/* 省市县三级联动 */}
-      <div className="space-y-2">
+      {/* 省市县一行 */}
+      <div className="space-y-1">
         <label className="text-sm font-medium text-muted-foreground">地区</label>
-        <Select
-          value={filters.province || ""}
-          onValueChange={(v) => updateFilter("province", v === "all" ? null : v)}
-        >
-          <SelectTrigger>
-            <SelectValue placeholder="全部省份" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">全部省份</SelectItem>
-            {provinces.map((p) => (
-              <SelectItem key={p} value={p}>
-                {p}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-
-        {cities.length > 0 && (
-          <Select
-            value={filters.city || ""}
-            onValueChange={(v) => updateFilter("city", v === "all" ? null : v)}
-          >
-            <SelectTrigger>
-              <SelectValue placeholder="全部城市" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">全部城市</SelectItem>
-              {cities.map((c) => (
-                <SelectItem key={c} value={c}>
-                  {c}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        )}
-
-        {districts.length > 0 && (
-          <Select
-            value={filters.district || ""}
-            onValueChange={(v) => updateFilter("district", v === "all" ? null : v)}
-          >
-            <SelectTrigger>
-              <SelectValue placeholder="全部区县" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">全部区县</SelectItem>
-              {districts.map((d) => (
-                <SelectItem key={d} value={d}>
-                  {d}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        )}
+        <div className="flex gap-1.5">
+          <div className="flex-1 min-w-0">
+            <SearchableSelect
+              options={provinces}
+              value={filters.province}
+              onChange={(v) => updateFilter("province", v)}
+              placeholder="省份"
+              allLabel="全部省份"
+            />
+          </div>
+          {cities.length > 0 && (
+            <div className="flex-1 min-w-0">
+              <SearchableSelect
+                options={cities}
+                value={filters.city}
+                onChange={(v) => updateFilter("city", v)}
+                placeholder="城市"
+                allLabel="全部城市"
+              />
+            </div>
+          )}
+          {districts.length > 0 && (
+            <div className="flex-1 min-w-0">
+              <SearchableSelect
+                options={districts}
+                value={filters.district}
+                onChange={(v) => updateFilter("district", v)}
+                placeholder="区县"
+                allLabel="全部区县"
+              />
+            </div>
+          )}
+        </div>
       </div>
 
-      <div className="space-y-2">
+      <div className="space-y-1">
         <label className="text-sm font-medium text-muted-foreground">类型</label>
         <Select
           value={filters.category || ""}

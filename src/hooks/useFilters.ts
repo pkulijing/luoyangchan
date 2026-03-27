@@ -42,7 +42,7 @@ export function useFilters(sites: SiteListItem[]) {
     for (const s of sites) {
       if (s.province) set.add(s.province);
     }
-    return [...set].sort();
+    return [...set].sort((a, b) => a.localeCompare(b, "zh-CN"));
   }, [sites]);
 
   const cities = useMemo(() => {
@@ -51,7 +51,7 @@ export function useFilters(sites: SiteListItem[]) {
     for (const s of sites) {
       if (s.province === filters.province && s.city) set.add(s.city);
     }
-    return [...set].sort();
+    return [...set].sort((a, b) => a.localeCompare(b, "zh-CN"));
   }, [sites, filters.province]);
 
   const districts = useMemo(() => {
@@ -60,7 +60,7 @@ export function useFilters(sites: SiteListItem[]) {
     for (const s of sites) {
       if (s.city === filters.city && s.district) set.add(s.district);
     }
-    return [...set].sort();
+    return [...set].sort((a, b) => a.localeCompare(b, "zh-CN"));
   }, [sites, filters.city]);
 
   const markerData: SiteMarkerData[] = useMemo(() => {
