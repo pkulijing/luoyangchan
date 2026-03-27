@@ -12,7 +12,7 @@ export async function getAllSites(): Promise<SiteListItem[]> {
     const { data, error } = await supabase
       .from("heritage_sites")
       .select(
-        "id, name, release_id, province, city, category, era, batch, batch_year, latitude, longitude, parent_id",
+        "id, name, release_id, province, city, district, category, era, batch, batch_year, latitude, longitude, parent_id",
       )
       .not("latitude", "is", null)  // 排除父记录（无坐标）
       .order("id", { ascending: true })

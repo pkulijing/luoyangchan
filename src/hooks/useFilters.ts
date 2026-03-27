@@ -5,21 +5,25 @@ import type { FilterState, SiteListItem, SiteMarkerData } from "@/lib/types";
 
 export function useFilters(sites: SiteListItem[]) {
   const [filters, setFilters] = useState<FilterState>({
-    province: null,
-    category: null,
-    era: null,
     search: "",
+    category: null,
+    province: null,
+    city: null,
+    district: null,
   });
 
   const filteredSites = useMemo(() => {
     return sites.filter((site) => {
-      if (filters.province && filters.province !== "all" && site.province !== filters.province) {
+      if (filters.province && site.province !== filters.province) {
+        return false;
+      }
+      if (filters.city && site.city !== filters.city) {
+        return false;
+      }
+      if (filters.district && site.district !== filters.district) {
         return false;
       }
       if (filters.category && (filters.category as string) !== "all" && site.category !== filters.category) {
-        return false;
-      }
-      if (filters.era && site.era && !site.era.includes(filters.era)) {
         return false;
       }
       if (
@@ -31,6 +35,33 @@ export function useFilters(sites: SiteListItem[]) {
       return true;
     });
   }, [sites, filters]);
+
+  // 从数据中动态提取省市县选项
+  const provinces = useMemo(() => {
+    const set = new Set<string>();
+    for (const s of sites) {
+      if (s.province) set.add(s.province);
+    }
+    return [...set].sort();
+  }, [sites]);
+
+  const cities = useMemo(() => {
+    if (!filters.province) return [];
+    const set = new Set<string>();
+    for (const s of sites) {
+      if (s.province === filters.province && s.city) set.add(s.city);
+    }
+    return [...set].sort();
+  }, [sites, filters.province]);
+
+  const districts = useMemo(() => {
+    if (!filters.city) return [];
+    const set = new Set<string>();
+    for (const s of sites) {
+      if (s.city === filters.city && s.district) set.add(s.district);
+    }
+    return [...set].sort();
+  }, [sites, filters.city]);
 
   const markerData: SiteMarkerData[] = useMemo(() => {
     return filteredSites
@@ -52,5 +83,8 @@ export function useFilters(sites: SiteListItem[]) {
     setFilters,
     filteredSites,
     markerData,
+    provinces,
+    cities,
+    districts,
   };
 }

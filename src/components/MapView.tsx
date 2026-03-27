@@ -13,7 +13,7 @@ const LeafletContainer = dynamic(
 );
 
 export default function MapView({ sites }: { sites: SiteListItem[] }) {
-  const { filters, setFilters, filteredSites, markerData } = useFilters(sites);
+  const { filters, setFilters, filteredSites, markerData, provinces, cities, districts } = useFilters(sites);
   const [selectedReleaseId, setSelectedReleaseId] = useState<string | null>(null);
 
   const handleSiteClick = useCallback((releaseId: string) => {
@@ -37,6 +37,9 @@ export default function MapView({ sites }: { sites: SiteListItem[] }) {
           onFiltersChange={setFilters}
           totalCount={sites.length}
           filteredCount={filteredSites.length}
+          provinces={provinces}
+          cities={cities}
+          districts={districts}
         />
       </div>
 

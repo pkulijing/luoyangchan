@@ -41,11 +41,6 @@ const CATEGORY_ICONS: Record<string, string> = {
   近现代重要史迹及代表性建筑: `<path d="M6 1L7.2 4.5H10.5L8 6.8L9 10.2L6 8L3 10.2L4 6.8L1.5 4.5H4.8Z" fill="white"/>`,
   // 其他：星号
   其他: `<path d="M6 2v8M2 6h8M3 3l6 6M9 3l-6 6" stroke="white" stroke-width="1.2" stroke-linecap="round"/>`,
-  // 历史分类（沿用相近图标）
-  革命遗址及革命纪念建筑物: `<path d="M6 1L7.2 4.5H10.5L8 6.8L9 10.2L6 8L3 10.2L4 6.8L1.5 4.5H4.8Z" fill="white"/>`,
-  古建筑及历史纪念建筑物: `<path d="M6 2L2 5h8L6 2zM3 5v4h6V5" stroke="white" stroke-width="1.2" fill="none" stroke-linejoin="round"/>`,
-  石窟寺: `<path d="M2 10H10M4 10V3H8V10" stroke="white" stroke-width="1.2" fill="none" stroke-linejoin="round"/>`,
-  石刻及其他: `<path d="M2 10H10M4 10V3H8V10" stroke="white" stroke-width="1.2" fill="none" stroke-linejoin="round"/>`,
 };
 
 // 生成带图标的标记 HTML

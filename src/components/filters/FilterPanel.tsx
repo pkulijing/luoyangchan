@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { SlidersHorizontal, X } from "lucide-react";
-import { PROVINCES, SITE_CATEGORIES } from "@/lib/constants";
+import { SITE_CATEGORIES } from "@/lib/constants";
 import type { FilterState, SiteCategory } from "@/lib/types";
 
 interface FilterPanelProps {
@@ -20,6 +20,9 @@ interface FilterPanelProps {
   onFiltersChange: (filters: FilterState) => void;
   totalCount: number;
   filteredCount: number;
+  provinces: string[];
+  cities: string[];
+  districts: string[];
 }
 
 export default function FilterPanel({
@@ -27,19 +30,30 @@ export default function FilterPanel({
   onFiltersChange,
   totalCount,
   filteredCount,
+  provinces,
+  cities,
+  districts,
 }: FilterPanelProps) {
   const [open, setOpen] = useState(false);
 
   const updateFilter = (key: keyof FilterState, value: string | null) => {
-    onFiltersChange({ ...filters, [key]: value });
+    const next = { ...filters, [key]: value };
+    // 级联清除：改省时清市县，改市时清县
+    if (key === "province") {
+      next.city = null;
+      next.district = null;
+    } else if (key === "city") {
+      next.district = null;
+    }
+    onFiltersChange(next);
   };
 
   const clearFilters = () => {
-    onFiltersChange({ province: null, category: null, era: null, search: "" });
+    onFiltersChange({ search: "", category: null, province: null, city: null, district: null });
   };
 
   const hasActiveFilters =
-    filters.province || filters.category || filters.era || filters.search;
+    filters.province || filters.category || filters.search || filters.city || filters.district;
 
   if (!open) {
     return (
@@ -81,31 +95,70 @@ export default function FilterPanel({
         onChange={(e) => updateFilter("search", e.target.value)}
       />
 
+      {/* 省市县三级联动 */}
       <div className="space-y-2">
-        <label className="text-sm font-medium text-muted-foreground">省份</label>
+        <label className="text-sm font-medium text-muted-foreground">地区</label>
         <Select
           value={filters.province || ""}
-          onValueChange={(v) => updateFilter("province", v || null)}
+          onValueChange={(v) => updateFilter("province", v === "all" ? null : v)}
         >
           <SelectTrigger>
             <SelectValue placeholder="全部省份" />
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="all">全部省份</SelectItem>
-            {PROVINCES.map((p) => (
+            {provinces.map((p) => (
               <SelectItem key={p} value={p}>
                 {p}
               </SelectItem>
             ))}
           </SelectContent>
         </Select>
+
+        {cities.length > 0 && (
+          <Select
+            value={filters.city || ""}
+            onValueChange={(v) => updateFilter("city", v === "all" ? null : v)}
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="全部城市" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">全部城市</SelectItem>
+              {cities.map((c) => (
+                <SelectItem key={c} value={c}>
+                  {c}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        )}
+
+        {districts.length > 0 && (
+          <Select
+            value={filters.district || ""}
+            onValueChange={(v) => updateFilter("district", v === "all" ? null : v)}
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="全部区县" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">全部区县</SelectItem>
+              {districts.map((d) => (
+                <SelectItem key={d} value={d}>
+                  {d}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        )}
       </div>
 
       <div className="space-y-2">
         <label className="text-sm font-medium text-muted-foreground">类型</label>
         <Select
           value={filters.category || ""}
-          onValueChange={(v) => updateFilter("category", v || null)}
+          onValueChange={(v) => updateFilter("category", v === "all" ? null : v)}
         >
           <SelectTrigger>
             <SelectValue placeholder="全部类型" />
@@ -119,15 +172,6 @@ export default function FilterPanel({
             ))}
           </SelectContent>
         </Select>
-      </div>
-
-      <div className="space-y-2">
-        <label className="text-sm font-medium text-muted-foreground">时代</label>
-        <Input
-          placeholder="如：唐、明清、商..."
-          value={filters.era || ""}
-          onChange={(e) => updateFilter("era", e.target.value || null)}
-        />
       </div>
 
       {hasActiveFilters && (
