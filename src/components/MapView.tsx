@@ -83,28 +83,30 @@ export default function MapView({ sites }: { sites: SiteListItem[] }) {
         <MapContainer sites={markerDataWithMarks} onSiteClick={handleSiteClick} />
       </div>
 
-      <div className="absolute top-4 left-4 z-10">
-        <FilterPanel
-          filters={filters}
-          onFiltersChange={setFilters}
-          totalCount={sites.length}
-          filteredCount={filteredSites.length}
-          provinces={provinces}
-          cities={cities}
-          districts={districts}
-          isLoggedIn={!!user}
-        />
-      </div>
-
-      <div className="absolute top-4 right-16 z-10 flex items-start gap-3">
-        <div className="bg-white/95 backdrop-blur-sm shadow-lg rounded-lg px-4 py-2">
-          <h1 className="text-lg font-bold">洛阳铲</h1>
-          <p className="text-xs text-muted-foreground">
-            全国重点文物保护单位地图
-          </p>
+      {/* 顶部栏：筛选按钮 + 标题 + 用户菜单 */}
+      <div className="absolute top-4 left-4 right-4 z-10 flex items-start justify-between pointer-events-none">
+        <div className="pointer-events-auto">
+          <FilterPanel
+            filters={filters}
+            onFiltersChange={setFilters}
+            totalCount={sites.length}
+            filteredCount={filteredSites.length}
+            provinces={provinces}
+            cities={cities}
+            districts={districts}
+            isLoggedIn={!!user}
+          />
         </div>
-        <div className="bg-white/95 backdrop-blur-sm shadow-lg rounded-lg p-1.5">
-          <UserMenu />
+        <div className="flex items-start gap-2 pointer-events-auto shrink-0 ml-2">
+          <div className="bg-white/95 backdrop-blur-sm shadow-lg rounded-lg px-3 py-1.5 hidden sm:block">
+            <h1 className="text-lg font-bold">洛阳铲</h1>
+            <p className="text-xs text-muted-foreground">
+              全国重点文物保护单位地图
+            </p>
+          </div>
+          <div className="bg-white/95 backdrop-blur-sm shadow-lg rounded-lg p-1.5">
+            <UserMenu />
+          </div>
         </div>
       </div>
 

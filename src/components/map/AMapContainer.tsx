@@ -351,9 +351,25 @@ export default function AMapContainer({
 
       const doFitView = () => {
         try {
-          map.setFitView(null, false, [40, 40, 40, 40]);
+          // MarkerCluster 内部的 marker 不算地图直接覆盖物，
+          // setFitView(null) 无法自动 fit，需手动计算边界
+          if (validSites.length === 1) {
+            map.setZoomAndCenter(14, [
+              validSites[0].longitude,
+              validSites[0].latitude,
+            ]);
+          } else {
+            const lngs = validSites.map((s) => s.longitude);
+            const lats = validSites.map((s) => s.latitude);
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const bounds = new (AMap as any).Bounds(
+              [Math.min(...lngs), Math.min(...lats)],
+              [Math.max(...lngs), Math.max(...lats)],
+            );
+            (map as any).setBounds(bounds, false, [40, 40, 40, 40]);
+          }
         } catch (e) {
-          console.warn("[AMapContainer] setFitView failed", e);
+          console.warn("[AMapContainer] fitBounds failed", e);
         }
       };
 

@@ -186,8 +186,8 @@ export function LoginDialog({ children, onSuccess }: LoginDialogProps) {
               </div>
             </div>
 
-            {/* Google OAuth 登录 */}
-            <Button
+            {/* TODO: Google OAuth 登录，暂未接入，先隐藏 */}
+            {/* <Button
               variant="outline"
               onClick={handleGoogleLogin}
               disabled={loading}
@@ -219,7 +219,7 @@ export function LoginDialog({ children, onSuccess }: LoginDialogProps) {
 
             <p className="text-center text-xs text-muted-foreground">
               Google 登录需要科学上网，国内用户推荐使用邮箱登录
-            </p>
+            </p> */}
           </div>
         )}
 

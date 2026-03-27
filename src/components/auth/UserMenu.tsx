@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { useAuth } from "./AuthProvider";
 import { LoginDialog } from "./LoginDialog";
 import { Button } from "@/components/ui/button";
-import { User, LogOut, Settings, MapPin, Trophy } from "lucide-react";
+import { User, LogOut, Settings, MapPin } from "lucide-react";
 import Link from "next/link";
 import { getAvatarUrl } from "@/lib/avatar";
 
@@ -98,14 +98,6 @@ export function UserMenu() {
             >
               <User className="size-4" />
               个人主页
-            </Link>
-            <Link
-              href={profile?.username ? `/user/${profile.username}#achievements` : "/settings/profile?setup=username"}
-              className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-muted"
-              onClick={() => setMenuOpen(false)}
-            >
-              <Trophy className="size-4" />
-              成就
             </Link>
             <Link
               href="/settings/profile"
