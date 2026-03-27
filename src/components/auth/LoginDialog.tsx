@@ -237,8 +237,8 @@ export function LoginDialog({ children, onSuccess }: LoginDialogProps) {
                 type="text"
                 inputMode="numeric"
                 pattern="[0-9]*"
-                maxLength={6}
-                placeholder="输入 6 位验证码"
+                maxLength={8}
+                placeholder="输入 8 位验证码"
                 value={otp}
                 onChange={(e) => setOtp(e.target.value.replace(/\D/g, ""))}
                 disabled={loading}
@@ -246,7 +246,7 @@ export function LoginDialog({ children, onSuccess }: LoginDialogProps) {
                 required
               />
             </div>
-            <Button type="submit" disabled={loading || otp.length !== 6}>
+            <Button type="submit" disabled={loading || otp.length !== 8}>
               {loading ? (
                 <Loader2 className="size-4 animate-spin" />
               ) : (
