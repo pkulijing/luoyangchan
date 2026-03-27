@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { CATEGORY_COLORS, BATCH_YEARS } from "@/lib/constants";
 import SiteImage from "@/components/site/SiteImage";
+import { SiteMarkButton } from "@/components/site/SiteMarkButton";
+import { SiteMarkStats } from "@/components/site/SiteMarkStats";
 import type { SiteWithRelations, SiteCategory } from "@/lib/types";
 
 interface SiteDetailPanelProps {
@@ -111,10 +113,17 @@ export default function SiteDetailPanel({
               <div className="-mx-4 -mt-5">
                 <SiteImage
                   imageUrl={site.image_url}
+                  baikeImageUrl={site.baike_image_url}
                   name={site.name}
                   longitude={site.longitude}
                   latitude={site.latitude}
                 />
+              </div>
+
+              {/* 标记按钮 */}
+              <div className="flex flex-col gap-2">
+                <SiteMarkButton siteId={site.id} />
+                <SiteMarkStats siteId={site.id} />
               </div>
 
               {/* Badges */}

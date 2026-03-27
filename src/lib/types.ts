@@ -16,6 +16,7 @@ export interface HeritageSite {
   wikipedia_url: string | null;
   baike_url: string | null;
   image_url: string | null;
+  baike_image_url: string | null;
   is_open: boolean | null;
   release_id: string | null;
   release_address: string | null;
@@ -61,4 +62,74 @@ export interface FilterState {
   province: string | null;
   city: string | null;
   district: string | null;
+}
+
+// ===========================
+// 用户相关类型
+// ===========================
+
+export interface Profile {
+  id: string;
+  username: string | null;
+  display_name: string | null;
+  avatar_url: string | null;
+  bio: string | null;
+  visited_count: number;
+  wishlist_count: number;
+  created_at: string;
+  updated_at: string;
+}
+
+export type MarkType = "visited" | "wishlist";
+
+export interface UserSiteMark {
+  id: string;
+  user_id: string;
+  site_id: string;
+  mark_type: MarkType;
+  visited_at: string | null;
+  visited_note: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface SiteMarkStats {
+  site_id: string;
+  visited_count: number;
+  wishlist_count: number;
+}
+
+// ===========================
+// 成就相关类型
+// ===========================
+
+export type AchievementRarity = "common" | "rare" | "epic" | "legendary";
+
+export type AchievementConditionType =
+  | "province_count"
+  | "province_complete"
+  | "city_complete"
+  | "district_complete"
+  | "category_count"
+  | "total_count";
+
+export interface AchievementDefinition {
+  id: string;
+  code: string;
+  name: string;
+  description: string;
+  icon: string | null;
+  rarity: AchievementRarity;
+  condition_type: AchievementConditionType;
+  condition_value: Record<string, unknown>;
+  points: number;
+  created_at: string;
+}
+
+export interface UserAchievement {
+  id: string;
+  user_id: string;
+  achievement_id: string;
+  unlocked_at: string;
+  achievement?: AchievementDefinition;
 }
