@@ -91,16 +91,22 @@ export function UserMenu() {
 
           {/* 菜单项 */}
           <div className="py-1">
-            {profile?.username && (
-              <Link
-                href={`/user/${profile.username}`}
-                className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-muted"
-                onClick={() => setMenuOpen(false)}
-              >
-                <User className="size-4" />
-                个人主页
-              </Link>
-            )}
+            <Link
+              href={profile?.username ? `/user/${profile.username}` : "/settings/profile?setup=username"}
+              className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-muted"
+              onClick={() => setMenuOpen(false)}
+            >
+              <User className="size-4" />
+              个人主页
+            </Link>
+            <Link
+              href={profile?.username ? `/user/${profile.username}#achievements` : "/settings/profile?setup=username"}
+              className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-muted"
+              onClick={() => setMenuOpen(false)}
+            >
+              <Trophy className="size-4" />
+              成就
+            </Link>
             <Link
               href="/settings/profile"
               className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-muted"
@@ -108,14 +114,6 @@ export function UserMenu() {
             >
               <Settings className="size-4" />
               设置
-            </Link>
-            <Link
-              href={profile?.username ? `/user/${profile.username}#achievements` : "/settings/profile"}
-              className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-muted"
-              onClick={() => setMenuOpen(false)}
-            >
-              <Trophy className="size-4" />
-              成就
             </Link>
           </div>
 

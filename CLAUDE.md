@@ -72,7 +72,34 @@ npm run dev      # 启动前端
 
 ```bash
 cd scripts
-uv run python db/seed_supabase.py --clear   # --clear 会先清空表再导入
+uv run python db/seed_supabase.py   # 默认 upsert 模式，不会丢失数据
+```
+
+### 数据库操作规范（重要）
+
+**原则：保护用户数据，避免意外丢失**
+
+| 操作类型 | 默认方式 | 需明确授权 |
+|---------|---------|-----------|
+| 数据写入 | `upsert`（插入或更新） | `--clear`（清空后插入） |
+| 迁移应用 | `supabase migration up` | `supabase db reset` |
+
+**禁止未经授权执行的命令：**
+- `supabase db reset` - 会删除所有数据，包括用户标记、profile 等
+- `seed_supabase.py --clear` - 会清空 heritage_sites 表
+- 任何 `DELETE FROM` 或 `TRUNCATE` 语句
+
+**正确做法：**
+```bash
+# 应用新迁移（不影响现有数据）
+supabase migration up
+
+# 导入/更新数据（upsert 模式）
+cd scripts && uv run python db/seed_supabase.py
+
+# 只有用户明确要求时才使用 reset/clear
+supabase db reset                        # 需用户明确授权
+uv run python db/seed_supabase.py --clear  # 需用户明确授权
 ```
 
 ### 环境变量

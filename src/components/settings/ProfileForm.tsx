@@ -1,19 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { createClient } from "@/lib/supabase/client";
-import { Loader2, Check, Upload } from "lucide-react";
+import { Loader2, Check, Upload, AlertCircle } from "lucide-react";
 import { getAvatarUrl } from "@/lib/avatar";
 
 export function ProfileForm() {
   const { user, profile, refreshProfile } = useAuth();
+  const searchParams = useSearchParams();
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [showUsernameHint, setShowUsernameHint] = useState(false);
 
   const [username, setUsername] = useState(profile?.username || "");
   const [displayName, setDisplayName] = useState(profile?.display_name || "");
@@ -21,6 +24,13 @@ export function ProfileForm() {
   const [avatarUploading, setAvatarUploading] = useState(false);
 
   const supabase = createClient();
+
+  // 检测 URL 参数，显示用户名设置提示
+  useEffect(() => {
+    if (searchParams.get("setup") === "username" && !profile?.username) {
+      setShowUsernameHint(true);
+    }
+  }, [searchParams, profile?.username]);
 
   // 保存 profile
   const handleSubmit = async (e: React.FormEvent) => {
@@ -62,6 +72,7 @@ export function ProfileForm() {
 
       await refreshProfile();
       setSuccess(true);
+      if (username) setShowUsernameHint(false);
       setTimeout(() => setSuccess(false), 3000);
     } catch (err) {
       console.error("Error updating profile:", err);
@@ -137,6 +148,17 @@ export function ProfileForm() {
 
   return (
     <Card className="p-6">
+      {/* 用户名设置提示 */}
+      {showUsernameHint && (
+        <div className="mb-6 flex items-start gap-3 rounded-lg bg-amber-50 border border-amber-200 px-4 py-3">
+          <AlertCircle className="size-5 text-amber-600 shrink-0 mt-0.5" />
+          <div className="text-sm">
+            <p className="font-medium text-amber-800">请先设置用户名</p>
+            <p className="text-amber-700 mt-0.5">设置用户名后即可访问个人主页和成就页面</p>
+          </div>
+        </div>
+      )}
+
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* 头像 */}
         <div className="flex flex-col items-center gap-3">
