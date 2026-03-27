@@ -112,6 +112,7 @@ export default async function SiteDetailPage({
               <div className="rounded-md overflow-hidden">
                 <SiteImage
                   imageUrl={site.image_url}
+                  baikeImageUrl={site.baike_image_url}
                   name={site.name}
                   longitude={site.longitude}
                   latitude={site.latitude}

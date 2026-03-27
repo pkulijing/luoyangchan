@@ -10,50 +10,68 @@
 
 初始使用 Wikipedia `prop=pageimages` API，命中率 43%（1698/3920）。但发现 **`upload.wikimedia.org` 在中国大陆被墙**，图片无法加载，方案不可行。
 
-### 百度百科方案（最终采用）
+### 百度百科单一来源（中间方案）
 
-改用百度百科 BaikeLemmaCardApi，图片托管在 `bkimg.cdn.bcebos.com`（百度云 CDN），国内可直接访问。通过多策略查询（词条名 + 站点名 + 去后缀变体）将命中率从 40% 提升到 69%。
+改用百度百科 BaikeLemmaCardApi，图片托管在 `bkimg.cdn.bcebos.com`（百度云 CDN），国内可直接访问。通过多策略查询将命中率提升到 69%。但百度 CDN 依赖 `referrerPolicy="no-referrer"` 绕过防盗链，存在被封风险。
+
+### 双来源 + 4 级优先级（最终方案）
+
+将 Wikimedia Commons 图片下载到 Supabase Storage 自托管，同时保留百度百科 CDN 图片作为补充。前端按优先级展示：
+
+1. **自托管图片**（`image_url`）：Supabase Storage 相对路径，40% 覆盖率
+2. **百度百科图片**（`baike_image_url`）：百度 CDN URL，可通过 `NEXT_PUBLIC_USE_BAIKE_IMAGES` 配置关闭，69% 覆盖率
+3. **天地图卫星图**：有坐标时的兜底方案
+4. **占位提示**：无任何图片来源时显示
+
+百度搜索图片链接在所有情况下始终显示。
+
+两种来源合计覆盖 82%（4254/5171），仅 917 条站点完全无图。
 
 ## 实现方案
 
 ### 关键设计
 
-1. **多策略查询**：依次尝试百科词条名、站点原名、去常见后缀变体，最大化命中率
-2. **防盗链绕过**：百度 CDN 使用 Referer 防盗链，空 Referer 放行。前端 `<img>` 标签添加 `referrerPolicy="no-referrer"`
-3. **完全替换**：有百度图片的用百度图片，无百度图片的清空 `image_url`（不保留不可访问的 Wikipedia 图片）
+1. **双字段分离**：`image_url`（自托管相对路径）和 `baike_image_url`（百度 CDN 完整 URL）独立存储，互不干扰
+2. **相对路径存储**：`image_url` 存储为 `site-images/{release_id}.jpg` 格式，前端拼接 `NEXT_PUBLIC_SUPABASE_URL` 构造完整 URL，避免硬编码 localhost
+3. **配置控制**：`NEXT_PUBLIC_USE_BAIKE_IMAGES` 环境变量控制百度图片开关，默认启用
+4. **防盗链绕过**：百度 CDN 图片使用 `referrerPolicy="no-referrer"`
+5. **始终显示搜索链接**：无论使用哪级图片来源，百度搜索图片链接始终显示
 
 ### 开发内容
 
 | 文件 | 操作 | 说明 |
 |---|---|---|
-| `scripts/round6/fetch_baike_images.py` | 新增 | 百度百科图片批量抓取脚本（多策略查询） |
-| `scripts/round6/fetch_wikipedia_images.py` | 新增 | Wikipedia 图片抓取脚本（已弃用） |
-| `scripts/round6/apply_images.py` | 新增 | 合并图片 URL 到主数据文件 |
-| `data/round6/baike_images.json` | 生成 | 百度百科图片中间结果（5171 条） |
-| `data/heritage_sites_geocoded.json` | 更新 | 3569 条记录写入百度百科 `image_url` |
-| `src/components/site/SiteDetailPanel.tsx` | 修改 | 面板顶部添加图片 + referrerPolicy |
-| `src/app/site/[releaseId]/page.tsx` | 修改 | 地图替换为图片卡片 + referrerPolicy |
+| `supabase/migrations/20240109000000_add_baike_image_url.sql` | 新增 | 百度百科图片 URL 列 |
+| `scripts/round6/fix_image_urls.py` | 新增 | 修复 JSON 数据：恢复百度 URL + 修正 Supabase 相对路径 |
+| `scripts/round6/fetch_baike_images.py` | 已有 | 百度百科图片批量抓取脚本 |
+| `scripts/round6/download_to_supabase.py` | 已有 | Wikimedia 图片下载到 Supabase Storage |
+| `scripts/db/seed_supabase.py` | 修改 | make_row 增加 baike_image_url 字段 |
+| `src/lib/types.ts` | 修改 | HeritageSite 增加 baike_image_url |
+| `src/components/site/SiteImage.tsx` | 重写 | 4 级优先级 + 始终显示搜索链接 |
+| `src/components/site/SiteDetailPanel.tsx` | 修改 | 传递 baikeImageUrl prop |
+| `src/app/site/[releaseId]/page.tsx` | 修改 | 传递 baikeImageUrl prop |
+| `.env.example` | 修改 | 新增 NEXT_PUBLIC_USE_BAIKE_IMAGES |
+| `docs/12-图片采集/PROMPT.md` | 更新 | 反映最终方案 |
+| `docs/12-图片采集/PLAN.md` | 更新 | 反映最终方案 |
 
-### 抓取结果
+### 图片覆盖率
 
-| 指标 | 百度百科 | Wikipedia（已弃用） |
+| 来源 | 数量 | 覆盖率 |
 |---|---|---|
-| 查询记录数 | 5171 | 3920 |
-| 成功获取主图 | 3569 (69%) | 1698 (43%) |
-| 总数据覆盖率 | 69% | 32% |
-| 国内可访问 | 是 | 否（被墙） |
-
-### 调研额外产出
-
-对百度百科图片防盗链机制、BaikeLemmaCardApi、以及多种开放图片源（Wikimedia Commons、Wikidata、Openverse、Flickr 等）进行了详细调研。
+| Supabase 自托管 | 2107 | 40% |
+| 百度百科 CDN | 3569 | 69% |
+| 两者任一 | 4254 | 82% |
+| 无图片 | 917 | 18% |
 
 ## 局限性
 
-- BaikeLemmaCardApi 是非官方接口，无 SLA 保证，可能随时失效
-- 31% 的站点（1602 条）仍无图片，主要是冷门站点在百度百科也无配图
-- 百度 CDN 防盗链依赖 `referrerPolicy="no-referrer"`，若百度改为也拦截空 Referer 则图片会失效
+- BaikeLemmaCardApi 是非官方接口，无 SLA 保证
+- 百度 CDN 防盗链依赖 `referrerPolicy="no-referrer"`，若百度改策略则失效
+- 18% 的站点仍无图片，主要是冷门站点
+- Supabase Storage 中的 Wikimedia 图片是一次性下载，新增图片需手动补充
 
 ## 后续 TODO
 
-- **图片尺寸优化**：百度 CDN 支持 `x-bce-process` 参数控制缩略图大小，可优化加载速度
-- **自有存储兜底**：将图片下载到 Supabase Storage，彻底摆脱对外部 CDN 的依赖
+- 补充更多 Wikimedia Commons 图片（当前仅覆盖 40%）
+- 百度 CDN 图片尺寸优化（`x-bce-process` 参数控制缩略图）
+- 考虑将百度 CDN 图片也下载到自有存储，彻底摆脱外部依赖

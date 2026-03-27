@@ -2,7 +2,10 @@
 将爬取的文保单位数据导入 Supabase 数据库。
 
 用法:
-  uv run python seed_supabase.py --url YOUR_SUPABASE_URL --key YOUR_SERVICE_ROLE_KEY [--clear]
+  uv run python seed_supabase.py [--clear]
+
+默认使用 upsert 模式（按 release_id 匹配），已有记录更新字段，UUID 不变。
+--clear 模式会先清空表再全量插入（会导致 UUID 重建，慎用于有关联数据时）。
 
 注意: 使用 service_role key (非 anon key) 以绕过 RLS。
 """
@@ -50,8 +53,33 @@ def clear_table(supabase_url: str, service_key: str):
         raise RuntimeError("清空表失败，终止导入")
 
 
+def upsert_batch(rows: list[dict], supabase_url: str, headers: dict, batch_size: int) -> tuple[int, int]:
+    """分批 upsert（按 release_id 匹配），返回 (upserted, errors)。"""
+    upserted = 0
+    errors = 0
+    for i in range(0, len(rows), batch_size):
+        batch = rows[i:i+batch_size]
+        resp = requests.post(
+            f"{supabase_url}/rest/v1/heritage_sites?on_conflict=release_id",
+            json=batch,
+            headers={
+                **headers,
+                "Prefer": "resolution=merge-duplicates,return=representation",
+            },
+            timeout=30,
+        )
+        if resp.status_code in (200, 201):
+            upserted += len(batch)
+        else:
+            print(f"  Error at batch {i}: {resp.status_code} {resp.text[:200]}")
+            errors += 1
+        progress = min(i + batch_size, len(rows))
+        print(f"  Progress: {progress}/{len(rows)} ({upserted} upserted, {errors} errors)")
+    return upserted, errors
+
+
 def insert_batch(rows: list[dict], supabase_url: str, headers: dict, batch_size: int) -> tuple[int, int]:
-    """分批 POST 插入，返回 (inserted, errors)。"""
+    """分批 POST 插入（仅 --clear 模式使用），返回 (inserted, errors)。"""
     inserted = 0
     errors = 0
     for i in range(0, len(rows), batch_size):
@@ -91,7 +119,11 @@ def fetch_release_id_to_uuid(supabase_url: str, headers: dict, release_ids: list
 
 
 def seed(supabase_url: str, service_key: str, input_file: str, batch_size: int = 100, do_clear: bool = False):
-    """两阶段批量插入：先插父/独立记录，再插子记录（填入 parent_id）。"""
+    """
+    两阶段导入：先插父/独立记录，再插子记录（填入 parent_id）。
+    默认 upsert 模式：按 release_id 匹配，已有记录仅更新字段，UUID 不变。
+    --clear 模式：先清空表再全量插入（UUID 会重建）。
+    """
     with open(input_file, encoding="utf-8") as f:
         sites = json.load(f)
 
@@ -106,6 +138,10 @@ def seed(supabase_url: str, service_key: str, input_file: str, batch_size: int =
         "Authorization": f"Bearer {service_key}",
         "Content-Type": "application/json",
     }
+
+    mode = "insert" if do_clear else "upsert"
+    batch_fn = insert_batch if do_clear else upsert_batch
+    print(f"模式: {mode}")
 
     def make_row(site: dict, parent_id: str | None = None) -> dict:
         return {
@@ -124,32 +160,33 @@ def seed(supabase_url: str, service_key: str, input_file: str, batch_size: int =
             "wikipedia_url": site.get("wikipedia_url"),
             "baike_url": site.get("baike_url"),
             "image_url": site.get("image_url"),
+            "baike_image_url": site.get("baike_image_url"),
             "tags": site.get("tags"),
             "release_id": site.get("release_id"),
             "release_address": site.get("release_address"),
             "parent_id": parent_id,
         }
 
-    # 阶段一：插入父记录和独立记录（无 parent_id 依赖）
+    # 阶段一：父记录和独立记录（无 parent_id 依赖）
     phase1_rows = [make_row(s) for s in sites if not s.get("_parent_release_id")]
-    print(f"\n阶段一：插入 {len(phase1_rows)} 条父/独立记录")
-    ins1, err1 = insert_batch(phase1_rows, supabase_url, headers, batch_size)
+    print(f"\n阶段一：{mode} {len(phase1_rows)} 条父/独立记录")
+    cnt1, err1 = batch_fn(phase1_rows, supabase_url, headers, batch_size)
 
     # 阶段二：查出父记录的 UUID，插入子记录
     child_sites = [s for s in sites if s.get("_parent_release_id")]
     if child_sites:
         parent_release_ids = list({s["_parent_release_id"] for s in child_sites})
         release_id_map = fetch_release_id_to_uuid(supabase_url, headers, parent_release_ids)
-        print(f"\n阶段二：插入 {len(child_sites)} 条子记录")
+        print(f"\n阶段二：{mode} {len(child_sites)} 条子记录")
         phase2_rows = [
             make_row(s, parent_id=release_id_map.get(s["_parent_release_id"]))
             for s in child_sites
         ]
-        ins2, err2 = insert_batch(phase2_rows, supabase_url, headers, batch_size)
+        cnt2, err2 = batch_fn(phase2_rows, supabase_url, headers, batch_size)
     else:
-        ins2, err2 = 0, 0
+        cnt2, err2 = 0, 0
 
-    print(f"\nDone: {ins1 + ins2} inserted, {err1 + err2} batch errors")
+    print(f"\nDone: {cnt1 + cnt2} {mode}ed, {err1 + err2} batch errors")
 
 
 def main():
@@ -176,7 +213,7 @@ def main():
     parser.add_argument(
         "--clear",
         action="store_true",
-        help="导入前清空 heritage_sites 表中所有现有数据",
+        help="导入前清空表再全量插入（UUID 会重建，慎用于有用户关联数据时）",
     )
     args = parser.parse_args()
 

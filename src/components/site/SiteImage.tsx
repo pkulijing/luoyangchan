@@ -4,6 +4,7 @@ import { gcj02ToWgs84 } from "@/lib/coordConvert";
 
 interface SiteImageProps {
   imageUrl: string | null;
+  baikeImageUrl: string | null;
   name: string;
   /** GCJ-02 经度（用于天地图静态图 fallback） */
   longitude?: number | null;
@@ -14,14 +15,20 @@ interface SiteImageProps {
   className?: string;
 }
 
+const useBaikeImages = process.env.NEXT_PUBLIC_USE_BAIKE_IMAGES !== "false";
+
 /**
- * 站点图片组件：
- * 1. 有 imageUrl → 显示图片
- * 2. 无图但有坐标 → 天地图卫星静态图
- * 3. 都没有 → 占位提示 + 百度搜索链接
+ * 站点图片组件，4 级优先级：
+ * 1. image_url（自托管 Supabase Storage 相对路径）
+ * 2. baike_image_url（百度 CDN，可配置关闭）
+ * 3. 天地图卫星静态图（有坐标时）
+ * 4. 占位提示
+ *
+ * 百度搜索图片链接始终显示。
  */
 export default function SiteImage({
   imageUrl,
+  baikeImageUrl,
   name,
   longitude,
   latitude,
@@ -30,16 +37,44 @@ export default function SiteImage({
 }: SiteImageProps) {
   const baiduSearchUrl = `https://image.baidu.com/search/index?tn=baiduimage&word=${encodeURIComponent(name)}`;
 
-  // 有图片 URL
+  // 构造实际展示的图片 URL
+  let resolvedUrl: string | null = null;
+  let isBaikeCdn = false;
+
   if (imageUrl) {
+    // 自托管：相对路径拼接 Supabase URL
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
+    resolvedUrl = `${supabaseUrl}/storage/v1/object/public/${imageUrl}`;
+  } else if (baikeImageUrl && useBaikeImages) {
+    resolvedUrl = baikeImageUrl;
+    isBaikeCdn = true;
+  }
+
+  // 搜索链接（始终显示）
+  const searchLink = (
+    <a
+      href={baiduSearchUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-xs text-blue-500 hover:underline"
+    >
+      搜索更多图片 →
+    </a>
+  );
+
+  // 有图片（自托管或百度 CDN）
+  if (resolvedUrl) {
     return (
-      <div className={`${heightClass} overflow-hidden ${className}`}>
-        <img
-          src={imageUrl}
-          alt={name}
-          referrerPolicy="no-referrer"
-          className="w-full h-full object-cover"
-        />
+      <div className={className}>
+        <div className={`${heightClass} overflow-hidden`}>
+          <img
+            src={resolvedUrl}
+            alt={name}
+            referrerPolicy={isBaikeCdn ? "no-referrer" : undefined}
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="px-1 py-1">{searchLink}</div>
       </div>
     );
   }
@@ -55,47 +90,45 @@ export default function SiteImage({
       + `&tk=${tk}`;
 
     return (
-      <div className={`relative ${heightClass} overflow-hidden ${className}`}>
-        <img
-          src={staticUrl}
-          alt={`${name} 卫星图`}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute bottom-0 inset-x-0 bg-black/50 px-2 py-1">
-          <span className="text-xs text-white/80">卫星图 · 天地图</span>
+      <div className={className}>
+        <div className={`relative ${heightClass} overflow-hidden`}>
+          <img
+            src={staticUrl}
+            alt={`${name} 卫星图`}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute bottom-0 inset-x-0 bg-black/50 px-2 py-1">
+            <span className="text-xs text-white/80">卫星图 · 天地图</span>
+          </div>
         </div>
+        <div className="px-1 py-1">{searchLink}</div>
       </div>
     );
   }
 
   // 都没有 → 占位
   return (
-    <div
-      className={`${heightClass} flex flex-col items-center justify-center
-        bg-gray-100 text-gray-400 ${className}`}
-    >
-      <svg
-        className="w-10 h-10 mb-2 opacity-40"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
+    <div className={className}>
+      <div
+        className={`${heightClass} flex flex-col items-center justify-center
+          bg-gray-100 text-gray-400`}
       >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"
-        />
-      </svg>
-      <span className="text-xs mb-1">图片暂缺</span>
-      <a
-        href={baiduSearchUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-xs text-blue-500 hover:underline"
-      >
-        去百度搜索图片 →
-      </a>
+        <svg
+          className="w-10 h-10 mb-2 opacity-40"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"
+          />
+        </svg>
+        <span className="text-xs mb-1">图片暂缺</span>
+        {searchLink}
+      </div>
     </div>
   );
 }

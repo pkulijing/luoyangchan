@@ -7,55 +7,75 @@
 使用 MediaWiki API `prop=pageimages` 批量获取文章主图，命中率 43%（1698/3920）。
 **放弃原因**：`upload.wikimedia.org` 在中国大陆被墙，图片无法加载。
 
-### 最终方案：百度百科 BaikeLemmaCardApi
+### 中间方案：百度百科单一来源（已迭代）
 
-使用百度百科半官方 API 获取词条主图，图片在百度云 CDN，国内可直接访问。
+使用百度百科 BaikeLemmaCardApi 获取词条主图，命中率 69%（3569/5171）。
+问题：百度 CDN 依赖 `referrerPolicy="no-referrer"` 绕过防盗链，存在被封风险。
 
-## Phase 1：百度百科图片批量抓取
+### 最终方案：双来源 + 4 级优先级
 
-### API 方案
+- 数据层分离：`image_url`（自托管 Supabase Storage）和 `baike_image_url`（百度 CDN）
+- 前端按优先级展示：自托管 → 百度（可配置关闭）→ 天地图卫星 → 占位提示
 
+## 数据层改动
+
+### 新增 `baike_image_url` 列
+
+**迁移文件**：`supabase/migrations/20240109000000_add_baike_image_url.sql`
+
+```sql
+ALTER TABLE heritage_sites ADD COLUMN baike_image_url TEXT;
 ```
-GET https://baike.baidu.com/api/openapi/BaikeLemmaCardApi?appid=379020&bk_key=故宫&bk_length=50
+
+### 修复 JSON 数据
+
+**脚本**：`scripts/round6/fix_image_urls.py`
+
+1. 从 `data/round6/baike_images.json` 恢复百度图片 URL 到 `baike_image_url` 字段
+2. 将 `image_url` 中的绝对 localhost URL 转为相对存储路径：
+   - `http://127.0.0.1:54321/storage/v1/object/public/site-images/1-1.jpg` → `site-images/1-1.jpg`
+
+### 更新 seed 脚本
+
+`seed_supabase.py` 的 `make_row()` 增加 `baike_image_url` 字段。
+
+## 前端改动
+
+### 类型定义
+
+`src/lib/types.ts`：`HeritageSite` 增加 `baike_image_url: string | null`
+
+### SiteImage 组件
+
+`src/components/site/SiteImage.tsx`：
+
+接收 `imageUrl`（自托管相对路径）和 `baikeImageUrl`（百度 CDN URL），按优先级展示：
+
+1. `imageUrl` 非空 → 拼接 `NEXT_PUBLIC_SUPABASE_URL` 构造完整 URL
+2. `baikeImageUrl` 非空且 `NEXT_PUBLIC_USE_BAIKE_IMAGES !== 'false'` → 使用百度 CDN（需 `referrerPolicy="no-referrer"`）
+3. 有坐标 → 天地图卫星静态图
+4. 占位提示
+
+所有情况下均显示百度搜索图片链接（不仅限于占位时）。
+
+### 使用方
+
+- `SiteDetailPanel.tsx`：传递 `baikeImageUrl={site.baike_image_url}`
+- `site/[releaseId]/page.tsx`：同上
+
+### 环境变量
+
+`.env.example` 新增：
+```
+NEXT_PUBLIC_USE_BAIKE_IMAGES=true
 ```
 
-响应中 `image` 字段即为主图 URL（`bkimg.cdn.bcebos.com`）。
+## 验证
 
-### 多策略提升命中率
-
-BaikeLemmaCardApi 命中率不稳定，采用多策略查询：
-1. 用 `baike_url` 中提取的词条名查询
-2. 用站点原名（`name` 字段）查询
-3. 去掉常见后缀（遗址/旧址/故居/会址等）重试
-
-### 脚本设计
-
-**文件**：`scripts/round6/fetch_baike_images.py`
-
-**约定**：
-- 支持 `--dry-run`（前 50 条）和 `--resume`
-- 每次请求间隔 0.3 秒
-- 每 200 条保存 checkpoint
-
-### 合并策略
-
-**文件**：`scripts/round6/apply_images.py`
-
-- 有百度百科图片 → 写入 `image_url`
-- 无百度百科图片 → 清空 `image_url`（不保留不可访问的 Wikipedia 图片）
-
-## Phase 2：前端图片展示
-
-### 侧边详情面板
-
-修改 `src/components/site/SiteDetailPanel.tsx`：
-- 在面板内容区顶部（badges 之前）添加图片
-- 有 `image_url` 时显示全宽图片（h-48 object-cover）
-- 添加 `referrerPolicy="no-referrer"` 绕过百度 CDN 防盗链
-
-### 独立详情页
-
-修改 `src/app/site/[releaseId]/page.tsx`：
-- 将原有"位置"卡片（嵌入 SiteMapClient 地图）替换为"图片"卡片
-- 添加 `referrerPolicy="no-referrer"`
-- 移除 SiteMapClient 导入依赖
+1. `npx tsc --noEmit` 编译通过
+2. 有 Supabase 图片的站点优先显示自托管图片
+3. 无 Supabase 图片但有百度图片的站点显示百度 CDN 图片
+4. 设置 `NEXT_PUBLIC_USE_BAIKE_IMAGES=false` 后，百度图片被跳过
+5. 两者都无时显示天地图卫星图
+6. 完全无图无坐标时显示占位提示
+7. 所有情况下均显示百度搜索图片链接
