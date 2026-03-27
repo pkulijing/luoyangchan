@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { CATEGORY_COLORS, BATCH_YEARS } from "@/lib/constants";
+import SiteImage from "@/components/site/SiteImage";
 import type { SiteWithRelations, SiteCategory } from "@/lib/types";
 
 interface SiteDetailPanelProps {
@@ -106,6 +107,16 @@ export default function SiteDetailPanel({
 
           {site && !loading && (
             <>
+              {/* 图片 */}
+              <div className="-mx-4 -mt-5">
+                <SiteImage
+                  imageUrl={site.image_url}
+                  name={site.name}
+                  longitude={site.longitude}
+                  latitude={site.latitude}
+                />
+              </div>
+
               {/* Badges */}
               <div className="flex flex-wrap gap-2">
                 <Badge style={{ backgroundColor: categoryColor, color: "white" }}>
@@ -139,8 +150,9 @@ export default function SiteDetailPanel({
                     {site.city ? ` · ${site.city}` : ""}
                   </div>
                 )}
-                {site.baike_url && (
-                  <div>
+                {/* 外部链接 */}
+                <div className="flex flex-wrap gap-x-4 gap-y-1">
+                  {site.baike_url && (
                     <a
                       href={site.baike_url}
                       target="_blank"
@@ -149,8 +161,26 @@ export default function SiteDetailPanel({
                     >
                       百度百科 →
                     </a>
-                  </div>
-                )}
+                  )}
+                  <a
+                    href={`https://image.baidu.com/search/index?tn=baiduimage&word=${encodeURIComponent(site.name)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline"
+                  >
+                    搜索图片 →
+                  </a>
+                  {site.latitude && site.longitude && (
+                    <a
+                      href={`https://uri.amap.com/navigation?to=${site.longitude},${site.latitude},${encodeURIComponent(site.name)}&mode=car&src=luoyangchan&coordinate=gaode&callnative=0`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      高德导航 →
+                    </a>
+                  )}
+                </div>
               </div>
 
               {/* 简介 */}

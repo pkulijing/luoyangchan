@@ -88,6 +88,8 @@ export default function LeafletContainer({
   const prevSitesRef = useRef<SiteMarkerData[] | null>(null);
   // 标记是否已通过用户定位设置了初始视角，避免 fitBounds 覆盖
   const userLocatedRef = useRef(false);
+  // 定位是否已决议（成功或失败），用于首次加载时等待定位结果
+  const geoResolvedRef = useRef(false);
   // 用 ref 追踪最新回调，避免在 init effect 中捕获旧闭包
   const onSiteClickRef = useRef(onSiteClick);
   onSiteClickRef.current = onSiteClick;
@@ -108,7 +110,9 @@ export default function LeafletContainer({
         center: DEFAULT_CENTER,
         zoom: MAP_DEFAULT_ZOOM,
         zoomControl: false,
+        attributionControl: false,
       });
+      L.control.attribution({ prefix: '<a href="https://leafletjs.com" target="_blank">Leaflet</a>' }).addTo(map);
       L.control.zoom({ position: "bottomleft" }).addTo(map);
 
       const tk = process.env.NEXT_PUBLIC_TIANDITU_TK ?? "";
@@ -162,9 +166,8 @@ export default function LeafletContainer({
           (position) => {
             const { latitude, longitude } = position.coords;
             console.log(`[Geolocation] 用户位置: ${latitude}, ${longitude}`);
-            // 判断是否在中国范围内
-            // 先标记已定位，防止 fitBounds 覆盖
             userLocatedRef.current = true;
+            geoResolvedRef.current = true;
             if (isInChina(latitude, longitude)) {
               map.setView([latitude, longitude], 11);
               console.log("[Geolocation] 在中国范围内，定位到用户位置");
@@ -172,11 +175,10 @@ export default function LeafletContainer({
               map.setView(BEIJING_TIANANMEN, 11);
               console.log("[Geolocation] 不在中国范围内，定位到北京天安门");
             }
-            // zoomend 事件会自动更新 zoom 状态，无需手动 setZoom
           },
           (error) => {
             console.warn("[Geolocation] 获取位置失败:", error.message);
-            // 定位失败，保持默认视角，后续会 fitBounds
+            geoResolvedRef.current = true;
           },
           { enableHighAccuracy: false, timeout: 5000, maximumAge: 300000 },
         );
@@ -329,14 +331,11 @@ export default function LeafletContainer({
       clusterRef.current = cluster;
 
       // 只在 sites 真正变化时 fitBounds，调整 clusterRadius 不重置视角
-      // 如果用户已通过 Geolocation 定位，跳过首次 fitBounds
       if (prevSitesRef.current !== sites) {
         const isFirstLoad = prevSitesRef.current === null;
         prevSitesRef.current = sites;
-        if (isFirstLoad && userLocatedRef.current) {
-          // 用户已定位，不覆盖视角
-          console.log("[LeafletContainer] 用户已定位，跳过 fitBounds");
-        } else if (!isFirstLoad || !userLocatedRef.current) {
+
+        const doFitBounds = () => {
           try {
             const bounds = cluster.getBounds();
             if (bounds.isValid()) {
@@ -345,6 +344,27 @@ export default function LeafletContainer({
           } catch (e) {
             console.warn("[LeafletContainer] fitBounds failed", e);
           }
+        };
+
+        if (!isFirstLoad) {
+          // 非首次（筛选变化等）：直接 fitBounds
+          doFitBounds();
+        } else if (geoResolvedRef.current) {
+          // 首次加载，定位已决议
+          if (userLocatedRef.current) {
+            console.log("[LeafletContainer] 用户已定位，跳过 fitBounds");
+          } else {
+            doFitBounds();
+          }
+        } else {
+          // 首次加载，定位尚未决议：等一下再决定
+          setTimeout(() => {
+            if (userLocatedRef.current) {
+              console.log("[LeafletContainer] 用户已定位，跳过 fitBounds");
+            } else {
+              doFitBounds();
+            }
+          }, 3000);
         }
       }
     }

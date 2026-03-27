@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CATEGORY_COLORS, BATCH_YEARS } from "@/lib/constants";
 import { getSiteByReleaseId } from "@/lib/supabase/queries";
 import BackButton from "@/components/site/BackButton";
-import SiteMapClient from "@/components/map/SiteMapClient";
+import SiteImage from "@/components/site/SiteImage";
 import type { SiteCategory } from "@/lib/types";
 import Link from "next/link";
 
@@ -104,25 +104,27 @@ export default async function SiteDetailPage({
             </CardContent>
           </Card>
 
-          {site.latitude && site.longitude && (
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">位置</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="h-64 rounded-md overflow-hidden">
-                  <SiteMapClient
-                    latitude={site.latitude}
-                    longitude={site.longitude}
-                    name={site.name}
-                  />
-                </div>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">图片</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="rounded-md overflow-hidden">
+                <SiteImage
+                  imageUrl={site.image_url}
+                  name={site.name}
+                  longitude={site.longitude}
+                  latitude={site.latitude}
+                  heightClass="h-64"
+                />
+              </div>
+              {site.latitude && site.longitude && (
                 <p className="text-xs text-muted-foreground mt-2">
                   {site.latitude.toFixed(4)}, {site.longitude.toFixed(4)}
                 </p>
-              </CardContent>
-            </Card>
-          )}
+              )}
+            </CardContent>
+          </Card>
         </div>
 
         {/* 子记录列表（父记录详情页） */}
